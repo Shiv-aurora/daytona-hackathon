@@ -1,0 +1,68 @@
+{
+ "run_id": "sample-run",
+ "as_of": 168,
+ "proposals": [
+  {
+   "_id": "x1",
+   "run_id": "sample-run",
+   "household_id": "sample_h_001",
+   "ts": 115.2,
+   "cited_event_ids": [
+    "sample_e_000008",
+    "sample_e_000010"
+   ],
+   "expected": {
+    "catches": "sample_n_01",
+    "reached_in_time": true,
+    "false_escalation": false
+   }
+  },
+  {
+   "_id": "x2",
+   "run_id": "sample-run",
+   "household_id": "sample_h_002",
+   "ts": 16.8,
+   "cited_event_ids": [
+    "sample_e_000003"
+   ],
+   "expected": {
+    "catches": null,
+    "reached_in_time": null,
+    "false_escalation": true
+   }
+  },
+  {
+   "_id": "x3",
+   "run_id": "sample-run",
+   "household_id": "sample_h_001",
+   "ts": 144.0,
+   "cited_event_ids": [
+    "sample_e_000008",
+    "sample_e_000010",
+    "sample_e_000016"
+   ],
+   "expected": {
+    "catches": null,
+    "reached_in_time": null,
+    "false_escalation": false
+   }
+  }
+ ],
+ "expected_score": {
+  "needle_recall": 1.0,
+  "escalated_at": 115.2,
+  "impact": {
+   "households_reached_in_time": 1,
+   "people_reached_in_time": 1,
+   "days_warning_gained": 2.2,
+   "false_escalations": 1
+  },
+  "goal": {
+   "promises_on_time_pct": 50.0,
+   "silent_households": 1
+  },
+  "false_escalation_decoy_ids": [
+   "sample_d_01"
+  ]
+ }
+}

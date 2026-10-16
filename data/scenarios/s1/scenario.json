@@ -1,0 +1,746 @@
+{
+ "scenario_id": "s1",
+ "revision": "dbf318e41947f813",
+ "title": "Six Weeks After",
+ "borough": "Queens",
+ "seed": 21,
+ "days": 43,
+ "label": "Background 311 requests are real NYC Open Data from Ida (2021). Households, calls, and outcomes are simulated.",
+ "callback_number": "+1-555-0100",
+ "goal": "Every open promise kept or escalated before its deadline; no opted-in household silent > 3 days.",
+ "counts": {
+  "events": 1520,
+  "real": 1064,
+  "synthetic": 456,
+  "real_share": 0.7,
+  "households": 150,
+  "registry": 60,
+  "promises": 65,
+  "needles": 10,
+  "decoys": 11,
+  "outage_blocks": 52,
+  "by_source": {
+   "311": 1159,
+   "crew": 43,
+   "utility": 140,
+   "visit_note": 178
+  }
+ },
+ "day0": "2021-09-01T20:00:00-04:00",
+ "ts_unit": "hours since day0 (storm start, New York wall clock)",
+ "end_ts": 1032,
+ "outage_blocks": [
+  {
+   "zip": "11104",
+   "street": "HOLLOW OAK LN",
+   "prefix": 41,
+   "basement_heavy": true,
+   "customers": 119,
+   "start": 2.594,
+   "restore_ts": 282.401,
+   "event_ids": [
+    "syn-00001",
+    "syn-00002",
+    "syn-00003"
+   ]
+  },
+  {
+   "zip": "11432",
+   "street": "MISTLECOVE AVE",
+   "prefix": 89,
+   "basement_heavy": true,
+   "customers": 15,
+   "start": 1.726,
+   "restore_ts": 188.801,
+   "event_ids": [
+    "syn-00006",
+    "syn-00007",
+    "syn-00008"
+   ]
+  },
+  {
+   "zip": "11369",
+   "street": "PEBBLEBROOK PL",
+   "prefix": 25,
+   "basement_heavy": true,
+   "customers": 62,
+   "start": 1.188,
+   "restore_ts": 320.801,
+   "event_ids": [
+    "syn-00015",
+    "syn-00016",
+    "syn-00017"
+   ]
+  },
+  {
+   "zip": "11377",
+   "street": "JASPERWELL AVE",
+   "prefix": 42,
+   "basement_heavy": true,
+   "customers": 97,
+   "start": 1.644,
+   "restore_ts": 280.022,
+   "event_ids": [
+    "syn-00029",
+    "syn-00030",
+    "syn-00031"
+   ]
+  },
+  {
+   "zip": "11372",
+   "street": "WILLOWMERE ST",
+   "prefix": 78,
+   "basement_heavy": true,
+   "customers": 74,
+   "start": 1.034,
+   "restore_ts": 268.02,
+   "event_ids": [
+    "syn-00034",
+    "syn-00035",
+    "syn-00036"
+   ]
+  },
+  {
+   "zip": "11375",
+   "street": "GULLWING RD",
+   "prefix": 70,
+   "basement_heavy": true,
+   "customers": 98,
+   "start": 2.63,
+   "restore_ts": 248.405,
+   "event_ids": [
+    "syn-00039",
+    "syn-00040",
+    "syn-00041"
+   ]
+  },
+  {
+   "zip": "11369",
+   "street": "ORIOLE CREST AVE",
+   "prefix": 32,
+   "basement_heavy": true,
+   "customers": 112,
+   "start": 2.863,
+   "restore_ts": 239.518,
+   "event_ids": [
+    "syn-00063",
+    "syn-00064",
+    "syn-00065"
+   ]
+  },
+  {
+   "zip": "11369",
+   "street": "PEBBLEBROOK PL",
+   "prefix": 32,
+   "basement_heavy": true,
+   "customers": 67,
+   "start": 0.614,
+   "restore_ts": 237.398,
+   "event_ids": [
+    "syn-00067",
+    "syn-00068",
+    "syn-00069"
+   ]
+  },
+  {
+   "zip": "11377",
+   "street": "KETTLEBROOK RD",
+   "prefix": 42,
+   "basement_heavy": true,
+   "customers": 88,
+   "start": 2.611,
+   "restore_ts": 263.088,
+   "event_ids": [
+    "syn-00073",
+    "syn-00074",
+    "syn-00075"
+   ]
+  },
+  {
+   "zip": "11354",
+   "street": "BRAMBLEWICK ST",
+   "prefix": 147,
+   "basement_heavy": false,
+   "customers": 79,
+   "start": 1.786,
+   "restore_ts": 69.353,
+   "event_ids": [
+    "syn-00090",
+    "syn-00091"
+   ]
+  },
+  {
+   "zip": "11355",
+   "street": "WRENFIELD PL",
+   "prefix": 58,
+   "basement_heavy": false,
+   "customers": 98,
+   "start": 0.542,
+   "restore_ts": 88.006,
+   "event_ids": [
+    "syn-00093",
+    "syn-00094"
+   ]
+  },
+  {
+   "zip": "11377",
+   "street": "JASPERWELL AVE",
+   "prefix": 48,
+   "basement_heavy": true,
+   "customers": 12,
+   "start": 3.696,
+   "restore_ts": 330.216,
+   "event_ids": [
+    "syn-00101",
+    "syn-00102",
+    "syn-00103"
+   ]
+  },
+  {
+   "zip": "11358",
+   "street": "SALTMARSH WAY",
+   "prefix": 40,
+   "basement_heavy": true,
+   "customers": 135,
+   "start": 1.898,
+   "restore_ts": 337.882,
+   "event_ids": [
+    "syn-00111",
+    "syn-00112",
+    "syn-00113"
+   ]
+  },
+  {
+   "zip": "11377",
+   "street": "LOOMHAVEN ST",
+   "prefix": 50,
+   "basement_heavy": true,
+   "customers": 71,
+   "start": 3.35,
+   "restore_ts": 233.042,
+   "event_ids": [
+    "syn-00117",
+    "syn-00118",
+    "syn-00119"
+   ]
+  },
+  {
+   "zip": "11369",
+   "street": "PEBBLEBROOK PL",
+   "prefix": 31,
+   "basement_heavy": true,
+   "customers": 114,
+   "start": 0.677,
+   "restore_ts": 221.117,
+   "event_ids": [
+    "syn-00123",
+    "syn-00124",
+    "syn-00125"
+   ]
+  },
+  {
+   "zip": "11355",
+   "street": "VELVETMOSS ST",
+   "prefix": 150,
+   "basement_heavy": true,
+   "customers": 63,
+   "start": 0.67,
+   "restore_ts": 309.158,
+   "event_ids": [
+    "syn-00130",
+    "syn-00131",
+    "syn-00132"
+   ]
+  },
+  {
+   "zip": "11377",
+   "street": "JASPERWELL AVE",
+   "prefix": 64,
+   "basement_heavy": true,
+   "customers": 59,
+   "start": 2.873,
+   "restore_ts": 257.525,
+   "event_ids": [
+    "syn-00134",
+    "syn-00135",
+    "syn-00136"
+   ]
+  },
+  {
+   "zip": "11368",
+   "street": "CINDERMOSS LN",
+   "prefix": 96,
+   "basement_heavy": false,
+   "customers": 100,
+   "start": 1.963,
+   "restore_ts": 75.163,
+   "event_ids": [
+    "syn-00142",
+    "syn-00143"
+   ]
+  },
+  {
+   "zip": "11355",
+   "street": "VELVETMOSS ST",
+   "prefix": 139,
+   "basement_heavy": true,
+   "customers": 62,
+   "start": 0.955,
+   "restore_ts": 275.158,
+   "event_ids": [
+    "syn-00146",
+    "syn-00147",
+    "syn-00148"
+   ]
+  },
+  {
+   "zip": "11373",
+   "street": "LANTERNFIELD LN",
+   "prefix": 86,
+   "basement_heavy": false,
+   "customers": 134,
+   "start": 3.576,
+   "restore_ts": 63.298,
+   "event_ids": [
+    "syn-00153",
+    "syn-00154"
+   ]
+  },
+  {
+   "zip": "11377",
+   "street": "JASPERWELL AVE",
+   "prefix": 66,
+   "basement_heavy": true,
+   "customers": 30,
+   "start": 0.61,
+   "restore_ts": 227.789,
+   "event_ids": [
+    "syn-00159",
+    "syn-00160",
+    "syn-00161"
+   ]
+  },
+  {
+   "zip": "11370",
+   "street": "STARLING HOLLOW ST",
+   "prefix": 71,
+   "basement_heavy": false,
+   "customers": 97,
+   "start": 1.512,
+   "restore_ts": 16.591,
+   "event_ids": [
+    "syn-00167",
+    "syn-00168"
+   ]
+  },
+  {
+   "zip": "11377",
+   "street": "KETTLEBROOK RD",
+   "prefix": 48,
+   "basement_heavy": true,
+   "customers": 69,
+   "start": 0.84,
+   "restore_ts": 216.862,
+   "event_ids": [
+    "syn-00173",
+    "syn-00174",
+    "syn-00175"
+   ]
+  },
+  {
+   "zip": "11355",
+   "street": "VELVETMOSS ST",
+   "prefix": 138,
+   "basement_heavy": true,
+   "customers": 67,
+   "start": 3.54,
+   "restore_ts": 323.352,
+   "event_ids": [
+    "syn-00180",
+    "syn-00181",
+    "syn-00182"
+   ]
+  },
+  {
+   "zip": "11368",
+   "street": "FERNHOLLOW ST",
+   "prefix": 59,
+   "basement_heavy": true,
+   "customers": 30,
+   "start": 2.455,
+   "restore_ts": 317.534,
+   "event_ids": [
+    "syn-00184",
+    "syn-00185",
+    "syn-00186"
+   ]
+  },
+  {
+   "zip": "11375",
+   "street": "HONEYFERN ST",
+   "prefix": 108,
+   "basement_heavy": true,
+   "customers": 93,
+   "start": 2.719,
+   "restore_ts": 216.37,
+   "event_ids": [
+    "syn-00191",
+    "syn-00192",
+    "syn-00193"
+   ]
+  },
+  {
+   "zip": "11354",
+   "street": "TERN HARBOR RD",
+   "prefix": 147,
+   "basement_heavy": false,
+   "customers": 106,
+   "start": 2.213,
+   "restore_ts": 25.243,
+   "event_ids": [
+    "syn-00199",
+    "syn-00200"
+   ]
+  },
+  {
+   "zip": "11369",
+   "street": "PEBBLEBROOK PL",
+   "prefix": 24,
+   "basement_heavy": true,
+   "customers": 106,
+   "start": 1.666,
+   "restore_ts": 221.474,
+   "event_ids": [
+    "syn-00204",
+    "syn-00205",
+    "syn-00206"
+   ]
+  },
+  {
+   "zip": "11369",
+   "street": "ORIOLE CREST AVE",
+   "prefix": 25,
+   "basement_heavy": true,
+   "customers": 125,
+   "start": 3.17,
+   "restore_ts": 318.384,
+   "event_ids": [
+    "syn-00210",
+    "syn-00211",
+    "syn-00212"
+   ]
+  },
+  {
+   "zip": "11369",
+   "street": "PEBBLEBROOK PL",
+   "prefix": 30,
+   "basement_heavy": true,
+   "customers": 132,
+   "start": 0.773,
+   "restore_ts": 219.466,
+   "event_ids": [
+    "syn-00231",
+    "syn-00232",
+    "syn-00233"
+   ]
+  },
+  {
+   "zip": "11432",
+   "street": "MISTLECOVE AVE",
+   "prefix": 83,
+   "basement_heavy": false,
+   "customers": 53,
+   "start": 0.559,
+   "restore_ts": 33.259,
+   "event_ids": [
+    "syn-00243",
+    "syn-00244"
+   ]
+  },
+  {
+   "zip": "11355",
+   "street": "WICKERBAY RD",
+   "prefix": 132,
+   "basement_heavy": true,
+   "customers": 115,
+   "start": 1.073,
+   "restore_ts": 335.268,
+   "event_ids": [
+    "syn-00251",
+    "syn-00252",
+    "syn-00253"
+   ]
+  },
+  {
+   "zip": "11358",
+   "street": "SALTMARSH WAY",
+   "prefix": 33,
+   "basement_heavy": true,
+   "customers": 52,
+   "start": 2.419,
+   "restore_ts": 339.245,
+   "event_ids": [
+    "syn-00263",
+    "syn-00264",
+    "syn-00265"
+   ]
+  },
+  {
+   "zip": "11373",
+   "street": "QUAILBROOK ST",
+   "prefix": 42,
+   "basement_heavy": false,
+   "customers": 129,
+   "start": 1.591,
+   "restore_ts": 15.886,
+   "event_ids": [
+    "syn-00273",
+    "syn-00274"
+   ]
+  },
+  {
+   "zip": "11358",
+   "street": "SALTMARSH WAY",
+   "prefix": 35,
+   "basement_heavy": true,
+   "customers": 96,
+   "start": 0.936,
+   "restore_ts": 289.358,
+   "event_ids": [
+    "syn-00276",
+    "syn-00277",
+    "syn-00278"
+   ]
+  },
+  {
+   "zip": "11368",
+   "street": "DRIFTWOOD ROW",
+   "prefix": 40,
+   "basement_heavy": false,
+   "customers": 26,
+   "start": 0.847,
+   "restore_ts": 9.638,
+   "event_ids": [
+    "syn-00280",
+    "syn-00281"
+   ]
+  },
+  {
+   "zip": "11358",
+   "street": "KESTREL BEND RD",
+   "prefix": 192,
+   "basement_heavy": false,
+   "customers": 19,
+   "start": 2.254,
+   "restore_ts": 59.028,
+   "event_ids": [
+    "syn-00295",
+    "syn-00296"
+   ]
+  },
+  {
+   "zip": "11369",
+   "street": "THISTLEWICK RD",
+   "prefix": 86,
+   "basement_heavy": true,
+   "customers": 79,
+   "start": 3.598,
+   "restore_ts": 249.214,
+   "event_ids": [
+    "syn-00300",
+    "syn-00301",
+    "syn-00302"
+   ]
+  },
+  {
+   "zip": "11354",
+   "street": "BRAMBLEWICK ST",
+   "prefix": 157,
+   "basement_heavy": false,
+   "customers": 68,
+   "start": 2.662,
+   "restore_ts": 81.048,
+   "event_ids": [
+    "syn-00309",
+    "syn-00310"
+   ]
+  },
+  {
+   "zip": "11377",
+   "street": "KETTLEBROOK RD",
+   "prefix": 51,
+   "basement_heavy": true,
+   "customers": 131,
+   "start": 0.662,
+   "restore_ts": 267.941,
+   "event_ids": [
+    "syn-00315",
+    "syn-00316",
+    "syn-00317"
+   ]
+  },
+  {
+   "zip": "11377",
+   "street": "LOOMHAVEN ST",
+   "prefix": 51,
+   "basement_heavy": true,
+   "customers": 56,
+   "start": 0.936,
+   "restore_ts": 331.872,
+   "event_ids": [
+    "syn-00328",
+    "syn-00329",
+    "syn-00330"
+   ]
+  },
+  {
+   "zip": "11355",
+   "street": "WICKERBAY RD",
+   "prefix": 150,
+   "basement_heavy": true,
+   "customers": 125,
+   "start": 0.958,
+   "restore_ts": 238.524,
+   "event_ids": [
+    "syn-00338",
+    "syn-00339",
+    "syn-00340"
+   ]
+  },
+  {
+   "zip": "11358",
+   "street": "SALTMARSH WAY",
+   "prefix": 27,
+   "basement_heavy": true,
+   "customers": 76,
+   "start": 0.696,
+   "restore_ts": 331.392,
+   "event_ids": [
+    "syn-00343",
+    "syn-00344",
+    "syn-00345"
+   ]
+  },
+  {
+   "zip": "11375",
+   "street": "HONEYFERN ST",
+   "prefix": 90,
+   "basement_heavy": true,
+   "customers": 75,
+   "start": 3.168,
+   "restore_ts": 269.875,
+   "event_ids": [
+    "syn-00357",
+    "syn-00358",
+    "syn-00359"
+   ]
+  },
+  {
+   "zip": "11354",
+   "street": "QUILL HOLLOW AVE",
+   "prefix": 35,
+   "basement_heavy": false,
+   "customers": 113,
+   "start": 2.326,
+   "restore_ts": 50.393,
+   "event_ids": [
+    "syn-00373",
+    "syn-00374"
+   ]
+  },
+  {
+   "zip": "11377",
+   "street": "LOOMHAVEN ST",
+   "prefix": 46,
+   "basement_heavy": true,
+   "customers": 119,
+   "start": 0.862,
+   "restore_ts": 294.994,
+   "event_ids": [
+    "syn-00384",
+    "syn-00385",
+    "syn-00386"
+   ]
+  },
+  {
+   "zip": "11375",
+   "street": "GULLWING RD",
+   "prefix": 67,
+   "basement_heavy": true,
+   "customers": 47,
+   "start": 2.225,
+   "restore_ts": 210.984,
+   "event_ids": [
+    "syn-00390",
+    "syn-00391",
+    "syn-00392"
+   ]
+  },
+  {
+   "zip": "11354",
+   "street": "BRAMBLEWICK ST",
+   "prefix": 141,
+   "basement_heavy": false,
+   "customers": 20,
+   "start": 0.881,
+   "restore_ts": 71.218,
+   "event_ids": [
+    "syn-00413",
+    "syn-00414"
+   ]
+  },
+  {
+   "zip": "11432",
+   "street": "NETTLEFIELD RD",
+   "prefix": 163,
+   "basement_heavy": false,
+   "customers": 50,
+   "start": 0.967,
+   "restore_ts": 57.734,
+   "event_ids": [
+    "syn-00423",
+    "syn-00424"
+   ]
+  },
+  {
+   "zip": "11373",
+   "street": "QUAILBROOK ST",
+   "prefix": 40,
+   "basement_heavy": false,
+   "customers": 50,
+   "start": 2.03,
+   "restore_ts": 14.362,
+   "event_ids": [
+    "syn-00431",
+    "syn-00432"
+   ]
+  },
+  {
+   "zip": "11355",
+   "street": "VELVETMOSS ST",
+   "prefix": 148,
+   "basement_heavy": true,
+   "customers": 109,
+   "start": 1.433,
+   "restore_ts": 346.74,
+   "event_ids": [
+    "syn-00440",
+    "syn-00441",
+    "syn-00442"
+   ]
+  },
+  {
+   "zip": "11354",
+   "street": "TERN HARBOR RD",
+   "prefix": 154,
+   "basement_heavy": false,
+   "customers": 83,
+   "start": 3.082,
+   "restore_ts": 87.43,
+   "event_ids": [
+    "syn-00451",
+    "syn-00452"
+   ]
+  }
+ ]
+}

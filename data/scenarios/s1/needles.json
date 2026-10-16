@@ -1,0 +1,171 @@
+[
+ {
+  "needle_id": "s1_n_01",
+  "scenario_id": "s1",
+  "household_id": "s1_h_001",
+  "kind": "broken_promise",
+  "required_event_ids": [
+   "s1_e_000376",
+   "s1_e_000818",
+   "s1_e_001073"
+  ],
+  "deadline": 528.0,
+  "danger_at": 600.0,
+  "response_hours": 24,
+  "people_at_risk": 1,
+  "summary": "Son Wei promised Tue Sep 7, never came; block ETA pushed to Sep 13+ on Wed Sep 8; flooded meter keeps her dark; not answering from the evening of Tue Sep 7 until Wed Sep 22 09:00; answers then.",
+  "revision": "dbf318e41947f813"
+ },
+ {
+  "needle_id": "s1_n_02",
+  "scenario_id": "s1",
+  "household_id": "s1_h_002",
+  "kind": "broken_promise",
+  "required_event_ids": [
+   "s1_e_000152",
+   "s1_e_000389",
+   "s1_e_000029"
+  ],
+  "deadline": 96.0,
+  "danger_at": 120.0,
+  "response_hours": 12,
+  "people_at_risk": 2,
+  "summary": "Oxygen concentrator user; battery promised Sat Sep 4, never delivered; block out until ~Sep 9.",
+  "revision": "dbf318e41947f813"
+ },
+ {
+  "needle_id": "s1_n_03",
+  "scenario_id": "s1",
+  "household_id": "s1_h_003",
+  "kind": "broken_promise",
+  "required_event_ids": [
+   "s1_e_000708",
+   "s1_e_001058"
+  ],
+  "deadline": 336.0,
+  "danger_at": 408.0,
+  "response_hours": 48,
+  "people_at_risk": 5,
+  "summary": "Landlord promised plumber Fri Sep 10; sewage still there Sep 13; family of 5 with 2 kids.",
+  "revision": "dbf318e41947f813"
+ },
+ {
+  "needle_id": "s1_n_04",
+  "scenario_id": "s1",
+  "household_id": "s1_h_004",
+  "kind": "broken_promise",
+  "required_event_ids": [
+   "s1_e_000450",
+   "s1_e_001096"
+  ],
+  "deadline": 384.0,
+  "danger_at": 456.0,
+  "response_hours": 48,
+  "people_at_risk": 1,
+  "summary": "Caseworker callback promised Thu Sep 9 never happened; the neighbor hosting her moves out ~Sep 18.",
+  "revision": "dbf318e41947f813"
+ },
+ {
+  "needle_id": "s1_n_05",
+  "scenario_id": "s1",
+  "household_id": "s1_h_005",
+  "kind": "cross_service_join",
+  "required_event_ids": [
+   "s1_e_000101",
+   "s1_e_000502",
+   "s1_e_000994",
+   "s1_e_000571"
+  ],
+  "deadline": 288.0,
+  "danger_at": 360.0,
+  "response_hours": 24,
+  "people_at_risk": 2,
+  "summary": "Wheelchair user alone by day in a dark basement; visible only when 311 (typo name, compact address), DEP, a nameless visit note, and the utility delay are joined.",
+  "revision": "dbf318e41947f813"
+ },
+ {
+  "needle_id": "s1_n_06",
+  "scenario_id": "s1",
+  "household_id": "s1_h_006",
+  "kind": "cross_service_join",
+  "required_event_ids": [
+   "s1_e_000744",
+   "s1_e_000827",
+   "s1_e_000883"
+  ],
+  "deadline": 216.0,
+  "danger_at": 276.0,
+  "response_hours": 24,
+  "people_at_risk": 1,
+  "summary": "Building dark (flooded panel) + insulin needs refrigeration; 311, Con Ed crew, and visit under name variants.",
+  "revision": "dbf318e41947f813"
+ },
+ {
+  "needle_id": "s1_n_07",
+  "scenario_id": "s1",
+  "household_id": "s1_h_007",
+  "kind": "cross_service_join",
+  "required_event_ids": [
+   "s1_e_000572",
+   "s1_e_000758",
+   "s1_e_000843"
+  ],
+  "deadline": 240.0,
+  "danger_at": 312.0,
+  "response_hours": 48,
+  "people_at_risk": 2,
+  "summary": "Vacate order + elderly couple sleeping in a stairwell; joined across 311, DOB, volunteer.",
+  "revision": "dbf318e41947f813"
+ },
+ {
+  "needle_id": "s1_n_08",
+  "scenario_id": "s1",
+  "household_id": "s1_h_008",
+  "kind": "silent_household",
+  "required_event_ids": [
+   "s1_e_000130",
+   "s1_e_000140",
+   "s1_e_000027"
+  ],
+  "deadline": 168.0,
+  "danger_at": 240.0,
+  "response_hours": 24,
+  "people_at_risk": 1,
+  "summary": "Opted in Sep 2, then stops answering for 10 days while the block stays dark.",
+  "revision": "dbf318e41947f813"
+ },
+ {
+  "needle_id": "s1_n_09",
+  "scenario_id": "s1",
+  "household_id": "s1_h_009",
+  "kind": "silent_household",
+  "required_event_ids": [
+   "s1_e_000327",
+   "s1_e_000350",
+   "s1_e_000020"
+  ],
+  "deadline": 192.0,
+  "danger_at": 264.0,
+  "response_hours": 24,
+  "people_at_risk": 3,
+  "summary": "Opted in Sep 3, then stops answering for 10 days while the block stays dark.",
+  "revision": "dbf318e41947f813"
+ },
+ {
+  "needle_id": "s1_n_10",
+  "scenario_id": "s1",
+  "household_id": "s1_h_010",
+  "kind": "silent_household",
+  "required_event_ids": [
+   "s1_e_000121",
+   "s1_e_000133",
+   "s1_e_000054"
+  ],
+  "deadline": 168.0,
+  "danger_at": 240.0,
+  "response_hours": 24,
+  "people_at_risk": 1,
+  "summary": "Opted in Sep 2, then stops answering for 10 days while the block stays dark.",
+  "revision": "dbf318e41947f813"
+ }
+]

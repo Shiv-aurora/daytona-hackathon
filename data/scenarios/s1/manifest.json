@@ -1,0 +1,44 @@
+{
+ "scenario_id": "s1",
+ "seed": 21,
+ "revision": "dbf318e41947f813",
+ "day0": "2021-09-01T20:00:00-04:00",
+ "end_ts": 1032,
+ "label": "Background 311 requests are real NYC Open Data from Ida (2021). Households, calls, and outcomes are simulated.",
+ "sha256": {
+  "events.jsonl": "dbf318e41947f813be40ecf6282f1fc4629b090b2c88821d359c3ea3f2f0cdb1",
+  "registry.json": "f05b2003a17fde93b94c4b5bf5ceddcf38ac8314d604a434579faff866ba68cb",
+  "scenario.json": "c124d69c198551f5e32a65e97fa21ff40128f2ed366ea38ccaa4e1c856275065",
+  "needles.json": "056ca12b9a9f90c49566d780e974de13c62e952fcf05cb3b5f9e30c092ebff91",
+  "decoys.json": "25926ba61d0d33ab7f333ef9341554c528d012d2a33109f6299a181fb7568668",
+  "promises.json": "33840002c3739f54d7da8818bd40f157e1f1285cb98075e9a1d073c009a1b8be",
+  "households_truth.json": "ecc4c7eb0499f7f0a1dcfda0a83edd6789e89eb9f380dbdf9528d616000da5b2",
+  "event_truth.json": "66cad26c5b80c0f3eeeae1f51d5e1339ec47a0ea256b28ce4a2fefc78136f0bd",
+  "contact_truth.json": "44c3b0121d5401f9b653d5aea927011b35592cb439b653ed0de7fb068c38b5e2",
+  "personas.json": "d21b7d128670073dc616cfcd2b1766cf286b746bc3b2b0adbfad250df7c17e47",
+  "REVIEW.md": "79d92818f4f864c470e3e81deba2721d4075f931821ad376d7a968cc51d609f8"
+ },
+ "mrs_chen": {
+  "household_id": "s1_h_001",
+  "name": "Mei Chen",
+  "address": "41-22 Hollow Oak Ln",
+  "visit_note": {
+   "event_id": "s1_e_000376",
+   "source": "visit_note",
+   "ts": 42.6,
+   "ts_real": "2021-09-03T14:36"
+  },
+  "utility_delay": {
+   "event_id": "s1_e_000818",
+   "source": "utility",
+   "ts": 158.729,
+   "ts_real": "2021-09-08T10:43"
+  },
+  "crew": {
+   "event_id": "s1_e_001073",
+   "source": "crew",
+   "ts": 303.0,
+   "ts_real": "2021-09-14T11:00"
+  }
+ }
+}

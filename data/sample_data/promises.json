@@ -1,0 +1,28 @@
+[
+ {
+  "promise_id": "sample_h_001_p1",
+  "household_id": "sample_h_001",
+  "who": "nephew Luis",
+  "what": "come pump out the basement",
+  "source_event_id": "sample_e_000008",
+  "made_ts": 43.2,
+  "due_ts": 96.0,
+  "status": "lapsed",
+  "status_ts": 96.0,
+  "evidence_event_ids": []
+ },
+ {
+  "promise_id": "sample_h_003_p1",
+  "household_id": "sample_h_003",
+  "who": "Red Cross",
+  "what": "drop off a cleaning kit",
+  "source_event_id": "sample_e_000007",
+  "made_ts": 38.4,
+  "due_ts": 72.0,
+  "status": "kept",
+  "status_ts": 64.8,
+  "evidence_event_ids": [
+   "sample_e_000011"
+  ]
+ }
+]

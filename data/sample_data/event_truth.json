@@ -1,0 +1,112 @@
+{
+ "sample_e_000001": {
+  "household_id": null,
+  "fact": null
+ },
+ "sample_e_000002": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11368",
+    "PLUMSTONE AVE",
+    37
+   ],
+   "fact": "power_out"
+  }
+ },
+ "sample_e_000003": {
+  "household_id": "sample_h_002",
+  "fact": {
+   "kind": "alarm"
+  }
+ },
+ "sample_e_000004": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11358",
+    "RUSHWILLOW ST",
+    45
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "sample_e_000005": {
+  "household_id": null,
+  "fact": null
+ },
+ "sample_e_000006": {
+  "household_id": "sample_h_002",
+  "fact": {
+   "fact": "fine"
+  }
+ },
+ "sample_e_000007": {
+  "household_id": "sample_h_003",
+  "fact": {
+   "fact": "promise",
+   "id": "p1"
+  }
+ },
+ "sample_e_000008": {
+  "household_id": "sample_h_001",
+  "fact": {
+   "fact": "promise",
+   "id": "p1"
+  }
+ },
+ "sample_e_000009": {
+  "household_id": null,
+  "fact": null
+ },
+ "sample_e_000010": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11368",
+    "PLUMSTONE AVE",
+    37
+   ],
+   "fact": "power_out"
+  }
+ },
+ "sample_e_000011": {
+  "household_id": "sample_h_003",
+  "fact": {
+   "fact": "promise_kept",
+   "id": "p1"
+  }
+ },
+ "sample_e_000012": {
+  "household_id": null,
+  "fact": null
+ },
+ "sample_e_000013": {
+  "household_id": "sample_h_004",
+  "fact": {
+   "fact": "fine"
+  }
+ },
+ "sample_e_000014": {
+  "household_id": "sample_h_005",
+  "fact": {
+   "fact": "needs_supplies"
+  }
+ },
+ "sample_e_000015": {
+  "household_id": null,
+  "fact": null
+ },
+ "sample_e_000016": {
+  "household_id": "sample_h_001",
+  "fact": {
+   "fact": "power_out"
+  }
+ },
+ "sample_e_000017": {
+  "household_id": "sample_h_005",
+  "fact": {
+   "fact": "supplies_received"
+  }
+ }
+}

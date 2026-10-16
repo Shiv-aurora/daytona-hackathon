@@ -1,0 +1,2096 @@
+{
+ "_note": "Mock console run for the retained offline UI. Six simulated households with event ids, timing, and story from data/scenarios/s1 (ts in hours since day0 = storm start); street names replaced with clearly fictional ones (Lanternwick, Quillmoor, Fernhollow, Marigold Crest, Tinderbox, Thistlewood) per the fictional-location policy. Proposals and decisions are hand-authored. C2 adds approved check-in proposals, simulated call results, a runtime trace, goal metrics, and one policy change (all simulated). Needles mirror data/scenarios/s1/needles.json (s1_n_01-04) re-pointed at this mock's event ids; start_ts is where presenter playback begins.",
+ "run": {
+  "run_id": "mock-queens-s1",
+  "scenario_id": "s1",
+  "day0": "2021-09-01T20:00:00-04:00",
+  "mode": "mock"
+ },
+ "now_ts": 326.4,
+ "start_ts": 144.0,
+ "households": [
+  {
+   "run_id": "mock-queens-s1",
+   "household_id": "s1_h_001",
+   "name": "Mei Chen",
+   "address": "41-22 Lanternwick Ave Bsmt, Sunnyside 11104",
+   "language": "zh",
+   "applied_event_ids": [
+    "s1_e_000407",
+    "s1_e_000817",
+    "call-s1_h_001-1:result",
+    "call-s1_h_001-2:result",
+    "s1_e_001052"
+   ]
+  },
+  {
+   "run_id": "mock-queens-s1",
+   "household_id": "s1_h_002",
+   "name": "Abdul Rahman",
+   "address": "81-02 Quillmoor St 1F, Jamaica 11432",
+   "language": "bn",
+   "applied_event_ids": [
+    "s1_e_000058",
+    "s1_e_000165",
+    "s1_e_000426"
+   ]
+  },
+  {
+   "run_id": "mock-queens-s1",
+   "household_id": "s1_h_003",
+   "name": "Gloria Hernandez",
+   "address": "57-95 Fernhollow St Bsmt, Corona 11368",
+   "language": "es",
+   "applied_event_ids": [
+    "s1_e_000724",
+    "s1_e_001041"
+   ]
+  },
+  {
+   "run_id": "mock-queens-s1",
+   "household_id": "s1_h_004",
+   "name": "Soon-ja Kim",
+   "address": "154-16 Marigold Crest Ave Bsmt, Flushing 11354",
+   "language": "ko",
+   "applied_event_ids": [
+    "s1_e_000507",
+    "call-s1_h_004-1:result",
+    "s1_e_001073"
+   ]
+  },
+  {
+   "run_id": "mock-queens-s1",
+   "household_id": "s1_h_012",
+   "name": "Frank Russo",
+   "address": "31-70 Tinderbox St Bsmt, East Elmhurst 11369",
+   "language": "en",
+   "applied_event_ids": [
+    "s1_e_000072",
+    "s1_e_000120"
+   ]
+  },
+  {
+   "run_id": "mock-queens-s1",
+   "household_id": "s1_h_013",
+   "name": "Xiu Ying Liu",
+   "address": "154-61 Thistlewood Dr Bsmt, Flushing 11354",
+   "language": "zh",
+   "applied_event_ids": [
+    "s1_e_000360",
+    "call-s1_h_013-1:result",
+    "s1_e_000786"
+   ]
+  }
+ ],
+ "events": [
+  {
+   "_id": "s1_e_000058",
+   "run_id": "scenario",
+   "scenario_id": "s1",
+   "ts": 2.789,
+   "source": "utility",
+   "text": "Con Edison outage update: 71 customers without power on Quillmoor St, 81-01 to 81-99, Jamaica 11432. Cause: flooding. Estimated restoration: Sep 4."
+  },
+  {
+   "_id": "s1_e_000072",
+   "run_id": "scenario",
+   "scenario_id": "s1",
+   "ts": 3.101,
+   "source": "311",
+   "text": "311 call from neighbor at 31-70 TINDERBOX STREET BSMT: elderly man trapped in basement, water rising."
+  },
+  {
+   "_id": "s1_e_000120",
+   "run_id": "scenario",
+   "scenario_id": "s1",
+   "ts": 6.0,
+   "source": "crew",
+   "text": "FDNY: resident at 31-70 TINDERBOX ST evacuated safely, staying with daughter in Bayside."
+  },
+  {
+   "_id": "s1_e_000165",
+   "run_id": "scenario",
+   "scenario_id": "s1",
+   "ts": 14.201,
+   "source": "311",
+   "text": "311 call from daughter of ABDUL RAHMAN at 81-02 QUILLMOOR STREET APT 1F: power out since last night, father uses a home oxygen concentrator, backup tank running low."
+  },
+  {
+   "_id": "s1_e_000360",
+   "run_id": "scenario",
+   "scenario_id": "s1",
+   "ts": 39.0,
+   "source": "visit_note",
+   "text": "Visited Mrs. Liu, 84, 154-61 Thistlewood Dr. Lives alone, basement flooded, no power. Son coming Tuesday to take her to his place."
+  },
+  {
+   "_id": "s1_e_000407",
+   "run_id": "scenario",
+   "scenario_id": "s1",
+   "ts": 42.6,
+   "source": "visit_note",
+   "text": "Visited Mrs. Chen, 82, at 41-22 Lanternwick Ave. Lives alone, speaks mostly Mandarin. Basement flooded, no power since Wednesday night. Her son Wei is coming Tuesday to help clean out and take her to stay with him. Registered her for follow-up calls. Follow up Wednesday."
+  },
+  {
+   "_id": "s1_e_000426",
+   "run_id": "scenario",
+   "scenario_id": "s1",
+   "ts": 43.999,
+   "source": "visit_note",
+   "text": "Mr. Rahman, 81-02 Quillmoor St Apt 1F. Red Cross will deliver a portable battery unit Saturday. Daughter staying with him."
+  },
+  {
+   "_id": "s1_e_000507",
+   "run_id": "scenario",
+   "scenario_id": "s1",
+   "ts": 63.0,
+   "source": "visit_note",
+   "text": "Mrs. Kim, 77, 154-16 Marigold Crest Avenue. Basement unit unlivable, sleeping on a neighbor's couch upstairs. Caseworker will call her back Thursday about temporary housing. Speaks Korean, some English."
+  },
+  {
+   "_id": "call-s1_h_013-1:result",
+   "run_id": "mock-queens-s1",
+   "scenario_id": "s1",
+   "ts": 76.3,
+   "source": "call_result",
+   "text": "relay: This is an automated call from Relay for the recovery team. To confirm this call is real, call us back at +1-555-0100.\nrelay: Hello Mrs. Liu, this is a check-in about the flooding. How are you doing today?\nresident: I slipped on the basement stairs and I can't get up.\nrelay: Please hang up and call 911 now. I'm alerting a person on the recovery team.",
+   "household_id": "s1_h_013",
+   "call_id": "call-s1_h_013-1",
+   "outcome": "emergency_escalated",
+   "answered": true,
+   "emergency_phrase": "I can't get up"
+  },
+  {
+   "_id": "s1_e_000724",
+   "run_id": "scenario",
+   "scenario_id": "s1",
+   "ts": 112.999,
+   "source": "crew",
+   "text": "HPD inspection at 57-95 FERNHOLLOW ST BSMT, cellar unit: sewage on floor, no heat/hot water. Family of 5 incl. 2 children. Landlord states licensed plumber coming Friday."
+  },
+  {
+   "_id": "s1_e_000786",
+   "run_id": "scenario",
+   "scenario_id": "s1",
+   "ts": 139.001,
+   "source": "visit_note",
+   "text": "Back at 154-61 Thistlewood Dr: Mrs. Liu's son arrived, packing her things, she's going to Fort Lee with him."
+  },
+  {
+   "_id": "s1_e_000817",
+   "run_id": "scenario",
+   "scenario_id": "s1",
+   "ts": 158.729,
+   "source": "utility",
+   "text": "Con Edison outage update: restoration on Lanternwick Ave, 41-01 to 41-99, Sunnyside 11104 delayed. Flooded equipment in multiple buildings. New estimate: Sep 13 or later."
+  },
+  {
+   "_id": "call-s1_h_001-1:result",
+   "run_id": "mock-queens-s1",
+   "scenario_id": "s1",
+   "ts": 162.1,
+   "source": "call_result",
+   "text": "",
+   "household_id": "s1_h_001",
+   "call_id": "call-s1_h_001-1",
+   "outcome": "no_answer",
+   "answered": false,
+   "emergency_phrase": null
+  },
+  {
+   "_id": "call-s1_h_001-2:result",
+   "run_id": "mock-queens-s1",
+   "scenario_id": "s1",
+   "ts": 234.1,
+   "source": "call_result",
+   "text": "",
+   "household_id": "s1_h_001",
+   "call_id": "call-s1_h_001-2",
+   "outcome": "no_answer",
+   "answered": false,
+   "emergency_phrase": null
+  },
+  {
+   "_id": "s1_e_001041",
+   "run_id": "scenario",
+   "scenario_id": "s1",
+   "ts": 287.4,
+   "source": "311",
+   "text": "311 call from GLORIA HERNÁNDEZ at 5795 FERNHOLLOW STREET: sewage still in apartment, nobody came to fix it, kids sleeping upstairs at neighbor's."
+  },
+  {
+   "_id": "call-s1_h_004-1:result",
+   "run_id": "mock-queens-s1",
+   "scenario_id": "s1",
+   "ts": 288.4,
+   "source": "call_result",
+   "text": "relay: This is an automated call from Relay for the recovery team. To confirm this call is real, call us back at +1-555-0100.\nrelay: Mrs. Kim, a caseworker was going to call you back on Thursday about temporary housing. Did they call?\nresident: No, nobody called. I am still sleeping on my neighbor's couch.\nrelay: Thank you for telling me. I'll let the coordinator know today.",
+   "household_id": "s1_h_004",
+   "call_id": "call-s1_h_004-1",
+   "outcome": "completed",
+   "answered": true,
+   "emergency_phrase": null
+  },
+  {
+   "_id": "s1_e_001052",
+   "run_id": "scenario",
+   "scenario_id": "s1",
+   "ts": 303.0,
+   "source": "crew",
+   "text": "Con Edison field crew: 4122 LANTERNWICK AV meter room flooded, service not reconnected. Needs licensed electrician certification. No one answered the door."
+  },
+  {
+   "_id": "s1_e_001073",
+   "run_id": "scenario",
+   "scenario_id": "s1",
+   "ts": 325.001,
+   "source": "311",
+   "text": "311 call re: 154-16 MARIGOLD CREST AVENUE: elderly woman staying on my couch since the flood, I'm moving out end of the week, she has nowhere to go."
+  }
+ ],
+ "promises": [
+  {
+   "_id": "s1_h_001_p1",
+   "run_id": "mock-queens-s1",
+   "scenario_id": "s1",
+   "household_id": "s1_h_001",
+   "text": "Son Wei: come help clean out and take her to stay with him",
+   "keywords": [
+    "help",
+    "clean",
+    "stay"
+   ],
+   "made_ts": 42.6,
+   "due_ts": 145.008,
+   "status": "lapsed",
+   "source_event_id": "s1_e_000407",
+   "status_ts": 145.008
+  },
+  {
+   "_id": "s1_h_002_p1",
+   "run_id": "mock-queens-s1",
+   "scenario_id": "s1",
+   "household_id": "s1_h_002",
+   "text": "Red Cross: deliver portable battery unit",
+   "keywords": [
+    "deliver",
+    "portable",
+    "battery",
+    "unit"
+   ],
+   "made_ts": 43.992,
+   "due_ts": 72.0,
+   "status": "lapsed",
+   "source_event_id": "s1_e_000426",
+   "status_ts": 72.0
+  },
+  {
+   "_id": "s1_h_003_p1",
+   "run_id": "mock-queens-s1",
+   "scenario_id": "s1",
+   "household_id": "s1_h_003",
+   "text": "Landlord: send licensed plumber",
+   "keywords": [
+    "send",
+    "licensed",
+    "plumber"
+   ],
+   "made_ts": 112.992,
+   "due_ts": 216.0,
+   "status": "lapsed",
+   "source_event_id": "s1_e_000724",
+   "status_ts": 216.0
+  },
+  {
+   "_id": "s1_h_004_p1",
+   "run_id": "mock-queens-s1",
+   "scenario_id": "s1",
+   "household_id": "s1_h_004",
+   "text": "Caseworker: call back about temporary housing",
+   "keywords": [
+    "call",
+    "temporary",
+    "housing"
+   ],
+   "made_ts": 63.0,
+   "due_ts": 192.0,
+   "status": "lapsed",
+   "source_event_id": "s1_e_000507",
+   "status_ts": 192.0
+  },
+  {
+   "_id": "s1_h_013_p1",
+   "run_id": "mock-queens-s1",
+   "scenario_id": "s1",
+   "household_id": "s1_h_013",
+   "text": "Son Jun: take her to his place",
+   "keywords": [
+    "place"
+   ],
+   "made_ts": 39.0,
+   "due_ts": 145.008,
+   "status": "kept",
+   "source_event_id": "s1_e_000360",
+   "status_ts": 139.008,
+   "evidence_event_ids": [
+    "s1_e_000786"
+   ]
+  }
+ ],
+ "proposals": [
+  {
+   "_id": "prop-s1_h_001",
+   "run_id": "mock-queens-s1",
+   "scenario_id": "s1",
+   "household_id": "s1_h_001",
+   "kind": "escalation",
+   "status": "pending",
+   "reason": "Mrs. Chen, 82, lives alone in a basement unit. Her son Wei was due Tuesday Sep 7 and there is no sign he came; Con Edison pushed her block's restoration to Sep 13 or later; on Sep 14 the crew found her meter room flooded and no one answered the door.",
+   "ts": 303.12,
+   "cited_event_ids": [
+    "s1_e_000407",
+    "s1_e_000817",
+    "s1_e_001052"
+   ],
+   "due_ts": 327.15,
+   "queue": "welfare_check",
+   "urgent": true,
+   "promise_id": "s1_h_001_p1"
+  },
+  {
+   "_id": "prop-s1_h_003",
+   "run_id": "mock-queens-s1",
+   "scenario_id": "s1",
+   "household_id": "s1_h_003",
+   "kind": "escalation",
+   "status": "pending",
+   "reason": "HPD found sewage in the cellar unit on Sep 6 and the landlord said a plumber would come Friday; on Sep 13 the family of 5 reported the sewage is still there and the children are sleeping at a neighbor's.",
+   "ts": 287.52,
+   "cited_event_ids": [
+    "s1_e_000724",
+    "s1_e_001041"
+   ],
+   "due_ts": 336.0,
+   "queue": "caseworker_followup",
+   "urgent": false,
+   "promise_id": "s1_h_003_p1"
+  },
+  {
+   "_id": "prop-s1_h_004",
+   "run_id": "mock-queens-s1",
+   "scenario_id": "s1",
+   "household_id": "s1_h_004",
+   "kind": "escalation",
+   "status": "pending",
+   "reason": "A caseworker promised Mrs. Kim, 77, a Thursday callback about temporary housing; on Sep 15 the neighbor hosting her reported moving out at the end of the week, leaving her nowhere to go.",
+   "ts": 325.2,
+   "cited_event_ids": [
+    "s1_e_000507",
+    "s1_e_001073"
+   ],
+   "due_ts": 384.0,
+   "queue": "caseworker_followup",
+   "urgent": false,
+   "promise_id": "s1_h_004_p1"
+  },
+  {
+   "_id": "prop-s1_h_002",
+   "run_id": "mock-queens-s1",
+   "scenario_id": "s1",
+   "household_id": "s1_h_002",
+   "kind": "escalation",
+   "status": "approved",
+   "reason": "Mr. Rahman uses a home oxygen concentrator and his backup is running low; his block has no power until about Sep 4 and a battery unit is only promised for Saturday.",
+   "ts": 44.16,
+   "cited_event_ids": [
+    "s1_e_000165",
+    "s1_e_000426",
+    "s1_e_000058"
+   ],
+   "due_ts": 55.2,
+   "queue": "priority_power",
+   "urgent": true,
+   "promise_id": "s1_h_002_p1"
+  },
+  {
+   "_id": "prop-s1_h_012",
+   "run_id": "mock-queens-s1",
+   "scenario_id": "s1",
+   "household_id": "s1_h_012",
+   "kind": "escalation",
+   "status": "dismissed",
+   "reason": "A neighbor reported an elderly man trapped in a basement at 31-70 Tinderbox St with water rising.",
+   "ts": 3.12,
+   "cited_event_ids": [
+    "s1_e_000072"
+   ],
+   "due_ts": 7.2,
+   "queue": "welfare_check",
+   "urgent": false
+  },
+  {
+   "_id": "prop-checkin-s1_h_013-1",
+   "run_id": "mock-queens-s1",
+   "scenario_id": "s1",
+   "household_id": "s1_h_013",
+   "kind": "check_in",
+   "status": "approved",
+   "reason": "Mrs. Liu, 84, lives alone in a flooded basement with no power; check in before her son arrives Tuesday.",
+   "ts": 74.0,
+   "cited_event_ids": [
+    "s1_e_000360"
+   ],
+   "due_ts": 98.0,
+   "queue": "welfare_check",
+   "suggested_action": "call",
+   "status_ts": 75.0
+  },
+  {
+   "_id": "prop-checkin-s1_h_001-1",
+   "run_id": "mock-queens-s1",
+   "scenario_id": "s1",
+   "household_id": "s1_h_001",
+   "kind": "check_in",
+   "status": "approved",
+   "reason": "Visit note asked for a Wednesday follow-up with Mrs. Chen; her son was due Tuesday.",
+   "ts": 158.0,
+   "cited_event_ids": [
+    "s1_e_000407"
+   ],
+   "due_ts": 182.0,
+   "queue": "welfare_check",
+   "suggested_action": "call",
+   "status_ts": 158.5
+  },
+  {
+   "_id": "prop-checkin-s1_h_001-2",
+   "run_id": "mock-queens-s1",
+   "scenario_id": "s1",
+   "household_id": "s1_h_001",
+   "kind": "check_in",
+   "status": "approved",
+   "reason": "Wednesday follow-up went unanswered and her block's restoration moved to Sep 13 or later.",
+   "ts": 230.0,
+   "cited_event_ids": [
+    "s1_e_000407",
+    "s1_e_000817"
+   ],
+   "due_ts": 254.0,
+   "queue": "welfare_check",
+   "suggested_action": "call",
+   "status_ts": 231.0
+  },
+  {
+   "_id": "prop-checkin-s1_h_004-1",
+   "run_id": "mock-queens-s1",
+   "scenario_id": "s1",
+   "household_id": "s1_h_004",
+   "kind": "check_in",
+   "status": "approved",
+   "reason": "A caseworker promised Mrs. Kim a Thursday callback about temporary housing; confirm it happened.",
+   "ts": 280.0,
+   "cited_event_ids": [
+    "s1_e_000507"
+   ],
+   "due_ts": 304.0,
+   "queue": "welfare_check",
+   "suggested_action": "call",
+   "status_ts": 281.0
+  },
+  {
+   "_id": "call-s1_h_013-1:emergency",
+   "run_id": "mock-queens-s1",
+   "scenario_id": "s1",
+   "household_id": "s1_h_013",
+   "kind": "emergency",
+   "status": "approved",
+   "reason": "Emergency phrase heard on a check-in call; handed to a person.",
+   "ts": 76.3,
+   "cited_event_ids": [
+    "call-s1_h_013-1:result"
+   ],
+   "due_ts": 76.8,
+   "queue": "welfare_check",
+   "urgent": true,
+   "status_ts": 76.39999999999999
+  }
+ ],
+ "decisions": {
+  "prop-s1_h_002": {
+   "status": "approved",
+   "ts": 44.64,
+   "reason": null
+  },
+  "prop-s1_h_012": {
+   "status": "dismissed",
+   "ts": 6.24,
+   "reason": "Already handled by another team"
+  },
+  "prop-checkin-s1_h_013-1": {
+   "status": "approved",
+   "ts": 75.0,
+   "reason": null
+  },
+  "prop-checkin-s1_h_001-1": {
+   "status": "approved",
+   "ts": 158.5,
+   "reason": null
+  },
+  "prop-checkin-s1_h_001-2": {
+   "status": "approved",
+   "ts": 231.0,
+   "reason": null
+  },
+  "prop-checkin-s1_h_004-1": {
+   "status": "approved",
+   "ts": 281.0,
+   "reason": null
+  },
+  "call-s1_h_013-1:emergency": {
+   "status": "approved",
+   "ts": 76.39999999999999,
+   "reason": null
+  }
+ },
+ "registry": [
+  {
+   "household_id": "s1_h_001",
+   "opt_in": true,
+   "language": "zh",
+   "first_name": "Mei",
+   "callback_number": "+1-555-0100"
+  },
+  {
+   "household_id": "s1_h_004",
+   "opt_in": true,
+   "language": "ko",
+   "first_name": "Soon-ja",
+   "callback_number": "+1-555-0100"
+  },
+  {
+   "household_id": "s1_h_013",
+   "opt_in": true,
+   "language": "zh",
+   "first_name": "Xiu",
+   "callback_number": "+1-555-0100"
+  }
+ ],
+ "call_requests": [
+  {
+   "_id": "call-s1_h_013-1",
+   "run_id": "mock-queens-s1",
+   "scenario_id": "s1",
+   "household_id": "s1_h_013",
+   "proposal_id": "prop-checkin-s1_h_013-1",
+   "purpose": "check_in",
+   "requested_ts": 76.0,
+   "status": "queued"
+  },
+  {
+   "_id": "call-s1_h_001-1",
+   "run_id": "mock-queens-s1",
+   "scenario_id": "s1",
+   "household_id": "s1_h_001",
+   "proposal_id": "prop-checkin-s1_h_001-1",
+   "purpose": "check_in",
+   "requested_ts": 162.0,
+   "status": "queued"
+  },
+  {
+   "_id": "call-s1_h_001-2",
+   "run_id": "mock-queens-s1",
+   "scenario_id": "s1",
+   "household_id": "s1_h_001",
+   "proposal_id": "prop-checkin-s1_h_001-2",
+   "purpose": "check_in",
+   "requested_ts": 234.0,
+   "status": "queued"
+  },
+  {
+   "_id": "call-s1_h_004-1",
+   "run_id": "mock-queens-s1",
+   "scenario_id": "s1",
+   "household_id": "s1_h_004",
+   "proposal_id": "prop-checkin-s1_h_004-1",
+   "purpose": "check_in",
+   "requested_ts": 288.0,
+   "status": "queued"
+  }
+ ],
+ "policy_changes": [
+  {
+   "_id": "pol-mock-queens-s1-2",
+   "run_id": "mock-queens-s1",
+   "version": 2,
+   "what_changed": "lead_hours 0 -> 12 (promises_on_time_pct 40 < 90 target)",
+   "params": {
+    "lead_hours": 12.0
+   },
+   "metric_values": {
+    "promises_on_time_pct": 40.0,
+    "promises_due": 5.0,
+    "promises_met": 2.0
+   },
+   "ts": 240.0
+  }
+ ],
+ "metrics": [
+  {
+   "_id": "metric-promises_open-day1",
+   "run_id": "mock-queens-s1",
+   "name": "promises_open",
+   "value": 0.0,
+   "scope": "goal",
+   "ts": 24.0
+  },
+  {
+   "_id": "metric-promises_due-day1",
+   "run_id": "mock-queens-s1",
+   "name": "promises_due",
+   "value": 0.0,
+   "scope": "goal",
+   "ts": 24.0
+  },
+  {
+   "_id": "metric-promises_met-day1",
+   "run_id": "mock-queens-s1",
+   "name": "promises_met",
+   "value": 0.0,
+   "scope": "goal",
+   "ts": 24.0
+  },
+  {
+   "_id": "metric-promises_open-day2",
+   "run_id": "mock-queens-s1",
+   "name": "promises_open",
+   "value": 3.0,
+   "scope": "goal",
+   "ts": 48.0
+  },
+  {
+   "_id": "metric-promises_due-day2",
+   "run_id": "mock-queens-s1",
+   "name": "promises_due",
+   "value": 0.0,
+   "scope": "goal",
+   "ts": 48.0
+  },
+  {
+   "_id": "metric-promises_met-day2",
+   "run_id": "mock-queens-s1",
+   "name": "promises_met",
+   "value": 0.0,
+   "scope": "goal",
+   "ts": 48.0
+  },
+  {
+   "_id": "metric-promises_open-day3",
+   "run_id": "mock-queens-s1",
+   "name": "promises_open",
+   "value": 3.0,
+   "scope": "goal",
+   "ts": 72.0
+  },
+  {
+   "_id": "metric-promises_due-day3",
+   "run_id": "mock-queens-s1",
+   "name": "promises_due",
+   "value": 1.0,
+   "scope": "goal",
+   "ts": 72.0
+  },
+  {
+   "_id": "metric-promises_met-day3",
+   "run_id": "mock-queens-s1",
+   "name": "promises_met",
+   "value": 1.0,
+   "scope": "goal",
+   "ts": 72.0
+  },
+  {
+   "_id": "metric-promises_on_time_pct-day3",
+   "run_id": "mock-queens-s1",
+   "name": "promises_on_time_pct",
+   "value": 100.0,
+   "scope": "goal",
+   "ts": 72.0
+  },
+  {
+   "_id": "metric-promises_open-day4",
+   "run_id": "mock-queens-s1",
+   "name": "promises_open",
+   "value": 3.0,
+   "scope": "goal",
+   "ts": 96.0
+  },
+  {
+   "_id": "metric-promises_due-day4",
+   "run_id": "mock-queens-s1",
+   "name": "promises_due",
+   "value": 1.0,
+   "scope": "goal",
+   "ts": 96.0
+  },
+  {
+   "_id": "metric-promises_met-day4",
+   "run_id": "mock-queens-s1",
+   "name": "promises_met",
+   "value": 1.0,
+   "scope": "goal",
+   "ts": 96.0
+  },
+  {
+   "_id": "metric-promises_on_time_pct-day4",
+   "run_id": "mock-queens-s1",
+   "name": "promises_on_time_pct",
+   "value": 100.0,
+   "scope": "goal",
+   "ts": 96.0
+  },
+  {
+   "_id": "metric-promises_open-day5",
+   "run_id": "mock-queens-s1",
+   "name": "promises_open",
+   "value": 4.0,
+   "scope": "goal",
+   "ts": 120.0
+  },
+  {
+   "_id": "metric-promises_due-day5",
+   "run_id": "mock-queens-s1",
+   "name": "promises_due",
+   "value": 1.0,
+   "scope": "goal",
+   "ts": 120.0
+  },
+  {
+   "_id": "metric-promises_met-day5",
+   "run_id": "mock-queens-s1",
+   "name": "promises_met",
+   "value": 1.0,
+   "scope": "goal",
+   "ts": 120.0
+  },
+  {
+   "_id": "metric-promises_on_time_pct-day5",
+   "run_id": "mock-queens-s1",
+   "name": "promises_on_time_pct",
+   "value": 100.0,
+   "scope": "goal",
+   "ts": 120.0
+  },
+  {
+   "_id": "metric-promises_open-day6",
+   "run_id": "mock-queens-s1",
+   "name": "promises_open",
+   "value": 3.0,
+   "scope": "goal",
+   "ts": 144.0
+  },
+  {
+   "_id": "metric-promises_due-day6",
+   "run_id": "mock-queens-s1",
+   "name": "promises_due",
+   "value": 1.0,
+   "scope": "goal",
+   "ts": 144.0
+  },
+  {
+   "_id": "metric-promises_met-day6",
+   "run_id": "mock-queens-s1",
+   "name": "promises_met",
+   "value": 1.0,
+   "scope": "goal",
+   "ts": 144.0
+  },
+  {
+   "_id": "metric-promises_on_time_pct-day6",
+   "run_id": "mock-queens-s1",
+   "name": "promises_on_time_pct",
+   "value": 100.0,
+   "scope": "goal",
+   "ts": 144.0
+  },
+  {
+   "_id": "metric-promises_open-day7",
+   "run_id": "mock-queens-s1",
+   "name": "promises_open",
+   "value": 2.0,
+   "scope": "goal",
+   "ts": 168.0
+  },
+  {
+   "_id": "metric-promises_due-day7",
+   "run_id": "mock-queens-s1",
+   "name": "promises_due",
+   "value": 3.0,
+   "scope": "goal",
+   "ts": 168.0
+  },
+  {
+   "_id": "metric-promises_met-day7",
+   "run_id": "mock-queens-s1",
+   "name": "promises_met",
+   "value": 2.0,
+   "scope": "goal",
+   "ts": 168.0
+  },
+  {
+   "_id": "metric-promises_on_time_pct-day7",
+   "run_id": "mock-queens-s1",
+   "name": "promises_on_time_pct",
+   "value": 66.7,
+   "scope": "goal",
+   "ts": 168.0
+  },
+  {
+   "_id": "metric-promises_open-day8",
+   "run_id": "mock-queens-s1",
+   "name": "promises_open",
+   "value": 1.0,
+   "scope": "goal",
+   "ts": 192.0
+  },
+  {
+   "_id": "metric-promises_due-day8",
+   "run_id": "mock-queens-s1",
+   "name": "promises_due",
+   "value": 4.0,
+   "scope": "goal",
+   "ts": 192.0
+  },
+  {
+   "_id": "metric-promises_met-day8",
+   "run_id": "mock-queens-s1",
+   "name": "promises_met",
+   "value": 2.0,
+   "scope": "goal",
+   "ts": 192.0
+  },
+  {
+   "_id": "metric-promises_on_time_pct-day8",
+   "run_id": "mock-queens-s1",
+   "name": "promises_on_time_pct",
+   "value": 50.0,
+   "scope": "goal",
+   "ts": 192.0
+  },
+  {
+   "_id": "metric-promises_open-day9",
+   "run_id": "mock-queens-s1",
+   "name": "promises_open",
+   "value": 0.0,
+   "scope": "goal",
+   "ts": 216.0
+  },
+  {
+   "_id": "metric-promises_due-day9",
+   "run_id": "mock-queens-s1",
+   "name": "promises_due",
+   "value": 5.0,
+   "scope": "goal",
+   "ts": 216.0
+  },
+  {
+   "_id": "metric-promises_met-day9",
+   "run_id": "mock-queens-s1",
+   "name": "promises_met",
+   "value": 2.0,
+   "scope": "goal",
+   "ts": 216.0
+  },
+  {
+   "_id": "metric-promises_on_time_pct-day9",
+   "run_id": "mock-queens-s1",
+   "name": "promises_on_time_pct",
+   "value": 40.0,
+   "scope": "goal",
+   "ts": 216.0
+  },
+  {
+   "_id": "metric-promises_open-day10",
+   "run_id": "mock-queens-s1",
+   "name": "promises_open",
+   "value": 0.0,
+   "scope": "goal",
+   "ts": 240.0
+  },
+  {
+   "_id": "metric-promises_due-day10",
+   "run_id": "mock-queens-s1",
+   "name": "promises_due",
+   "value": 5.0,
+   "scope": "goal",
+   "ts": 240.0
+  },
+  {
+   "_id": "metric-promises_met-day10",
+   "run_id": "mock-queens-s1",
+   "name": "promises_met",
+   "value": 2.0,
+   "scope": "goal",
+   "ts": 240.0
+  },
+  {
+   "_id": "metric-promises_on_time_pct-day10",
+   "run_id": "mock-queens-s1",
+   "name": "promises_on_time_pct",
+   "value": 40.0,
+   "scope": "goal",
+   "ts": 240.0
+  },
+  {
+   "_id": "metric-promises_open-day11",
+   "run_id": "mock-queens-s1",
+   "name": "promises_open",
+   "value": 0.0,
+   "scope": "goal",
+   "ts": 264.0
+  },
+  {
+   "_id": "metric-promises_due-day11",
+   "run_id": "mock-queens-s1",
+   "name": "promises_due",
+   "value": 5.0,
+   "scope": "goal",
+   "ts": 264.0
+  },
+  {
+   "_id": "metric-promises_met-day11",
+   "run_id": "mock-queens-s1",
+   "name": "promises_met",
+   "value": 2.0,
+   "scope": "goal",
+   "ts": 264.0
+  },
+  {
+   "_id": "metric-promises_on_time_pct-day11",
+   "run_id": "mock-queens-s1",
+   "name": "promises_on_time_pct",
+   "value": 40.0,
+   "scope": "goal",
+   "ts": 264.0
+  },
+  {
+   "_id": "metric-promises_open-day12",
+   "run_id": "mock-queens-s1",
+   "name": "promises_open",
+   "value": 0.0,
+   "scope": "goal",
+   "ts": 288.0
+  },
+  {
+   "_id": "metric-promises_due-day12",
+   "run_id": "mock-queens-s1",
+   "name": "promises_due",
+   "value": 5.0,
+   "scope": "goal",
+   "ts": 288.0
+  },
+  {
+   "_id": "metric-promises_met-day12",
+   "run_id": "mock-queens-s1",
+   "name": "promises_met",
+   "value": 2.0,
+   "scope": "goal",
+   "ts": 288.0
+  },
+  {
+   "_id": "metric-promises_on_time_pct-day12",
+   "run_id": "mock-queens-s1",
+   "name": "promises_on_time_pct",
+   "value": 40.0,
+   "scope": "goal",
+   "ts": 288.0
+  },
+  {
+   "_id": "metric-promises_open-day13",
+   "run_id": "mock-queens-s1",
+   "name": "promises_open",
+   "value": 0.0,
+   "scope": "goal",
+   "ts": 312.0
+  },
+  {
+   "_id": "metric-promises_due-day13",
+   "run_id": "mock-queens-s1",
+   "name": "promises_due",
+   "value": 5.0,
+   "scope": "goal",
+   "ts": 312.0
+  },
+  {
+   "_id": "metric-promises_met-day13",
+   "run_id": "mock-queens-s1",
+   "name": "promises_met",
+   "value": 2.0,
+   "scope": "goal",
+   "ts": 312.0
+  },
+  {
+   "_id": "metric-promises_on_time_pct-day13",
+   "run_id": "mock-queens-s1",
+   "name": "promises_on_time_pct",
+   "value": 40.0,
+   "scope": "goal",
+   "ts": 312.0
+  },
+  {
+   "_id": "metric-silent_households-day1",
+   "run_id": "mock-queens-s1",
+   "name": "silent_households",
+   "value": 0.0,
+   "scope": "goal",
+   "ts": 24.0
+  },
+  {
+   "_id": "metric-silent_households-day2",
+   "run_id": "mock-queens-s1",
+   "name": "silent_households",
+   "value": 0.0,
+   "scope": "goal",
+   "ts": 48.0
+  },
+  {
+   "_id": "metric-silent_households-day3",
+   "run_id": "mock-queens-s1",
+   "name": "silent_households",
+   "value": 0.0,
+   "scope": "goal",
+   "ts": 72.0
+  },
+  {
+   "_id": "metric-silent_households-day4",
+   "run_id": "mock-queens-s1",
+   "name": "silent_households",
+   "value": 0.0,
+   "scope": "goal",
+   "ts": 96.0
+  },
+  {
+   "_id": "metric-silent_households-day5",
+   "run_id": "mock-queens-s1",
+   "name": "silent_households",
+   "value": 1.0,
+   "scope": "goal",
+   "ts": 120.0
+  },
+  {
+   "_id": "metric-silent_households-day6",
+   "run_id": "mock-queens-s1",
+   "name": "silent_households",
+   "value": 2.0,
+   "scope": "goal",
+   "ts": 144.0
+  },
+  {
+   "_id": "metric-silent_households-day7",
+   "run_id": "mock-queens-s1",
+   "name": "silent_households",
+   "value": 2.0,
+   "scope": "goal",
+   "ts": 168.0
+  },
+  {
+   "_id": "metric-silent_households-day8",
+   "run_id": "mock-queens-s1",
+   "name": "silent_households",
+   "value": 2.0,
+   "scope": "goal",
+   "ts": 192.0
+  },
+  {
+   "_id": "metric-silent_households-day9",
+   "run_id": "mock-queens-s1",
+   "name": "silent_households",
+   "value": 3.0,
+   "scope": "goal",
+   "ts": 216.0
+  },
+  {
+   "_id": "metric-silent_households-day10",
+   "run_id": "mock-queens-s1",
+   "name": "silent_households",
+   "value": 3.0,
+   "scope": "goal",
+   "ts": 240.0
+  },
+  {
+   "_id": "metric-silent_households-day11",
+   "run_id": "mock-queens-s1",
+   "name": "silent_households",
+   "value": 3.0,
+   "scope": "goal",
+   "ts": 264.0
+  },
+  {
+   "_id": "metric-silent_households-day12",
+   "run_id": "mock-queens-s1",
+   "name": "silent_households",
+   "value": 3.0,
+   "scope": "goal",
+   "ts": 288.0
+  },
+  {
+   "_id": "metric-silent_households-day13",
+   "run_id": "mock-queens-s1",
+   "name": "silent_households",
+   "value": 2.0,
+   "scope": "goal",
+   "ts": 312.0
+  }
+ ],
+ "system_events": [
+  {
+   "_id": "sev-c72420dd045bd0ec",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "llm_call",
+   "ts": 2.799,
+   "purpose": "extract",
+   "model": "mock",
+   "cached": false,
+   "prompt_tokens": 3037,
+   "completion_tokens": 123
+  },
+  {
+   "_id": "sev-07e661ca359f53f7",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "household_matched",
+   "ts": 2.809,
+   "event_id": "s1_e_000058",
+   "household_id": "s1_h_002"
+  },
+  {
+   "_id": "sev-4107bd6da0a11fd6",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "llm_call",
+   "ts": 3.11,
+   "purpose": "decide",
+   "model": "mock",
+   "cached": false,
+   "prompt_tokens": 3303,
+   "completion_tokens": 177
+  },
+  {
+   "_id": "sev-54d1fb2096ca0fbc",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "llm_call",
+   "ts": 3.111,
+   "purpose": "extract",
+   "model": "mock",
+   "cached": false,
+   "prompt_tokens": 3074,
+   "completion_tokens": 136
+  },
+  {
+   "_id": "sev-55970dcad6ba051e",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "proposal_created",
+   "ts": 3.12,
+   "proposal_id": "prop-s1_h_012",
+   "household_id": "s1_h_012"
+  },
+  {
+   "_id": "sev-1fd1e806711f1004",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "household_matched",
+   "ts": 3.121,
+   "event_id": "s1_e_000072",
+   "household_id": "s1_h_012"
+  },
+  {
+   "_id": "sev-4563f2321b3955a7",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "llm_call",
+   "ts": 6.01,
+   "purpose": "extract",
+   "model": "mock",
+   "cached": false,
+   "prompt_tokens": 3111,
+   "completion_tokens": 149
+  },
+  {
+   "_id": "sev-615986a55b8c8f55",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "household_matched",
+   "ts": 6.02,
+   "event_id": "s1_e_000120",
+   "household_id": "s1_h_012"
+  },
+  {
+   "_id": "sev-72d9fd04b9b8f4c3",
+   "run_id": "mock-queens-s1",
+   "module": "ui",
+   "action": "proposal_decided",
+   "ts": 6.24,
+   "proposal_id": "prop-s1_h_012",
+   "decision": "dismissed",
+   "reason": "Already handled by another team"
+  },
+  {
+   "_id": "sev-554fb190a61eeb29",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "llm_call",
+   "ts": 14.211,
+   "purpose": "extract",
+   "model": "mock",
+   "cached": false,
+   "prompt_tokens": 3148,
+   "completion_tokens": 162
+  },
+  {
+   "_id": "sev-7913d6918d0d2e7f",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "household_matched",
+   "ts": 14.221,
+   "event_id": "s1_e_000165",
+   "household_id": "s1_h_002"
+  },
+  {
+   "_id": "sev-aba561255fa5a04a",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "goal_scored",
+   "ts": 24.0,
+   "promises_open": 0.0,
+   "promises_due": 0.0,
+   "promises_met": 0.0,
+   "silent_households": 0.0,
+   "promises_on_time_pct": null
+  },
+  {
+   "_id": "sev-9a3e769c5b0ab246",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "llm_call",
+   "ts": 39.01,
+   "purpose": "extract",
+   "model": "mock",
+   "cached": false,
+   "prompt_tokens": 3185,
+   "completion_tokens": 175
+  },
+  {
+   "_id": "sev-a48ae6e8487055d6",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "household_matched",
+   "ts": 39.02,
+   "event_id": "s1_e_000360",
+   "household_id": "s1_h_013"
+  },
+  {
+   "_id": "sev-edfefff86e71e2fd",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "promise_created",
+   "ts": 39.03,
+   "promise_id": "s1_h_013_p1",
+   "household_id": "s1_h_013"
+  },
+  {
+   "_id": "sev-8ebd03753e8863cd",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "llm_call",
+   "ts": 42.61,
+   "purpose": "extract",
+   "model": "mock",
+   "cached": false,
+   "prompt_tokens": 3222,
+   "completion_tokens": 188
+  },
+  {
+   "_id": "sev-26ae06cd320e5d48",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "household_matched",
+   "ts": 42.62,
+   "event_id": "s1_e_000407",
+   "household_id": "s1_h_001"
+  },
+  {
+   "_id": "sev-c396cb7694738e01",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "promise_created",
+   "ts": 42.63,
+   "promise_id": "s1_h_001_p1",
+   "household_id": "s1_h_001"
+  },
+  {
+   "_id": "sev-82ceaecb1f5216dc",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "llm_call",
+   "ts": 44.009,
+   "purpose": "extract",
+   "model": "mock",
+   "cached": false,
+   "prompt_tokens": 3259,
+   "completion_tokens": 111
+  },
+  {
+   "_id": "sev-11f171e688fabc92",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "household_matched",
+   "ts": 44.019,
+   "event_id": "s1_e_000426",
+   "household_id": "s1_h_002"
+  },
+  {
+   "_id": "sev-7e7eb50e5f8b963c",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "promise_created",
+   "ts": 44.022,
+   "promise_id": "s1_h_002_p1",
+   "household_id": "s1_h_002"
+  },
+  {
+   "_id": "sev-aa297567bea3a37e",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "llm_call",
+   "ts": 44.15,
+   "purpose": "decide",
+   "model": "mock",
+   "cached": false,
+   "prompt_tokens": 3266,
+   "completion_tokens": 164
+  },
+  {
+   "_id": "sev-7c14b018d1361582",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "proposal_created",
+   "ts": 44.16,
+   "proposal_id": "prop-s1_h_002",
+   "household_id": "s1_h_002"
+  },
+  {
+   "_id": "sev-59150471f8e104f9",
+   "run_id": "mock-queens-s1",
+   "module": "ui",
+   "action": "proposal_decided",
+   "ts": 44.64,
+   "proposal_id": "prop-s1_h_002",
+   "decision": "approved"
+  },
+  {
+   "_id": "sev-1e67a900c14ff1de",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "goal_scored",
+   "ts": 48.0,
+   "promises_open": 3.0,
+   "promises_due": 0.0,
+   "promises_met": 0.0,
+   "silent_households": 0.0,
+   "promises_on_time_pct": null
+  },
+  {
+   "_id": "sev-a53920dd057e5b94",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "llm_call",
+   "ts": 63.01,
+   "purpose": "extract",
+   "model": "mock",
+   "cached": false,
+   "prompt_tokens": 3296,
+   "completion_tokens": 124
+  },
+  {
+   "_id": "sev-7237879657959379",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "household_matched",
+   "ts": 63.02,
+   "event_id": "s1_e_000507",
+   "household_id": "s1_h_004"
+  },
+  {
+   "_id": "sev-638d186aa48895f2",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "promise_created",
+   "ts": 63.03,
+   "promise_id": "s1_h_004_p1",
+   "household_id": "s1_h_004"
+  },
+  {
+   "_id": "sev-31c5c31ffeae481d",
+   "run_id": "mock-queens-s1",
+   "module": "db",
+   "action": "status_changed",
+   "ts": 72.0,
+   "collection": "promises",
+   "doc_id": "s1_h_002_p1",
+   "status": "lapsed"
+  },
+  {
+   "_id": "sev-f3bd72ac42cbb7d7",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "goal_scored",
+   "ts": 72.0,
+   "promises_open": 3.0,
+   "promises_due": 1.0,
+   "promises_met": 1.0,
+   "promises_on_time_pct": 100.0,
+   "silent_households": 0.0
+  },
+  {
+   "_id": "sev-cb500e4066fc6530",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "llm_call",
+   "ts": 73.99,
+   "purpose": "decide",
+   "model": "mock",
+   "cached": false,
+   "prompt_tokens": 3340,
+   "completion_tokens": 190
+  },
+  {
+   "_id": "sev-4f5951c7a93c8a7f",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "proposal_created",
+   "ts": 74.0,
+   "proposal_id": "prop-checkin-s1_h_013-1",
+   "household_id": "s1_h_013"
+  },
+  {
+   "_id": "sev-5c0b6918e3f5eae7",
+   "run_id": "mock-queens-s1",
+   "module": "ui",
+   "action": "proposal_decided",
+   "ts": 75.0,
+   "proposal_id": "prop-checkin-s1_h_013-1",
+   "decision": "approved"
+  },
+  {
+   "_id": "sev-4441d5696ab1572c",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "call_scheduled",
+   "ts": 76.0,
+   "call_request_id": "call-s1_h_013-1",
+   "proposal_id": "prop-checkin-s1_h_013-1"
+  },
+  {
+   "_id": "sev-16820b8e9f2c6354",
+   "run_id": "mock-queens-s1",
+   "module": "calls",
+   "action": "proposal_created",
+   "ts": 76.3,
+   "proposal_id": "call-s1_h_013-1:emergency",
+   "household_id": "s1_h_013"
+  },
+  {
+   "_id": "sev-f35281b4a10e7c70",
+   "run_id": "mock-queens-s1",
+   "module": "calls",
+   "action": "emergency_escalated",
+   "ts": 76.3,
+   "matched_phrase": "I can't get up"
+  },
+  {
+   "_id": "sev-4cd4467cbb92653b",
+   "run_id": "mock-queens-s1",
+   "module": "calls",
+   "action": "call_result_logged",
+   "ts": 76.31,
+   "outcome": "emergency_escalated"
+  },
+  {
+   "_id": "sev-053be487bbcca781",
+   "run_id": "mock-queens-s1",
+   "module": "ui",
+   "action": "proposal_decided",
+   "ts": 76.4,
+   "proposal_id": "call-s1_h_013-1:emergency",
+   "decision": "approved"
+  },
+  {
+   "_id": "sev-bca2d1e00acc5bea",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "goal_scored",
+   "ts": 96.0,
+   "promises_open": 3.0,
+   "promises_due": 1.0,
+   "promises_met": 1.0,
+   "promises_on_time_pct": 100.0,
+   "silent_households": 0.0
+  },
+  {
+   "_id": "sev-bb6b7b9032358164",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "llm_call",
+   "ts": 113.009,
+   "purpose": "extract",
+   "model": "mock",
+   "cached": false,
+   "prompt_tokens": 3333,
+   "completion_tokens": 137
+  },
+  {
+   "_id": "sev-3e4e8bb5779abc60",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "household_matched",
+   "ts": 113.019,
+   "event_id": "s1_e_000724",
+   "household_id": "s1_h_003"
+  },
+  {
+   "_id": "sev-691c73aaa8a1baf7",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "promise_created",
+   "ts": 113.022,
+   "promise_id": "s1_h_003_p1",
+   "household_id": "s1_h_003"
+  },
+  {
+   "_id": "sev-8427513ea32f5e74",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "goal_scored",
+   "ts": 120.0,
+   "promises_open": 4.0,
+   "promises_due": 1.0,
+   "promises_met": 1.0,
+   "promises_on_time_pct": 100.0,
+   "silent_households": 1.0
+  },
+  {
+   "_id": "sev-89cd46994116076f",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "promise_kept",
+   "ts": 139.008,
+   "promise_id": "s1_h_013_p1"
+  },
+  {
+   "_id": "sev-3157e0a8e3b12c2a",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "llm_call",
+   "ts": 139.011,
+   "purpose": "extract",
+   "model": "mock",
+   "cached": false,
+   "prompt_tokens": 3370,
+   "completion_tokens": 150
+  },
+  {
+   "_id": "sev-e57ff6f495345504",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "household_matched",
+   "ts": 139.021,
+   "event_id": "s1_e_000786",
+   "household_id": "s1_h_013"
+  },
+  {
+   "_id": "sev-46d8680df0ab0488",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "goal_scored",
+   "ts": 144.0,
+   "promises_open": 3.0,
+   "promises_due": 1.0,
+   "promises_met": 1.0,
+   "promises_on_time_pct": 100.0,
+   "silent_households": 2.0
+  },
+  {
+   "_id": "sev-1b505157f0c6df0c",
+   "run_id": "mock-queens-s1",
+   "module": "db",
+   "action": "status_changed",
+   "ts": 145.008,
+   "collection": "promises",
+   "doc_id": "s1_h_001_p1",
+   "status": "lapsed"
+  },
+  {
+   "_id": "sev-10224366412e93a5",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "llm_call",
+   "ts": 157.99,
+   "purpose": "decide",
+   "model": "mock",
+   "cached": false,
+   "prompt_tokens": 3377,
+   "completion_tokens": 113
+  },
+  {
+   "_id": "sev-1cf574e6a69f1acf",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "proposal_created",
+   "ts": 158.0,
+   "proposal_id": "prop-checkin-s1_h_001-1",
+   "household_id": "s1_h_001"
+  },
+  {
+   "_id": "sev-70951c479cb20d87",
+   "run_id": "mock-queens-s1",
+   "module": "ui",
+   "action": "proposal_decided",
+   "ts": 158.5,
+   "proposal_id": "prop-checkin-s1_h_001-1",
+   "decision": "approved"
+  },
+  {
+   "_id": "sev-716874653b7087b6",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "llm_call",
+   "ts": 158.739,
+   "purpose": "extract",
+   "model": "mock",
+   "cached": false,
+   "prompt_tokens": 3007,
+   "completion_tokens": 163
+  },
+  {
+   "_id": "sev-c3e8776f4636e785",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "household_matched",
+   "ts": 158.749,
+   "event_id": "s1_e_000817",
+   "household_id": "s1_h_001"
+  },
+  {
+   "_id": "sev-6eccda06628074de",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "call_scheduled",
+   "ts": 162.0,
+   "call_request_id": "call-s1_h_001-1",
+   "proposal_id": "prop-checkin-s1_h_001-1"
+  },
+  {
+   "_id": "sev-20af197527c4839c",
+   "run_id": "mock-queens-s1",
+   "module": "calls",
+   "action": "call_result_logged",
+   "ts": 162.11,
+   "outcome": "no_answer"
+  },
+  {
+   "_id": "sev-745cc3dfd45b1dd4",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "goal_scored",
+   "ts": 168.0,
+   "promises_open": 2.0,
+   "promises_due": 3.0,
+   "promises_met": 2.0,
+   "promises_on_time_pct": 66.7,
+   "silent_households": 2.0
+  },
+  {
+   "_id": "sev-d1b41223cb36460f",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "goal_scored",
+   "ts": 192.0,
+   "promises_open": 1.0,
+   "promises_due": 4.0,
+   "promises_met": 2.0,
+   "promises_on_time_pct": 50.0,
+   "silent_households": 2.0
+  },
+  {
+   "_id": "sev-e2cef1ee67f4bf61",
+   "run_id": "mock-queens-s1",
+   "module": "db",
+   "action": "status_changed",
+   "ts": 192.0,
+   "collection": "promises",
+   "doc_id": "s1_h_004_p1",
+   "status": "lapsed"
+  },
+  {
+   "_id": "sev-08e739b7148a570c",
+   "run_id": "mock-queens-s1",
+   "module": "db",
+   "action": "status_changed",
+   "ts": 216.0,
+   "collection": "promises",
+   "doc_id": "s1_h_003_p1",
+   "status": "lapsed"
+  },
+  {
+   "_id": "sev-d7908a5166c3a15b",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "goal_scored",
+   "ts": 216.0,
+   "promises_open": 0.0,
+   "promises_due": 5.0,
+   "promises_met": 2.0,
+   "promises_on_time_pct": 40.0,
+   "silent_households": 3.0
+  },
+  {
+   "_id": "sev-ee2471d1bdf81996",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "llm_call",
+   "ts": 229.99,
+   "purpose": "decide",
+   "model": "mock",
+   "cached": false,
+   "prompt_tokens": 3014,
+   "completion_tokens": 126
+  },
+  {
+   "_id": "sev-5394194891ab6478",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "proposal_created",
+   "ts": 230.0,
+   "proposal_id": "prop-checkin-s1_h_001-2",
+   "household_id": "s1_h_001"
+  },
+  {
+   "_id": "sev-6090616980f0c089",
+   "run_id": "mock-queens-s1",
+   "module": "ui",
+   "action": "proposal_decided",
+   "ts": 231.0,
+   "proposal_id": "prop-checkin-s1_h_001-2",
+   "decision": "approved"
+  },
+  {
+   "_id": "sev-66e86f99d72b393b",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "call_scheduled",
+   "ts": 234.0,
+   "call_request_id": "call-s1_h_001-2",
+   "proposal_id": "prop-checkin-s1_h_001-2"
+  },
+  {
+   "_id": "sev-4bff8a565246d371",
+   "run_id": "mock-queens-s1",
+   "module": "calls",
+   "action": "call_result_logged",
+   "ts": 234.11,
+   "outcome": "no_answer"
+  },
+  {
+   "_id": "sev-28befcbb9299cbaf",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "policy_changed",
+   "ts": 240.0,
+   "version": 2,
+   "what_changed": "lead_hours 0 -> 12 (promises_on_time_pct 40 < 90 target)",
+   "metric_values": {
+    "promises_on_time_pct": 40.0,
+    "promises_due": 5.0,
+    "promises_met": 2.0
+   }
+  },
+  {
+   "_id": "sev-2f509dbd17fb69fc",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "goal_scored",
+   "ts": 240.0,
+   "promises_open": 0.0,
+   "promises_due": 5.0,
+   "promises_met": 2.0,
+   "promises_on_time_pct": 40.0,
+   "silent_households": 3.0
+  },
+  {
+   "_id": "sev-19f283cf73e83209",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "goal_scored",
+   "ts": 264.0,
+   "promises_open": 0.0,
+   "promises_due": 5.0,
+   "promises_met": 2.0,
+   "promises_on_time_pct": 40.0,
+   "silent_households": 3.0
+  },
+  {
+   "_id": "sev-b6552990aa7d0a6d",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "llm_call",
+   "ts": 279.99,
+   "purpose": "decide",
+   "model": "mock",
+   "cached": false,
+   "prompt_tokens": 3051,
+   "completion_tokens": 139
+  },
+  {
+   "_id": "sev-d2ad2eb1af9f59df",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "proposal_created",
+   "ts": 280.0,
+   "proposal_id": "prop-checkin-s1_h_004-1",
+   "household_id": "s1_h_004"
+  },
+  {
+   "_id": "sev-324e7d1aff963ae4",
+   "run_id": "mock-queens-s1",
+   "module": "ui",
+   "action": "proposal_decided",
+   "ts": 281.0,
+   "proposal_id": "prop-checkin-s1_h_004-1",
+   "decision": "approved"
+  },
+  {
+   "_id": "sev-f8c7cbd51d077017",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "llm_call",
+   "ts": 287.41,
+   "purpose": "extract",
+   "model": "mock",
+   "cached": false,
+   "prompt_tokens": 3044,
+   "completion_tokens": 176
+  },
+  {
+   "_id": "sev-24b935d7b0beb40b",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "household_matched",
+   "ts": 287.42,
+   "event_id": "s1_e_001041",
+   "household_id": "s1_h_003"
+  },
+  {
+   "_id": "sev-e93e70fe307c59c3",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "llm_call",
+   "ts": 287.51,
+   "purpose": "decide",
+   "model": "mock",
+   "cached": false,
+   "prompt_tokens": 3192,
+   "completion_tokens": 138
+  },
+  {
+   "_id": "sev-bb061a5f07d6302d",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "proposal_created",
+   "ts": 287.52,
+   "proposal_id": "prop-s1_h_003",
+   "household_id": "s1_h_003"
+  },
+  {
+   "_id": "sev-11177db1bb70eda2",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "call_scheduled",
+   "ts": 288.0,
+   "call_request_id": "call-s1_h_004-1",
+   "proposal_id": "prop-checkin-s1_h_004-1"
+  },
+  {
+   "_id": "sev-a08f1e80a0af8936",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "goal_scored",
+   "ts": 288.0,
+   "promises_open": 0.0,
+   "promises_due": 5.0,
+   "promises_met": 2.0,
+   "promises_on_time_pct": 40.0,
+   "silent_households": 3.0
+  },
+  {
+   "_id": "sev-fdef478d1ee7253c",
+   "run_id": "mock-queens-s1",
+   "module": "calls",
+   "action": "call_result_logged",
+   "ts": 288.41,
+   "outcome": "completed"
+  },
+  {
+   "_id": "sev-611325d25d6019dc",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "llm_call",
+   "ts": 303.01,
+   "purpose": "extract",
+   "model": "mock",
+   "cached": false,
+   "prompt_tokens": 3081,
+   "completion_tokens": 189
+  },
+  {
+   "_id": "sev-87229a8aeb351c29",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "household_matched",
+   "ts": 303.02,
+   "event_id": "s1_e_001052",
+   "household_id": "s1_h_001"
+  },
+  {
+   "_id": "sev-63fa67bf3132ed1d",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "llm_call",
+   "ts": 303.11,
+   "purpose": "decide",
+   "model": "mock",
+   "cached": false,
+   "prompt_tokens": 3155,
+   "completion_tokens": 125
+  },
+  {
+   "_id": "sev-82ce4f4ae03ed5ac",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "proposal_created",
+   "ts": 303.12,
+   "proposal_id": "prop-s1_h_001",
+   "household_id": "s1_h_001"
+  },
+  {
+   "_id": "sev-2173b1a9f17e431f",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "goal_scored",
+   "ts": 312.0,
+   "promises_open": 0.0,
+   "promises_due": 5.0,
+   "promises_met": 2.0,
+   "promises_on_time_pct": 40.0,
+   "silent_households": 2.0
+  },
+  {
+   "_id": "sev-0ef5d785f4f1530a",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "llm_call",
+   "ts": 325.011,
+   "purpose": "extract",
+   "model": "mock",
+   "cached": false,
+   "prompt_tokens": 3118,
+   "completion_tokens": 112
+  },
+  {
+   "_id": "sev-ad5d912fcac431a6",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "household_matched",
+   "ts": 325.021,
+   "event_id": "s1_e_001073",
+   "household_id": "s1_h_004"
+  },
+  {
+   "_id": "sev-c65f6ded00356f2b",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "llm_call",
+   "ts": 325.19,
+   "purpose": "decide",
+   "model": "mock",
+   "cached": false,
+   "prompt_tokens": 3229,
+   "completion_tokens": 151
+  },
+  {
+   "_id": "sev-6e9f5a82b225e5a2",
+   "run_id": "mock-queens-s1",
+   "module": "runtime",
+   "action": "proposal_created",
+   "ts": 325.2,
+   "proposal_id": "prop-s1_h_004",
+   "household_id": "s1_h_004"
+  }
+ ],
+ "needles": [
+  {
+   "needle_id": "s1_n_01",
+   "household_id": "s1_h_001",
+   "kind": "broken_promise",
+   "required_event_ids": [
+    "s1_e_000407",
+    "s1_e_000817",
+    "s1_e_001052"
+   ],
+   "deadline": 528.0,
+   "danger_at": 600.0,
+   "response_hours": 24,
+   "people_at_risk": 1
+  },
+  {
+   "needle_id": "s1_n_02",
+   "household_id": "s1_h_002",
+   "kind": "broken_promise",
+   "required_event_ids": [
+    "s1_e_000165",
+    "s1_e_000426",
+    "s1_e_000058"
+   ],
+   "deadline": 96.0,
+   "danger_at": 120.0,
+   "response_hours": 12,
+   "people_at_risk": 2
+  },
+  {
+   "needle_id": "s1_n_03",
+   "household_id": "s1_h_003",
+   "kind": "broken_promise",
+   "required_event_ids": [
+    "s1_e_000724",
+    "s1_e_001041"
+   ],
+   "deadline": 336.0,
+   "danger_at": 408.0,
+   "response_hours": 48,
+   "people_at_risk": 5
+  },
+  {
+   "needle_id": "s1_n_04",
+   "household_id": "s1_h_004",
+   "kind": "broken_promise",
+   "required_event_ids": [
+    "s1_e_000507",
+    "s1_e_001073"
+   ],
+   "deadline": 384.0,
+   "danger_at": 456.0,
+   "response_hours": 48,
+   "people_at_risk": 1
+  }
+ ]
+}

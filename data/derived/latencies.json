@@ -1,0 +1,1331 @@
+{
+ "unit": "hours created->closed; open_frac = never closed in the data",
+ "complaint_type": {
+  "Request Large Bulky Item Collection": {
+   "n": 2815,
+   "closed": 2815,
+   "open_frac": 0.0,
+   "p10_h": 30.0,
+   "p25_h": 37.1,
+   "p50_h": 77.2,
+   "p75_h": 110.7,
+   "p90_h": 170.6
+  },
+  "Sewer": {
+   "n": 1363,
+   "closed": 1357,
+   "open_frac": 0.004,
+   "p10_h": 0.2,
+   "p25_h": 2.6,
+   "p50_h": 23.9,
+   "p75_h": 85.9,
+   "p90_h": 157.4
+  },
+  "Street Condition": {
+   "n": 720,
+   "closed": 712,
+   "open_frac": 0.011,
+   "p10_h": 7.5,
+   "p25_h": 76.1,
+   "p50_h": 178.5,
+   "p75_h": 423.0,
+   "p90_h": 503.6
+  },
+  "UNSANITARY CONDITION": {
+   "n": 697,
+   "closed": 697,
+   "open_frac": 0.0,
+   "p10_h": 59.4,
+   "p25_h": 98.4,
+   "p50_h": 217.3,
+   "p75_h": 405.5,
+   "p90_h": 620.3
+  },
+  "HEAT/HOT WATER": {
+   "n": 579,
+   "closed": 579,
+   "open_frac": 0.0,
+   "p10_h": 20.4,
+   "p25_h": 37.0,
+   "p50_h": 68.0,
+   "p75_h": 100.0,
+   "p90_h": 135.1
+  },
+  "Storm": {
+   "n": 525,
+   "closed": 525,
+   "open_frac": 0.0,
+   "p10_h": 0.0,
+   "p25_h": 4.6,
+   "p50_h": 20.6,
+   "p75_h": 39.6,
+   "p90_h": 66.3
+  },
+  "Water System": {
+   "n": 382,
+   "closed": 382,
+   "open_frac": 0.0,
+   "p10_h": 0.2,
+   "p25_h": 0.5,
+   "p50_h": 14.1,
+   "p75_h": 91.6,
+   "p90_h": 312.7
+  },
+  "Missed Collection (All Materials)": {
+   "n": 363,
+   "closed": 363,
+   "open_frac": 0.0,
+   "p10_h": 14.3,
+   "p25_h": 21.5,
+   "p50_h": 38.1,
+   "p75_h": 69.7,
+   "p90_h": 122.0
+  },
+  "Damaged Tree": {
+   "n": 360,
+   "closed": 315,
+   "open_frac": 0.125,
+   "p10_h": 15.7,
+   "p25_h": 39.0,
+   "p50_h": 502.6,
+   "p75_h": 2987.1,
+   "p90_h": 6003.8
+  },
+  "PAINT/PLASTER": {
+   "n": 348,
+   "closed": 348,
+   "open_frac": 0.0,
+   "p10_h": 45.8,
+   "p25_h": 91.6,
+   "p50_h": 171.1,
+   "p75_h": 358.0,
+   "p90_h": 536.8
+  },
+  "PLUMBING": {
+   "n": 338,
+   "closed": 338,
+   "open_frac": 0.0,
+   "p10_h": 55.0,
+   "p25_h": 95.7,
+   "p50_h": 164.7,
+   "p75_h": 354.7,
+   "p90_h": 541.9
+  },
+  "Traffic Signal Condition": {
+   "n": 336,
+   "closed": 336,
+   "open_frac": 0.0,
+   "p10_h": 0.8,
+   "p25_h": 1.5,
+   "p50_h": 7.2,
+   "p75_h": 47.9,
+   "p90_h": 506.7
+  },
+  "WATER LEAK": {
+   "n": 309,
+   "closed": 309,
+   "open_frac": 0.0,
+   "p10_h": 49.4,
+   "p25_h": 118.9,
+   "p50_h": 246.6,
+   "p75_h": 430.7,
+   "p90_h": 598.6
+  },
+  "Building/Use": {
+   "n": 303,
+   "closed": 303,
+   "open_frac": 0.0,
+   "p10_h": 105.5,
+   "p25_h": 1108.7,
+   "p50_h": 3945.7,
+   "p75_h": 8694.4,
+   "p90_h": 10330.4
+  },
+  "Missed Collection": {
+   "n": 284,
+   "closed": 284,
+   "open_frac": 0.0,
+   "p10_h": 64.8,
+   "p25_h": 101.5,
+   "p50_h": 168.5,
+   "p75_h": 267.9,
+   "p90_h": 562.7
+  },
+  "General Construction/Plumbing": {
+   "n": 266,
+   "closed": 266,
+   "open_frac": 0.0,
+   "p10_h": 0.0,
+   "p25_h": 14.4,
+   "p50_h": 488.5,
+   "p75_h": 1162.6,
+   "p90_h": 4667.5
+  },
+  "Dirty Conditions": {
+   "n": 266,
+   "closed": 266,
+   "open_frac": 0.0,
+   "p10_h": 18.9,
+   "p25_h": 25.1,
+   "p50_h": 48.9,
+   "p75_h": 90.0,
+   "p90_h": 146.4
+  },
+  "Street Light Condition": {
+   "n": 258,
+   "closed": 225,
+   "open_frac": 0.128,
+   "p10_h": 0.0,
+   "p25_h": 6.9,
+   "p50_h": 40.6,
+   "p75_h": 263.6,
+   "p90_h": 1317.4
+  },
+  "Rodent": {
+   "n": 247,
+   "closed": 246,
+   "open_frac": 0.004,
+   "p10_h": 0.0,
+   "p25_h": 0.0,
+   "p50_h": 0.0,
+   "p75_h": 541.7,
+   "p90_h": 1544.3
+  },
+  "DOOR/WINDOW": {
+   "n": 220,
+   "closed": 220,
+   "open_frac": 0.0,
+   "p10_h": 55.6,
+   "p25_h": 95.7,
+   "p50_h": 197.0,
+   "p75_h": 402.6,
+   "p90_h": 507.5
+  },
+  "Dirty Condition": {
+   "n": 211,
+   "closed": 211,
+   "open_frac": 0.0,
+   "p10_h": 43.4,
+   "p25_h": 73.1,
+   "p50_h": 120.6,
+   "p75_h": 172.3,
+   "p90_h": 253.4
+  },
+  "Elevator": {
+   "n": 210,
+   "closed": 210,
+   "open_frac": 0.0,
+   "p10_h": 85.9,
+   "p25_h": 244.1,
+   "p50_h": 1207.5,
+   "p75_h": 1481.8,
+   "p90_h": 1665.7
+  },
+  "GENERAL": {
+   "n": 159,
+   "closed": 159,
+   "open_frac": 0.0,
+   "p10_h": 44.7,
+   "p25_h": 74.3,
+   "p50_h": 178.4,
+   "p75_h": 378.0,
+   "p90_h": 544.8
+  },
+  "Overgrown Tree/Branches": {
+   "n": 153,
+   "closed": 118,
+   "open_frac": 0.229,
+   "p10_h": 17.9,
+   "p25_h": 44.7,
+   "p50_h": 214.6,
+   "p75_h": 18271.3,
+   "p90_h": 32417.4
+  },
+  "FLOORING/STAIRS": {
+   "n": 130,
+   "closed": 130,
+   "open_frac": 0.0,
+   "p10_h": 70.9,
+   "p25_h": 114.9,
+   "p50_h": 280.9,
+   "p75_h": 462.2,
+   "p90_h": 706.7
+  },
+  "Sanitation Condition": {
+   "n": 126,
+   "closed": 125,
+   "open_frac": 0.008,
+   "p10_h": 2.7,
+   "p25_h": 17.3,
+   "p50_h": 27.3,
+   "p75_h": 51.3,
+   "p90_h": 110.6
+  },
+  "ELECTRIC": {
+   "n": 120,
+   "closed": 120,
+   "open_frac": 0.0,
+   "p10_h": 43.2,
+   "p25_h": 69.1,
+   "p50_h": 168.1,
+   "p75_h": 428.2,
+   "p90_h": 661.3
+  },
+  "APPLIANCE": {
+   "n": 113,
+   "closed": 113,
+   "open_frac": 0.0,
+   "p10_h": 74.3,
+   "p25_h": 120.8,
+   "p50_h": 337.8,
+   "p75_h": 587.3,
+   "p90_h": 3469.5
+  },
+  "Illegal Dumping": {
+   "n": 97,
+   "closed": 97,
+   "open_frac": 0.0,
+   "p10_h": 42.7,
+   "p25_h": 93.1,
+   "p50_h": 183.7,
+   "p75_h": 306.8,
+   "p90_h": 1078.2
+  },
+  "SAFETY": {
+   "n": 84,
+   "closed": 84,
+   "open_frac": 0.0,
+   "p10_h": 54.5,
+   "p25_h": 94.9,
+   "p50_h": 268.4,
+   "p75_h": 483.0,
+   "p90_h": 716.9
+  },
+  "Plumbing": {
+   "n": 47,
+   "closed": 47,
+   "open_frac": 0.0,
+   "p10_h": 65.2,
+   "p25_h": 461.0,
+   "p50_h": 1160.6,
+   "p75_h": 1569.8,
+   "p90_h": 2217.7
+  },
+  "Air Quality": {
+   "n": 34,
+   "closed": 34,
+   "open_frac": 0.0,
+   "p10_h": 7.6,
+   "p25_h": 24.8,
+   "p50_h": 57.8,
+   "p75_h": 92.8,
+   "p90_h": 120.9
+  },
+  "Indoor Air Quality": {
+   "n": 34,
+   "closed": 33,
+   "open_frac": 0.029,
+   "p10_h": 0.6,
+   "p25_h": 3.0,
+   "p50_h": 14.4,
+   "p75_h": 23.8,
+   "p90_h": 46.6
+  }
+ },
+ "descriptor": {
+  "Request Large Bulky Item Collection | Request Large Bulky Item Collection": {
+   "n": 2815,
+   "closed": 2815,
+   "open_frac": 0.0,
+   "p10_h": 30.0,
+   "p25_h": 37.1,
+   "p50_h": 77.2,
+   "p75_h": 110.7,
+   "p90_h": 170.6
+  },
+  "Sewer | Sewer Backup (Use Comments) (SA)": {
+   "n": 936,
+   "closed": 936,
+   "open_frac": 0.0,
+   "p10_h": 0.1,
+   "p25_h": 2.0,
+   "p50_h": 11.8,
+   "p75_h": 52.9,
+   "p90_h": 91.4
+  },
+  "Storm | 2S Bulk-Storm Related": {
+   "n": 525,
+   "closed": 525,
+   "open_frac": 0.0,
+   "p10_h": 0.0,
+   "p25_h": 4.6,
+   "p50_h": 20.6,
+   "p75_h": 39.6,
+   "p90_h": 66.3
+  },
+  "HEAT/HOT WATER | ENTIRE BUILDING": {
+   "n": 424,
+   "closed": 424,
+   "open_frac": 0.0,
+   "p10_h": 21.3,
+   "p25_h": 34.6,
+   "p50_h": 66.6,
+   "p75_h": 99.2,
+   "p90_h": 129.5
+  },
+  "Street Condition | Pothole": {
+   "n": 343,
+   "closed": 336,
+   "open_frac": 0.02,
+   "p10_h": 0.0,
+   "p25_h": 11.1,
+   "p50_h": 93.8,
+   "p75_h": 158.1,
+   "p90_h": 213.1
+  },
+  "UNSANITARY CONDITION | PESTS": {
+   "n": 320,
+   "closed": 320,
+   "open_frac": 0.0,
+   "p10_h": 56.3,
+   "p25_h": 94.2,
+   "p50_h": 214.2,
+   "p75_h": 407.4,
+   "p90_h": 772.4
+  },
+  "Building/Use | Illegal Conversion Of Residential Building/Space": {
+   "n": 231,
+   "closed": 231,
+   "open_frac": 0.0,
+   "p10_h": 466.1,
+   "p25_h": 1285.9,
+   "p50_h": 6992.5,
+   "p75_h": 9110.0,
+   "p90_h": 10663.1
+  },
+  "UNSANITARY CONDITION | MOLD": {
+   "n": 229,
+   "closed": 229,
+   "open_frac": 0.0,
+   "p10_h": 63.2,
+   "p25_h": 97.3,
+   "p50_h": 200.3,
+   "p75_h": 362.0,
+   "p90_h": 497.6
+  },
+  "Missed Collection (All Materials) | 1 Missed Collection": {
+   "n": 223,
+   "closed": 223,
+   "open_frac": 0.0,
+   "p10_h": 14.1,
+   "p25_h": 19.8,
+   "p50_h": 38.6,
+   "p75_h": 70.6,
+   "p90_h": 123.2
+  },
+  "Street Light Condition | Street Light Out": {
+   "n": 197,
+   "closed": 173,
+   "open_frac": 0.122,
+   "p10_h": 0.0,
+   "p25_h": 10.8,
+   "p50_h": 38.7,
+   "p75_h": 263.6,
+   "p90_h": 1272.0
+  },
+  "Dirty Condition | Trash": {
+   "n": 192,
+   "closed": 192,
+   "open_frac": 0.0,
+   "p10_h": 31.9,
+   "p25_h": 72.5,
+   "p50_h": 117.4,
+   "p75_h": 169.4,
+   "p90_h": 253.3
+  },
+  "PAINT/PLASTER | WALL": {
+   "n": 177,
+   "closed": 177,
+   "open_frac": 0.0,
+   "p10_h": 50.7,
+   "p25_h": 103.8,
+   "p50_h": 206.1,
+   "p75_h": 404.0,
+   "p90_h": 661.3
+  },
+  "Sewer | Catch Basin Clogged/Flooding (Use Comments) (SC)": {
+   "n": 166,
+   "closed": 166,
+   "open_frac": 0.0,
+   "p10_h": 17.1,
+   "p25_h": 25.3,
+   "p50_h": 91.7,
+   "p75_h": 189.3,
+   "p90_h": 308.9
+  },
+  "WATER LEAK | HEAVY FLOW": {
+   "n": 159,
+   "closed": 159,
+   "open_frac": 0.0,
+   "p10_h": 48.2,
+   "p25_h": 118.4,
+   "p50_h": 237.1,
+   "p75_h": 430.7,
+   "p90_h": 591.7
+  },
+  "HEAT/HOT WATER | APARTMENT ONLY": {
+   "n": 155,
+   "closed": 155,
+   "open_frac": 0.0,
+   "p10_h": 20.4,
+   "p25_h": 37.2,
+   "p50_h": 71.5,
+   "p75_h": 107.0,
+   "p90_h": 143.1
+  },
+  "Sewer | Street Flooding (SJ)": {
+   "n": 155,
+   "closed": 155,
+   "open_frac": 0.0,
+   "p10_h": 0.5,
+   "p25_h": 34.2,
+   "p50_h": 111.4,
+   "p75_h": 157.4,
+   "p90_h": 178.8
+  },
+  "PLUMBING | WATER SUPPLY": {
+   "n": 154,
+   "closed": 154,
+   "open_frac": 0.0,
+   "p10_h": 52.9,
+   "p25_h": 97.1,
+   "p50_h": 121.8,
+   "p75_h": 274.6,
+   "p90_h": 410.1
+  },
+  "PAINT/PLASTER | CEILING": {
+   "n": 154,
+   "closed": 154,
+   "open_frac": 0.0,
+   "p10_h": 43.9,
+   "p25_h": 76.1,
+   "p50_h": 139.8,
+   "p75_h": 311.7,
+   "p90_h": 435.6
+  },
+  "Damaged Tree | Branch or Limb Has Fallen Down": {
+   "n": 154,
+   "closed": 137,
+   "open_frac": 0.11,
+   "p10_h": 17.8,
+   "p25_h": 47.5,
+   "p50_h": 646.6,
+   "p75_h": 3267.1,
+   "p90_h": 4220.2
+  },
+  "Street Condition | Cave-in": {
+   "n": 151,
+   "closed": 151,
+   "open_frac": 0.0,
+   "p10_h": 135.8,
+   "p25_h": 283.6,
+   "p50_h": 429.0,
+   "p75_h": 484.4,
+   "p90_h": 523.8
+  },
+  "Traffic Signal Condition | Controller": {
+   "n": 146,
+   "closed": 146,
+   "open_frac": 0.0,
+   "p10_h": 0.7,
+   "p25_h": 1.1,
+   "p50_h": 2.0,
+   "p75_h": 10.0,
+   "p90_h": 540.0
+  },
+  "Rodent | Rat Sighting": {
+   "n": 141,
+   "closed": 140,
+   "open_frac": 0.007,
+   "p10_h": 0.0,
+   "p25_h": 0.0,
+   "p50_h": 0.0,
+   "p75_h": 1178.0,
+   "p90_h": 1587.5
+  },
+  "Dirty Conditions | E3 Dirty Sidewalk": {
+   "n": 127,
+   "closed": 127,
+   "open_frac": 0.0,
+   "p10_h": 18.9,
+   "p25_h": 26.0,
+   "p50_h": 46.3,
+   "p75_h": 86.9,
+   "p90_h": 137.9
+  },
+  "FLOORING/STAIRS | FLOOR": {
+   "n": 126,
+   "closed": 126,
+   "open_frac": 0.0,
+   "p10_h": 70.9,
+   "p25_h": 114.5,
+   "p50_h": 264.7,
+   "p75_h": 462.2,
+   "p90_h": 711.5
+  },
+  "Missed Collection | Trash": {
+   "n": 124,
+   "closed": 124,
+   "open_frac": 0.0,
+   "p10_h": 49.5,
+   "p25_h": 93.1,
+   "p50_h": 175.2,
+   "p75_h": 268.3,
+   "p90_h": 611.4
+  },
+  "Elevator | Elevator - Single Device On Property/No Alternate Service": {
+   "n": 110,
+   "closed": 110,
+   "open_frac": 0.0,
+   "p10_h": 156.4,
+   "p25_h": 345.0,
+   "p50_h": 1330.4,
+   "p75_h": 1499.5,
+   "p90_h": 1665.7
+  },
+  "DOOR/WINDOW | DOOR": {
+   "n": 103,
+   "closed": 103,
+   "open_frac": 0.0,
+   "p10_h": 65.2,
+   "p25_h": 96.7,
+   "p50_h": 219.9,
+   "p75_h": 387.6,
+   "p90_h": 489.2
+  },
+  "WATER LEAK | SLOW LEAK": {
+   "n": 101,
+   "closed": 101,
+   "open_frac": 0.0,
+   "p10_h": 73.4,
+   "p25_h": 141.5,
+   "p50_h": 255.7,
+   "p75_h": 503.6,
+   "p90_h": 666.1
+  },
+  "Elevator | Elevator - Multiple Devices On Property": {
+   "n": 100,
+   "closed": 100,
+   "open_frac": 0.0,
+   "p10_h": 40.5,
+   "p25_h": 155.9,
+   "p50_h": 1114.3,
+   "p75_h": 1451.9,
+   "p90_h": 1657.3
+  },
+  "UNSANITARY CONDITION | GARBAGE/RECYCLING STORAGE": {
+   "n": 97,
+   "closed": 97,
+   "open_frac": 0.0,
+   "p10_h": 67.3,
+   "p25_h": 126.0,
+   "p50_h": 265.2,
+   "p75_h": 452.5,
+   "p90_h": 667.3
+  },
+  "DOOR/WINDOW | WINDOW FRAME": {
+   "n": 92,
+   "closed": 92,
+   "open_frac": 0.0,
+   "p10_h": 55.6,
+   "p25_h": 95.7,
+   "p50_h": 195.9,
+   "p75_h": 405.5,
+   "p90_h": 489.1
+  },
+  "General Construction/Plumbing | Building Permit - None": {
+   "n": 87,
+   "closed": 87,
+   "open_frac": 0.0,
+   "p10_h": 80.5,
+   "p25_h": 373.8,
+   "p50_h": 513.9,
+   "p75_h": 3494.9,
+   "p90_h": 7236.6
+  },
+  "Illegal Dumping | Removal Request": {
+   "n": 85,
+   "closed": 85,
+   "open_frac": 0.0,
+   "p10_h": 62.7,
+   "p25_h": 138.4,
+   "p50_h": 196.0,
+   "p75_h": 316.9,
+   "p90_h": 1174.2
+  },
+  "Damaged Tree | Branch Cracked and Will Fall": {
+   "n": 81,
+   "closed": 67,
+   "open_frac": 0.173,
+   "p10_h": 11.1,
+   "p25_h": 49.7,
+   "p50_h": 502.6,
+   "p75_h": 3336.4,
+   "p90_h": 12618.4
+  },
+  "Sanitation Condition | 15 Street Cond/Dump-Out/Drop-Off": {
+   "n": 73,
+   "closed": 73,
+   "open_frac": 0.0,
+   "p10_h": 3.3,
+   "p25_h": 20.1,
+   "p50_h": 41.1,
+   "p75_h": 66.4,
+   "p90_h": 118.8
+  },
+  "Water System | Leak (Use Comments) (WA2)": {
+   "n": 72,
+   "closed": 72,
+   "open_frac": 0.0,
+   "p10_h": 0.2,
+   "p25_h": 0.4,
+   "p50_h": 11.9,
+   "p75_h": 154.9,
+   "p90_h": 467.4
+  },
+  "PLUMBING | BASIN/SINK": {
+   "n": 69,
+   "closed": 69,
+   "open_frac": 0.0,
+   "p10_h": 71.2,
+   "p25_h": 117.1,
+   "p50_h": 214.7,
+   "p75_h": 431.8,
+   "p90_h": 644.0
+  },
+  "Overgrown Tree/Branches | Hitting Building": {
+   "n": 67,
+   "closed": 49,
+   "open_frac": 0.269,
+   "p10_h": 64.5,
+   "p25_h": 161.5,
+   "p50_h": 7461.9,
+   "p75_h": 21353.5,
+   "p90_h": 33528.4
+  },
+  "Street Condition | Defective Hardware": {
+   "n": 64,
+   "closed": 64,
+   "open_frac": 0.0,
+   "p10_h": 169.6,
+   "p25_h": 288.2,
+   "p50_h": 427.2,
+   "p75_h": 455.6,
+   "p90_h": 506.5
+  },
+  "Street Condition | Failed Street Repair": {
+   "n": 62,
+   "closed": 62,
+   "open_frac": 0.0,
+   "p10_h": 169.7,
+   "p25_h": 358.0,
+   "p50_h": 475.4,
+   "p75_h": 603.3,
+   "p90_h": 702.6
+  },
+  "Rodent | Condition Attracting Rodents": {
+   "n": 61,
+   "closed": 61,
+   "open_frac": 0.0,
+   "p10_h": 0.0,
+   "p25_h": 0.0,
+   "p50_h": 0.0,
+   "p75_h": 546.4,
+   "p90_h": 1469.0
+  },
+  "Water System | Hydrant Running (WC3)": {
+   "n": 61,
+   "closed": 61,
+   "open_frac": 0.0,
+   "p10_h": 0.1,
+   "p25_h": 0.3,
+   "p50_h": 5.5,
+   "p75_h": 35.0,
+   "p90_h": 71.3
+  },
+  "APPLIANCE | ELECTRIC/GAS RANGE": {
+   "n": 60,
+   "closed": 60,
+   "open_frac": 0.0,
+   "p10_h": 72.0,
+   "p25_h": 119.9,
+   "p50_h": 269.2,
+   "p75_h": 443.9,
+   "p90_h": 1632.4
+  },
+  "PLUMBING | BATHTUB/SHOWER": {
+   "n": 58,
+   "closed": 58,
+   "open_frac": 0.0,
+   "p10_h": 55.0,
+   "p25_h": 94.4,
+   "p50_h": 196.0,
+   "p75_h": 429.4,
+   "p90_h": 548.6
+  },
+  "Damaged Tree | Tree Leaning/Uprooted": {
+   "n": 54,
+   "closed": 50,
+   "open_frac": 0.074,
+   "p10_h": 13.9,
+   "p25_h": 24.3,
+   "p50_h": 320.8,
+   "p75_h": 2052.9,
+   "p90_h": 3483.0
+  },
+  "APPLIANCE | REFRIGERATOR": {
+   "n": 53,
+   "closed": 53,
+   "open_frac": 0.0,
+   "p10_h": 74.3,
+   "p25_h": 139.8,
+   "p50_h": 379.9,
+   "p75_h": 788.0,
+   "p90_h": 3786.6
+  },
+  "Water System | Hydrant Leaking (WC1)": {
+   "n": 52,
+   "closed": 52,
+   "open_frac": 0.0,
+   "p10_h": 0.2,
+   "p25_h": 0.5,
+   "p50_h": 26.4,
+   "p75_h": 107.2,
+   "p90_h": 461.9
+  },
+  "UNSANITARY CONDITION | SEWAGE": {
+   "n": 51,
+   "closed": 51,
+   "open_frac": 0.0,
+   "p10_h": 63.2,
+   "p25_h": 136.5,
+   "p50_h": 303.0,
+   "p75_h": 500.4,
+   "p90_h": 614.7
+  },
+  "GENERAL | CABINET": {
+   "n": 51,
+   "closed": 51,
+   "open_frac": 0.0,
+   "p10_h": 49.0,
+   "p25_h": 75.3,
+   "p50_h": 171.1,
+   "p75_h": 388.7,
+   "p90_h": 700.5
+  },
+  "WATER LEAK | DAMP SPOT": {
+   "n": 49,
+   "closed": 49,
+   "open_frac": 0.0,
+   "p10_h": 44.7,
+   "p25_h": 93.1,
+   "p50_h": 230.8,
+   "p75_h": 381.3,
+   "p90_h": 503.4
+  },
+  "Water System | Excessive Water In Basement (WEFB)": {
+   "n": 46,
+   "closed": 46,
+   "open_frac": 0.0,
+   "p10_h": 0.5,
+   "p25_h": 3.5,
+   "p50_h": 24.5,
+   "p75_h": 37.3,
+   "p90_h": 39.0
+  },
+  "ELECTRIC | POWER OUTAGE": {
+   "n": 44,
+   "closed": 44,
+   "open_frac": 0.0,
+   "p10_h": 50.3,
+   "p25_h": 68.8,
+   "p50_h": 97.8,
+   "p75_h": 149.0,
+   "p90_h": 421.8
+  },
+  "Missed Collection (All Materials) | 1R Missed Recycling-All Materials": {
+   "n": 44,
+   "closed": 44,
+   "open_frac": 0.0,
+   "p10_h": 19.1,
+   "p25_h": 23.2,
+   "p50_h": 45.9,
+   "p75_h": 72.1,
+   "p90_h": 121.2
+  },
+  "Damaged Tree | Entire Tree Has Fallen Down": {
+   "n": 41,
+   "closed": 37,
+   "open_frac": 0.098,
+   "p10_h": 4.7,
+   "p25_h": 24.9,
+   "p50_h": 43.7,
+   "p75_h": 121.4,
+   "p90_h": 547.6
+  },
+  "PLUMBING | TOILET": {
+   "n": 41,
+   "closed": 41,
+   "open_frac": 0.0,
+   "p10_h": 54.5,
+   "p25_h": 92.9,
+   "p50_h": 195.4,
+   "p75_h": 500.2,
+   "p90_h": 2571.1
+  },
+  "GENERAL | COOKING GAS": {
+   "n": 41,
+   "closed": 41,
+   "open_frac": 0.0,
+   "p10_h": 58.7,
+   "p25_h": 98.6,
+   "p50_h": 212.5,
+   "p75_h": 363.2,
+   "p90_h": 410.1
+  },
+  "Water System | Dirty Water (WE)": {
+   "n": 41,
+   "closed": 41,
+   "open_frac": 0.0,
+   "p10_h": 1.6,
+   "p25_h": 75.8,
+   "p50_h": 155.0,
+   "p75_h": 215.3,
+   "p90_h": 350.9
+  },
+  "Dirty Conditions | E5 Loose Rubbish": {
+   "n": 41,
+   "closed": 41,
+   "open_frac": 0.0,
+   "p10_h": 23.8,
+   "p25_h": 45.3,
+   "p50_h": 87.5,
+   "p75_h": 88.2,
+   "p90_h": 169.1
+  },
+  "Missed Collection | Bulky Trash": {
+   "n": 40,
+   "closed": 40,
+   "open_frac": 0.0,
+   "p10_h": 95.0,
+   "p25_h": 107.7,
+   "p50_h": 166.7,
+   "p75_h": 263.9,
+   "p90_h": 327.7
+  },
+  "Missed Collection | Recycling - Paper/Metal/Glass/Rigid Plastic": {
+   "n": 40,
+   "closed": 40,
+   "open_frac": 0.0,
+   "p10_h": 43.8,
+   "p25_h": 113.6,
+   "p50_h": 143.6,
+   "p75_h": 238.1,
+   "p90_h": 318.6
+  },
+  "Missed Collection (All Materials) | 1RG Missed Recycling Paper": {
+   "n": 38,
+   "closed": 38,
+   "open_frac": 0.0,
+   "p10_h": 2.8,
+   "p25_h": 21.7,
+   "p50_h": 26.4,
+   "p75_h": 45.1,
+   "p90_h": 122.3
+  },
+  "Plumbing | Failure To Retain Water/Improper Drainage- (LL103/89)": {
+   "n": 37,
+   "closed": 37,
+   "open_frac": 0.0,
+   "p10_h": 205.0,
+   "p25_h": 696.0,
+   "p50_h": 1260.0,
+   "p75_h": 1550.1,
+   "p90_h": 2171.3
+  },
+  "Sanitation Condition | 12 Dead Animals": {
+   "n": 37,
+   "closed": 37,
+   "open_frac": 0.0,
+   "p10_h": 0.0,
+   "p25_h": 4.3,
+   "p50_h": 19.7,
+   "p75_h": 28.5,
+   "p90_h": 51.9
+  },
+  "Dirty Conditions | E3A Dirty Area/Alleyway": {
+   "n": 36,
+   "closed": 36,
+   "open_frac": 0.0,
+   "p10_h": 18.7,
+   "p25_h": 20.3,
+   "p50_h": 28.0,
+   "p75_h": 96.1,
+   "p90_h": 209.4
+  },
+  "Water System | Possible Water Main Break (Use Comments) (WA1)": {
+   "n": 35,
+   "closed": 35,
+   "open_frac": 0.0,
+   "p10_h": 0.1,
+   "p25_h": 0.1,
+   "p50_h": 0.4,
+   "p75_h": 1.7,
+   "p90_h": 97.5
+  },
+  "Water System | Hydrant Running Full (WA4)": {
+   "n": 32,
+   "closed": 32,
+   "open_frac": 0.0,
+   "p10_h": 0.1,
+   "p25_h": 0.2,
+   "p50_h": 7.3,
+   "p75_h": 31.1,
+   "p90_h": 67.2
+  },
+  "ELECTRIC | OUTLET/SWITCH": {
+   "n": 30,
+   "closed": 30,
+   "open_frac": 0.0,
+   "p10_h": 42.9,
+   "p25_h": 54.5,
+   "p50_h": 361.4,
+   "p75_h": 544.8,
+   "p90_h": 680.2
+  },
+  "Traffic Signal Condition | Pedestrian Signal": {
+   "n": 30,
+   "closed": 30,
+   "open_frac": 0.0,
+   "p10_h": 1.3,
+   "p25_h": 18.8,
+   "p50_h": 44.7,
+   "p75_h": 242.9,
+   "p90_h": 2823.7
+  },
+  "GENERAL | BELL/BUZZER/INTERCOM": {
+   "n": 30,
+   "closed": 30,
+   "open_frac": 0.0,
+   "p10_h": 55.6,
+   "p25_h": 107.9,
+   "p50_h": 326.0,
+   "p75_h": 501.0,
+   "p90_h": 550.7
+  },
+  "Missed Collection (All Materials) | 1RB Missed Recycling - M/G/Pl": {
+   "n": 27,
+   "closed": 27,
+   "open_frac": 0.0,
+   "p10_h": 4.3,
+   "p25_h": 20.1,
+   "p50_h": 26.2,
+   "p75_h": 46.6,
+   "p90_h": 171.1
+  },
+  "Overgrown Tree/Branches | Dead Branches in Tree": {
+   "n": 27,
+   "closed": 13,
+   "open_frac": 0.519,
+   "p10_h": 27.7,
+   "p25_h": 2586.7,
+   "p50_h": 16320.4,
+   "p75_h": 16864.5,
+   "p90_h": 22199.9
+  },
+  "Missed Collection | Bulky Recycling": {
+   "n": 27,
+   "closed": 27,
+   "open_frac": 0.0,
+   "p10_h": 68.6,
+   "p25_h": 96.5,
+   "p50_h": 198.4,
+   "p75_h": 293.5,
+   "p90_h": 738.1
+  },
+  "General Construction/Plumbing | Building Shaking/Vibrating/Structural Stability": {
+   "n": 26,
+   "closed": 26,
+   "open_frac": 0.0,
+   "p10_h": 0.0,
+   "p25_h": 0.0,
+   "p50_h": 6.5,
+   "p75_h": 14.7,
+   "p90_h": 37.2
+  },
+  "Damaged Tree | Tree Alive - in Poor Condition": {
+   "n": 26,
+   "closed": 22,
+   "open_frac": 0.154,
+   "p10_h": 674.3,
+   "p25_h": 1849.6,
+   "p50_h": 6763.9,
+   "p75_h": 16921.7,
+   "p90_h": 17332.4
+  },
+  "Rodent | Signs of Rodents": {
+   "n": 26,
+   "closed": 26,
+   "open_frac": 0.0,
+   "p10_h": 0.0,
+   "p25_h": 0.0,
+   "p50_h": 0.0,
+   "p75_h": 0.0,
+   "p90_h": 1337.9
+  },
+  "Building/Use | Illegal. Commercial Use In Resident Zone": {
+   "n": 25,
+   "closed": 25,
+   "open_frac": 0.0,
+   "p10_h": 28.0,
+   "p25_h": 630.5,
+   "p50_h": 922.4,
+   "p75_h": 1500.6,
+   "p90_h": 2140.8
+  },
+  "Missed Collection | Recycling - Metal/Glass/Rigid Plastic": {
+   "n": 23,
+   "closed": 23,
+   "open_frac": 0.0,
+   "p10_h": 119.2,
+   "p25_h": 125.8,
+   "p50_h": 192.3,
+   "p75_h": 343.1,
+   "p90_h": 698.7
+  },
+  "SAFETY | WINDOW GUARD BROKEN/MISSING": {
+   "n": 22,
+   "closed": 22,
+   "open_frac": 0.0,
+   "p10_h": 86.6,
+   "p25_h": 94.9,
+   "p50_h": 209.2,
+   "p75_h": 502.0,
+   "p90_h": 716.9
+  },
+  "ELECTRIC | NO LIGHTING": {
+   "n": 22,
+   "closed": 22,
+   "open_frac": 0.0,
+   "p10_h": 43.2,
+   "p25_h": 92.8,
+   "p50_h": 299.2,
+   "p75_h": 451.5,
+   "p90_h": 661.3
+  },
+  "Sewer | Catch Basin Sunken/Damaged/Raised (SC1)": {
+   "n": 22,
+   "closed": 18,
+   "open_frac": 0.182,
+   "p10_h": 19.3,
+   "p25_h": 21.7,
+   "p50_h": 93.2,
+   "p75_h": 220.0,
+   "p90_h": 790.4
+  },
+  "Street Condition | Plate Condition - Noisy": {
+   "n": 21,
+   "closed": 21,
+   "open_frac": 0.0,
+   "p10_h": 25.1,
+   "p25_h": 27.9,
+   "p50_h": 74.0,
+   "p75_h": 94.3,
+   "p90_h": 310.6
+  },
+  "SAFETY | SMOKE DETECTOR": {
+   "n": 21,
+   "closed": 21,
+   "open_frac": 0.0,
+   "p10_h": 54.5,
+   "p25_h": 94.9,
+   "p50_h": 195.6,
+   "p75_h": 451.8,
+   "p90_h": 587.3
+  },
+  "SAFETY | CARBON MONOXIDE DETECTOR": {
+   "n": 21,
+   "closed": 21,
+   "open_frac": 0.0,
+   "p10_h": 90.4,
+   "p25_h": 161.6,
+   "p50_h": 362.0,
+   "p75_h": 544.8,
+   "p90_h": 789.0
+  },
+  "Dirty Conditions | E1 Improper Disposal": {
+   "n": 21,
+   "closed": 21,
+   "open_frac": 0.0,
+   "p10_h": 22.0,
+   "p25_h": 26.3,
+   "p50_h": 59.6,
+   "p75_h": 98.9,
+   "p90_h": 121.9
+  },
+  "General Construction/Plumbing | Curb Cut/Driveway/Carport - Illegal": {
+   "n": 21,
+   "closed": 21,
+   "open_frac": 0.0,
+   "p10_h": 373.9,
+   "p25_h": 482.9,
+   "p50_h": 1443.1,
+   "p75_h": 3662.9,
+   "p90_h": 25399.0
+  },
+  "Missed Collection | Recycling - Paper": {
+   "n": 21,
+   "closed": 21,
+   "open_frac": 0.0,
+   "p10_h": 24.1,
+   "p25_h": 54.5,
+   "p50_h": 136.8,
+   "p75_h": 283.5,
+   "p90_h": 340.6
+  }
+ },
+ "agency": {
+  "DSNY": {
+   "n": 4687,
+   "closed": 4686,
+   "open_frac": 0.0,
+   "p10_h": 20.7,
+   "p25_h": 31.9,
+   "p50_h": 63.3,
+   "p75_h": 112.9,
+   "p90_h": 180.5
+  },
+  "HPD": {
+   "n": 3097,
+   "closed": 3097,
+   "open_frac": 0.0,
+   "p10_h": 42.9,
+   "p25_h": 75.3,
+   "p50_h": 145.6,
+   "p75_h": 362.0,
+   "p90_h": 571.1
+  },
+  "DEP": {
+   "n": 1779,
+   "closed": 1773,
+   "open_frac": 0.003,
+   "p10_h": 0.2,
+   "p25_h": 2.2,
+   "p50_h": 23.2,
+   "p75_h": 87.2,
+   "p90_h": 164.4
+  },
+  "DOT": {
+   "n": 1314,
+   "closed": 1273,
+   "open_frac": 0.031,
+   "p10_h": 0.5,
+   "p25_h": 9.8,
+   "p50_h": 96.6,
+   "p75_h": 330.4,
+   "p90_h": 523.4
+  },
+  "DOB": {
+   "n": 841,
+   "closed": 841,
+   "open_frac": 0.0,
+   "p10_h": 11.8,
+   "p25_h": 244.1,
+   "p50_h": 1160.6,
+   "p75_h": 2217.7,
+   "p90_h": 8862.1
+  },
+  "DPR": {
+   "n": 513,
+   "closed": 433,
+   "open_frac": 0.156,
+   "p10_h": 17.0,
+   "p25_h": 43.7,
+   "p50_h": 409.5,
+   "p75_h": 3551.8,
+   "p90_h": 16901.7
+  },
+  "DOHMH": {
+   "n": 281,
+   "closed": 279,
+   "open_frac": 0.007,
+   "p10_h": 0.0,
+   "p25_h": 0.0,
+   "p50_h": 0.0,
+   "p75_h": 157.5,
+   "p90_h": 1536.4
+  }
+ },
+ "flood_p50_by_week": {
+  "week_0": {
+   "n": 1559,
+   "closed": 1559,
+   "open_frac": 0.0,
+   "p10_h": 0.1,
+   "p25_h": 5.4,
+   "p50_h": 28.4,
+   "p75_h": 92.8,
+   "p90_h": 210.9
+  },
+  "week_1": {
+   "n": 378,
+   "closed": 378,
+   "open_frac": 0.0,
+   "p10_h": 0.8,
+   "p25_h": 4.0,
+   "p50_h": 21.5,
+   "p75_h": 70.9,
+   "p90_h": 263.0
+  },
+  "week_2": {
+   "n": 215,
+   "closed": 215,
+   "open_frac": 0.0,
+   "p10_h": 0.3,
+   "p25_h": 1.9,
+   "p50_h": 24.4,
+   "p75_h": 94.3,
+   "p90_h": 360.9
+  },
+  "week_3": {
+   "n": 159,
+   "closed": 159,
+   "open_frac": 0.0,
+   "p10_h": 0.2,
+   "p25_h": 1.8,
+   "p50_h": 24.7,
+   "p75_h": 154.9,
+   "p90_h": 356.7
+  },
+  "week_4": {
+   "n": 149,
+   "closed": 149,
+   "open_frac": 0.0,
+   "p10_h": 0.1,
+   "p25_h": 0.8,
+   "p50_h": 4.5,
+   "p75_h": 117.1,
+   "p90_h": 334.4
+  },
+  "week_5": {
+   "n": 113,
+   "closed": 113,
+   "open_frac": 0.0,
+   "p10_h": 0.6,
+   "p25_h": 2.2,
+   "p50_h": 26.4,
+   "p75_h": 142.3,
+   "p90_h": 399.4
+  }
+ }
+}

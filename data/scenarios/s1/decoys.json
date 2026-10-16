@@ -1,0 +1,156 @@
+[
+ {
+  "decoy_id": "s1_d_01",
+  "scenario_id": "s1",
+  "household_id": "s1_h_011",
+  "kind": "restored_outage",
+  "event_ids": [
+   "s1_e_000295"
+  ],
+  "resolution_event_ids": [
+   "s1_e_000441"
+  ],
+  "reason": "No-power report; restored next day.",
+  "revision": "dbf318e41947f813"
+ },
+ {
+  "decoy_id": "s1_d_02",
+  "scenario_id": "s1",
+  "household_id": "s1_h_012",
+  "kind": "resolved_alarm",
+  "event_ids": [
+   "s1_e_000074"
+  ],
+  "resolution_event_ids": [
+   "s1_e_000110"
+  ],
+  "reason": "Trapped-in-basement report; evacuated within hours.",
+  "revision": "dbf318e41947f813"
+ },
+ {
+  "decoy_id": "s1_d_03",
+  "scenario_id": "s1",
+  "household_id": "s1_h_013",
+  "kind": "kept_promise",
+  "event_ids": [
+   "s1_e_000319"
+  ],
+  "resolution_event_ids": [
+   "s1_e_000782"
+  ],
+  "reason": "Hero mirror: son promised Tuesday and came (kept event logged quietly).",
+  "revision": "dbf318e41947f813"
+ },
+ {
+  "decoy_id": "s1_d_04",
+  "scenario_id": "s1",
+  "household_id": "s1_h_014",
+  "kind": "resolved_alarm",
+  "event_ids": [
+   "s1_e_000194"
+  ],
+  "resolution_event_ids": [
+   "s1_e_000693"
+  ],
+  "reason": "Misses calls for one day, answers the next and is fine.",
+  "revision": "dbf318e41947f813"
+ },
+ {
+  "decoy_id": "s1_d_05",
+  "scenario_id": "s1",
+  "household_id": "s1_h_015",
+  "kind": "resolved_alarm",
+  "event_ids": [
+   "s1_e_000526"
+  ],
+  "resolution_event_ids": [
+   "s1_e_000538"
+  ],
+  "reason": "Gas smell; no leak found the same evening.",
+  "revision": "dbf318e41947f813"
+ },
+ {
+  "decoy_id": "s1_d_06",
+  "scenario_id": "s1",
+  "household_id": "s1_h_016",
+  "kind": "resolved_alarm",
+  "event_ids": [
+   "s1_e_000291"
+  ],
+  "resolution_event_ids": [
+   "s1_e_000713"
+  ],
+  "reason": "Sewage with kids; cleared next day, corrected Sep 6.",
+  "revision": "dbf318e41947f813"
+ },
+ {
+  "decoy_id": "s1_d_07",
+  "scenario_id": "s1",
+  "household_id": "s1_h_017",
+  "kind": "kept_promise",
+  "event_ids": [
+   "s1_e_000573"
+  ],
+  "resolution_event_ids": [
+   "s1_e_000643"
+  ],
+  "reason": "No food; meals delivered the same afternoon.",
+  "revision": "dbf318e41947f813"
+ },
+ {
+  "decoy_id": "s1_d_08",
+  "scenario_id": "s1",
+  "household_id": "s1_h_018",
+  "kind": "resolved_alarm",
+  "event_ids": [
+   "s1_e_000946"
+  ],
+  "resolution_event_ids": [
+   "s1_e_000970"
+  ],
+  "reason": "Not seen for days; wellness check finds her fine.",
+  "revision": "dbf318e41947f813"
+ },
+ {
+  "decoy_id": "s1_d_09",
+  "scenario_id": "s1",
+  "household_id": "s1_h_019",
+  "kind": "namesake",
+  "event_ids": [
+   "s1_e_000703"
+  ],
+  "resolution_event_ids": [
+   "s1_e_000703"
+  ],
+  "reason": "Same surname, same building as s1_n_07, different unit (3F); fine.",
+  "revision": "dbf318e41947f813"
+ },
+ {
+  "decoy_id": "s1_d_10",
+  "scenario_id": "s1",
+  "household_id": "s1_h_020",
+  "kind": "restored_outage",
+  "event_ids": [
+   "s1_e_000320"
+  ],
+  "resolution_event_ids": [
+   "s1_e_000507"
+  ],
+  "reason": "Maria Gonzalez (1F): no power, restored next day.",
+  "revision": "dbf318e41947f813"
+ },
+ {
+  "decoy_id": "s1_d_11",
+  "scenario_id": "s1",
+  "household_id": "s1_h_021",
+  "kind": "namesake",
+  "event_ids": [
+   "s1_e_000704"
+  ],
+  "resolution_event_ids": [
+   "s1_e_000704"
+  ],
+  "reason": "Ana Gonzalez (basement), same building as s1_d_10; must not merge.",
+  "revision": "dbf318e41947f813"
+ }
+]

@@ -1,0 +1,15 @@
+[
+ {
+  "household_id": "sample_h_001",
+  "scenario_id": "sample",
+  "opt_in": true,
+  "language": "es",
+  "first_name": "Rosa",
+  "callback_number": "+1-555-0100",
+  "registered_ts": 43.2,
+  "name": "Rosa Delgado",
+  "address": "37-14 Plumstone Ave Bsmt",
+  "registered_by": "volunteer (with consent)",
+  "note": "Prefers Spanish."
+ }
+]

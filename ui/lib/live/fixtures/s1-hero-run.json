@@ -1,0 +1,690 @@
+{
+ "_note": "Recorded from a real local run: W5 Scenario 1 inputs, W1 runtime (main), W2 db/memory, W3 CallAgent (fake transport), decision made through the UI. Trimmed to Mrs. Chen's chain plus run-level goal/policy records.",
+ "run": {
+  "run_id": "s1-live-demo",
+  "scenario_id": "s1",
+  "day0": "2021-09-01T20:00:00-04:00",
+  "mode": "live"
+ },
+ "now_ts": 174.0,
+ "metrics": [
+  {
+   "_id": "metric-92a0e6a86b0d0592",
+   "name": "promises_open",
+   "run_id": "s1-live-demo",
+   "scope": "goal",
+   "ts": 24.0,
+   "value": 0.0
+  },
+  {
+   "_id": "metric-55adae194c3a8485",
+   "name": "promises_due",
+   "run_id": "s1-live-demo",
+   "scope": "goal",
+   "ts": 24.0,
+   "value": 0.0
+  },
+  {
+   "_id": "metric-ad1cd1b8df1ee143",
+   "name": "promises_met",
+   "run_id": "s1-live-demo",
+   "scope": "goal",
+   "ts": 24.0,
+   "value": 0.0
+  },
+  {
+   "_id": "metric-70186e3959271f89",
+   "name": "early_checkins",
+   "run_id": "s1-live-demo",
+   "scope": "goal",
+   "ts": 24.0,
+   "value": 0.0
+  },
+  {
+   "_id": "metric-0556ea5e5d2d5791",
+   "name": "silent_households",
+   "run_id": "s1-live-demo",
+   "scope": "goal",
+   "ts": 24.0,
+   "value": 0.0
+  },
+  {
+   "_id": "metric-92ab1b0e7cddc454",
+   "name": "promises_open",
+   "run_id": "s1-live-demo",
+   "scope": "goal",
+   "ts": 48.0,
+   "value": 1.0
+  },
+  {
+   "_id": "metric-0f42f831b3adeb3f",
+   "name": "promises_due",
+   "run_id": "s1-live-demo",
+   "scope": "goal",
+   "ts": 48.0,
+   "value": 0.0
+  },
+  {
+   "_id": "metric-ce73fe7a812e0246",
+   "name": "promises_met",
+   "run_id": "s1-live-demo",
+   "scope": "goal",
+   "ts": 48.0,
+   "value": 0.0
+  },
+  {
+   "_id": "metric-a51bd793f6dc2a52",
+   "name": "early_checkins",
+   "run_id": "s1-live-demo",
+   "scope": "goal",
+   "ts": 48.0,
+   "value": 0.0
+  },
+  {
+   "_id": "metric-bb01dadcbee8ad59",
+   "name": "silent_households",
+   "run_id": "s1-live-demo",
+   "scope": "goal",
+   "ts": 48.0,
+   "value": 0.0
+  },
+  {
+   "_id": "metric-beeca815940bdb53",
+   "name": "promises_open",
+   "run_id": "s1-live-demo",
+   "scope": "goal",
+   "ts": 72.0,
+   "value": 1.0
+  },
+  {
+   "_id": "metric-b7202287b450b42b",
+   "name": "promises_due",
+   "run_id": "s1-live-demo",
+   "scope": "goal",
+   "ts": 72.0,
+   "value": 0.0
+  },
+  {
+   "_id": "metric-bf0734df33403926",
+   "name": "promises_met",
+   "run_id": "s1-live-demo",
+   "scope": "goal",
+   "ts": 72.0,
+   "value": 0.0
+  },
+  {
+   "_id": "metric-e78a9f777a57463f",
+   "name": "early_checkins",
+   "run_id": "s1-live-demo",
+   "scope": "goal",
+   "ts": 72.0,
+   "value": 0.0
+  },
+  {
+   "_id": "metric-b3746e8df9cb345d",
+   "name": "silent_households",
+   "run_id": "s1-live-demo",
+   "scope": "goal",
+   "ts": 72.0,
+   "value": 0.0
+  },
+  {
+   "_id": "metric-568eebf3eec2e50b",
+   "name": "promises_open",
+   "run_id": "s1-live-demo",
+   "scope": "goal",
+   "ts": 96.0,
+   "value": 2.0
+  },
+  {
+   "_id": "metric-0325c92bc21d41e1",
+   "name": "promises_due",
+   "run_id": "s1-live-demo",
+   "scope": "goal",
+   "ts": 96.0,
+   "value": 0.0
+  },
+  {
+   "_id": "metric-8f01228061153a46",
+   "name": "promises_met",
+   "run_id": "s1-live-demo",
+   "scope": "goal",
+   "ts": 96.0,
+   "value": 0.0
+  },
+  {
+   "_id": "metric-c6d08ced673c9186",
+   "name": "early_checkins",
+   "run_id": "s1-live-demo",
+   "scope": "goal",
+   "ts": 96.0,
+   "value": 0.0
+  },
+  {
+   "_id": "metric-6dcadc7ad7e05db3",
+   "name": "silent_households",
+   "run_id": "s1-live-demo",
+   "scope": "goal",
+   "ts": 96.0,
+   "value": 19.0
+  },
+  {
+   "_id": "metric-8756ed31261e9cf7",
+   "name": "promises_open",
+   "run_id": "s1-live-demo",
+   "scope": "goal",
+   "ts": 120.0,
+   "value": 4.0
+  },
+  {
+   "_id": "metric-47c6a5c00114f61b",
+   "name": "promises_due",
+   "run_id": "s1-live-demo",
+   "scope": "goal",
+   "ts": 120.0,
+   "value": 0.0
+  },
+  {
+   "_id": "metric-cb5bcbb24e2b860c",
+   "name": "promises_met",
+   "run_id": "s1-live-demo",
+   "scope": "goal",
+   "ts": 120.0,
+   "value": 0.0
+  },
+  {
+   "_id": "metric-ea644a1564471898",
+   "name": "early_checkins",
+   "run_id": "s1-live-demo",
+   "scope": "goal",
+   "ts": 120.0,
+   "value": 0.0
+  },
+  {
+   "_id": "metric-1dee5ab1166fc17b",
+   "name": "silent_households",
+   "run_id": "s1-live-demo",
+   "scope": "goal",
+   "ts": 120.0,
+   "value": 30.0
+  },
+  {
+   "_id": "metric-bbd748192412edac",
+   "name": "promises_open",
+   "run_id": "s1-live-demo",
+   "scope": "goal",
+   "ts": 144.0,
+   "value": 5.0
+  },
+  {
+   "_id": "metric-ff694bd75d6f43bb",
+   "name": "promises_due",
+   "run_id": "s1-live-demo",
+   "scope": "goal",
+   "ts": 144.0,
+   "value": 3.0
+  },
+  {
+   "_id": "metric-4af5acbb4f1b096f",
+   "name": "promises_met",
+   "run_id": "s1-live-demo",
+   "scope": "goal",
+   "ts": 144.0,
+   "value": 0.0
+  },
+  {
+   "_id": "metric-bc1a3566e561f504",
+   "name": "promises_on_time_pct",
+   "run_id": "s1-live-demo",
+   "scope": "goal",
+   "ts": 144.0,
+   "value": 0.0
+  },
+  {
+   "_id": "metric-832051db8fa2b57c",
+   "name": "early_checkins",
+   "run_id": "s1-live-demo",
+   "scope": "goal",
+   "ts": 144.0,
+   "value": 0.0
+  },
+  {
+   "_id": "metric-0bed314bf358ce73",
+   "name": "silent_households",
+   "run_id": "s1-live-demo",
+   "scope": "goal",
+   "ts": 144.0,
+   "value": 41.0
+  },
+  {
+   "_id": "metric-93c75ffde8fb58e7",
+   "name": "promises_open",
+   "run_id": "s1-live-demo",
+   "scope": "goal",
+   "ts": 168.0,
+   "value": 5.0
+  },
+  {
+   "_id": "metric-4a4da537e2dbb74d",
+   "name": "promises_due",
+   "run_id": "s1-live-demo",
+   "scope": "goal",
+   "ts": 168.0,
+   "value": 3.0
+  },
+  {
+   "_id": "metric-87c5f7ad78007017",
+   "name": "promises_met",
+   "run_id": "s1-live-demo",
+   "scope": "goal",
+   "ts": 168.0,
+   "value": 0.0
+  },
+  {
+   "_id": "metric-d10103141503f483",
+   "name": "promises_on_time_pct",
+   "run_id": "s1-live-demo",
+   "scope": "goal",
+   "ts": 168.0,
+   "value": 0.0
+  },
+  {
+   "_id": "metric-281356ac140ae3a5",
+   "name": "early_checkins",
+   "run_id": "s1-live-demo",
+   "scope": "goal",
+   "ts": 168.0,
+   "value": 0.0
+  },
+  {
+   "_id": "metric-76c708a63bf5643a",
+   "name": "silent_households",
+   "run_id": "s1-live-demo",
+   "scope": "goal",
+   "ts": 168.0,
+   "value": 44.0
+  }
+ ],
+ "policy_changes": [
+  {
+   "_id": "policy-8592da6d4aa6bd2f",
+   "metric_values": {
+    "promises_open": 5.0,
+    "promises_due": 3.0,
+    "promises_met": 0.0,
+    "promises_on_time_pct": 0.0,
+    "early_checkins": 0.0,
+    "silent_households": 41.0
+   },
+   "params": {
+    "lead_hours": 12.0
+   },
+   "run_id": "s1-live-demo",
+   "ts": 144.0,
+   "version": 1,
+   "what_changed": "lead_hours 0 -> 12 (promises_on_time_pct 0 < 90)"
+  },
+  {
+   "_id": "policy-8b8e90116b04e371",
+   "metric_values": {
+    "promises_open": 5.0,
+    "promises_due": 3.0,
+    "promises_met": 0.0,
+    "promises_on_time_pct": 0.0,
+    "early_checkins": 0.0,
+    "silent_households": 44.0
+   },
+   "params": {
+    "lead_hours": 24.0
+   },
+   "run_id": "s1-live-demo",
+   "ts": 168.0,
+   "version": 2,
+   "what_changed": "lead_hours 12 -> 24 (promises_on_time_pct 0 < 90)"
+  }
+ ],
+ "households": [
+  {
+   "_id": "6ab80683f93e6e1575d9585d",
+   "household_id": "s1_h_001",
+   "run_id": "s1-live-demo",
+   "address": "41-22 Hollow Oak Lane",
+   "applied_event_ids": [
+    "s1_e_000390"
+   ],
+   "language": "zh",
+   "name": "Mei Chen",
+   "last_event_ts": 42.6
+  }
+ ],
+ "events": [
+  {
+   "_id": "s1_e_000390",
+   "run_id": "scenario",
+   "scenario_id": "s1",
+   "ts": 42.6,
+   "ts_real": "2021-09-03T14:36",
+   "source": "visit_note",
+   "text": "Visited Mrs. Chen, 82, at 41-22 Hollow Oak Lane. Lives alone, speaks mostly Mandarin. Basement flooded, no power since Wednesday night. Her son Wei is coming Tuesday to help clean out and take her to stay with him. Registered her for follow-up calls. Follow up Wednesday.",
+   "address_raw": "41-22 Hollow Oak Lane",
+   "geo": {
+    "lat": 40.74,
+    "lng": -73.92
+   },
+   "household_ref_raw": "Mrs. Chen",
+   "channel_meta": {
+    "author": "Volunteer Dana R.",
+    "language": "en"
+   },
+   "real_311_key": null
+  },
+  {
+   "_id": "callreq-ddf125376907447a:result",
+   "answered": false,
+   "call_id": "callreq-ddf125376907447a",
+   "emergency_phrase": null,
+   "household_id": "s1_h_001",
+   "outcome": "no_answer",
+   "run_id": "s1-live-demo",
+   "scenario_id": "s1",
+   "source": "call_result",
+   "text": "",
+   "ts": 168.0
+  }
+ ],
+ "promises": [
+  {
+   "_id": "promise-e16d43ecac2fb2d7",
+   "run_id": "s1-live-demo",
+   "due_ts": 144.0,
+   "household_id": "s1_h_001",
+   "keywords": [
+    "clean",
+    "help",
+    "stay",
+    "take"
+   ],
+   "made_ts": 42.6,
+   "scenario_id": "s1",
+   "source_event_id": "s1_e_000390",
+   "status": "lapsed",
+   "text": "Her son Wei is coming Tuesday to help clean out and take her to stay with him.",
+   "status_ts": 150.0
+  }
+ ],
+ "proposals": [
+  {
+   "_id": "proposal-95383746dfa61609",
+   "run_id": "s1-live-demo",
+   "cited_event_ids": [
+    "s1_e_000390"
+   ],
+   "due_ts": 144.0,
+   "early": false,
+   "household_id": "s1_h_001",
+   "kind": "check_in",
+   "promise_id": "promise-e16d43ecac2fb2d7",
+   "reason": "Promise passed its deadline with no fulfilment on record: \"Her son Wei is coming Tuesday to help clean out and take her to stay with him.\"",
+   "scenario_id": "s1",
+   "status": "approved",
+   "suggested_action": "call",
+   "ts": 150.0,
+   "status_ts": 162.0
+  },
+  {
+   "_id": "proposal-6f9d49ec38ea1f49",
+   "run_id": "s1-live-demo",
+   "cited_event_ids": [],
+   "household_id": "s1_h_001",
+   "kind": "silence_check_in",
+   "reason": "No contact with this opted-in household for 77 hours (goal: never more than 72).",
+   "scenario_id": "s1",
+   "status": "pending",
+   "suggested_action": "call",
+   "ts": 120.0
+  }
+ ],
+ "call_requests": [
+  {
+   "_id": "callreq-ddf125376907447a",
+   "run_id": "s1-live-demo",
+   "proposal_id": "proposal-95383746dfa61609",
+   "household_id": "s1_h_001",
+   "promise_id": "promise-e16d43ecac2fb2d7",
+   "purpose": "promise_check_in",
+   "requested_ts": 168.0,
+   "scenario_id": "s1",
+   "status": "queued"
+  }
+ ],
+ "system_events": [
+  {
+   "_id": "sev-b4e196103c90d194",
+   "run_id": "s1-live-demo",
+   "action": "goal_scored",
+   "early_checkins": 0.0,
+   "module": "runtime",
+   "promises_due": 0.0,
+   "promises_met": 0.0,
+   "promises_on_time_pct": null,
+   "promises_open": 1.0,
+   "silent_households": 0.0,
+   "ts": 48.0,
+   "unneeded_checkin_pct": null
+  },
+  {
+   "_id": "sev-c56f1fae532565c5",
+   "run_id": "s1-live-demo",
+   "action": "goal_scored",
+   "early_checkins": 0.0,
+   "module": "runtime",
+   "promises_due": 0.0,
+   "promises_met": 0.0,
+   "promises_on_time_pct": null,
+   "promises_open": 1.0,
+   "silent_households": 0.0,
+   "ts": 72.0,
+   "unneeded_checkin_pct": null
+  },
+  {
+   "_id": "sev-11f88f9b9b0d1e4c",
+   "run_id": "s1-live-demo",
+   "action": "goal_scored",
+   "early_checkins": 0.0,
+   "module": "runtime",
+   "promises_due": 0.0,
+   "promises_met": 0.0,
+   "promises_on_time_pct": null,
+   "promises_open": 2.0,
+   "silent_households": 19.0,
+   "ts": 96.0,
+   "unneeded_checkin_pct": null
+  },
+  {
+   "_id": "6ab80683edc1bc03d4ad5dc8",
+   "module": "db",
+   "action": "proposal_created",
+   "ts": 120.0,
+   "proposal_id": "proposal-6f9d49ec38ea1f49",
+   "household_id": "s1_h_001",
+   "run_id": "s1-live-demo"
+  },
+  {
+   "_id": "sev-d4d5a1058cb1a0cd",
+   "run_id": "s1-live-demo",
+   "action": "silence_escalated",
+   "household_id": "s1_h_001",
+   "module": "runtime",
+   "proposal_id": "proposal-6f9d49ec38ea1f49",
+   "silent_since": 43.008,
+   "ts": 120.0
+  },
+  {
+   "_id": "sev-4ae7562647d404df",
+   "run_id": "s1-live-demo",
+   "action": "goal_scored",
+   "early_checkins": 0.0,
+   "module": "runtime",
+   "promises_due": 0.0,
+   "promises_met": 0.0,
+   "promises_on_time_pct": null,
+   "promises_open": 4.0,
+   "silent_households": 30.0,
+   "ts": 120.0,
+   "unneeded_checkin_pct": null
+  },
+  {
+   "_id": "sev-4a3914cc0c840c28",
+   "run_id": "s1-live-demo",
+   "action": "goal_scored",
+   "early_checkins": 0.0,
+   "module": "runtime",
+   "promises_due": 3.0,
+   "promises_met": 0.0,
+   "promises_on_time_pct": 0.0,
+   "promises_open": 5.0,
+   "silent_households": 41.0,
+   "ts": 144.0,
+   "unneeded_checkin_pct": null
+  },
+  {
+   "_id": "sev-13c2b13e913e0561",
+   "run_id": "s1-live-demo",
+   "action": "policy_changed",
+   "metric_values": {
+    "promises_open": 5.0,
+    "promises_due": 3.0,
+    "promises_met": 0.0,
+    "promises_on_time_pct": 0.0,
+    "early_checkins": 0.0,
+    "silent_households": 41.0
+   },
+   "module": "runtime",
+   "ts": 144.0,
+   "version": 1,
+   "what_changed": "lead_hours 0 -> 12 (promises_on_time_pct 0 < 90)"
+  },
+  {
+   "_id": "6ab80684edc1bc03d4ad5de1",
+   "module": "db",
+   "action": "proposal_created",
+   "ts": 150.0,
+   "proposal_id": "proposal-95383746dfa61609",
+   "household_id": "s1_h_001",
+   "run_id": "s1-live-demo"
+  },
+  {
+   "_id": "sev-c837fe40db90ec4f",
+   "run_id": "s1-live-demo",
+   "action": "proposal_created",
+   "early": false,
+   "household_id": "s1_h_001",
+   "module": "runtime",
+   "promise_id": "promise-e16d43ecac2fb2d7",
+   "proposal_id": "proposal-95383746dfa61609",
+   "ts": 150.0
+  },
+  {
+   "_id": "6ab806afe27dbfa5f7189f25",
+   "module": "ui",
+   "action": "proposal_decided",
+   "ts": 162.0,
+   "proposal_id": "proposal-95383746dfa61609",
+   "decision": "approved",
+   "run_id": "s1-live-demo"
+  },
+  {
+   "_id": "6ab806bd77a24c16c8e8e0dd",
+   "module": "db",
+   "action": "call_queued",
+   "ts": 168.0,
+   "call_request_id": "callreq-ddf125376907447a",
+   "proposal_id": "proposal-95383746dfa61609",
+   "household_id": "s1_h_001",
+   "run_id": "s1-live-demo"
+  },
+  {
+   "_id": "sev-d6e835ba6330be45",
+   "run_id": "s1-live-demo",
+   "action": "call_scheduled",
+   "call_request_id": "callreq-ddf125376907447a",
+   "household_id": "s1_h_001",
+   "module": "runtime",
+   "proposal_id": "proposal-95383746dfa61609",
+   "ts": 168.0
+  },
+  {
+   "_id": "sev-a7fe4deabc6dd91d",
+   "run_id": "s1-live-demo",
+   "action": "goal_scored",
+   "early_checkins": 0.0,
+   "module": "runtime",
+   "promises_due": 3.0,
+   "promises_met": 0.0,
+   "promises_on_time_pct": 0.0,
+   "promises_open": 5.0,
+   "silent_households": 44.0,
+   "ts": 168.0,
+   "unneeded_checkin_pct": null
+  },
+  {
+   "_id": "sev-31d8427f0ab0cd5b",
+   "run_id": "s1-live-demo",
+   "action": "policy_changed",
+   "metric_values": {
+    "promises_open": 5.0,
+    "promises_due": 3.0,
+    "promises_met": 0.0,
+    "promises_on_time_pct": 0.0,
+    "early_checkins": 0.0,
+    "silent_households": 44.0
+   },
+   "module": "runtime",
+   "ts": 168.0,
+   "version": 2,
+   "what_changed": "lead_hours 12 -> 24 (promises_on_time_pct 0 < 90)"
+  },
+  {
+   "_id": "callreq-ddf125376907447a:call_started",
+   "action": "call_started",
+   "call_id": "callreq-ddf125376907447a",
+   "household_id": "s1_h_001",
+   "language": "zh",
+   "module": "calls",
+   "run_id": "s1-live-demo",
+   "ts": 168.0
+  },
+  {
+   "_id": "callreq-ddf125376907447a:call_result_logged",
+   "action": "call_result_logged",
+   "call_id": "callreq-ddf125376907447a",
+   "event_id": "callreq-ddf125376907447a:result",
+   "household_id": "s1_h_001",
+   "module": "calls",
+   "outcome": "no_answer",
+   "run_id": "s1-live-demo",
+   "ts": 168.0
+  }
+ ],
+ "registry": [
+  {
+   "household_id": "s1_h_001",
+   "scenario_id": "s1",
+   "opt_in": true,
+   "language": "zh",
+   "first_name": "Mei",
+   "registered_ts": 43.008,
+   "name": "Mei Chen",
+   "address": "41-22 Hollow Oak Ln Bsmt",
+   "registered_by": "volunteer (with consent)",
+   "note": "Prefers Mandarin."
+  }
+ ],
+ "decisions": {
+  "proposal-95383746dfa61609": {
+   "status": "approved",
+   "ts": 162.0,
+   "reason": null
+  }
+ }
+}

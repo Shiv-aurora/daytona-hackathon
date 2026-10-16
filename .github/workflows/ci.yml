@@ -1,0 +1,176 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  hygiene:
+    name: Hygiene + secret scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Reject tracked secret files
+        shell: bash
+        run: |
+          set -euo pipefail
+          bad=$(git ls-files | grep -E '(^|/)(\.env($|\.)|id_rsa($|\.)|.*\.(pem|key|p12|pfx)$|.*service-account.*\.json$)' | grep -v -E '(^|/)\.env\.example$' || true)
+          if [ -n "$bad" ]; then
+            echo '::error::Forbidden secret-like files are tracked:'
+            echo "$bad"
+            exit 1
+          fi
+
+      - name: Reject merge-conflict markers
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git grep -n -E '^(<<<<<<< |=======|>>>>>>> )' -- ':!*.lock' ':!package-lock.json'; then
+            echo '::error::Merge-conflict markers found.'
+            exit 1
+          fi
+
+      - name: Gitleaks
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  python:
+    name: Python 3.11
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install project + CI tools
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip
+          python -m pip install ruff==0.16.9 pytest==9.1.1
+          if [ -f requirements.txt ]; then python -m pip install -r requirements.txt; fi
+          if [ -f requirements-dev.txt ]; then python -m pip install -r requirements-dev.txt; fi
+          if [ -f pyproject.toml ]; then python -m pip install -e .; fi
+
+      - name: Compile
+        run: python -m compileall -q .
+
+      - name: Ruff
+        run: ruff check .
+
+      - name: Pytest
+        shell: bash
+        run: |
+          set -euo pipefail
+          if find . -type f \( -name 'test_*.py' -o -name '*_test.py' \) -not -path './.git/*' | grep -q .; then
+            pytest -q
+          else
+            echo 'No Python tests yet; skipping pytest during bootstrap.'
+          fi
+
+  ui:
+    name: Next.js UI
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Detect UI
+        id: detect
+        shell: bash
+        run: |
+          if [ -f ui/package.json ]; then echo 'present=true' >> "$GITHUB_OUTPUT"; else echo 'present=false' >> "$GITHUB_OUTPUT"; fi
+
+      - uses: actions/setup-node@v4
+        if: steps.detect.outputs.present == 'true'
+        with:
+          node-version: '22'
+
+      - name: Install
+        if: steps.detect.outputs.present == 'true'
+        working-directory: ui
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -f package-lock.json ]; then
+            npm ci
+          elif [ -f pnpm-lock.yaml ]; then
+            corepack enable
+            pnpm install --frozen-lockfile
+          elif [ -f yarn.lock ]; then
+            corepack enable
+            yarn install --immutable
+          else
+            echo '::error::ui/package.json exists but no lockfile is committed.'
+            exit 1
+          fi
+
+      - name: Lint / test / build
+        if: steps.detect.outputs.present == 'true'
+        working-directory: ui
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -f package-lock.json ]; then
+            npm run lint --if-present
+            npm run test --if-present
+            npm run build --if-present
+          elif [ -f pnpm-lock.yaml ]; then
+            pnpm run lint --if-present
+            pnpm run test --if-present
+            pnpm run build --if-present
+          else
+            yarn run lint || true
+            yarn run test || true
+            yarn run build
+          fi
+
+      - name: No UI yet
+        if: steps.detect.outputs.present != 'true'
+        run: echo 'ui/package.json not present yet; UI checks will activate automatically when it lands.'
+
+  smoke:
+    name: Integration smoke
+    runs-on: ubuntu-latest
+    needs: [hygiene, python, ui]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install backend dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip
+          python -m pip install pytest
+          if [ -f requirements.txt ]; then python -m pip install -r requirements.txt; fi
+          if [ -f requirements-dev.txt ]; then python -m pip install -r requirements-dev.txt; fi
+          if [ -f pyproject.toml ]; then python -m pip install -e .; fi
+
+      - name: Run make smoke when available
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -f Makefile ] && grep -Eq '^smoke:' Makefile; then
+            make smoke
+          else
+            echo 'No smoke target yet; bootstrap-only skip. This becomes mandatory as soon as Makefile:smoke lands.'
+          fi

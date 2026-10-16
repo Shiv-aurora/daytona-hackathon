@@ -1,0 +1,850 @@
+{
+ "scenario_id": "s1",
+ "revision": "dbf318e41947f813",
+ "visibility": "hidden: call simulator and evaluator only; never runtime decision logic",
+ "rule": "A call at ts connects unless ts falls in a no_answer [from_ts, until_ts) interval. When it connects, the resident says the last script line with from_ts <= ts. Call results are written by the calling run under its own run_id, never run_id 'scenario'.",
+ "households": [
+  {
+   "household_id": "s1_h_001",
+   "language": "zh",
+   "no_answer": [
+    {
+     "from_ts": 145.5,
+     "until_ts": 493.0,
+     "detail": "phone dead, no power to charge"
+    }
+   ],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "My son Wei is coming Tuesday to help. Still no power."
+    },
+    {
+     "from_ts": 144.0,
+     "text": "My son did not come on Tuesday. Still no power."
+    },
+    {
+     "from_ts": 493.0,
+     "text": "My son never came. The power is still out. I have a little food left, not much."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_004",
+   "language": "ko",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "I'm staying on my neighbor's couch. The caseworker said she would call Thursday."
+    },
+    {
+     "from_ts": 192.0,
+     "text": "Nobody called me about housing. My neighbor is moving out soon."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_008",
+   "language": "es",
+   "no_answer": [
+    {
+     "from_ts": 40.0,
+     "until_ts": 280.0,
+     "detail": "phone dead / not picking up"
+    }
+   ],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "Still no power. The basement is still wet."
+    },
+    {
+     "from_ts": 280.0,
+     "text": "My phone was dead for days. Nobody came."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_009",
+   "language": "en",
+   "no_answer": [
+    {
+     "from_ts": 64.0,
+     "until_ts": 304.0,
+     "detail": "phone dead / not picking up"
+    }
+   ],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "No power and no water pressure. The baby is okay for now."
+    },
+    {
+     "from_ts": 304.0,
+     "text": "My phone was dead for days. Nobody came."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_010",
+   "language": "en",
+   "no_answer": [
+    {
+     "from_ts": 40.0,
+     "until_ts": 280.0,
+     "detail": "phone dead / not picking up"
+    }
+   ],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "The tree is still across my steps. I can't get out with my walker."
+    },
+    {
+     "from_ts": 280.0,
+     "text": "My phone was dead for days. Nobody came."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_013",
+   "language": "zh",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "My son is coming Tuesday to take me to his place."
+    },
+    {
+     "from_ts": 139.0,
+     "text": "I'm at my son's in Fort Lee now. I'm fine."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_014",
+   "language": "es",
+   "no_answer": [
+    {
+     "from_ts": 85.0,
+     "until_ts": 109.0,
+     "detail": "at the laundromat all day"
+    }
+   ],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "Water in the basement, but I'm managing."
+    },
+    {
+     "from_ts": 109.0,
+     "text": "Sorry I missed you, I was at the laundromat. I'm fine."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_022",
+   "language": "bn",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    },
+    {
+     "from_ts": 239.5,
+     "text": "The power is back. We're okay."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_024",
+   "language": "es",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    },
+    {
+     "from_ts": 294.1,
+     "text": "The power is back. We're okay."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_025",
+   "language": "zh",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_029",
+   "language": "en",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_031",
+   "language": "es",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    },
+    {
+     "from_ts": 69.4,
+     "text": "The power is back. We're okay."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_034",
+   "language": "en",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    },
+    {
+     "from_ts": 330.2,
+     "text": "The power is back. We're okay."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_040",
+   "language": "en",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_041",
+   "language": "ko",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    },
+    {
+     "from_ts": 309.2,
+     "text": "The power is back. We're okay."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_043",
+   "language": "es",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_044",
+   "language": "es",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    },
+    {
+     "from_ts": 237.4,
+     "text": "The power is back. We're okay."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_046",
+   "language": "es",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    },
+    {
+     "from_ts": 239.5,
+     "text": "The power is back. We're okay."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_048",
+   "language": "bn",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_053",
+   "language": "es",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    },
+    {
+     "from_ts": 227.8,
+     "text": "The power is back. We're okay."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_055",
+   "language": "es",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    },
+    {
+     "from_ts": 16.6,
+     "text": "The power is back. We're okay."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_059",
+   "language": "ko",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    },
+    {
+     "from_ts": 323.4,
+     "text": "The power is back. We're okay."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_061",
+   "language": "es",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    },
+    {
+     "from_ts": 320.8,
+     "text": "The power is back. We're okay."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_062",
+   "language": "en",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    },
+    {
+     "from_ts": 273.3,
+     "text": "The power is back. We're okay."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_064",
+   "language": "zh",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    },
+    {
+     "from_ts": 85.5,
+     "text": "The power is back. We're okay."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_065",
+   "language": "es",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    },
+    {
+     "from_ts": 221.5,
+     "text": "The power is back. We're okay."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_067",
+   "language": "es",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_068",
+   "language": "es",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_070",
+   "language": "es",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    },
+    {
+     "from_ts": 361.0,
+     "text": "The power is back. We're okay."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_074",
+   "language": "en",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    },
+    {
+     "from_ts": 264.7,
+     "text": "The power is back. We're okay."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_078",
+   "language": "bn",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    },
+    {
+     "from_ts": 33.3,
+     "text": "The power is back. We're okay."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_079",
+   "language": "es",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_080",
+   "language": "zh",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    },
+    {
+     "from_ts": 335.3,
+     "text": "The power is back. We're okay."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_083",
+   "language": "ko",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    },
+    {
+     "from_ts": 339.2,
+     "text": "The power is back. We're okay."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_084",
+   "language": "en",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_086",
+   "language": "zh",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    },
+    {
+     "from_ts": 15.9,
+     "text": "The power is back. We're okay."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_088",
+   "language": "es",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    },
+    {
+     "from_ts": 9.6,
+     "text": "The power is back. We're okay."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_089",
+   "language": "zh",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_093",
+   "language": "bn",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_095",
+   "language": "es",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    },
+    {
+     "from_ts": 249.2,
+     "text": "The power is back. We're okay."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_096",
+   "language": "en",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    },
+    {
+     "from_ts": 221.5,
+     "text": "The power is back. We're okay."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_099",
+   "language": "en",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    },
+    {
+     "from_ts": 267.9,
+     "text": "The power is back. We're okay."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_102",
+   "language": "en",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_104",
+   "language": "en",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_105",
+   "language": "bn",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_108",
+   "language": "es",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_112",
+   "language": "es",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_114",
+   "language": "es",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    },
+    {
+     "from_ts": 317.5,
+     "text": "The power is back. We're okay."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_120",
+   "language": "ko",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_122",
+   "language": "es",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_126",
+   "language": "es",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    },
+    {
+     "from_ts": 331.9,
+     "text": "The power is back. We're okay."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_134",
+   "language": "zh",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_136",
+   "language": "zh",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_138",
+   "language": "es",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_139",
+   "language": "zh",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    },
+    {
+     "from_ts": 279.6,
+     "text": "The power is back. We're okay."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_140",
+   "language": "es",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    },
+    {
+     "from_ts": 57.7,
+     "text": "The power is back. We're okay."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_143",
+   "language": "zh",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    },
+    {
+     "from_ts": 14.4,
+     "text": "The power is back. We're okay."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_144",
+   "language": "en",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_146",
+   "language": "es",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    },
+    {
+     "from_ts": 346.7,
+     "text": "The power is back. We're okay."
+    }
+   ]
+  },
+  {
+   "household_id": "s1_h_148",
+   "language": "es",
+   "no_answer": [],
+   "script": [
+    {
+     "from_ts": 0.0,
+     "text": "We're managing, thank you for checking."
+    }
+   ]
+  }
+ ]
+}

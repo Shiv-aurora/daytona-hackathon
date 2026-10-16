@@ -1,0 +1,207 @@
+[
+ {
+  "household_id": "sample_h_001",
+  "scenario_id": "sample",
+  "canonical_name": "Rosa Delgado",
+  "name_variants": [
+   "Rosa Delgado",
+   "Mrs. Delgado",
+   "R. Delgado",
+   "Rosa Delgato"
+  ],
+  "address": {
+   "number": "37-14",
+   "street": "Plumstone Ave",
+   "unit": "Bsmt",
+   "zip": "11368",
+   "city": "Corona",
+   "synthetic_number": true
+  },
+  "address_variants": [
+   "37-14 PLUMSTONE AVE",
+   "37-14 Plumstone Ave",
+   "3714 Plumstone Ave"
+  ],
+  "members": [
+   {
+    "age": 79,
+    "lives_alone": true
+   }
+  ],
+  "language": "es",
+  "story": "needle:sample_n_01",
+  "timeline": [
+   {
+    "ts": 43.2,
+    "fact": "promise",
+    "event_id": "sample_e_000008"
+   },
+   {
+    "ts": 110.4,
+    "fact": "power_out",
+    "event_id": "sample_e_000016"
+   }
+  ]
+ },
+ {
+  "household_id": "sample_h_002",
+  "scenario_id": "sample",
+  "canonical_name": "Sun-hee Park",
+  "name_variants": [
+   "Sun-hee Park",
+   "Mrs. Park",
+   "S. Park"
+  ],
+  "address": {
+   "number": "45-18",
+   "street": "Rushwillow St",
+   "unit": "1F",
+   "zip": "11358",
+   "city": "Flushing",
+   "synthetic_number": true
+  },
+  "address_variants": [
+   "45-18 RUSHWILLOW ST",
+   "45-18 Rushwillow St",
+   "4518 Rushwillow St"
+  ],
+  "members": [
+   {
+    "age": 71,
+    "lives_alone": true
+   }
+  ],
+  "language": "ko",
+  "story": "decoy:sample_d_01",
+  "timeline": [
+   {
+    "ts": 26.4,
+    "fact": "fine",
+    "event_id": "sample_e_000006"
+   }
+  ]
+ },
+ {
+  "household_id": "sample_h_003",
+  "scenario_id": "sample",
+  "canonical_name": "Farida Islam",
+  "name_variants": [
+   "Farida Islam",
+   "Islam family",
+   "F. Islam"
+  ],
+  "address": {
+   "number": "86-11",
+   "street": "Sparrowgate Rd",
+   "unit": "Bsmt",
+   "zip": "11373",
+   "city": "Elmhurst",
+   "synthetic_number": true
+  },
+  "address_variants": [
+   "86-11 SPARROWGATE RD",
+   "86-11 Sparrowgate Rd",
+   "8611 Sparrowgate Rd"
+  ],
+  "members": [
+   {
+    "age": 41,
+    "lives_alone": false
+   }
+  ],
+  "language": "bn",
+  "story": "background:kept_promise",
+  "timeline": [
+   {
+    "ts": 38.4,
+    "fact": "promise",
+    "event_id": "sample_e_000007"
+   },
+   {
+    "ts": 64.8,
+    "fact": "promise_kept",
+    "event_id": "sample_e_000011"
+   }
+  ]
+ },
+ {
+  "household_id": "sample_h_004",
+  "scenario_id": "sample",
+  "canonical_name": "Tom Russo",
+  "name_variants": [
+   "Tom Russo",
+   "Mr. Russo"
+  ],
+  "address": {
+   "number": "69-20",
+   "street": "Tidewater Hollow Ln",
+   "unit": "2F",
+   "zip": "11377",
+   "city": "Woodside",
+   "synthetic_number": true
+  },
+  "address_variants": [
+   "69-20 TIDEWATER HOLLOW LN",
+   "69-20 Tidewater Hollow Ln",
+   "6920 Tidewater Hollow Ln"
+  ],
+  "members": [
+   {
+    "age": 66,
+    "lives_alone": true
+   }
+  ],
+  "language": "en",
+  "story": "background:fine",
+  "timeline": [
+   {
+    "ts": 81.6,
+    "fact": "fine",
+    "event_id": "sample_e_000013"
+   }
+  ]
+ },
+ {
+  "household_id": "sample_h_005",
+  "scenario_id": "sample",
+  "canonical_name": "Li Na Zhou",
+  "name_variants": [
+   "Li Na Zhou",
+   "Ms. Zhou",
+   "Zhou Li Na"
+  ],
+  "address": {
+   "number": "142-40",
+   "street": "Umberfield Ave",
+   "unit": null,
+   "zip": "11355",
+   "city": "Flushing",
+   "synthetic_number": true
+  },
+  "address_variants": [
+   "142-40 UMBERFIELD AVE",
+   "142-40 Umberfield Ave",
+   "14240 Umberfield Ave"
+  ],
+  "members": [
+   {
+    "age": 58,
+    "lives_alone": false
+   }
+  ],
+  "language": "zh",
+  "story": "background:supplies",
+  "timeline": [
+   {
+    "ts": 93.6,
+    "fact": "needs_supplies",
+    "event_id": "sample_e_000014"
+   },
+   {
+    "ts": 124.8,
+    "fact": "supplies_received",
+    "event_id": "sample_e_000017"
+   }
+  ]
+ }
+]

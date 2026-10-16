@@ -1,0 +1,8144 @@
+{
+ "s1_e_000001": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11355",
+    "WRENFIELD PL",
+    58
+   ],
+   "fact": "power_out"
+  }
+ },
+ "s1_e_000002": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11432",
+    "MISTLECOVE AVE",
+    83
+   ],
+   "fact": "power_out"
+  }
+ },
+ "s1_e_000003": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11377",
+    "JASPERWELL AVE",
+    66
+   ],
+   "fact": "power_out"
+  }
+ },
+ "s1_e_000004": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11369",
+    "PEBBLEBROOK PL",
+    32
+   ],
+   "fact": "power_out"
+  }
+ },
+ "s1_e_000005": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11377",
+    "KETTLEBROOK RD",
+    51
+   ],
+   "fact": "power_out"
+  }
+ },
+ "s1_e_000006": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11355",
+    "VELVETMOSS ST",
+    150
+   ],
+   "fact": "power_out"
+  }
+ },
+ "s1_e_000007": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11369",
+    "PEBBLEBROOK PL",
+    31
+   ],
+   "fact": "power_out"
+  }
+ },
+ "s1_e_000008": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11358",
+    "SALTMARSH WAY",
+    27
+   ],
+   "fact": "power_out"
+  }
+ },
+ "s1_e_000009": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11369",
+    "PEBBLEBROOK PL",
+    30
+   ],
+   "fact": "power_out"
+  }
+ },
+ "s1_e_000010": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11377",
+    "KETTLEBROOK RD",
+    48
+   ],
+   "fact": "power_out"
+  }
+ },
+ "s1_e_000011": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11368",
+    "DRIFTWOOD ROW",
+    40
+   ],
+   "fact": "power_out"
+  }
+ },
+ "s1_e_000012": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11377",
+    "LOOMHAVEN ST",
+    46
+   ],
+   "fact": "power_out"
+  }
+ },
+ "s1_e_000013": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11354",
+    "BRAMBLEWICK ST",
+    141
+   ],
+   "fact": "power_out"
+  }
+ },
+ "s1_e_000014": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11358",
+    "SALTMARSH WAY",
+    35
+   ],
+   "fact": "power_out"
+  }
+ },
+ "s1_e_000015": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11377",
+    "LOOMHAVEN ST",
+    51
+   ],
+   "fact": "power_out"
+  }
+ },
+ "s1_e_000016": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11355",
+    "VELVETMOSS ST",
+    139
+   ],
+   "fact": "power_out"
+  }
+ },
+ "s1_e_000017": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11355",
+    "WICKERBAY RD",
+    150
+   ],
+   "fact": "power_out"
+  }
+ },
+ "s1_e_000018": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11432",
+    "NETTLEFIELD RD",
+    163
+   ],
+   "fact": "power_out"
+  }
+ },
+ "s1_e_000019": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000020": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11372",
+    "WILLOWMERE ST",
+    78
+   ],
+   "fact": "power_out"
+  }
+ },
+ "s1_e_000021": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11355",
+    "WICKERBAY RD",
+    132
+   ],
+   "fact": "power_out"
+  }
+ },
+ "s1_e_000022": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11369",
+    "PEBBLEBROOK PL",
+    25
+   ],
+   "fact": "power_out"
+  }
+ },
+ "s1_e_000023": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000024": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11355",
+    "VELVETMOSS ST",
+    148
+   ],
+   "fact": "power_out"
+  }
+ },
+ "s1_e_000025": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11370",
+    "STARLING HOLLOW ST",
+    71
+   ],
+   "fact": "power_out"
+  }
+ },
+ "s1_e_000026": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11373",
+    "QUAILBROOK ST",
+    42
+   ],
+   "fact": "power_out"
+  }
+ },
+ "s1_e_000027": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11377",
+    "JASPERWELL AVE",
+    42
+   ],
+   "fact": "power_out"
+  }
+ },
+ "s1_e_000028": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11369",
+    "PEBBLEBROOK PL",
+    24
+   ],
+   "fact": "power_out"
+  }
+ },
+ "s1_e_000029": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11432",
+    "MISTLECOVE AVE",
+    89
+   ],
+   "fact": "power_out"
+  }
+ },
+ "s1_e_000030": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000031": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11354",
+    "BRAMBLEWICK ST",
+    147
+   ],
+   "fact": "power_out"
+  }
+ },
+ "s1_e_000032": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11358",
+    "SALTMARSH WAY",
+    40
+   ],
+   "fact": "power_out"
+  }
+ },
+ "s1_e_000033": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000034": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11368",
+    "CINDERMOSS LN",
+    96
+   ],
+   "fact": "power_out"
+  }
+ },
+ "s1_e_000035": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11373",
+    "QUAILBROOK ST",
+    40
+   ],
+   "fact": "power_out"
+  }
+ },
+ "s1_e_000036": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000037": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11354",
+    "TERN HARBOR RD",
+    147
+   ],
+   "fact": "power_out"
+  }
+ },
+ "s1_e_000038": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11375",
+    "GULLWING RD",
+    67
+   ],
+   "fact": "power_out"
+  }
+ },
+ "s1_e_000039": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000040": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11358",
+    "KESTREL BEND RD",
+    192
+   ],
+   "fact": "power_out"
+  }
+ },
+ "s1_e_000041": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000042": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000043": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11354",
+    "QUILL HOLLOW AVE",
+    35
+   ],
+   "fact": "power_out"
+  }
+ },
+ "s1_e_000044": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000045": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000046": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11358",
+    "SALTMARSH WAY",
+    33
+   ],
+   "fact": "power_out"
+  }
+ },
+ "s1_e_000047": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11368",
+    "FERNHOLLOW ST",
+    59
+   ],
+   "fact": "power_out"
+  }
+ },
+ "s1_e_000048": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000049": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000050": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000051": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11104",
+    "HOLLOW OAK LN",
+    41
+   ],
+   "fact": "power_out"
+  }
+ },
+ "s1_e_000052": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11377",
+    "KETTLEBROOK RD",
+    42
+   ],
+   "fact": "power_out"
+  }
+ },
+ "s1_e_000053": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000054": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11375",
+    "GULLWING RD",
+    70
+   ],
+   "fact": "power_out"
+  }
+ },
+ "s1_e_000055": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11354",
+    "BRAMBLEWICK ST",
+    157
+   ],
+   "fact": "power_out"
+  }
+ },
+ "s1_e_000056": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000057": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11375",
+    "HONEYFERN ST",
+    108
+   ],
+   "fact": "power_out"
+  }
+ },
+ "s1_e_000058": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000059": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000060": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000061": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000062": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000063": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11369",
+    "ORIOLE CREST AVE",
+    32
+   ],
+   "fact": "power_out"
+  }
+ },
+ "s1_e_000064": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11377",
+    "JASPERWELL AVE",
+    64
+   ],
+   "fact": "power_out"
+  }
+ },
+ "s1_e_000065": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000066": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000067": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000068": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000069": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000070": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000071": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11354",
+    "TERN HARBOR RD",
+    154
+   ],
+   "fact": "power_out"
+  }
+ },
+ "s1_e_000072": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000073": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000074": {
+  "household_id": "s1_h_012",
+  "fact": {
+   "kind": "alarm"
+  }
+ },
+ "s1_e_000075": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000076": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000077": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11375",
+    "HONEYFERN ST",
+    90
+   ],
+   "fact": "power_out"
+  }
+ },
+ "s1_e_000078": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11369",
+    "ORIOLE CREST AVE",
+    25
+   ],
+   "fact": "power_out"
+  }
+ },
+ "s1_e_000079": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000080": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000081": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000082": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000083": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11377",
+    "LOOMHAVEN ST",
+    50
+   ],
+   "fact": "power_out"
+  }
+ },
+ "s1_e_000084": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000085": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11355",
+    "VELVETMOSS ST",
+    138
+   ],
+   "fact": "power_out"
+  }
+ },
+ "s1_e_000086": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000087": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000088": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11373",
+    "LANTERNFIELD LN",
+    86
+   ],
+   "fact": "power_out"
+  }
+ },
+ "s1_e_000089": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000090": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11369",
+    "THISTLEWICK RD",
+    86
+   ],
+   "fact": "power_out"
+  }
+ },
+ "s1_e_000091": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11377",
+    "JASPERWELL AVE",
+    48
+   ],
+   "fact": "power_out"
+  }
+ },
+ "s1_e_000092": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000093": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000094": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000095": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000096": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000097": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000098": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000099": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000100": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000101": {
+  "household_id": "s1_h_005",
+  "fact": {
+   "kind": "vulnerable",
+   "what": "cannot use stairs"
+  }
+ },
+ "s1_e_000102": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000103": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000104": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000105": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000106": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000107": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000108": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000109": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000110": {
+  "household_id": "s1_h_012",
+  "fact": {
+   "kind": "resolved"
+  }
+ },
+ "s1_e_000111": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000112": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000113": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000114": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000115": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11368",
+    "DRIFTWOOD ROW",
+    40
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "s1_e_000116": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000117": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000118": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000119": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000120": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000121": {
+  "household_id": "s1_h_010",
+  "fact": {
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000122": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000123": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000124": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000125": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000126": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000127": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000128": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000129": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000130": {
+  "household_id": "s1_h_008",
+  "fact": {
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000131": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000132": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000133": {
+  "household_id": "s1_h_010",
+  "fact": {
+   "kind": "registration"
+  }
+ },
+ "s1_e_000134": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000135": {
+  "household_id": "s1_h_146",
+  "fact": {
+   "facts": [
+    "heat_out"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000136": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000137": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000138": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000139": {
+  "household_id": "s1_h_073",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000140": {
+  "household_id": "s1_h_008",
+  "fact": {
+   "kind": "registration"
+  }
+ },
+ "s1_e_000141": {
+  "household_id": "s1_h_125",
+  "fact": {
+   "facts": [],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000142": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000143": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000144": {
+  "household_id": "s1_h_065",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000145": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000146": {
+  "household_id": "s1_h_115",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000147": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000148": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000149": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000150": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000151": {
+  "household_id": "s1_h_100",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000152": {
+  "household_id": "s1_h_002",
+  "fact": {
+   "kind": "needs",
+   "what": "power for oxygen concentrator"
+  }
+ },
+ "s1_e_000153": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11373",
+    "QUAILBROOK ST",
+    40
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "s1_e_000154": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000155": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000156": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000157": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000158": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000159": {
+  "household_id": "s1_h_086",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000160": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000161": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000162": {
+  "household_id": "s1_h_072",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000163": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000164": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000165": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000166": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000167": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000168": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000169": {
+  "household_id": "s1_h_074",
+  "fact": {
+   "facts": [],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000170": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000171": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000172": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000173": {
+  "household_id": "s1_h_064",
+  "fact": {
+   "facts": [
+    "heat_out"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000174": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000175": {
+  "household_id": "s1_h_141",
+  "fact": {
+   "facts": [
+    "heat_out"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000176": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000177": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000178": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000179": {
+  "household_id": "s1_h_147",
+  "fact": {
+   "facts": [],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000180": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11373",
+    "QUAILBROOK ST",
+    42
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "s1_e_000181": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000182": {
+  "household_id": "s1_h_081",
+  "fact": {
+   "facts": [
+    "heat_out"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000183": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000184": {
+  "household_id": "s1_h_083",
+  "fact": {
+   "facts": [],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000185": {
+  "household_id": "s1_h_144",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000186": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000187": {
+  "household_id": "s1_h_143",
+  "fact": {
+   "facts": [],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000188": {
+  "household_id": "s1_h_078",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000189": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11370",
+    "STARLING HOLLOW ST",
+    71
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "s1_e_000190": {
+  "household_id": "s1_h_114",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000191": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000192": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000193": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000194": {
+  "household_id": "s1_h_014",
+  "fact": {
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000195": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000196": {
+  "household_id": "s1_h_056",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000197": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000198": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000199": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000200": {
+  "household_id": "s1_h_093",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000201": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000202": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000203": {
+  "household_id": "s1_h_069",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000204": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000205": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000206": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000207": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000208": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000209": {
+  "household_id": "s1_h_149",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000210": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000211": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000212": {
+  "household_id": "s1_h_112",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000213": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000214": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000215": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000216": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000217": {
+  "household_id": "s1_h_116",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000218": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000219": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000220": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000221": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000222": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000223": {
+  "household_id": "s1_h_085",
+  "fact": {
+   "facts": [],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000224": {
+  "household_id": "s1_h_060",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000225": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000226": {
+  "household_id": "s1_h_136",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000227": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000228": {
+  "household_id": "s1_h_028",
+  "fact": {
+   "facts": [
+    "heat_out"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000229": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000230": {
+  "household_id": "s1_h_027",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000231": {
+  "household_id": "s1_h_107",
+  "fact": {
+   "facts": [],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000232": {
+  "household_id": "s1_h_109",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000233": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000234": {
+  "household_id": "s1_h_089",
+  "fact": {
+   "facts": [
+    "heat_out"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000235": {
+  "household_id": "s1_h_067",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000236": {
+  "household_id": "s1_h_033",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000237": {
+  "household_id": "s1_h_068",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000238": {
+  "household_id": "s1_h_082",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000239": {
+  "household_id": "s1_h_134",
+  "fact": {
+   "facts": [],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000240": {
+  "household_id": "s1_h_030",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000241": {
+  "household_id": "s1_h_046",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000242": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000243": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000244": {
+  "household_id": "s1_h_048",
+  "fact": {
+   "facts": [],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000245": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000246": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000247": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000248": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000249": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000250": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000251": {
+  "household_id": "s1_h_070",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000252": {
+  "household_id": "s1_h_133",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000253": {
+  "household_id": "s1_h_118",
+  "fact": {
+   "facts": [],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000254": {
+  "household_id": "s1_h_059",
+  "fact": {
+   "facts": [],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000255": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000256": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000257": {
+  "household_id": "s1_h_079",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000258": {
+  "household_id": "s1_h_103",
+  "fact": {
+   "facts": [],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000259": {
+  "household_id": "s1_h_131",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000260": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000261": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000262": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000263": {
+  "household_id": "s1_h_022",
+  "fact": {
+   "facts": [],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000264": {
+  "household_id": "s1_h_023",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000265": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000266": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000267": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000268": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000269": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000270": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000271": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000272": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000273": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000274": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000275": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000276": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11354",
+    "TERN HARBOR RD",
+    147
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "s1_e_000277": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000278": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000279": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000280": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000281": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000282": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000283": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000284": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000285": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000286": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11432",
+    "MISTLECOVE AVE",
+    83
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "s1_e_000287": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000288": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000289": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000290": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000291": {
+  "household_id": "s1_h_016",
+  "fact": {
+   "kind": "alarm"
+  }
+ },
+ "s1_e_000292": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000293": {
+  "household_id": "s1_h_057",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000294": {
+  "household_id": "s1_h_120",
+  "fact": {
+   "facts": [],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000295": {
+  "household_id": "s1_h_011",
+  "fact": {
+   "kind": "no_power"
+  }
+ },
+ "s1_e_000296": {
+  "household_id": "s1_h_063",
+  "fact": {
+   "facts": [
+    "heat_out"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000297": {
+  "household_id": "s1_h_129",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000298": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000299": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000300": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11369",
+    "ORIOLE CREST AVE",
+    32
+   ],
+   "fact": "eta_delayed"
+  }
+ },
+ "s1_e_000301": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000302": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000303": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000304": {
+  "household_id": "s1_h_148",
+  "fact": {
+   "facts": [],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000305": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11377",
+    "LOOMHAVEN ST",
+    46
+   ],
+   "fact": "eta_delayed"
+  }
+ },
+ "s1_e_000306": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000307": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000308": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000309": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000310": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000311": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11377",
+    "LOOMHAVEN ST",
+    50
+   ],
+   "fact": "eta_delayed"
+  }
+ },
+ "s1_e_000312": {
+  "household_id": "s1_h_094",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000313": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000314": {
+  "household_id": "s1_h_119",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000315": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000316": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000317": {
+  "household_id": "s1_h_146",
+  "fact": {
+   "kind": "promise",
+   "who": "FEMA"
+  }
+ },
+ "s1_e_000318": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000319": {
+  "household_id": "s1_h_013",
+  "fact": {
+   "kind": "promise",
+   "who": "son"
+  }
+ },
+ "s1_e_000320": {
+  "household_id": "s1_h_020",
+  "fact": {
+   "kind": "no_power"
+  }
+ },
+ "s1_e_000321": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000322": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000323": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000324": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000325": {
+  "household_id": "s1_h_043",
+  "fact": {
+   "facts": [],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000326": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000327": {
+  "household_id": "s1_h_009",
+  "fact": {
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000328": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000329": {
+  "household_id": "s1_h_047",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000330": {
+  "household_id": "s1_h_115",
+  "fact": {
+   "kind": "promise",
+   "who": "Red Cross"
+  }
+ },
+ "s1_e_000331": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000332": {
+  "household_id": "s1_h_075",
+  "fact": {
+   "facts": [],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000333": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000334": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000335": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000336": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000337": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000338": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000339": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000340": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000341": {
+  "household_id": "s1_h_124",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000342": {
+  "household_id": "s1_h_138",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000343": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000344": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000345": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000346": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000347": {
+  "household_id": "s1_h_122",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000348": {
+  "household_id": "s1_h_039",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000349": {
+  "household_id": "s1_h_104",
+  "fact": {
+   "facts": [],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000350": {
+  "household_id": "s1_h_009",
+  "fact": {
+   "kind": "registration"
+  }
+ },
+ "s1_e_000351": {
+  "household_id": "s1_h_077",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000352": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000353": {
+  "household_id": "s1_h_090",
+  "fact": {
+   "facts": [],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000354": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000355": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000356": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000357": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000358": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000359": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000360": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000361": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000362": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000363": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11377",
+    "JASPERWELL AVE",
+    64
+   ],
+   "fact": "eta_delayed"
+  }
+ },
+ "s1_e_000364": {
+  "household_id": "s1_h_140",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000365": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000366": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000367": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000368": {
+  "household_id": "s1_h_105",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000369": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000370": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000371": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000372": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000373": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000374": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11377",
+    "KETTLEBROOK RD",
+    42
+   ],
+   "fact": "eta_delayed"
+  }
+ },
+ "s1_e_000375": {
+  "household_id": "s1_h_025",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000376": {
+  "household_id": "s1_h_001",
+  "fact": {
+   "kind": "promise",
+   "who": "son Wei"
+  }
+ },
+ "s1_e_000377": {
+  "household_id": "s1_h_050",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000378": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000379": {
+  "household_id": "s1_h_064",
+  "fact": {
+   "kind": "promise",
+   "who": "DSNY"
+  }
+ },
+ "s1_e_000380": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000381": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11375",
+    "GULLWING RD",
+    70
+   ],
+   "fact": "eta_delayed"
+  }
+ },
+ "s1_e_000382": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000383": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000384": {
+  "household_id": "s1_h_034",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000385": {
+  "household_id": "s1_h_076",
+  "fact": {
+   "facts": [],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000386": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000387": {
+  "household_id": "s1_h_038",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000388": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000389": {
+  "household_id": "s1_h_002",
+  "fact": {
+   "kind": "promise",
+   "who": "Red Cross"
+  }
+ },
+ "s1_e_000390": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000391": {
+  "household_id": "s1_h_055",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000392": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000393": {
+  "household_id": "s1_h_127",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000394": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000395": {
+  "household_id": "s1_h_036",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000396": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000397": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000398": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000399": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000400": {
+  "household_id": "s1_h_071",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000401": {
+  "household_id": "s1_h_087",
+  "fact": {
+   "facts": [
+    "heat_out"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000402": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000403": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000404": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000405": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000406": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000407": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000408": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000409": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000410": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000411": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000412": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000413": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000414": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000415": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000416": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11354",
+    "QUILL HOLLOW AVE",
+    35
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "s1_e_000417": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000418": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000419": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000420": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000421": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000422": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000423": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000424": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000425": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000426": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000427": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11432",
+    "NETTLEFIELD RD",
+    163
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "s1_e_000428": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000429": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11358",
+    "KESTREL BEND RD",
+    192
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "s1_e_000430": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000431": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000432": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000433": {
+  "household_id": "s1_h_116",
+  "fact": {
+   "kind": "promise",
+   "who": "landlord"
+  }
+ },
+ "s1_e_000434": {
+  "household_id": "s1_h_024",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000435": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11368",
+    "FERNHOLLOW ST",
+    59
+   ],
+   "fact": "eta_delayed"
+  }
+ },
+ "s1_e_000436": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000437": {
+  "household_id": "s1_h_142",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000438": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000439": {
+  "household_id": "s1_h_126",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000440": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000441": {
+  "household_id": "s1_h_011",
+  "fact": {
+   "kind": "power_restored"
+  }
+ },
+ "s1_e_000442": {
+  "household_id": "s1_h_016",
+  "fact": {
+   "kind": "repaired"
+  }
+ },
+ "s1_e_000443": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11358",
+    "SALTMARSH WAY",
+    35
+   ],
+   "fact": "eta_delayed"
+  }
+ },
+ "s1_e_000444": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11432",
+    "MISTLECOVE AVE",
+    89
+   ],
+   "fact": "eta_delayed"
+  }
+ },
+ "s1_e_000445": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11375",
+    "HONEYFERN ST",
+    108
+   ],
+   "fact": "eta_delayed"
+  }
+ },
+ "s1_e_000446": {
+  "household_id": "s1_h_091",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000447": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000448": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11377",
+    "KETTLEBROOK RD",
+    48
+   ],
+   "fact": "eta_delayed"
+  }
+ },
+ "s1_e_000449": {
+  "household_id": "s1_h_117",
+  "fact": {
+   "facts": [
+    "heat_out"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000450": {
+  "household_id": "s1_h_004",
+  "fact": {
+   "kind": "promise",
+   "who": "caseworker"
+  }
+ },
+ "s1_e_000451": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000452": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000453": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11373",
+    "LANTERNFIELD LN",
+    86
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "s1_e_000454": {
+  "household_id": "s1_h_108",
+  "fact": {
+   "facts": [],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000455": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000456": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11369",
+    "PEBBLEBROOK PL",
+    30
+   ],
+   "fact": "eta_delayed"
+  }
+ },
+ "s1_e_000457": {
+  "household_id": "s1_h_101",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000458": {
+  "household_id": "s1_h_092",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000459": {
+  "household_id": "s1_h_150",
+  "fact": {
+   "facts": [],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000460": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000461": {
+  "household_id": "s1_h_099",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000462": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000463": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000464": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000465": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000466": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000467": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000468": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000469": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000470": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000471": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000472": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000473": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000474": {
+  "household_id": "s1_h_145",
+  "fact": {
+   "facts": [],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000475": {
+  "household_id": "s1_h_026",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000476": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11377",
+    "KETTLEBROOK RD",
+    51
+   ],
+   "fact": "eta_delayed"
+  }
+ },
+ "s1_e_000477": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000478": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000479": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000480": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000481": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11358",
+    "SALTMARSH WAY",
+    40
+   ],
+   "fact": "eta_delayed"
+  }
+ },
+ "s1_e_000482": {
+  "household_id": "s1_h_071",
+  "fact": {
+   "kind": "promise",
+   "who": "landlord"
+  }
+ },
+ "s1_e_000483": {
+  "household_id": "s1_h_031",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000484": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000485": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000486": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11355",
+    "VELVETMOSS ST",
+    150
+   ],
+   "fact": "eta_delayed"
+  }
+ },
+ "s1_e_000487": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000488": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000489": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000490": {
+  "household_id": "s1_h_110",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000491": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000492": {
+  "household_id": "s1_h_102",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000493": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000494": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11377",
+    "JASPERWELL AVE",
+    48
+   ],
+   "fact": "eta_delayed"
+  }
+ },
+ "s1_e_000495": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000496": {
+  "household_id": "s1_h_098",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000497": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000498": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000499": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000500": {
+  "household_id": "s1_h_061",
+  "fact": {
+   "facts": [],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000501": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000502": {
+  "household_id": "s1_h_005",
+  "fact": {
+   "kind": "vulnerable",
+   "what": "wheelchair"
+  }
+ },
+ "s1_e_000503": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11369",
+    "ORIOLE CREST AVE",
+    25
+   ],
+   "fact": "eta_delayed"
+  }
+ },
+ "s1_e_000504": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11372",
+    "WILLOWMERE ST",
+    78
+   ],
+   "fact": "eta_delayed"
+  }
+ },
+ "s1_e_000505": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000506": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000507": {
+  "household_id": "s1_h_020",
+  "fact": {
+   "kind": "power_restored"
+  }
+ },
+ "s1_e_000508": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000509": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000510": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000511": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000512": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000513": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000514": {
+  "household_id": "s1_h_057",
+  "fact": {
+   "kind": "promise",
+   "who": "DSNY"
+  }
+ },
+ "s1_e_000515": {
+  "household_id": "s1_h_096",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000516": {
+  "household_id": "s1_h_042",
+  "fact": {
+   "facts": [
+    "heat_out"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000517": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000518": {
+  "household_id": "s1_h_038",
+  "fact": {
+   "kind": "promise",
+   "who": "Red Cross"
+  }
+ },
+ "s1_e_000519": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11355",
+    "VELVETMOSS ST",
+    139
+   ],
+   "fact": "eta_delayed"
+  }
+ },
+ "s1_e_000520": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11355",
+    "WICKERBAY RD",
+    150
+   ],
+   "fact": "eta_delayed"
+  }
+ },
+ "s1_e_000521": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000522": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11354",
+    "BRAMBLEWICK ST",
+    147
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "s1_e_000523": {
+  "household_id": "s1_h_127",
+  "fact": {
+   "kind": "status"
+  }
+ },
+ "s1_e_000524": {
+  "household_id": "s1_h_097",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000525": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000526": {
+  "household_id": "s1_h_015",
+  "fact": {
+   "kind": "alarm"
+  }
+ },
+ "s1_e_000527": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000528": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000529": {
+  "household_id": "s1_h_037",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000530": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11354",
+    "BRAMBLEWICK ST",
+    141
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "s1_e_000531": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000532": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000533": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000534": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000535": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000536": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000537": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000538": {
+  "household_id": "s1_h_015",
+  "fact": {
+   "kind": "resolved"
+  }
+ },
+ "s1_e_000539": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000540": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000541": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000542": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000543": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000544": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000545": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11368",
+    "CINDERMOSS LN",
+    96
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "s1_e_000546": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000547": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000548": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000549": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000550": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000551": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000552": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000553": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000554": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000555": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000556": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000557": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000558": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11354",
+    "BRAMBLEWICK ST",
+    157
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "s1_e_000559": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000560": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000561": {
+  "household_id": "s1_h_080",
+  "fact": {
+   "facts": [],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000562": {
+  "household_id": "s1_h_040",
+  "fact": {
+   "facts": [],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000563": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000564": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000565": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000566": {
+  "household_id": "s1_h_135",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000567": {
+  "household_id": "s1_h_119",
+  "fact": {
+   "kind": "promise",
+   "who": "daughter"
+  }
+ },
+ "s1_e_000568": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000569": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000570": {
+  "household_id": "s1_h_111",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000571": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11369",
+    "PEBBLEBROOK PL",
+    25
+   ],
+   "fact": "eta_delayed"
+  }
+ },
+ "s1_e_000572": {
+  "household_id": "s1_h_007",
+  "fact": {
+   "kind": "illegal_unit"
+  }
+ },
+ "s1_e_000573": {
+  "household_id": "s1_h_017",
+  "fact": {
+   "kind": "promise",
+   "who": "Red Cross"
+  }
+ },
+ "s1_e_000574": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000575": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000576": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000577": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000578": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000579": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000580": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000581": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11377",
+    "JASPERWELL AVE",
+    42
+   ],
+   "fact": "eta_delayed"
+  }
+ },
+ "s1_e_000582": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000583": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000584": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000585": {
+  "household_id": "s1_h_037",
+  "fact": {
+   "kind": "promise",
+   "who": "caseworker"
+  }
+ },
+ "s1_e_000586": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000587": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11358",
+    "SALTMARSH WAY",
+    27
+   ],
+   "fact": "eta_delayed"
+  }
+ },
+ "s1_e_000588": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000589": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11354",
+    "TERN HARBOR RD",
+    154
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "s1_e_000590": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000591": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11375",
+    "HONEYFERN ST",
+    90
+   ],
+   "fact": "eta_delayed"
+  }
+ },
+ "s1_e_000592": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000593": {
+  "household_id": "s1_h_029",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000594": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000595": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000596": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000597": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000598": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000599": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000600": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000601": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000602": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000603": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000604": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000605": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000606": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000607": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000608": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11355",
+    "WRENFIELD PL",
+    58
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "s1_e_000609": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000610": {
+  "household_id": "s1_h_028",
+  "fact": {
+   "kind": "promise",
+   "who": "landlord"
+  }
+ },
+ "s1_e_000611": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000612": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000613": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000614": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000615": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11369",
+    "THISTLEWICK RD",
+    86
+   ],
+   "fact": "eta_delayed"
+  }
+ },
+ "s1_e_000616": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000617": {
+  "household_id": "s1_h_049",
+  "fact": {
+   "facts": [
+    "heat_out"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000618": {
+  "household_id": "s1_h_142",
+  "fact": {
+   "kind": "status"
+  }
+ },
+ "s1_e_000619": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000620": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000621": {
+  "household_id": "s1_h_147",
+  "fact": {
+   "kind": "status"
+  }
+ },
+ "s1_e_000622": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000623": {
+  "household_id": "s1_h_062",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000624": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000625": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000626": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000627": {
+  "household_id": "s1_h_032",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000628": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11358",
+    "SALTMARSH WAY",
+    33
+   ],
+   "fact": "eta_delayed"
+  }
+ },
+ "s1_e_000629": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000630": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000631": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000632": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000633": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11377",
+    "JASPERWELL AVE",
+    66
+   ],
+   "fact": "eta_delayed"
+  }
+ },
+ "s1_e_000634": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000635": {
+  "household_id": "s1_h_068",
+  "fact": {
+   "kind": "promise",
+   "who": "daughter"
+  }
+ },
+ "s1_e_000636": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000637": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000638": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000639": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000640": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000641": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11355",
+    "WICKERBAY RD",
+    132
+   ],
+   "fact": "eta_delayed"
+  }
+ },
+ "s1_e_000642": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000643": {
+  "household_id": "s1_h_017",
+  "fact": {
+   "kind": "promise_kept"
+  }
+ },
+ "s1_e_000644": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000645": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000646": {
+  "household_id": "s1_h_044",
+  "fact": {
+   "facts": [
+    "heat_out"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000647": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000648": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000649": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000650": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000651": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000652": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000653": {
+  "household_id": "s1_h_115",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "Red Cross"
+  }
+ },
+ "s1_e_000654": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000655": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000656": {
+  "household_id": "s1_h_084",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000657": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000658": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11355",
+    "VELVETMOSS ST",
+    148
+   ],
+   "fact": "eta_delayed"
+  }
+ },
+ "s1_e_000659": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000660": {
+  "household_id": "s1_h_038",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "Red Cross"
+  }
+ },
+ "s1_e_000661": {
+  "household_id": "s1_h_088",
+  "fact": {
+   "facts": [],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000662": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11355",
+    "VELVETMOSS ST",
+    138
+   ],
+   "fact": "eta_delayed"
+  }
+ },
+ "s1_e_000663": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000664": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000665": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000666": {
+  "household_id": "s1_h_097",
+  "fact": {
+   "kind": "promise",
+   "who": "DSNY"
+  }
+ },
+ "s1_e_000667": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000668": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000669": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000670": {
+  "household_id": "s1_h_063",
+  "fact": {
+   "kind": "status"
+  }
+ },
+ "s1_e_000671": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000672": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000673": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000674": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000675": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000676": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000677": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000678": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000679": {
+  "household_id": "s1_h_116",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "landlord"
+  }
+ },
+ "s1_e_000680": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000681": {
+  "household_id": "s1_h_111",
+  "fact": {
+   "kind": "promise",
+   "who": "DSNY"
+  }
+ },
+ "s1_e_000682": {
+  "household_id": "s1_h_029",
+  "fact": {
+   "kind": "status"
+  }
+ },
+ "s1_e_000683": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11369",
+    "PEBBLEBROOK PL",
+    32
+   ],
+   "fact": "eta_delayed"
+  }
+ },
+ "s1_e_000684": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000685": {
+  "household_id": "s1_h_035",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000686": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11369",
+    "PEBBLEBROOK PL",
+    31
+   ],
+   "fact": "eta_delayed"
+  }
+ },
+ "s1_e_000687": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000688": {
+  "household_id": "s1_h_095",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000689": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000690": {
+  "household_id": "s1_h_149",
+  "fact": {
+   "kind": "status"
+  }
+ },
+ "s1_e_000691": {
+  "household_id": "s1_h_102",
+  "fact": {
+   "kind": "promise",
+   "who": "daughter"
+  }
+ },
+ "s1_e_000692": {
+  "household_id": "s1_h_080",
+  "fact": {
+   "kind": "promise",
+   "who": "Red Cross"
+  }
+ },
+ "s1_e_000693": {
+  "household_id": "s1_h_014",
+  "fact": {
+   "kind": "resolved"
+  }
+ },
+ "s1_e_000694": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000695": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000696": {
+  "household_id": "s1_h_064",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "DSNY"
+  }
+ },
+ "s1_e_000697": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11369",
+    "PEBBLEBROOK PL",
+    24
+   ],
+   "fact": "eta_delayed"
+  }
+ },
+ "s1_e_000698": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000699": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000700": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000701": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000702": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000703": {
+  "household_id": "s1_h_019",
+  "fact": {
+   "kind": "status"
+  }
+ },
+ "s1_e_000704": {
+  "household_id": "s1_h_021",
+  "fact": {
+   "kind": "status"
+  }
+ },
+ "s1_e_000705": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000706": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000707": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000708": {
+  "household_id": "s1_h_003",
+  "fact": {
+   "kind": "promise",
+   "who": "landlord"
+  }
+ },
+ "s1_e_000709": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000710": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000711": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000712": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000713": {
+  "household_id": "s1_h_016",
+  "fact": {
+   "kind": "repaired"
+  }
+ },
+ "s1_e_000714": {
+  "household_id": "s1_h_139",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000715": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11377",
+    "LOOMHAVEN ST",
+    51
+   ],
+   "fact": "eta_delayed"
+  }
+ },
+ "s1_e_000716": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000717": {
+  "household_id": "s1_h_131",
+  "fact": {
+   "kind": "status"
+  }
+ },
+ "s1_e_000718": {
+  "household_id": "s1_h_123",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000719": {
+  "household_id": "s1_h_114",
+  "fact": {
+   "kind": "promise",
+   "who": "caseworker"
+  }
+ },
+ "s1_e_000720": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000721": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000722": {
+  "household_id": "s1_h_041",
+  "fact": {
+   "facts": [],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000723": {
+  "household_id": "s1_h_074",
+  "fact": {
+   "kind": "promise",
+   "who": "daughter"
+  }
+ },
+ "s1_e_000724": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000725": {
+  "household_id": "s1_h_090",
+  "fact": {
+   "kind": "promise",
+   "who": "Red Cross"
+  }
+ },
+ "s1_e_000726": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11375",
+    "GULLWING RD",
+    67
+   ],
+   "fact": "eta_delayed"
+  }
+ },
+ "s1_e_000727": {
+  "household_id": "s1_h_053",
+  "fact": {
+   "facts": [],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000728": {
+  "household_id": "s1_h_065",
+  "fact": {
+   "kind": "promise",
+   "who": "daughter"
+  }
+ },
+ "s1_e_000729": {
+  "household_id": "s1_h_062",
+  "fact": {
+   "kind": "promise",
+   "who": "Red Cross"
+  }
+ },
+ "s1_e_000730": {
+  "household_id": "s1_h_034",
+  "fact": {
+   "kind": "promise",
+   "who": "daughter"
+  }
+ },
+ "s1_e_000731": {
+  "household_id": "s1_h_066",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000732": {
+  "household_id": "s1_h_058",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000733": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000734": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000735": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000736": {
+  "household_id": "s1_h_062",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "Red Cross"
+  }
+ },
+ "s1_e_000737": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000738": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000739": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000740": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000741": {
+  "household_id": "s1_h_071",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "landlord"
+  }
+ },
+ "s1_e_000742": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000743": {
+  "household_id": "s1_h_080",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "Red Cross"
+  }
+ },
+ "s1_e_000744": {
+  "household_id": "s1_h_006",
+  "fact": {
+   "kind": "no_power"
+  }
+ },
+ "s1_e_000745": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000746": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000747": {
+  "household_id": "s1_h_143",
+  "fact": {
+   "kind": "promise",
+   "who": "DSNY"
+  }
+ },
+ "s1_e_000748": {
+  "household_id": "s1_h_148",
+  "fact": {
+   "kind": "promise",
+   "who": "caseworker"
+  }
+ },
+ "s1_e_000749": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000750": {
+  "household_id": "s1_h_054",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000751": {
+  "household_id": "s1_h_123",
+  "fact": {
+   "kind": "status"
+  }
+ },
+ "s1_e_000752": {
+  "household_id": "s1_h_097",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "DSNY"
+  }
+ },
+ "s1_e_000753": {
+  "household_id": "s1_h_092",
+  "fact": {
+   "kind": "status"
+  }
+ },
+ "s1_e_000754": {
+  "household_id": "s1_h_121",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000755": {
+  "household_id": "s1_h_150",
+  "fact": {
+   "kind": "status"
+  }
+ },
+ "s1_e_000756": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000757": {
+  "household_id": "s1_h_045",
+  "fact": {
+   "facts": [],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000758": {
+  "household_id": "s1_h_007",
+  "fact": {
+   "kind": "vacate_order"
+  }
+ },
+ "s1_e_000759": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000760": {
+  "household_id": "s1_h_066",
+  "fact": {
+   "kind": "status"
+  }
+ },
+ "s1_e_000761": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000762": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000763": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000764": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000765": {
+  "household_id": "s1_h_137",
+  "fact": {
+   "facts": [],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000766": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000767": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000768": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000769": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000770": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000771": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000772": {
+  "household_id": "s1_h_132",
+  "fact": {
+   "facts": [],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000773": {
+  "household_id": "s1_h_052",
+  "fact": {
+   "facts": [],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000774": {
+  "household_id": "s1_h_051",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000775": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000776": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000777": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000778": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000779": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000780": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000781": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000782": {
+  "household_id": "s1_h_013",
+  "fact": {
+   "kind": "promise_kept"
+  }
+ },
+ "s1_e_000783": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000784": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000785": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000786": {
+  "household_id": "s1_h_130",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000787": {
+  "household_id": "s1_h_093",
+  "fact": {
+   "kind": "status"
+  }
+ },
+ "s1_e_000788": {
+  "household_id": "s1_h_133",
+  "fact": {
+   "kind": "status"
+  }
+ },
+ "s1_e_000789": {
+  "household_id": "s1_h_109",
+  "fact": {
+   "kind": "status"
+  }
+ },
+ "s1_e_000790": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000791": {
+  "household_id": "s1_h_023",
+  "fact": {
+   "kind": "promise",
+   "who": "DSNY"
+  }
+ },
+ "s1_e_000792": {
+  "household_id": "s1_h_113",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000793": {
+  "household_id": "s1_h_128",
+  "fact": {
+   "facts": [],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000794": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000795": {
+  "household_id": "s1_h_043",
+  "fact": {
+   "kind": "promise",
+   "who": "landlord"
+  }
+ },
+ "s1_e_000796": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000797": {
+  "household_id": "s1_h_106",
+  "fact": {
+   "facts": [
+    "flooded"
+   ],
+   "kind": "initial_report"
+  }
+ },
+ "s1_e_000798": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000799": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000800": {
+  "household_id": "s1_h_096",
+  "fact": {
+   "kind": "promise",
+   "who": "caseworker"
+  }
+ },
+ "s1_e_000801": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000802": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000803": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000804": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000805": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000806": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000807": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000808": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000809": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000810": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000811": {
+  "household_id": "s1_h_119",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "daughter"
+  }
+ },
+ "s1_e_000812": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000813": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000814": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000815": {
+  "household_id": "s1_h_061",
+  "fact": {
+   "kind": "promise",
+   "who": "FEMA"
+  }
+ },
+ "s1_e_000816": {
+  "household_id": "s1_h_055",
+  "fact": {
+   "kind": "promise",
+   "who": "FEMA"
+  }
+ },
+ "s1_e_000817": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000818": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11104",
+    "HOLLOW OAK LN",
+    41
+   ],
+   "fact": "eta_delayed"
+  }
+ },
+ "s1_e_000819": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000820": {
+  "household_id": "s1_h_032",
+  "fact": {
+   "kind": "promise",
+   "who": "caseworker"
+  }
+ },
+ "s1_e_000821": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000822": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000823": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000824": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000825": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000826": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000827": {
+  "household_id": "s1_h_006",
+  "fact": {
+   "kind": "no_power"
+  }
+ },
+ "s1_e_000828": {
+  "household_id": "s1_h_025",
+  "fact": {
+   "kind": "status"
+  }
+ },
+ "s1_e_000829": {
+  "household_id": "s1_h_053",
+  "fact": {
+   "kind": "status"
+  }
+ },
+ "s1_e_000830": {
+  "household_id": "s1_h_144",
+  "fact": {
+   "kind": "promise",
+   "who": "caseworker"
+  }
+ },
+ "s1_e_000831": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000832": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000833": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000834": {
+  "household_id": "s1_h_068",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "daughter"
+  }
+ },
+ "s1_e_000835": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000836": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000837": {
+  "household_id": "s1_h_054",
+  "fact": {
+   "kind": "promise",
+   "who": "daughter"
+  }
+ },
+ "s1_e_000838": {
+  "household_id": "s1_h_100",
+  "fact": {
+   "kind": "promise",
+   "who": "FEMA"
+  }
+ },
+ "s1_e_000839": {
+  "household_id": "s1_h_079",
+  "fact": {
+   "kind": "promise",
+   "who": "FEMA"
+  }
+ },
+ "s1_e_000840": {
+  "household_id": "s1_h_073",
+  "fact": {
+   "kind": "promise",
+   "who": "caseworker"
+  }
+ },
+ "s1_e_000841": {
+  "household_id": "s1_h_076",
+  "fact": {
+   "kind": "promise",
+   "who": "Red Cross"
+  }
+ },
+ "s1_e_000842": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000843": {
+  "household_id": "s1_h_007",
+  "fact": {
+   "kind": "needs",
+   "what": "shelter"
+  }
+ },
+ "s1_e_000844": {
+  "household_id": "s1_h_033",
+  "fact": {
+   "kind": "promise",
+   "who": "landlord"
+  }
+ },
+ "s1_e_000845": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000846": {
+  "household_id": "s1_h_035",
+  "fact": {
+   "kind": "promise",
+   "who": "Red Cross"
+  }
+ },
+ "s1_e_000847": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000848": {
+  "household_id": "s1_h_099",
+  "fact": {
+   "kind": "promise",
+   "who": "FEMA"
+  }
+ },
+ "s1_e_000849": {
+  "household_id": "s1_h_106",
+  "fact": {
+   "kind": "status"
+  }
+ },
+ "s1_e_000850": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000851": {
+  "household_id": "s1_h_136",
+  "fact": {
+   "kind": "promise",
+   "who": "FEMA"
+  }
+ },
+ "s1_e_000852": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000853": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000854": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000855": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000856": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000857": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000858": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000859": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000860": {
+  "household_id": "s1_h_090",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "Red Cross"
+  }
+ },
+ "s1_e_000861": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000862": {
+  "household_id": "s1_h_043",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "landlord"
+  }
+ },
+ "s1_e_000863": {
+  "household_id": "s1_h_069",
+  "fact": {
+   "kind": "promise",
+   "who": "FEMA"
+  }
+ },
+ "s1_e_000864": {
+  "household_id": "s1_h_108",
+  "fact": {
+   "kind": "promise",
+   "who": "Red Cross"
+  }
+ },
+ "s1_e_000865": {
+  "household_id": "s1_h_111",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "DSNY"
+  }
+ },
+ "s1_e_000866": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000867": {
+  "household_id": "s1_h_027",
+  "fact": {
+   "kind": "promise",
+   "who": "Red Cross"
+  }
+ },
+ "s1_e_000868": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000869": {
+  "household_id": "s1_h_081",
+  "fact": {
+   "kind": "promise",
+   "who": "Red Cross"
+  }
+ },
+ "s1_e_000870": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000871": {
+  "household_id": "s1_h_035",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "Red Cross"
+  }
+ },
+ "s1_e_000872": {
+  "household_id": "s1_h_034",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "daughter"
+  }
+ },
+ "s1_e_000873": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000874": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000875": {
+  "household_id": "s1_h_094",
+  "fact": {
+   "kind": "promise",
+   "who": "caseworker"
+  }
+ },
+ "s1_e_000876": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000877": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000878": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000879": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000880": {
+  "household_id": "s1_h_024",
+  "fact": {
+   "kind": "status"
+  }
+ },
+ "s1_e_000881": {
+  "household_id": "s1_h_103",
+  "fact": {
+   "kind": "promise",
+   "who": "landlord"
+  }
+ },
+ "s1_e_000882": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000883": {
+  "household_id": "s1_h_006",
+  "fact": {
+   "kind": "needs",
+   "what": "refrigeration for insulin"
+  }
+ },
+ "s1_e_000884": {
+  "household_id": "s1_h_134",
+  "fact": {
+   "kind": "promise",
+   "who": "FEMA"
+  }
+ },
+ "s1_e_000885": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000886": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000887": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000888": {
+  "household_id": "s1_h_067",
+  "fact": {
+   "kind": "status"
+  }
+ },
+ "s1_e_000889": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000890": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000891": {
+  "household_id": "s1_h_077",
+  "fact": {
+   "kind": "status"
+  }
+ },
+ "s1_e_000892": {
+  "household_id": "s1_h_085",
+  "fact": {
+   "kind": "promise",
+   "who": "DSNY"
+  }
+ },
+ "s1_e_000893": {
+  "household_id": "s1_h_048",
+  "fact": {
+   "kind": "status"
+  }
+ },
+ "s1_e_000894": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000895": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000896": {
+  "household_id": "s1_h_108",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "Red Cross"
+  }
+ },
+ "s1_e_000897": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000898": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000899": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000900": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11432",
+    "MISTLECOVE AVE",
+    89
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "s1_e_000901": {
+  "household_id": "s1_h_057",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "DSNY"
+  }
+ },
+ "s1_e_000902": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000903": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000904": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000905": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000906": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000907": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000908": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000909": {
+  "household_id": "s1_h_102",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "daughter"
+  }
+ },
+ "s1_e_000910": {
+  "household_id": "s1_h_027",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "Red Cross"
+  }
+ },
+ "s1_e_000911": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000912": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000913": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000914": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000915": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000916": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000917": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000918": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000919": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000920": {
+  "household_id": "s1_h_037",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "caseworker"
+  }
+ },
+ "s1_e_000921": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000922": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000923": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000924": {
+  "household_id": "s1_h_089",
+  "fact": {
+   "kind": "promise",
+   "who": "DSNY"
+  }
+ },
+ "s1_e_000925": {
+  "household_id": "s1_h_078",
+  "fact": {
+   "kind": "promise",
+   "who": "FEMA"
+  }
+ },
+ "s1_e_000926": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000927": {
+  "household_id": "s1_h_084",
+  "fact": {
+   "kind": "promise",
+   "who": "DSNY"
+  }
+ },
+ "s1_e_000928": {
+  "household_id": "s1_h_082",
+  "fact": {
+   "kind": "promise",
+   "who": "DSNY"
+  }
+ },
+ "s1_e_000929": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000930": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000931": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000932": {
+  "household_id": "s1_h_040",
+  "fact": {
+   "kind": "promise",
+   "who": "Red Cross"
+  }
+ },
+ "s1_e_000933": {
+  "household_id": "s1_h_095",
+  "fact": {
+   "kind": "promise",
+   "who": "caseworker"
+  }
+ },
+ "s1_e_000934": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000935": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000936": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000937": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000938": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000939": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000940": {
+  "household_id": "s1_h_047",
+  "fact": {
+   "kind": "status"
+  }
+ },
+ "s1_e_000941": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11375",
+    "GULLWING RD",
+    67
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "s1_e_000942": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000943": {
+  "household_id": "s1_h_137",
+  "fact": {
+   "kind": "status"
+  }
+ },
+ "s1_e_000944": {
+  "household_id": "s1_h_081",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "Red Cross"
+  }
+ },
+ "s1_e_000945": {
+  "household_id": "s1_h_132",
+  "fact": {
+   "kind": "status"
+  }
+ },
+ "s1_e_000946": {
+  "household_id": "s1_h_018",
+  "fact": {
+   "kind": "alarm"
+  }
+ },
+ "s1_e_000947": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000948": {
+  "household_id": "s1_h_139",
+  "fact": {
+   "kind": "promise",
+   "who": "daughter"
+  }
+ },
+ "s1_e_000949": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000950": {
+  "household_id": "s1_h_076",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "Red Cross"
+  }
+ },
+ "s1_e_000951": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000952": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11375",
+    "HONEYFERN ST",
+    108
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "s1_e_000953": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000954": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11377",
+    "KETTLEBROOK RD",
+    48
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "s1_e_000955": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000956": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000957": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000958": {
+  "household_id": "s1_h_032",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "caseworker"
+  }
+ },
+ "s1_e_000959": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11369",
+    "PEBBLEBROOK PL",
+    30
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "s1_e_000960": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000961": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000962": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000963": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000964": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11369",
+    "PEBBLEBROOK PL",
+    31
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "s1_e_000965": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11369",
+    "PEBBLEBROOK PL",
+    24
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "s1_e_000966": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000967": {
+  "household_id": "s1_h_144",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "caseworker"
+  }
+ },
+ "s1_e_000968": {
+  "household_id": "s1_h_074",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "daughter"
+  }
+ },
+ "s1_e_000969": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11377",
+    "JASPERWELL AVE",
+    66
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "s1_e_000970": {
+  "household_id": "s1_h_018",
+  "fact": {
+   "kind": "resolved"
+  }
+ },
+ "s1_e_000971": {
+  "household_id": "s1_h_146",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "FEMA"
+  }
+ },
+ "s1_e_000972": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000973": {
+  "household_id": "s1_h_040",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "Red Cross"
+  }
+ },
+ "s1_e_000974": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000975": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000976": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000977": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000978": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000979": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000980": {
+  "household_id": "s1_h_138",
+  "fact": {
+   "kind": "promise",
+   "who": "Red Cross"
+  }
+ },
+ "s1_e_000981": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11377",
+    "LOOMHAVEN ST",
+    50
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "s1_e_000982": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000983": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000984": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000985": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000986": {
+  "household_id": "s1_h_028",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "landlord"
+  }
+ },
+ "s1_e_000987": {
+  "household_id": "s1_h_140",
+  "fact": {
+   "kind": "promise",
+   "who": "caseworker"
+  }
+ },
+ "s1_e_000988": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000989": {
+  "household_id": "s1_h_054",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "daughter"
+  }
+ },
+ "s1_e_000990": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000991": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000992": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000993": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11369",
+    "PEBBLEBROOK PL",
+    32
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "s1_e_000994": {
+  "household_id": "s1_h_005",
+  "fact": {
+   "kind": "vulnerable",
+   "what": "alone by day"
+  }
+ },
+ "s1_e_000995": {
+  "household_id": "s1_h_105",
+  "fact": {
+   "kind": "promise",
+   "who": "daughter"
+  }
+ },
+ "s1_e_000996": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11355",
+    "WICKERBAY RD",
+    150
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "s1_e_000997": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11369",
+    "ORIOLE CREST AVE",
+    32
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "s1_e_000998": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_000999": {
+  "household_id": "s1_h_138",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "Red Cross"
+  }
+ },
+ "s1_e_001000": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001001": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001002": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11375",
+    "GULLWING RD",
+    70
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "s1_e_001003": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11369",
+    "THISTLEWICK RD",
+    86
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "s1_e_001004": {
+  "household_id": "s1_h_055",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "FEMA"
+  }
+ },
+ "s1_e_001005": {
+  "household_id": "s1_h_114",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "caseworker"
+  }
+ },
+ "s1_e_001006": {
+  "household_id": "s1_h_143",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "DSNY"
+  }
+ },
+ "s1_e_001007": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001008": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001009": {
+  "household_id": "s1_h_130",
+  "fact": {
+   "kind": "promise",
+   "who": "landlord"
+  }
+ },
+ "s1_e_001010": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001011": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001012": {
+  "household_id": "s1_h_065",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "daughter"
+  }
+ },
+ "s1_e_001013": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001014": {
+  "household_id": "s1_h_084",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "DSNY"
+  }
+ },
+ "s1_e_001015": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001016": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11377",
+    "JASPERWELL AVE",
+    64
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "s1_e_001017": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001018": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001019": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001020": {
+  "household_id": "s1_h_148",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "caseworker"
+  }
+ },
+ "s1_e_001021": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001022": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001023": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11377",
+    "KETTLEBROOK RD",
+    42
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "s1_e_001024": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001025": {
+  "household_id": "s1_h_136",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "FEMA"
+  }
+ },
+ "s1_e_001026": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11377",
+    "KETTLEBROOK RD",
+    51
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "s1_e_001027": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11372",
+    "WILLOWMERE ST",
+    78
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "s1_e_001028": {
+  "household_id": "s1_h_105",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "daughter"
+  }
+ },
+ "s1_e_001029": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11375",
+    "HONEYFERN ST",
+    90
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "s1_e_001030": {
+  "household_id": "s1_h_023",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "DSNY"
+  }
+ },
+ "s1_e_001031": {
+  "household_id": "s1_h_089",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "DSNY"
+  }
+ },
+ "s1_e_001032": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001033": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11355",
+    "VELVETMOSS ST",
+    139
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "s1_e_001034": {
+  "household_id": "s1_h_096",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "caseworker"
+  }
+ },
+ "s1_e_001035": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001036": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001037": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001038": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001039": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001040": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001041": {
+  "household_id": "s1_h_085",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "DSNY"
+  }
+ },
+ "s1_e_001042": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001043": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001044": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001045": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001046": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001047": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001048": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11377",
+    "JASPERWELL AVE",
+    42
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "s1_e_001049": {
+  "household_id": "s1_h_139",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "daughter"
+  }
+ },
+ "s1_e_001050": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001051": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001052": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001053": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11104",
+    "HOLLOW OAK LN",
+    41
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "s1_e_001054": {
+  "household_id": "s1_h_103",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "landlord"
+  }
+ },
+ "s1_e_001055": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001056": {
+  "household_id": "s1_h_088",
+  "fact": {
+   "kind": "status"
+  }
+ },
+ "s1_e_001057": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001058": {
+  "household_id": "s1_h_003",
+  "fact": {
+   "kind": "still_broken"
+  }
+ },
+ "s1_e_001059": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11358",
+    "SALTMARSH WAY",
+    35
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "s1_e_001060": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001061": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001062": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001063": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001064": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11377",
+    "LOOMHAVEN ST",
+    46
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "s1_e_001065": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001066": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001067": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001068": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001069": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001070": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001071": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001072": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001073": {
+  "household_id": "s1_h_001",
+  "fact": {
+   "kind": "meter_flooded"
+  }
+ },
+ "s1_e_001074": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001075": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001076": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001077": {
+  "household_id": "s1_h_099",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "FEMA"
+  }
+ },
+ "s1_e_001078": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001079": {
+  "household_id": "s1_h_100",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "FEMA"
+  }
+ },
+ "s1_e_001080": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001081": {
+  "household_id": "s1_h_079",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "FEMA"
+  }
+ },
+ "s1_e_001082": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001083": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11355",
+    "VELVETMOSS ST",
+    150
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "s1_e_001084": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001085": {
+  "household_id": "s1_h_033",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "landlord"
+  }
+ },
+ "s1_e_001086": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001087": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001088": {
+  "household_id": "s1_h_073",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "caseworker"
+  }
+ },
+ "s1_e_001089": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11368",
+    "FERNHOLLOW ST",
+    59
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "s1_e_001090": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11369",
+    "ORIOLE CREST AVE",
+    25
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "s1_e_001091": {
+  "household_id": "s1_h_069",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "FEMA"
+  }
+ },
+ "s1_e_001092": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11369",
+    "PEBBLEBROOK PL",
+    25
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "s1_e_001093": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11355",
+    "VELVETMOSS ST",
+    138
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "s1_e_001094": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001095": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001096": {
+  "household_id": "s1_h_004",
+  "fact": {
+   "kind": "needs",
+   "what": "housing"
+  }
+ },
+ "s1_e_001097": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001098": {
+  "household_id": "s1_h_140",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "caseworker"
+  }
+ },
+ "s1_e_001099": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001100": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001101": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001102": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001103": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001104": {
+  "household_id": "s1_h_094",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "caseworker"
+  }
+ },
+ "s1_e_001105": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11377",
+    "JASPERWELL AVE",
+    48
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "s1_e_001106": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001107": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11358",
+    "SALTMARSH WAY",
+    27
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "s1_e_001108": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11377",
+    "LOOMHAVEN ST",
+    51
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "s1_e_001109": {
+  "household_id": "s1_h_113",
+  "fact": {
+   "kind": "promise",
+   "who": "DSNY"
+  }
+ },
+ "s1_e_001110": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001111": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11355",
+    "WICKERBAY RD",
+    132
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "s1_e_001112": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001113": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11358",
+    "SALTMARSH WAY",
+    40
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "s1_e_001114": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001115": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11358",
+    "SALTMARSH WAY",
+    33
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "s1_e_001116": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001117": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001118": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001119": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001120": {
+  "household_id": "s1_h_061",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "FEMA"
+  }
+ },
+ "s1_e_001121": {
+  "household_id": "s1_h_082",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "DSNY"
+  }
+ },
+ "s1_e_001122": {
+  "household_id": null,
+  "fact": {
+   "block": [
+    "11355",
+    "VELVETMOSS ST",
+    148
+   ],
+   "fact": "power_restored"
+  }
+ },
+ "s1_e_001123": {
+  "household_id": "s1_h_130",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "landlord"
+  }
+ },
+ "s1_e_001124": {
+  "household_id": "s1_h_134",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "FEMA"
+  }
+ },
+ "s1_e_001125": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001126": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001127": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001128": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001129": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001130": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001131": {
+  "household_id": "s1_h_095",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "caseworker"
+  }
+ },
+ "s1_e_001132": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001133": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001134": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001135": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001136": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001137": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001138": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001139": {
+  "household_id": "s1_h_113",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "DSNY"
+  }
+ },
+ "s1_e_001140": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001141": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001142": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001143": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001144": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001145": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001146": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001147": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001148": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001149": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001150": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001151": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001152": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001153": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001154": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001155": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001156": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001157": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001158": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001159": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001160": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001161": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001162": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001163": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001164": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001165": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001166": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001167": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001168": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001169": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001170": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001171": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001172": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001173": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001174": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001175": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001176": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001177": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001178": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001179": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001180": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001181": {
+  "household_id": "s1_h_078",
+  "fact": {
+   "kind": "promise_kept",
+   "who": "FEMA"
+  }
+ },
+ "s1_e_001182": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001183": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001184": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001185": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001186": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001187": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001188": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001189": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001190": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001191": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001192": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001193": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001194": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001195": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001196": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001197": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001198": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001199": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001200": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001201": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001202": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001203": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001204": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001205": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001206": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001207": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001208": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001209": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001210": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001211": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001212": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001213": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001214": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001215": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001216": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001217": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001218": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001219": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001220": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001221": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001222": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001223": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001224": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001225": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001226": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001227": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001228": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001229": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001230": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001231": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001232": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001233": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001234": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001235": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001236": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001237": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001238": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001239": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001240": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001241": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001242": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001243": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001244": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001245": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001246": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001247": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001248": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001249": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001250": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001251": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001252": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001253": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001254": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001255": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001256": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001257": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001258": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001259": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001260": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001261": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001262": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001263": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001264": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001265": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001266": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001267": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001268": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001269": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001270": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001271": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001272": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001273": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001274": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001275": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001276": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001277": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001278": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001279": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001280": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001281": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001282": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001283": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001284": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001285": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001286": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001287": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001288": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001289": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001290": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001291": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001292": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001293": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001294": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001295": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001296": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001297": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001298": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001299": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001300": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001301": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001302": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001303": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001304": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001305": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001306": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001307": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001308": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001309": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001310": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001311": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001312": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001313": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001314": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001315": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001316": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001317": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001318": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001319": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001320": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001321": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001322": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001323": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001324": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001325": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001326": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001327": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001328": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001329": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001330": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001331": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001332": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001333": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001334": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001335": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001336": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001337": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001338": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001339": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001340": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001341": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001342": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001343": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001344": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001345": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001346": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001347": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001348": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001349": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001350": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001351": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001352": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001353": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001354": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001355": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001356": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001357": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001358": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001359": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001360": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001361": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001362": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001363": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001364": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001365": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001366": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001367": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001368": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001369": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001370": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001371": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001372": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001373": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001374": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001375": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001376": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001377": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001378": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001379": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001380": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001381": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001382": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001383": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001384": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001385": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001386": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001387": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001388": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001389": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001390": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001391": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001392": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001393": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001394": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001395": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001396": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001397": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001398": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001399": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001400": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001401": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001402": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001403": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001404": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001405": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001406": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001407": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001408": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001409": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001410": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001411": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001412": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001413": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001414": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001415": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001416": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001417": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001418": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001419": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001420": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001421": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001422": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001423": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001424": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001425": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001426": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001427": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001428": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001429": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001430": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001431": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001432": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001433": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001434": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001435": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001436": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001437": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001438": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001439": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001440": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001441": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001442": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001443": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001444": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001445": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001446": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001447": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001448": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001449": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001450": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001451": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001452": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001453": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001454": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001455": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001456": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001457": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001458": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001459": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001460": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001461": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001462": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001463": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001464": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001465": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001466": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001467": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001468": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001469": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001470": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001471": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001472": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001473": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001474": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001475": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001476": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001477": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001478": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001479": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001480": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001481": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001482": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001483": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001484": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001485": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001486": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001487": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001488": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001489": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001490": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001491": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001492": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001493": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001494": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001495": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001496": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001497": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001498": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001499": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001500": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001501": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001502": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001503": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001504": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001505": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001506": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001507": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001508": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001509": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001510": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001511": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001512": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001513": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001514": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001515": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001516": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001517": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001518": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001519": {
+  "household_id": null,
+  "fact": null
+ },
+ "s1_e_001520": {
+  "household_id": null,
+  "fact": null
+ }
+}

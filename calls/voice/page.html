@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<title>Relay call</title>
+<style>
+  body { font: 16px/1.5 system-ui, sans-serif; max-width: 44rem; margin: 2rem auto; padding: 0 1rem; }
+  textarea { width: 100%; height: 9rem; font: 13px ui-monospace, monospace; }
+  button { font-size: 1rem; padding: .5rem 1rem; margin: 0 .5rem .5rem 0; }
+  #say { width: 70%; font-size: 1rem; padding: .45rem; }
+  #log p { margin: .3rem 0; } .relay { color: #0b6b3a; } .resident { color: #1d4ed8; } .sys { color: #666; }
+</style>
+<h1>Relay follow-up call</h1>
+<p class="sys">Simulated demo. Opt-in is re-checked and the call request is claimed before anything is spoken.
+Each request can be dialed once; the next unused demo request is filled in automatically.
+If live voice fails, the same call continues in text mode (replies are spoken by this browser).</p>
+<label>Call request<textarea id="request"></textarea></label>
+<p><button id="voice">Start voice call</button><button id="text">Start text call</button>
+   <button id="stop" disabled>End call</button></p>
+<form id="turn" hidden><input id="say" autocomplete="off" placeholder="Type what the resident says"> <button>Send</button></form>
+<div id="log"></div>
+<script type="module">
+  import { Conversation } from "https://cdn.jsdelivr.net/npm/@elevenlabs/client/+esm";
+  const $ = (id) => document.getElementById(id);
+  const log = (cls, text) => { const p = document.createElement("p"); p.className = cls; p.textContent = text; $("log").append(p); };
+  const VOICES = { en: "en-US", zh: "zh-CN" };
+  let conversation = null, sessionId = null, language = "en", mode = null, voiceConnected = false, firstMessage = "";
+
+  const speak = (text) => new Promise((done) => {
+    if (!window.speechSynthesis) return done();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = VOICES[language] || "en-US";
+    utterance.onend = utterance.onerror = done;
+    speechSynthesis.speak(utterance);
+  });
+  const relaySays = async (text) => { log("relay", `Relay: ${text}`); await speak(text); };
+  const busy = (on) => { $("voice").disabled = $("text").disabled = on; $("stop").disabled = !on; $("turn").hidden = !(on && mode === "text"); };
+
+  const nextRequest = async () => {
+    const res = await fetch("/api/demo/next");
+    const data = await res.json();
+    if (res.ok) $("request").value = JSON.stringify(data.request, null, 1);
+    else log("sys", data.error);
+  };
+  nextRequest();
+
+  const end = async (error = false) => {
+    if (!sessionId) return;
+    const id = sessionId; sessionId = null;
+    const res = await fetch(`/api/session/${id}/end`, { method: "POST", headers: { "Content-Type": "application/json" },
+                                                        body: JSON.stringify({ error }) });
+    log("sys", `Result logged: ${JSON.stringify((await res.json()).result?.outcome ?? "already closed")}`);
+    mode = null; busy(false); await nextRequest();
+  };
+
+  // Stable fallback: keep the same claimed call and continue it as typed turns.
+  const toText = async (reason) => {
+    if (mode === "text" || !sessionId) return;
+    mode = "text";
+    log("sys", `Voice unavailable (${reason}). Continuing this same call in text mode.`);
+    if (conversation) { const c = conversation; conversation = null; c.endSession().catch(() => {}); }
+    busy(true);
+    if (!voiceConnected) await relaySays(firstMessage);  // the fixed disclosure is always delivered first
+    $("say").focus();
+  };
+
+  const open = async (wanted) => {
+    const res = await fetch("/api/session", { method: "POST", headers: { "Content-Type": "application/json" },
+                                              body: JSON.stringify({ request: JSON.parse($("request").value), mode: wanted }) });
+    const data = await res.json();
+    if (!res.ok) { log("sys", `Not placed (${res.status}): ${JSON.stringify(data)}`); return null; }
+    sessionId = data.session_id; language = data.language || "en"; firstMessage = data.first_message;
+    voiceConnected = false;
+    return data;
+  };
+
+  $("text").onclick = async () => {
+    const data = await open("text");
+    if (!data) return;
+    mode = "text"; busy(true);
+    await relaySays(data.first_message);
+    $("say").focus();
+  };
+
+  $("voice").onclick = async () => {
+    const data = await open("voice");
+    if (!data) return;
+    if (data.mode !== "voice") return toText(data.voice_error || "no voice agent");
+    mode = "voice"; busy(true);
+    try {
+      await navigator.mediaDevices.getUserMedia({ audio: true });
+      conversation = await Conversation.startSession({
+        signedUrl: data.signed_url,
+        customLlmExtraBody: { relay_session_id: sessionId },
+        onConnect: () => { voiceConnected = true; },
+        onMessage: ({ source, message }) => log(source === "ai" ? "relay" : "resident", `${source === "ai" ? "Relay" : "Resident"}: ${message}`),
+        onDisconnect: (details) => {
+          if (mode !== "voice") return;  // we switched to text on purpose
+          if (details?.reason === "error") toText("connection lost"); else end();
+        },
+        onError: (e) => toText(`${e}`),
+      });
+    } catch (e) { await toText(`${e}`); }
+  };
+
+  $("turn").onsubmit = async (event) => {
+    event.preventDefault();
+    const text = $("say").value.trim();
+    if (!text || !sessionId) return;
+    $("say").value = ""; log("resident", `Resident: ${text}`);
+    const res = await fetch(`/api/session/${sessionId}/turn`, { method: "POST", headers: { "Content-Type": "application/json" },
+                                                                body: JSON.stringify({ text }) });
+    const data = await res.json();
+    if (!res.ok) { log("sys", `Turn failed (${res.status}): ${data.error}`); return; }
+    await relaySays(data.reply);
+    if (data.end) await end();
+  };
+
+  $("stop").onclick = async () => {
+    mode = null;
+    if (conversation) { const c = conversation; conversation = null; await c.endSession().catch(() => {}); }
+    await end();
+  };
+</script>
+</html>

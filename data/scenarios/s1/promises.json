@@ -1,0 +1,904 @@
+[
+ {
+  "promise_id": "s1_h_001_p1",
+  "household_id": "s1_h_001",
+  "who": "son Wei",
+  "what": "come help clean out and take her to stay with him",
+  "source_event_id": "s1_e_000376",
+  "made_ts": 42.6,
+  "due_ts": 144.0,
+  "status": "lapsed",
+  "status_ts": 144.0,
+  "evidence_event_ids": []
+ },
+ {
+  "promise_id": "s1_h_002_p1",
+  "household_id": "s1_h_002",
+  "who": "Red Cross",
+  "what": "deliver portable battery unit",
+  "source_event_id": "s1_e_000389",
+  "made_ts": 43.992,
+  "due_ts": 72.0,
+  "status": "lapsed",
+  "status_ts": 72.0,
+  "evidence_event_ids": []
+ },
+ {
+  "promise_id": "s1_h_003_p1",
+  "household_id": "s1_h_003",
+  "who": "landlord",
+  "what": "send licensed plumber",
+  "source_event_id": "s1_e_000708",
+  "made_ts": 112.992,
+  "due_ts": 216.0,
+  "status": "lapsed",
+  "status_ts": 216.0,
+  "evidence_event_ids": []
+ },
+ {
+  "promise_id": "s1_h_004_p1",
+  "household_id": "s1_h_004",
+  "who": "caseworker",
+  "what": "call back about temporary housing",
+  "source_event_id": "s1_e_000450",
+  "made_ts": 63.0,
+  "due_ts": 192.0,
+  "status": "lapsed",
+  "status_ts": 192.0,
+  "evidence_event_ids": []
+ },
+ {
+  "promise_id": "s1_h_013_p1",
+  "household_id": "s1_h_013",
+  "who": "son Jun",
+  "what": "take her to his place",
+  "source_event_id": "s1_e_000319",
+  "made_ts": 39.0,
+  "due_ts": 144.0,
+  "status": "kept",
+  "status_ts": 139.008,
+  "evidence_event_ids": [
+   "s1_e_000782"
+  ]
+ },
+ {
+  "promise_id": "s1_h_017_p1",
+  "household_id": "s1_h_017",
+  "who": "Red Cross",
+  "what": "bring meals",
+  "source_event_id": "s1_e_000573",
+  "made_ts": 85.992,
+  "due_ts": 96.0,
+  "status": "kept",
+  "status_ts": 91.008,
+  "evidence_event_ids": [
+   "s1_e_000643"
+  ]
+ },
+ {
+  "promise_id": "s1_h_023_p1",
+  "household_id": "s1_h_023",
+  "who": "DSNY",
+  "what": "bulk pickup of flood debris",
+  "source_event_id": "s1_e_000791",
+  "made_ts": 140.424,
+  "due_ts": 288.0,
+  "status": "kept",
+  "status_ts": 271.632,
+  "evidence_event_ids": [
+   "s1_e_001030"
+  ]
+ },
+ {
+  "promise_id": "s1_h_027_p1",
+  "household_id": "s1_h_027",
+  "who": "Red Cross",
+  "what": "deliver water and supplies",
+  "source_event_id": "s1_e_000867",
+  "made_ts": 182.472,
+  "due_ts": 216.0,
+  "status": "kept",
+  "status_ts": 194.208,
+  "evidence_event_ids": [
+   "s1_e_000910"
+  ]
+ },
+ {
+  "promise_id": "s1_h_028_p1",
+  "household_id": "s1_h_028",
+  "who": "landlord",
+  "what": "send a licensed plumber",
+  "source_event_id": "s1_e_000610",
+  "made_ts": 88.176,
+  "due_ts": 240.0,
+  "status": "kept",
+  "status_ts": 233.88,
+  "evidence_event_ids": [
+   "s1_e_000986"
+  ]
+ },
+ {
+  "promise_id": "s1_h_032_p1",
+  "household_id": "s1_h_032",
+  "who": "caseworker",
+  "what": "call back about temporary housing",
+  "source_event_id": "s1_e_000820",
+  "made_ts": 159.384,
+  "due_ts": 240.0,
+  "status": "kept",
+  "status_ts": 219.216,
+  "evidence_event_ids": [
+   "s1_e_000958"
+  ]
+ },
+ {
+  "promise_id": "s1_h_033_p1",
+  "household_id": "s1_h_033",
+  "who": "landlord",
+  "what": "send a licensed plumber",
+  "source_event_id": "s1_e_000844",
+  "made_ts": 164.16,
+  "due_ts": 288.0,
+  "status": "kept",
+  "status_ts": 311.952,
+  "evidence_event_ids": [
+   "s1_e_001085"
+  ]
+ },
+ {
+  "promise_id": "s1_h_034_p1",
+  "household_id": "s1_h_034",
+  "who": "daughter",
+  "what": "pick her up to stay with family",
+  "source_event_id": "s1_e_000730",
+  "made_ts": 117.792,
+  "due_ts": 192.0,
+  "status": "kept",
+  "status_ts": 182.928,
+  "evidence_event_ids": [
+   "s1_e_000872"
+  ]
+ },
+ {
+  "promise_id": "s1_h_035_p1",
+  "household_id": "s1_h_035",
+  "who": "Red Cross",
+  "what": "deliver water and supplies",
+  "source_event_id": "s1_e_000846",
+  "made_ts": 164.376,
+  "due_ts": 192.0,
+  "status": "kept",
+  "status_ts": 182.592,
+  "evidence_event_ids": [
+   "s1_e_000871"
+  ]
+ },
+ {
+  "promise_id": "s1_h_037_p1",
+  "household_id": "s1_h_037",
+  "who": "caseworker",
+  "what": "call back about temporary housing",
+  "source_event_id": "s1_e_000585",
+  "made_ts": 87.12,
+  "due_ts": 216.0,
+  "status": "kept",
+  "status_ts": 202.224,
+  "evidence_event_ids": [
+   "s1_e_000920"
+  ]
+ },
+ {
+  "promise_id": "s1_h_038_p1",
+  "household_id": "s1_h_038",
+  "who": "Red Cross",
+  "what": "deliver water and supplies",
+  "source_event_id": "s1_e_000518",
+  "made_ts": 68.712,
+  "due_ts": 96.0,
+  "status": "kept",
+  "status_ts": 92.496,
+  "evidence_event_ids": [
+   "s1_e_000660"
+  ]
+ },
+ {
+  "promise_id": "s1_h_040_p1",
+  "household_id": "s1_h_040",
+  "who": "Red Cross",
+  "what": "deliver water and supplies",
+  "source_event_id": "s1_e_000932",
+  "made_ts": 207.792,
+  "due_ts": 240.0,
+  "status": "kept",
+  "status_ts": 230.736,
+  "evidence_event_ids": [
+   "s1_e_000973"
+  ]
+ },
+ {
+  "promise_id": "s1_h_043_p1",
+  "household_id": "s1_h_043",
+  "who": "landlord",
+  "what": "send a licensed plumber",
+  "source_event_id": "s1_e_000795",
+  "made_ts": 141.144,
+  "due_ts": 192.0,
+  "status": "kept",
+  "status_ts": 180.408,
+  "evidence_event_ids": [
+   "s1_e_000862"
+  ]
+ },
+ {
+  "promise_id": "s1_h_054_p1",
+  "household_id": "s1_h_054",
+  "who": "daughter",
+  "what": "pick him up to stay with family",
+  "source_event_id": "s1_e_000837",
+  "made_ts": 162.528,
+  "due_ts": 240.0,
+  "status": "kept",
+  "status_ts": 234.96,
+  "evidence_event_ids": [
+   "s1_e_000989"
+  ]
+ },
+ {
+  "promise_id": "s1_h_055_p1",
+  "household_id": "s1_h_055",
+  "who": "FEMA",
+  "what": "home inspection",
+  "source_event_id": "s1_e_000816",
+  "made_ts": 158.304,
+  "due_ts": 264.0,
+  "status": "kept",
+  "status_ts": 251.592,
+  "evidence_event_ids": [
+   "s1_e_001004"
+  ]
+ },
+ {
+  "promise_id": "s1_h_057_p1",
+  "household_id": "s1_h_057",
+  "who": "DSNY",
+  "what": "bulk pickup of flood debris",
+  "source_event_id": "s1_e_000514",
+  "made_ts": 68.16,
+  "due_ts": 192.0,
+  "status": "kept",
+  "status_ts": 189.264,
+  "evidence_event_ids": [
+   "s1_e_000901"
+  ]
+ },
+ {
+  "promise_id": "s1_h_061_p1",
+  "household_id": "s1_h_061",
+  "who": "FEMA",
+  "what": "home inspection",
+  "source_event_id": "s1_e_000815",
+  "made_ts": 157.728,
+  "due_ts": 312.0,
+  "status": "kept",
+  "status_ts": 341.688,
+  "evidence_event_ids": [
+   "s1_e_001120"
+  ]
+ },
+ {
+  "promise_id": "s1_h_062_p1",
+  "household_id": "s1_h_062",
+  "who": "Red Cross",
+  "what": "deliver water and supplies",
+  "source_event_id": "s1_e_000729",
+  "made_ts": 117.528,
+  "due_ts": 144.0,
+  "status": "kept",
+  "status_ts": 120.768,
+  "evidence_event_ids": [
+   "s1_e_000736"
+  ]
+ },
+ {
+  "promise_id": "s1_h_064_p1",
+  "household_id": "s1_h_064",
+  "who": "DSNY",
+  "what": "bulk pickup of flood debris",
+  "source_event_id": "s1_e_000379",
+  "made_ts": 42.888,
+  "due_ts": 120.0,
+  "status": "kept",
+  "status_ts": 111.504,
+  "evidence_event_ids": [
+   "s1_e_000696"
+  ]
+ },
+ {
+  "promise_id": "s1_h_065_p1",
+  "household_id": "s1_h_065",
+  "who": "daughter",
+  "what": "pick him up to stay with family",
+  "source_event_id": "s1_e_000728",
+  "made_ts": 116.784,
+  "due_ts": 264.0,
+  "status": "kept",
+  "status_ts": 255.576,
+  "evidence_event_ids": [
+   "s1_e_001012"
+  ]
+ },
+ {
+  "promise_id": "s1_h_068_p1",
+  "household_id": "s1_h_068",
+  "who": "daughter",
+  "what": "pick him up to stay with family",
+  "source_event_id": "s1_e_000635",
+  "made_ts": 90.36,
+  "due_ts": 168.0,
+  "status": "kept",
+  "status_ts": 161.664,
+  "evidence_event_ids": [
+   "s1_e_000834"
+  ]
+ },
+ {
+  "promise_id": "s1_h_069_p1",
+  "household_id": "s1_h_069",
+  "who": "FEMA",
+  "what": "home inspection",
+  "source_event_id": "s1_e_000863",
+  "made_ts": 180.816,
+  "due_ts": 336.0,
+  "status": "kept",
+  "status_ts": 320.496,
+  "evidence_event_ids": [
+   "s1_e_001091"
+  ]
+ },
+ {
+  "promise_id": "s1_h_071_p1",
+  "household_id": "s1_h_071",
+  "who": "landlord",
+  "what": "send a licensed plumber",
+  "source_event_id": "s1_e_000482",
+  "made_ts": 65.064,
+  "due_ts": 144.0,
+  "status": "kept",
+  "status_ts": 129.936,
+  "evidence_event_ids": [
+   "s1_e_000741"
+  ]
+ },
+ {
+  "promise_id": "s1_h_073_p1",
+  "household_id": "s1_h_073",
+  "who": "caseworker",
+  "what": "call back about temporary housing",
+  "source_event_id": "s1_e_000840",
+  "made_ts": 163.608,
+  "due_ts": 288.0,
+  "status": "kept",
+  "status_ts": 317.04,
+  "evidence_event_ids": [
+   "s1_e_001088"
+  ]
+ },
+ {
+  "promise_id": "s1_h_074_p1",
+  "household_id": "s1_h_074",
+  "who": "daughter",
+  "what": "pick him up to stay with family",
+  "source_event_id": "s1_e_000723",
+  "made_ts": 115.872,
+  "due_ts": 240.0,
+  "status": "kept",
+  "status_ts": 227.352,
+  "evidence_event_ids": [
+   "s1_e_000968"
+  ]
+ },
+ {
+  "promise_id": "s1_h_076_p1",
+  "household_id": "s1_h_076",
+  "who": "Red Cross",
+  "what": "deliver water and supplies",
+  "source_event_id": "s1_e_000841",
+  "made_ts": 163.608,
+  "due_ts": 192.0,
+  "status": "kept",
+  "status_ts": 215.904,
+  "evidence_event_ids": [
+   "s1_e_000950"
+  ]
+ },
+ {
+  "promise_id": "s1_h_078_p1",
+  "household_id": "s1_h_078",
+  "who": "FEMA",
+  "what": "home inspection",
+  "source_event_id": "s1_e_000925",
+  "made_ts": 204.744,
+  "due_ts": 432.0,
+  "status": "kept",
+  "status_ts": 415.92,
+  "evidence_event_ids": [
+   "s1_e_001181"
+  ]
+ },
+ {
+  "promise_id": "s1_h_079_p1",
+  "household_id": "s1_h_079",
+  "who": "FEMA",
+  "what": "home inspection",
+  "source_event_id": "s1_e_000839",
+  "made_ts": 163.56,
+  "due_ts": 312.0,
+  "status": "kept",
+  "status_ts": 308.088,
+  "evidence_event_ids": [
+   "s1_e_001081"
+  ]
+ },
+ {
+  "promise_id": "s1_h_080_p1",
+  "household_id": "s1_h_080",
+  "who": "Red Cross",
+  "what": "deliver water and supplies",
+  "source_event_id": "s1_e_000692",
+  "made_ts": 110.544,
+  "due_ts": 144.0,
+  "status": "kept",
+  "status_ts": 131.52,
+  "evidence_event_ids": [
+   "s1_e_000743"
+  ]
+ },
+ {
+  "promise_id": "s1_h_081_p1",
+  "household_id": "s1_h_081",
+  "who": "Red Cross",
+  "what": "deliver water and supplies",
+  "source_event_id": "s1_e_000869",
+  "made_ts": 182.496,
+  "due_ts": 216.0,
+  "status": "kept",
+  "status_ts": 212.112,
+  "evidence_event_ids": [
+   "s1_e_000944"
+  ]
+ },
+ {
+  "promise_id": "s1_h_082_p1",
+  "household_id": "s1_h_082",
+  "who": "DSNY",
+  "what": "bulk pickup of flood debris",
+  "source_event_id": "s1_e_000928",
+  "made_ts": 206.712,
+  "due_ts": 336.0,
+  "status": "kept",
+  "status_ts": 343.968,
+  "evidence_event_ids": [
+   "s1_e_001121"
+  ]
+ },
+ {
+  "promise_id": "s1_h_084_p1",
+  "household_id": "s1_h_084",
+  "who": "DSNY",
+  "what": "bulk pickup of flood debris",
+  "source_event_id": "s1_e_000927",
+  "made_ts": 205.344,
+  "due_ts": 264.0,
+  "status": "kept",
+  "status_ts": 256.488,
+  "evidence_event_ids": [
+   "s1_e_001014"
+  ]
+ },
+ {
+  "promise_id": "s1_h_085_p1",
+  "household_id": "s1_h_085",
+  "who": "DSNY",
+  "what": "bulk pickup of flood debris",
+  "source_event_id": "s1_e_000892",
+  "made_ts": 187.632,
+  "due_ts": 264.0,
+  "status": "kept",
+  "status_ts": 277.896,
+  "evidence_event_ids": [
+   "s1_e_001041"
+  ]
+ },
+ {
+  "promise_id": "s1_h_089_p1",
+  "household_id": "s1_h_089",
+  "who": "DSNY",
+  "what": "bulk pickup of flood debris",
+  "source_event_id": "s1_e_000924",
+  "made_ts": 204.624,
+  "due_ts": 288.0,
+  "status": "kept",
+  "status_ts": 274.128,
+  "evidence_event_ids": [
+   "s1_e_001031"
+  ]
+ },
+ {
+  "promise_id": "s1_h_090_p1",
+  "household_id": "s1_h_090",
+  "who": "Red Cross",
+  "what": "deliver water and supplies",
+  "source_event_id": "s1_e_000725",
+  "made_ts": 116.472,
+  "due_ts": 144.0,
+  "status": "kept",
+  "status_ts": 178.128,
+  "evidence_event_ids": [
+   "s1_e_000860"
+  ]
+ },
+ {
+  "promise_id": "s1_h_094_p1",
+  "household_id": "s1_h_094",
+  "who": "caseworker",
+  "what": "call back about temporary housing",
+  "source_event_id": "s1_e_000875",
+  "made_ts": 183.816,
+  "due_ts": 336.0,
+  "status": "kept",
+  "status_ts": 329.976,
+  "evidence_event_ids": [
+   "s1_e_001104"
+  ]
+ },
+ {
+  "promise_id": "s1_h_095_p1",
+  "household_id": "s1_h_095",
+  "who": "caseworker",
+  "what": "call back about temporary housing",
+  "source_event_id": "s1_e_000933",
+  "made_ts": 207.984,
+  "due_ts": 360.0,
+  "status": "kept",
+  "status_ts": 353.28,
+  "evidence_event_ids": [
+   "s1_e_001131"
+  ]
+ },
+ {
+  "promise_id": "s1_h_096_p1",
+  "household_id": "s1_h_096",
+  "who": "caseworker",
+  "what": "call back about temporary housing",
+  "source_event_id": "s1_e_000800",
+  "made_ts": 142.176,
+  "due_ts": 240.0,
+  "status": "kept",
+  "status_ts": 275.232,
+  "evidence_event_ids": [
+   "s1_e_001034"
+  ]
+ },
+ {
+  "promise_id": "s1_h_097_p1",
+  "household_id": "s1_h_097",
+  "who": "DSNY",
+  "what": "bulk pickup of flood debris",
+  "source_event_id": "s1_e_000666",
+  "made_ts": 93.288,
+  "due_ts": 144.0,
+  "status": "kept",
+  "status_ts": 134.016,
+  "evidence_event_ids": [
+   "s1_e_000752"
+  ]
+ },
+ {
+  "promise_id": "s1_h_099_p1",
+  "household_id": "s1_h_099",
+  "who": "FEMA",
+  "what": "home inspection",
+  "source_event_id": "s1_e_000848",
+  "made_ts": 164.736,
+  "due_ts": 312.0,
+  "status": "kept",
+  "status_ts": 304.416,
+  "evidence_event_ids": [
+   "s1_e_001077"
+  ]
+ },
+ {
+  "promise_id": "s1_h_100_p1",
+  "household_id": "s1_h_100",
+  "who": "FEMA",
+  "what": "home inspection",
+  "source_event_id": "s1_e_000838",
+  "made_ts": 162.816,
+  "due_ts": 312.0,
+  "status": "kept",
+  "status_ts": 306.336,
+  "evidence_event_ids": [
+   "s1_e_001079"
+  ]
+ },
+ {
+  "promise_id": "s1_h_102_p1",
+  "household_id": "s1_h_102",
+  "who": "daughter",
+  "what": "pick her up to stay with family",
+  "source_event_id": "s1_e_000691",
+  "made_ts": 110.472,
+  "due_ts": 216.0,
+  "status": "kept",
+  "status_ts": 193.224,
+  "evidence_event_ids": [
+   "s1_e_000909"
+  ]
+ },
+ {
+  "promise_id": "s1_h_103_p1",
+  "household_id": "s1_h_103",
+  "who": "landlord",
+  "what": "send a licensed plumber",
+  "source_event_id": "s1_e_000881",
+  "made_ts": 185.304,
+  "due_ts": 312.0,
+  "status": "kept",
+  "status_ts": 283.56,
+  "evidence_event_ids": [
+   "s1_e_001054"
+  ]
+ },
+ {
+  "promise_id": "s1_h_105_p1",
+  "household_id": "s1_h_105",
+  "who": "daughter",
+  "what": "pick her up to stay with family",
+  "source_event_id": "s1_e_000995",
+  "made_ts": 238.056,
+  "due_ts": 288.0,
+  "status": "kept",
+  "status_ts": 268.968,
+  "evidence_event_ids": [
+   "s1_e_001028"
+  ]
+ },
+ {
+  "promise_id": "s1_h_108_p1",
+  "household_id": "s1_h_108",
+  "who": "Red Cross",
+  "what": "deliver water and supplies",
+  "source_event_id": "s1_e_000864",
+  "made_ts": 181.032,
+  "due_ts": 216.0,
+  "status": "kept",
+  "status_ts": 188.16,
+  "evidence_event_ids": [
+   "s1_e_000896"
+  ]
+ },
+ {
+  "promise_id": "s1_h_111_p1",
+  "household_id": "s1_h_111",
+  "who": "DSNY",
+  "what": "bulk pickup of flood debris",
+  "source_event_id": "s1_e_000681",
+  "made_ts": 108.6,
+  "due_ts": 192.0,
+  "status": "kept",
+  "status_ts": 181.68,
+  "evidence_event_ids": [
+   "s1_e_000865"
+  ]
+ },
+ {
+  "promise_id": "s1_h_113_p1",
+  "household_id": "s1_h_113",
+  "who": "DSNY",
+  "what": "bulk pickup of flood debris",
+  "source_event_id": "s1_e_001109",
+  "made_ts": 331.896,
+  "due_ts": 384.0,
+  "status": "kept",
+  "status_ts": 364.896,
+  "evidence_event_ids": [
+   "s1_e_001139"
+  ]
+ },
+ {
+  "promise_id": "s1_h_114_p1",
+  "household_id": "s1_h_114",
+  "who": "caseworker",
+  "what": "call back about temporary housing",
+  "source_event_id": "s1_e_000719",
+  "made_ts": 114.528,
+  "due_ts": 240.0,
+  "status": "kept",
+  "status_ts": 252.12,
+  "evidence_event_ids": [
+   "s1_e_001005"
+  ]
+ },
+ {
+  "promise_id": "s1_h_115_p1",
+  "household_id": "s1_h_115",
+  "who": "Red Cross",
+  "what": "deliver water and supplies",
+  "source_event_id": "s1_e_000330",
+  "made_ts": 39.624,
+  "due_ts": 72.0,
+  "status": "kept",
+  "status_ts": 91.752,
+  "evidence_event_ids": [
+   "s1_e_000653"
+  ]
+ },
+ {
+  "promise_id": "s1_h_116_p1",
+  "household_id": "s1_h_116",
+  "who": "landlord",
+  "what": "send a licensed plumber",
+  "source_event_id": "s1_e_000433",
+  "made_ts": 60.84,
+  "due_ts": 120.0,
+  "status": "kept",
+  "status_ts": 97.656,
+  "evidence_event_ids": [
+   "s1_e_000679"
+  ]
+ },
+ {
+  "promise_id": "s1_h_119_p1",
+  "household_id": "s1_h_119",
+  "who": "daughter",
+  "what": "pick her up to stay with family",
+  "source_event_id": "s1_e_000567",
+  "made_ts": 85.488,
+  "due_ts": 168.0,
+  "status": "kept",
+  "status_ts": 150.024,
+  "evidence_event_ids": [
+   "s1_e_000811"
+  ]
+ },
+ {
+  "promise_id": "s1_h_130_p1",
+  "household_id": "s1_h_130",
+  "who": "landlord",
+  "what": "send a licensed plumber",
+  "source_event_id": "s1_e_001009",
+  "made_ts": 254.208,
+  "due_ts": 360.0,
+  "status": "kept",
+  "status_ts": 347.04,
+  "evidence_event_ids": [
+   "s1_e_001123"
+  ]
+ },
+ {
+  "promise_id": "s1_h_134_p1",
+  "household_id": "s1_h_134",
+  "who": "FEMA",
+  "what": "home inspection",
+  "source_event_id": "s1_e_000884",
+  "made_ts": 186.144,
+  "due_ts": 360.0,
+  "status": "kept",
+  "status_ts": 347.088,
+  "evidence_event_ids": [
+   "s1_e_001124"
+  ]
+ },
+ {
+  "promise_id": "s1_h_136_p1",
+  "household_id": "s1_h_136",
+  "who": "FEMA",
+  "what": "home inspection",
+  "source_event_id": "s1_e_000851",
+  "made_ts": 165.84,
+  "due_ts": 288.0,
+  "status": "kept",
+  "status_ts": 266.64,
+  "evidence_event_ids": [
+   "s1_e_001025"
+  ]
+ },
+ {
+  "promise_id": "s1_h_138_p1",
+  "household_id": "s1_h_138",
+  "who": "Red Cross",
+  "what": "deliver water and supplies",
+  "source_event_id": "s1_e_000980",
+  "made_ts": 232.992,
+  "due_ts": 264.0,
+  "status": "kept",
+  "status_ts": 243.648,
+  "evidence_event_ids": [
+   "s1_e_000999"
+  ]
+ },
+ {
+  "promise_id": "s1_h_139_p1",
+  "household_id": "s1_h_139",
+  "who": "daughter",
+  "what": "pick her up to stay with family",
+  "source_event_id": "s1_e_000948",
+  "made_ts": 213.648,
+  "due_ts": 288.0,
+  "status": "kept",
+  "status_ts": 280.368,
+  "evidence_event_ids": [
+   "s1_e_001049"
+  ]
+ },
+ {
+  "promise_id": "s1_h_140_p1",
+  "household_id": "s1_h_140",
+  "who": "caseworker",
+  "what": "call back about temporary housing",
+  "source_event_id": "s1_e_000987",
+  "made_ts": 234.456,
+  "due_ts": 336.0,
+  "status": "kept",
+  "status_ts": 327.72,
+  "evidence_event_ids": [
+   "s1_e_001098"
+  ]
+ },
+ {
+  "promise_id": "s1_h_143_p1",
+  "household_id": "s1_h_143",
+  "who": "DSNY",
+  "what": "bulk pickup of flood debris",
+  "source_event_id": "s1_e_000747",
+  "made_ts": 132.648,
+  "due_ts": 264.0,
+  "status": "kept",
+  "status_ts": 252.672,
+  "evidence_event_ids": [
+   "s1_e_001006"
+  ]
+ },
+ {
+  "promise_id": "s1_h_144_p1",
+  "household_id": "s1_h_144",
+  "who": "caseworker",
+  "what": "call back about temporary housing",
+  "source_event_id": "s1_e_000830",
+  "made_ts": 160.248,
+  "due_ts": 240.0,
+  "status": "kept",
+  "status_ts": 223.512,
+  "evidence_event_ids": [
+   "s1_e_000967"
+  ]
+ },
+ {
+  "promise_id": "s1_h_146_p1",
+  "household_id": "s1_h_146",
+  "who": "FEMA",
+  "what": "home inspection",
+  "source_event_id": "s1_e_000317",
+  "made_ts": 38.904,
+  "due_ts": 216.0,
+  "status": "kept",
+  "status_ts": 229.272,
+  "evidence_event_ids": [
+   "s1_e_000971"
+  ]
+ },
+ {
+  "promise_id": "s1_h_148_p1",
+  "household_id": "s1_h_148",
+  "who": "caseworker",
+  "what": "call back about temporary housing",
+  "source_event_id": "s1_e_000748",
+  "made_ts": 133.032,
+  "due_ts": 264.0,
+  "status": "kept",
+  "status_ts": 260.112,
+  "evidence_event_ids": [
+   "s1_e_001020"
+  ]
+ }
+]

@@ -1,0 +1,2 @@
+# Core runtime uses the Python standard library.
+# W1 adds the pinned SurrealDB SDK; W5 adds the pinned Arize integration.

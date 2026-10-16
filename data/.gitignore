@@ -1,0 +1,4 @@
+# Raw NYC Open Data pulls (python data/pull_311.py extract)
+raw/
+# Regenerable 311 event extract, ~14 MB (python data/load_311.py)
+derived/events_311.jsonl

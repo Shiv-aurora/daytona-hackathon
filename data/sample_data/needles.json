@@ -1,0 +1,18 @@
+[
+ {
+  "needle_id": "sample_n_01",
+  "scenario_id": "sample",
+  "household_id": "sample_h_001",
+  "kind": "broken_promise",
+  "required_event_ids": [
+   "sample_e_000008",
+   "sample_e_000010",
+   "sample_e_000016"
+  ],
+  "deadline": 132.0,
+  "danger_at": 168.0,
+  "response_hours": 24,
+  "people_at_risk": 1,
+  "summary": "Nephew promised Sun Sep 5, never came; block ETA pushed to Sep 8+; flooded meter keeps her dark."
+ }
+]

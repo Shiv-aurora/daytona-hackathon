@@ -1,0 +1,12 @@
+[
+ {
+  "decoy_id": "sample_d_01",
+  "scenario_id": "sample",
+  "household_id": "sample_h_002",
+  "kind": "resolved_alarm",
+  "event_ids": [
+   "sample_e_000003"
+  ],
+  "reason": "No-power alarm; block restored 7 hours later; volunteer found her fine."
+ }
+]

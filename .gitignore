@@ -1,0 +1,53 @@
+# Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*service-account*.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.venv/
+venv/
+dist/
+build/
+
+# Node / Next.js
+node_modules/
+.next/
+ui/node_modules/
+ui/.next/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Local hosting links, deployment output, and caches
+.vercel/
+.netlify/
+.wrangler/
+.serverless/
+.terraform/
+.turbo/
+out/
+coverage/
+
+# Local databases / runtime artifacts
+*.sqlite
+*.sqlite3
+*.db
+*.log
+
+# OS / editors
+.DS_Store
+.idea/
+.vscode/
+*.swp

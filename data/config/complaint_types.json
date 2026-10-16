@@ -1,0 +1,14 @@
+{
+ "_note": "Recovery-relevant 311 complaint types for Queens, Sep 1 - Oct 13 2021, picked from query 1a. No generator-noise or elder/welfare types exist in 311; 'Food' types are restaurant inspections, left out.",
+ "categories": {
+  "flood": ["Sewer", "Storm", "Water System", "WATER LEAK"],
+  "power": ["ELECTRIC", "Electrical", "Street Light Condition", "Traffic Signal Condition", "Overgrown Tree/Branches"],
+  "heat_water": ["HEAT/HOT WATER", "PLUMBING", "Plumbing", "General Construction/Plumbing"],
+  "building": ["UNSANITARY CONDITION", "PAINT/PLASTER", "FLOORING/STAIRS", "DOOR/WINDOW", "GENERAL",
+               "APPLIANCE", "SAFETY", "Elevator", "Building/Use"],
+  "debris": ["Request Large Bulky Item Collection", "Missed Collection (All Materials)", "Missed Collection",
+             "Illegal Dumping", "Sanitation Condition", "Dirty Conditions", "Dirty Condition"],
+  "trees_street": ["Damaged Tree", "Street Condition"],
+  "health": ["Indoor Air Quality", "Air Quality", "Rodent"]
+ }
+}
