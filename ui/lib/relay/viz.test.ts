@@ -89,8 +89,8 @@ describe("with the seeded board", () => {
   });
   it("flags a need nobody can supply", async () => {
     const b = await board();
-    b.requests.push(req({ id: "x", category: "shelter" }));
-    expect(coverage(b).unmet).toContain("shelter");
+    b.requests.push(req({ id: "x", category: "childcare" }));
+    expect(coverage(b).unmet).toContain("childcare");
   });
   it("org load sums to the assigned requests", async () => {
     const b = await board();
