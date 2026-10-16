@@ -1,6 +1,6 @@
 "use client";
 
-import { BookOpen, Building2, CircleAlert, Compass, LayoutList, Phone, RefreshCw, RotateCcw, ShieldCheck, X } from "lucide-react";
+import { BookOpen, Building2, CircleAlert, Compass, LayoutList, Phone, Play, RefreshCw, RotateCcw, ShieldCheck, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
@@ -12,6 +12,7 @@ import { DemoGuide } from "./DemoGuide";
 import { RequestDrawer } from "./RequestDrawer";
 
 const NAV = [
+  { href: "/live", label: "Live demo", icon: Play },
   { href: "/response", label: "Response", icon: LayoutList },
   { href: "/organizations", label: "Organizations", icon: Building2 },
   { href: "/calls", label: "Calls", icon: Phone },
@@ -45,7 +46,7 @@ function Nav({ orientation }: { orientation: "side" | "top" }) {
 
 function Brand() {
   return (
-    <Link href="/response" className="flex items-center gap-2 rounded-lg outline-none focus-visible:ring-3 focus-visible:ring-ring/50">
+    <Link href="/live" className="flex items-center gap-2 rounded-lg outline-none focus-visible:ring-3 focus-visible:ring-ring/50">
       <span aria-hidden className="grid size-7 place-items-center rounded-lg bg-agent text-sm font-bold text-white">
         R
       </span>
@@ -246,7 +247,8 @@ export function Shell({ children }: { children: ReactNode }) {
   const { board, selectedRequestId } = useRelay();
   const path = usePathname();
   // Lessons need the full width; the request drawer is for the board, organizations and calls.
-  const showDrawer = !path.startsWith("/intelligence");
+  const cinematic = path.startsWith("/live");
+  const showDrawer = !path.startsWith("/intelligence") && !cinematic;
   const drawerOpen = showDrawer && Boolean(selectedRequestId && board?.requests.some((r) => r.id === selectedRequestId));
   return (
     <div className="flex min-h-screen flex-col lg:flex-row">
@@ -266,9 +268,9 @@ export function Shell({ children }: { children: ReactNode }) {
         <p role="note" className="bg-ink px-4 py-1 text-center text-xs text-bg">
           Demo · synthetic data · simulated access · no real calls
         </p>
-        <TopBar />
+        {cinematic ? null : <TopBar />}
         <Banners />
-        <DemoGuide />
+        {cinematic ? null : <DemoGuide />}
         <main id="main" tabIndex={-1} className="min-w-0 flex-1 px-4 py-4 outline-none lg:px-6 lg:py-5">
           {children}
         </main>
