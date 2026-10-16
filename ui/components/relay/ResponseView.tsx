@@ -162,6 +162,18 @@ export function ResponseView() {
         </p>
       </div>
 
+      <div className="grid grid-cols-2 gap-2 @xl:grid-cols-5" aria-label="Request counts">
+        {STATUSES.map((s) => (
+          <Card key={s} title={STATUS_META[s].hint} className="flex items-center gap-3 px-3 py-2">
+            <span className="text-2xl font-semibold leading-none tabular-nums text-ink">{board.requests.filter((r) => r.status === s).length}</span>
+            <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
+              <span aria-hidden className={cn("size-2 rounded-full", STATUS_META[s].dot)} />
+              {STATUS_META[s].label}
+            </span>
+          </Card>
+        ))}
+      </div>
+
       {escalation ? (
         <div title="Relay stopped automated handling and logged an immediate human escalation.">
           <Callout tone="danger" icon={Siren} role="alert" title="Emergency: a person was alerted">
