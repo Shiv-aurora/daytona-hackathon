@@ -9,8 +9,8 @@ describe("fixed data label", () => {
     );
   });
 
-  it("renders from the root layout on every page", () => {
-    const layout = readFileSync(new URL("../app/layout.tsx", import.meta.url), "utf8");
+  it("renders on every page that shows the Ida 311 data (legacy console layout)", () => {
+    const layout = readFileSync(new URL("../app/(legacy)/layout.tsx", import.meta.url), "utf8");
     expect(layout).toContain('import { DATA_LABEL } from "@/lib/labels"');
     expect(layout).toContain("{DATA_LABEL}");
   });
