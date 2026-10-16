@@ -157,7 +157,7 @@ export function CallsView() {
       />
 
       <div className="grid gap-3 @3xl:grid-cols-3">
-        <Panel title="Household consent" aside={<span className="num">{board.survivors.length} households</span>}>
+        <Panel title="Household consent" aside={<span className="num">{board.survivors.length} {board.survivors.length === 1 ? "household" : "households"}</span>}>
           <ul className="flex flex-wrap gap-2" aria-label="Households and call consent">
             {board.survivors.map((s) => (
               <li
@@ -177,7 +177,7 @@ export function CallsView() {
           </p>
         </Panel>
 
-        <Panel title="Call outcomes" aside={<span className="num">{board.calls.length} calls</span>}>
+        <Panel title="Call outcomes" aside={<span className="num">{board.calls.length} {board.calls.length === 1 ? "call" : "calls"}</span>}>
           <ProportionBar segments={mixSegments} height={10} />
           {board.calls.length ? (
             <Legend className="mt-3" items={mixSegments.filter((s) => s.value).map((s) => ({ color: s.color, label: s.label, value: s.value }))} />
@@ -199,8 +199,8 @@ export function CallsView() {
             </div>
             <div>
               <dt className="mb-1 flex justify-between text-ink-2">
-                <span>Receipt confirmed</span>
-                <span className="num font-medium text-ink">{ver.received}</span>
+                <span>Verified by a household or person</span>
+                <span className="num font-medium text-ink">{ver.received + ver.notReceived + ver.unconfirmed}</span>
               </dt>
               <dd>
                 <ProportionBar
@@ -212,6 +212,8 @@ export function CallsView() {
                   height={6}
                 />
                 <p className="mt-1 text-2xs text-muted-foreground">
+                  <span className="num">{ver.received}</span> received · <span className="num">{ver.notReceived}</span> did not arrive · <span className="num">{ver.unconfirmed}</span> unconfirmed
+                  <br />
                   {ver.call} by survivor call · {ver.human} by human review
                 </p>
               </dd>

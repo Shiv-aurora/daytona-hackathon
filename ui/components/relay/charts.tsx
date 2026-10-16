@@ -58,10 +58,10 @@ export function Legend({ items, className }: { items: { color: string; label: st
 const DROP_LABEL: Record<string, string> = { reported: "unclaimed", claimed: "awaiting delivery", delivered: "unverified" };
 
 const FW = 640;
-const FH = 168;
+const FH = 160;
 const BAR_W = 8;
 const TOP = 46;
-const MAXH = 86;
+const MAXH = 76;
 
 /**
  * Reported → Claimed → Delivery reported → Receipt verified. Teal ribbons are requests that moved on; the amber

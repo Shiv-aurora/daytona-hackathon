@@ -34,7 +34,7 @@ function Kpis({ board }: { board: Board }) {
   const total = board.requests.length;
   const f = funnel(board.requests);
   return (
-    <div aria-label="Request counts" className="grid grid-cols-2 overflow-hidden rounded-md border border-line bg-panel sm:grid-cols-3 lg:grid-cols-6 [&>*]:border-line [&>*:not(:first-child)]:lg:border-l [&>*]:border-b lg:[&>*]:border-b-0">
+    <div aria-label="Request counts" className="grid grid-cols-2 gap-px overflow-hidden rounded-md border border-line bg-line @xl:grid-cols-3 @5xl:grid-cols-6 [&>*]:bg-panel">
       {STATUSES.map((s) => (
         <div key={s} title={STATUS_META[s].hint} className="flex min-w-0 flex-col gap-2 px-4 py-3">
           <span className="label flex items-center gap-1.5 !normal-case !tracking-normal !text-xs !font-medium text-ink-2">
@@ -45,7 +45,7 @@ function Kpis({ board }: { board: Board }) {
           <ProportionBar segments={[{ key: s, value: counts[s], color: STATUS_META[s].color, label: STATUS_META[s].label }, { key: "rest", value: total - counts[s], color: "transparent", label: "other" }]} height={3} />
         </div>
       ))}
-      <div className="flex min-w-0 flex-col gap-2 bg-surface px-4 py-3" title="Of the requests an organization says it delivered, the share a household or a human confirmed received.">
+      <div className="flex min-w-0 flex-col gap-2 !bg-surface px-4 py-3" title="Of the requests an organization says it delivered, the share a household or a human confirmed received.">
         <span className="label !normal-case !tracking-normal !text-xs !font-medium text-ink-2">Confirmed received</span>
         <span className="flex items-baseline gap-1">
           <span className="num text-2xl font-medium leading-none tracking-[-0.02em] text-ink">{f.verifiedRate === null ? "—" : Math.round(f.verifiedRate * 100)}</span>
@@ -320,7 +320,7 @@ export function ResponseView() {
         title="Response"
         subtitle={
           <>
-            <span className="num">{count}</span> request{count === 1 ? "" : "s"} · {board.disaster.name} · {board.disaster.region}
+            <span className="num">{count}</span> request{count === 1 ? "" : "s"} in {board.disaster.name}
           </>
         }
         actions={
