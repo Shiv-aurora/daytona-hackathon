@@ -40,9 +40,10 @@ def open_db(endpoint, namespace, database, username=None, password=None, *, remo
     """Connect, authenticate, select namespace/database. Returns a connected blocking client."""
     from surrealdb import Surreal
 
-    db = Surreal(endpoint)
     try:
-        db.connect()
+        db = Surreal(endpoint)  # surrealdb 2.x connects on construction; older SDKs need connect()
+        if hasattr(db, "connect"):
+            db.connect()
     except Exception as exc:  # noqa: BLE001
         raise RemoteError(f"Cannot connect to SurrealDB ({type(exc).__name__})") from None
     if username is not None:

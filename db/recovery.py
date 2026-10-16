@@ -315,9 +315,20 @@ class SurrealRecoveryStore:
                     + "RETURN $changed; COMMIT;",
                     params,
                 )
+                if updated is None:
+                    # SurrealDB 3.x over the 2.0 SDK returns no rows for a BEGIN..COMMIT block;
+                    # confirm the revision-checked write by reading it back.
+                    updated = self._confirm(run_id, row, snapshot)
                 if updated:
                     return result
             raise Conflict("Concurrent update; retry the same idempotency key")
+
+    def _confirm(self, run_id, row, snapshot):
+        rows = self._q(
+            "SELECT revision, snapshot FROM relay_demo_run WHERE run_id=$run AND disaster_id=$disaster",
+            {"run": run_id, "disaster": row["disaster_id"]},
+        )
+        return bool(rows) and rows[0]["revision"] == row["revision"] + 1 and rows[0]["snapshot"] == snapshot
 
     def create_request(self, run_id, payload):
         return self._mutate("create_request", run_id, payload)
