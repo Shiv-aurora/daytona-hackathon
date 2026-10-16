@@ -1,6 +1,6 @@
 PYTHON ?= python3
 
-.PHONY: smoke demo demo-surreal demo-legacy serve
+.PHONY: smoke demo demo-surreal demo-legacy serve check-elevenlabs
 smoke:
 	$(PYTHON) -m pytest -q calls/tests/test_safety.py runtime/tests/test_runtime.py eval/tests/test_scenario1_smoke.py tests/test_recovery_integration.py
 
@@ -15,3 +15,6 @@ serve:
 
 demo-legacy:
 	$(PYTHON) -m runtime.demo --store local --score
+
+check-elevenlabs:
+	$(PYTHON) scripts/check_elevenlabs.py $(if $(STT),--stt $(STT),)
