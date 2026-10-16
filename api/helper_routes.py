@@ -10,6 +10,7 @@ from threading import RLock
 from api.demo_store import now
 from calls.safety import disclosure
 from contracts.demo import Conflict, InvalidInput, NotFound
+from eval.arize_trace import traced
 from helpers.daytona_client import default_client
 from helpers.roles import BY_ROLE
 
@@ -67,7 +68,12 @@ def execute(role, payload):
     out = {'status': 'failed', 'provider': client.provider, 'sandbox_id': None,
            'started_at': started, 'summary': '', 'transcript': None, 'proposals': []}
     try:
-        result = client.run(role, payload, TIMEOUT_SECONDS)
+        with traced('relay.helper.run', role=role, run_id=payload.get('run_id'),
+                    disaster_id=payload.get('disaster_id'),
+                    request_id=(payload.get('request') or {}).get('id'),
+                    category=(payload.get('request') or {}).get('category')) as span:
+            result = client.run(role, payload, TIMEOUT_SECONDS)
+            span.set(status='ok' if result.get('exit_code') == 0 else 'error')
         out['sandbox_id'] = result.get('sandbox_id')
         lines = (result.get('stdout') or '').strip().splitlines()
         if result.get('exit_code') != 0 or not lines:

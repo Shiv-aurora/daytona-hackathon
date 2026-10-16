@@ -14,6 +14,7 @@ from datetime import UTC, datetime
 from calls.agent import Turn
 from calls.safety import disclosure, emergency_line, safety_check
 from calls.voice.bridge import sse_chunks
+from eval.arize_trace import traced
 
 
 def validate_context(job: dict, context: dict) -> None:
@@ -81,8 +82,11 @@ class RecoverySession:
         result = {key: self.job[key] for key in ('call_id', 'request_id', 'run_id', 'disaster_id')}
         result.update(outcome=outcome, received=received, summary=summaries[outcome],
                       evidence_ids=list(self.evidence), emergency=emergency)
-        self.event('follow_up_finished', {'outcome': outcome, 'received': received})
-        self.context['finish_call'](self.job, result)
+        with traced('relay.follow_up.outcome', run_id=result['run_id'], disaster_id=result['disaster_id'],
+                    request_id=result['request_id'], outcome=outcome, received=received,
+                    emergency=emergency):
+            self.event('follow_up_finished', {'outcome': outcome, 'received': received})
+            self.context['finish_call'](self.job, result)
         self.result = result
         return result
 

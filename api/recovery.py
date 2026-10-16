@@ -9,6 +9,7 @@ from api.demo_store import timestamp
 from api.helper_routes import handle_helpers
 from calls.safety import emergency_line, safety_check
 from contracts.demo import Conflict, InvalidInput, NotFound
+from eval.arize_trace import traced
 
 # Explicit vocabulary rather than stemming: medical terms and unrelated words
 # must not become needs merely because they share a substring or suffix.
@@ -80,6 +81,14 @@ def queue_follow_up(store, run_id, request_id, body):
 
 
 def decide(case, lessons_enabled=False):
+    with traced('relay.recovery.decide', disaster_id=case.get('disaster_id')) as span:
+        decision = _decide(case, lessons_enabled)
+        span.set(category=decision['categories'][0], status=decision['status'],
+                 lesson_ids=decision['lesson_ids'], organization_id=decision['organization_id'])
+        return decision
+
+
+def _decide(case, lessons_enabled):
     """Transparent baseline: no expected labels, medical advice, or household ranking."""
     text = case.get('report', '')
     if isinstance(text, dict):
@@ -173,7 +182,9 @@ def compare(store, run_id, body):
         cases = [case for case in cases if case.get('disaster_id') == board['disaster']['id']]
         if not cases:
             raise InvalidInput('no evaluation cases for this run')
-        result = run_comparison(cases, decide)
+        with traced('relay.recovery.compare', run_id=run_id, disaster_id=board['disaster']['id']) as span:
+            result = run_comparison(cases, decide)
+            span.set(experiment_id=result['experiment_id'], case_count=result['case_count'])
     records = []
     for variant in ('without_history', 'with_history'):
         records.append(store.save_evaluation(run_id, {'experiment_id': result['experiment_id'],
