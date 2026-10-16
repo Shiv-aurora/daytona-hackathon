@@ -1,3 +1,4 @@
 # New demo integrations. Both remain optional for the offline reference scenario.
 surrealdb==2.0.0
 arize-otel==0.14.1
+daytona>=0.224,<1
