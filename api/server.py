@@ -15,7 +15,7 @@ from typing import Any
 from api.relay import handle
 
 
-def make_handler(db: Any, origin: str = "*") -> type[BaseHTTPRequestHandler]:
+def make_handler(db: Any, origin: str = "*", recovery_store=None) -> type[BaseHTTPRequestHandler]:
     class RelayHandler(BaseHTTPRequestHandler):
         def do_OPTIONS(self) -> None:  # CORS preflight for the console's JSON POSTs
             self._send(204, None)
@@ -36,7 +36,13 @@ def make_handler(db: Any, origin: str = "*") -> type[BaseHTTPRequestHandler]:
 
         def _route(self, method: str, body: dict | None) -> None:
             try:
-                status, payload = handle(db, method, self.path, body)
+                from api.recovery import handle as recovery_handle
+                if recovery_store is not None:
+                    status, payload = recovery_handle(recovery_store, method, self.path, body)
+                    if status == 404 and payload == {"error": "not found"}:
+                        status, payload = handle(db, method, self.path, body)
+                else:
+                    status, payload = handle(db, method, self.path, body)
             except Exception as exc:  # noqa: BLE001 - never leak internals to the browser
                 print(f"relay api: {method} {self.path} failed: {type(exc).__name__}", file=sys.stderr)
                 status, payload = 500, {"error": "internal error"}
@@ -65,13 +71,28 @@ def main(argv: list[str] | None = None) -> None:
     parser = argparse.ArgumentParser(description="Relay run API")
     parser.add_argument("--host", default="127.0.0.1")
     parser.add_argument("--port", type=int, default=int(os.environ.get("PORT", "8787")))
+    parser.add_argument("--store", choices=("memory", "surreal"), default="memory")
+    parser.add_argument("--seed", default="data/demo/seed.json")
     args = parser.parse_args(argv)
+    with open(args.seed) as stream:
+        seed = json.load(stream)
+    if args.store == "memory":
+        from api.demo_store import InMemoryRecoveryStore
+        recovery_store = InMemoryRecoveryStore(seed)
+    else:
+        from db.recovery import SurrealRecoveryStore
+        recovery_store = SurrealRecoveryStore.from_env(seed=seed)
     db = FakeDatabase()
     DemoBackend(db, "relay-demo", load_scenario("data/scenarios/s1"))
     server = ThreadingHTTPServer((args.host, args.port),
-                                 make_handler(db, os.environ.get("RELAY_API_ORIGIN", "*")))
+                                 make_handler(db, os.environ.get("RELAY_API_ORIGIN", "*"), recovery_store))
     print(f"Relay run API on http://{args.host}:{args.port} (in-process reference data)")
-    server.serve_forever()
+    try:
+        server.serve_forever()
+    finally:
+        server.server_close()
+        if hasattr(recovery_store, "close"):
+            recovery_store.close()
 
 
 if __name__ == "__main__":
