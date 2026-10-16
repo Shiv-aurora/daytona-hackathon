@@ -4,7 +4,7 @@ import re
 from hashlib import sha256
 from urllib.parse import unquote, urlsplit
 
-from api import voice_routes
+from api import background_routes, voice_routes
 from api.demo_store import timestamp
 from api.helper_routes import handle_helpers
 from calls.safety import emergency_line, safety_check
@@ -113,6 +113,8 @@ def handle(store, method, path, body=None, raw=None, headers=None):
         if method == 'GET' and parts in (['disasters'], ['organizations']):
             table = parts[0]
             return 200, {table: getattr(store, 'list_' + table)()}
+        if method == 'GET' and parts == ['background-311']:
+            return background_routes.handle(store, path)
         if len(parts) < 3 or parts[0] != 'runs':
             return 404, {'error': 'not found'}
         run_id = parts[1]

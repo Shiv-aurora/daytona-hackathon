@@ -360,6 +360,10 @@ class SurrealRecoveryStore:
     def save_helper_run(self, run_id, payload):
         return self._mutate("save_helper_run", run_id, payload)
 
+    def list_background_311(self, limit=500):
+        with self._lock:
+            return self._q("SELECT * FROM relay_background_311 ORDER BY reported_at LIMIT $n", {"n": limit}) or []
+
     def list_helper_runs(self, run_id):
         with self._lock:
             return self._read(run_id)[1].list_helper_runs(run_id)
