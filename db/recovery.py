@@ -315,6 +315,13 @@ class SurrealRecoveryStore:
     def save_evaluation(self, run_id, payload):
         return self._mutate("save_evaluation", run_id, payload)
 
+    def save_helper_run(self, run_id, payload):
+        return self._mutate("save_helper_run", run_id, payload)
+
+    def list_helper_runs(self, run_id):
+        with self._lock:
+            return self._read(run_id)[1].list_helper_runs(run_id)
+
 
 def main():
     parser = argparse.ArgumentParser(
