@@ -243,16 +243,22 @@ def test_no_answer_call_cannot_confirm_receipt(store):
     store.report_delivery(
         "r1", "request", {"organization_id": "org", "idempotency_key": "delivery"}
     )
-    store.save_call(
-        "r1",
-        {
-            "request_id": "request",
-            "status": "completed",
-            "outcome": "no_answer",
-            "evidence_ids": ["evidence"],
-            "idempotency_key": "call",
-        },
-    )
+    for status, key in (
+        ("queued", "call-queued"),
+        ("active", "call-active"),
+        ("completed", "call-completed"),
+    ):
+        store.save_call(
+            "r1",
+            {
+                "id": "no-answer-call",
+                "request_id": "request",
+                "status": status,
+                "outcome": "no_answer" if status == "completed" else None,
+                "evidence_ids": ["evidence"] if status == "completed" else [],
+                "idempotency_key": key,
+            },
+        )
     with pytest.raises(InvalidInput):
         store.verify_request(
             "r1",
