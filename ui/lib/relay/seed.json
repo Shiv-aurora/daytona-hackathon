@@ -39,6 +39,56 @@
         "transportation"
       ],
       "region": "Cedar Valley (fictional)"
+    },
+    {
+      "id": "demo-shelter",
+      "name": "Demo Shelter Network",
+      "capabilities": [
+        "shelter"
+      ],
+      "region": "North Ridge, Cedar Valley (fictional)"
+    },
+    {
+      "id": "demo-medical",
+      "name": "Demo Medical Supplies Group",
+      "capabilities": [
+        "medicine"
+      ],
+      "region": "Mill Road corridor, Cedar Valley (fictional)"
+    },
+    {
+      "id": "demo-repairs",
+      "name": "Demo Repairs Crew",
+      "capabilities": [
+        "repairs"
+      ],
+      "region": "Willow Terrace, Cedar Valley (fictional)"
+    },
+    {
+      "id": "demo-faith-kitchen",
+      "name": "Demo Faith Kitchen",
+      "capabilities": [
+        "food"
+      ],
+      "region": "Old Town, Cedar Valley (fictional)"
+    },
+    {
+      "id": "demo-youth",
+      "name": "Demo Youth Volunteer Corps",
+      "capabilities": [
+        "supplies",
+        "transportation"
+      ],
+      "region": "Lakeside, Cedar Valley (fictional)"
+    },
+    {
+      "id": "demo-animal",
+      "name": "Demo Animal Rescue Group",
+      "capabilities": [
+        "shelter",
+        "supplies"
+      ],
+      "region": "Marsh Flats, Cedar Valley (fictional)"
     }
   ],
   "runs": [
@@ -85,6 +135,78 @@
       "disaster_id": "demo-storm-2026",
       "created_at": "2026-10-16T12:00:00Z",
       "display_name": "Fictional household C",
+      "language": "en",
+      "call_opt_in": false
+    },
+    {
+      "id": "current-survivor-4",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T07:30:00Z",
+      "display_name": "Fictional household D",
+      "language": "en",
+      "call_opt_in": true
+    },
+    {
+      "id": "current-survivor-5",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T08:00:00Z",
+      "display_name": "Fictional household E",
+      "language": "es",
+      "call_opt_in": true
+    },
+    {
+      "id": "current-survivor-6",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T09:00:00Z",
+      "display_name": "Fictional household F",
+      "language": "en",
+      "call_opt_in": false
+    },
+    {
+      "id": "current-survivor-7",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T10:00:00Z",
+      "display_name": "Fictional household G",
+      "language": "en",
+      "call_opt_in": true
+    },
+    {
+      "id": "current-survivor-8",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T10:30:00Z",
+      "display_name": "Fictional household J",
+      "language": "en",
+      "call_opt_in": false
+    },
+    {
+      "id": "current-survivor-9",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T09:30:00Z",
+      "display_name": "Fictional household K",
+      "language": "en",
+      "call_opt_in": true
+    },
+    {
+      "id": "history-survivor-2",
+      "run_id": "demo-history",
+      "disaster_id": "demo-flood-2025",
+      "created_at": "2025-09-05T09:00:00Z",
+      "display_name": "Fictional household M",
+      "language": "en",
+      "call_opt_in": true
+    },
+    {
+      "id": "history-survivor-3",
+      "run_id": "demo-history",
+      "disaster_id": "demo-flood-2025",
+      "created_at": "2025-09-06T09:00:00Z",
+      "display_name": "Fictional household N",
       "language": "en",
       "call_opt_in": false
     }
@@ -145,6 +267,316 @@
       "organization_id": "demo-transport",
       "promised_at": null,
       "source_report_id": "report-current-transport-1"
+    },
+    {
+      "id": "current-shelter-1",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-16T07:30:00Z",
+      "survivor_id": "current-survivor-4",
+      "category": "shelter",
+      "description": "Needs a warm place to stay overnight in the Willow Terrace area; home has no power.",
+      "status": "open",
+      "due_at": "2026-10-16T18:00:00Z",
+      "organization_id": null,
+      "promised_at": null,
+      "source_report_id": "report-current-shelter-1",
+      "conditions": [
+        "no_power",
+        "elderly_household"
+      ]
+    },
+    {
+      "id": "current-medicine-1",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-16T09:10:00Z",
+      "survivor_id": "current-survivor-5",
+      "category": "medicine",
+      "description": "Needs an existing prescription refill picked up and brought from the Mill Road pharmacy.",
+      "status": "open",
+      "due_at": "2026-10-16T15:00:00Z",
+      "organization_id": null,
+      "promised_at": null,
+      "source_report_id": "report-current-medicine-1",
+      "conditions": [
+        "elderly_household"
+      ]
+    },
+    {
+      "id": "current-repairs-1",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T20:00:00Z",
+      "survivor_id": "current-survivor-6",
+      "category": "repairs",
+      "description": "Fallen branch is blocking the driveway and a tarp is needed over a damaged roof section.",
+      "status": "open",
+      "due_at": "2026-10-17T20:00:00Z",
+      "organization_id": null,
+      "promised_at": null,
+      "source_report_id": "report-current-repairs-1",
+      "conditions": [
+        "access_blocked"
+      ]
+    },
+    {
+      "id": "current-food-2",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T15:00:00Z",
+      "survivor_id": "current-survivor-7",
+      "category": "food",
+      "description": "Needs hot meals for a family of four; the stove and refrigerator are down.",
+      "status": "claimed",
+      "due_at": "2026-10-16T18:00:00Z",
+      "organization_id": "demo-faith-kitchen",
+      "promised_at": "2026-10-16T16:30:00Z",
+      "source_report_id": "report-current-food-2",
+      "conditions": [
+        "no_power"
+      ]
+    },
+    {
+      "id": "current-food-3",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T11:00:00Z",
+      "survivor_id": "current-survivor-8",
+      "category": "food",
+      "description": "Needs groceries and water; the bridge access to the Marsh Flats area is closed.",
+      "status": "claimed",
+      "due_at": "2026-10-16T10:00:00Z",
+      "organization_id": "demo-food",
+      "promised_at": "2026-10-16T09:00:00Z",
+      "source_report_id": "report-current-food-3",
+      "conditions": [
+        "access_blocked",
+        "elderly_household"
+      ]
+    },
+    {
+      "id": "current-supplies-2",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-16T06:00:00Z",
+      "survivor_id": "current-survivor-9",
+      "category": "supplies",
+      "description": "Needs flashlights, batteries and blankets for a household without power.",
+      "status": "claimed",
+      "due_at": "2026-10-17T12:00:00Z",
+      "organization_id": "demo-youth",
+      "promised_at": "2026-10-17T10:00:00Z",
+      "source_report_id": "report-current-supplies-2",
+      "conditions": [
+        "no_power"
+      ]
+    },
+    {
+      "id": "current-transport-2",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-16T08:00:00Z",
+      "survivor_id": "current-survivor-4",
+      "category": "transportation",
+      "description": "Needs a ride to the relief center because the usual road is blocked.",
+      "status": "claimed",
+      "due_at": "2026-10-16T14:00:00Z",
+      "organization_id": "demo-youth",
+      "promised_at": "2026-10-16T13:00:00Z",
+      "source_report_id": "report-current-transport-2",
+      "conditions": [
+        "access_blocked"
+      ]
+    },
+    {
+      "id": "current-shelter-2",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T13:00:00Z",
+      "survivor_id": "current-survivor-5",
+      "category": "shelter",
+      "description": "Needs shelter for an older adult whose home has been without power since the storm.",
+      "status": "awaiting_verification",
+      "due_at": "2026-10-16T09:00:00Z",
+      "organization_id": "demo-shelter",
+      "promised_at": "2026-10-16T08:00:00Z",
+      "source_report_id": "report-current-shelter-2",
+      "delivery_notes": "Reported delivered by the organization; receipt not yet verified.",
+      "conditions": [
+        "elderly_household",
+        "no_power"
+      ]
+    },
+    {
+      "id": "current-repairs-2",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T18:30:00Z",
+      "survivor_id": "current-survivor-7",
+      "category": "repairs",
+      "description": "Needs a temporary patch for a leaking window and clearing of debris at the entrance.",
+      "status": "awaiting_verification",
+      "due_at": "2026-10-16T11:00:00Z",
+      "organization_id": "demo-repairs",
+      "promised_at": "2026-10-16T10:30:00Z",
+      "source_report_id": "report-current-repairs-2",
+      "delivery_notes": "Reported delivered by the organization; receipt not yet verified.",
+      "conditions": [
+        "access_blocked"
+      ]
+    },
+    {
+      "id": "current-transport-3",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T16:00:00Z",
+      "survivor_id": "current-survivor-9",
+      "category": "transportation",
+      "description": "Needs a ride to a follow-up appointment at the community clinic.",
+      "status": "awaiting_verification",
+      "due_at": "2026-10-16T12:30:00Z",
+      "organization_id": "demo-youth",
+      "promised_at": "2026-10-16T07:00:00Z",
+      "source_report_id": "report-current-transport-3",
+      "delivery_notes": "Reported delivered by the organization; receipt not yet verified.",
+      "conditions": [
+        "elderly_household"
+      ]
+    },
+    {
+      "id": "current-medicine-2",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T10:00:00Z",
+      "survivor_id": "current-survivor-9",
+      "category": "medicine",
+      "description": "Needs a routine prescription refill delivered; the first delivery was left at a closed gate.",
+      "status": "reopened",
+      "due_at": "2026-10-16T20:00:00Z",
+      "organization_id": "demo-medical",
+      "promised_at": "2026-10-15T17:00:00Z",
+      "source_report_id": "report-current-medicine-2",
+      "delivery_notes": "Reported delivered by the organization; receipt not yet verified.",
+      "conditions": [
+        "elderly_household"
+      ]
+    },
+    {
+      "id": "current-food-4",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T09:30:00Z",
+      "survivor_id": "current-survivor-6",
+      "category": "food",
+      "description": "Needs hot meals; the earlier drop-off did not reach the household.",
+      "status": "reopened",
+      "due_at": "2026-10-16T19:00:00Z",
+      "organization_id": "demo-faith-kitchen",
+      "promised_at": "2026-10-15T14:00:00Z",
+      "source_report_id": "report-current-food-4",
+      "delivery_notes": "Reported delivered by the organization; receipt not yet verified.",
+      "conditions": [
+        "no_power"
+      ]
+    },
+    {
+      "id": "current-supplies-3",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T08:00:00Z",
+      "survivor_id": "current-survivor-4",
+      "category": "supplies",
+      "description": "Needs hygiene supplies and blankets for an older adult.",
+      "status": "resolved",
+      "due_at": null,
+      "organization_id": "demo-supplies",
+      "promised_at": "2026-10-15T12:00:00Z",
+      "source_report_id": "report-current-supplies-3",
+      "delivery_notes": "Reported delivered by the organization; receipt not yet verified.",
+      "conditions": [
+        "elderly_household"
+      ]
+    },
+    {
+      "id": "current-food-5",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T09:00:00Z",
+      "survivor_id": "current-survivor-5",
+      "category": "food",
+      "description": "Needs groceries for two days.",
+      "status": "resolved",
+      "due_at": null,
+      "organization_id": "demo-food",
+      "promised_at": "2026-10-15T13:00:00Z",
+      "source_report_id": "report-current-food-5",
+      "delivery_notes": "Reported delivered by the organization; receipt not yet verified."
+    },
+    {
+      "id": "history-shelter-1",
+      "run_id": "demo-history",
+      "disaster_id": "demo-flood-2025",
+      "created_at": "2025-09-06T08:00:00Z",
+      "survivor_id": "history-survivor-2",
+      "category": "shelter",
+      "description": "Shelter placement for a household without power.",
+      "status": "resolved",
+      "due_at": null,
+      "organization_id": "demo-shelter",
+      "promised_at": null,
+      "source_report_id": "report-history-shelter-1",
+      "conditions": [
+        "no_power"
+      ]
+    },
+    {
+      "id": "history-medicine-1",
+      "run_id": "demo-history",
+      "disaster_id": "demo-flood-2025",
+      "created_at": "2025-09-06T10:00:00Z",
+      "survivor_id": "history-survivor-3",
+      "category": "medicine",
+      "description": "Routine prescription pickup for an older adult.",
+      "status": "resolved",
+      "due_at": null,
+      "organization_id": "demo-medical",
+      "promised_at": null,
+      "source_report_id": "report-history-medicine-1",
+      "conditions": [
+        "elderly_household"
+      ]
+    },
+    {
+      "id": "history-repairs-1",
+      "run_id": "demo-history",
+      "disaster_id": "demo-flood-2025",
+      "created_at": "2025-09-07T09:00:00Z",
+      "survivor_id": "history-survivor-2",
+      "category": "repairs",
+      "description": "Temporary roof repair where the road was washed out.",
+      "status": "resolved",
+      "due_at": null,
+      "organization_id": "demo-repairs",
+      "promised_at": null,
+      "source_report_id": "report-history-repairs-1",
+      "conditions": [
+        "access_blocked"
+      ]
+    },
+    {
+      "id": "history-supplies-1",
+      "run_id": "demo-history",
+      "disaster_id": "demo-flood-2025",
+      "created_at": "2025-09-07T11:00:00Z",
+      "survivor_id": "history-survivor-3",
+      "category": "supplies",
+      "description": "Blankets and hygiene supplies.",
+      "status": "resolved",
+      "due_at": null,
+      "organization_id": "demo-supplies",
+      "promised_at": null,
+      "source_report_id": "report-history-supplies-1"
     }
   ],
   "calls": [
@@ -160,6 +592,117 @@
       "outcome": "no_answer",
       "summary": "Synthetic scripted no-answer; no live call was made. Receipt remains unverified.",
       "evidence_ids": []
+    },
+    {
+      "id": "current-call-received-1",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T20:00:00Z",
+      "request_id": "current-supplies-3",
+      "survivor_id": "current-survivor-4",
+      "status": "completed",
+      "provider_conversation_id": null,
+      "outcome": "verified_received",
+      "summary": "Survivor explicitly confirmed receipt of the blankets and hygiene supplies.",
+      "evidence_ids": [
+        "current-call-received-1:utterance:1"
+      ],
+      "mode": "scripted"
+    },
+    {
+      "id": "current-call-not-received-1",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-16T09:30:00Z",
+      "request_id": "current-medicine-2",
+      "survivor_id": "current-survivor-9",
+      "status": "completed",
+      "provider_conversation_id": null,
+      "outcome": "not_received",
+      "summary": "Survivor reported the refill was not received; the request was reopened for human follow-up.",
+      "evidence_ids": [
+        "current-call-not-received-1:utterance:1"
+      ],
+      "mode": "scripted"
+    },
+    {
+      "id": "current-call-unclear-1",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-16T11:20:00Z",
+      "request_id": "current-repairs-2",
+      "survivor_id": "current-survivor-7",
+      "status": "completed",
+      "provider_conversation_id": null,
+      "outcome": "unverified",
+      "summary": "Survivor answered but the answer was unclear; receipt remains unverified and a person should follow up.",
+      "evidence_ids": [
+        "current-call-unclear-1:utterance:1"
+      ],
+      "mode": "scripted"
+    },
+    {
+      "id": "current-call-emergency-1",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-16T10:40:00Z",
+      "request_id": "current-shelter-2",
+      "survivor_id": "current-survivor-5",
+      "status": "completed",
+      "provider_conversation_id": null,
+      "outcome": "emergency_escalated",
+      "summary": "Survivor mentioned a possible emergency; the fixed emergency line was read, a person on the recovery team was alerted, and the request was not resolved.",
+      "evidence_ids": [
+        "current-call-emergency-1:utterance:1"
+      ],
+      "mode": "scripted"
+    },
+    {
+      "id": "current-call-queued-1",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-16T11:45:00Z",
+      "request_id": "current-transport-3",
+      "survivor_id": "current-survivor-9",
+      "status": "queued",
+      "provider_conversation_id": null,
+      "outcome": "pending",
+      "summary": "",
+      "evidence_ids": [],
+      "mode": "scripted",
+      "disclosure": "This is an automated call from Relay for the recovery team. To confirm this call is real, call us back at [demo callback number]."
+    },
+    {
+      "id": "history-call-not-received-1",
+      "run_id": "demo-history",
+      "disaster_id": "demo-flood-2025",
+      "created_at": "2025-09-06T20:00:00Z",
+      "request_id": "history-shelter-1",
+      "survivor_id": "history-survivor-2",
+      "status": "completed",
+      "provider_conversation_id": null,
+      "outcome": "not_received",
+      "summary": "Survivor reported the placement did not happen; a coordinator took over.",
+      "evidence_ids": [
+        "history-call-not-received-1:utterance:1"
+      ],
+      "mode": "scripted"
+    },
+    {
+      "id": "history-call-received-1",
+      "run_id": "demo-history",
+      "disaster_id": "demo-flood-2025",
+      "created_at": "2025-09-07T18:00:00Z",
+      "request_id": "history-shelter-1",
+      "survivor_id": "history-survivor-2",
+      "status": "completed",
+      "provider_conversation_id": null,
+      "outcome": "verified_received",
+      "summary": "Survivor confirmed the placement after a check-in point was agreed.",
+      "evidence_ids": [
+        "history-call-received-1:utterance:1"
+      ],
+      "mode": "scripted"
     }
   ],
   "verifications": [
@@ -201,6 +744,149 @@
         "evidence-current-missed-1"
       ],
       "notes": "Synthetic survivor confirmation recorded by coordinator."
+    },
+    {
+      "id": "current-received-2",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T20:00:00Z",
+      "request_id": "current-supplies-3",
+      "received": true,
+      "source": "survivor_call",
+      "evidence_ids": [
+        "current-call-received-1:utterance:1"
+      ],
+      "notes": "Survivor confirmed on a scripted follow-up call that the supplies arrived."
+    },
+    {
+      "id": "current-received-3",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T21:30:00Z",
+      "request_id": "current-food-5",
+      "received": true,
+      "source": "human_review",
+      "evidence_ids": [
+        "evidence-current-received-3"
+      ],
+      "notes": "Coordinator recorded the household's confirmation that the groceries arrived."
+    },
+    {
+      "id": "current-missed-2",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-16T09:30:00Z",
+      "request_id": "current-medicine-2",
+      "received": false,
+      "source": "survivor_call",
+      "evidence_ids": [
+        "current-call-not-received-1:utterance:1"
+      ],
+      "notes": "Survivor reported on a scripted follow-up call that nothing arrived."
+    },
+    {
+      "id": "current-missed-3",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T22:00:00Z",
+      "request_id": "current-food-4",
+      "received": false,
+      "source": "human_review",
+      "evidence_ids": [
+        "evidence-current-missed-3"
+      ],
+      "notes": "Coordinator recorded that the household did not receive the meals."
+    },
+    {
+      "id": "history-missed-2",
+      "run_id": "demo-history",
+      "disaster_id": "demo-flood-2025",
+      "created_at": "2025-09-06T20:00:00Z",
+      "request_id": "history-shelter-1",
+      "received": false,
+      "source": "survivor_call",
+      "evidence_ids": [
+        "history-call-not-received-1:utterance:1"
+      ],
+      "notes": "Synthetic survivor call: placement was not received."
+    },
+    {
+      "id": "history-received-2",
+      "run_id": "demo-history",
+      "disaster_id": "demo-flood-2025",
+      "created_at": "2025-09-07T18:00:00Z",
+      "request_id": "history-shelter-1",
+      "received": true,
+      "source": "survivor_call",
+      "evidence_ids": [
+        "history-call-received-1:utterance:1"
+      ],
+      "notes": "Synthetic survivor call: placement confirmed after a check-in point was agreed."
+    },
+    {
+      "id": "history-missed-3",
+      "run_id": "demo-history",
+      "disaster_id": "demo-flood-2025",
+      "created_at": "2025-09-06T22:00:00Z",
+      "request_id": "history-medicine-1",
+      "received": false,
+      "source": "human_review",
+      "evidence_ids": [
+        "evidence-history-missed-3"
+      ],
+      "notes": "Synthetic survivor confirmation recorded by coordinator."
+    },
+    {
+      "id": "history-received-3",
+      "run_id": "demo-history",
+      "disaster_id": "demo-flood-2025",
+      "created_at": "2025-09-07T15:00:00Z",
+      "request_id": "history-medicine-1",
+      "received": true,
+      "source": "human_review",
+      "evidence_ids": [
+        "evidence-history-received-3"
+      ],
+      "notes": "Synthetic survivor confirmation recorded by coordinator."
+    },
+    {
+      "id": "history-missed-4",
+      "run_id": "demo-history",
+      "disaster_id": "demo-flood-2025",
+      "created_at": "2025-09-07T20:00:00Z",
+      "request_id": "history-repairs-1",
+      "received": false,
+      "source": "human_review",
+      "evidence_ids": [
+        "evidence-history-missed-4"
+      ],
+      "notes": "Synthetic survivor confirmation recorded by coordinator."
+    },
+    {
+      "id": "history-received-4",
+      "run_id": "demo-history",
+      "disaster_id": "demo-flood-2025",
+      "created_at": "2025-09-08T16:00:00Z",
+      "request_id": "history-repairs-1",
+      "received": true,
+      "source": "human_review",
+      "evidence_ids": [
+        "evidence-history-received-4"
+      ],
+      "notes": "Synthetic survivor confirmation recorded by coordinator."
+    },
+    {
+      "id": "history-received-5",
+      "run_id": "demo-history",
+      "disaster_id": "demo-flood-2025",
+      "created_at": "2025-09-08T12:00:00Z",
+      "request_id": "history-supplies-1",
+      "received": true,
+      "source": "human_review",
+      "evidence_ids": [
+        "evidence-history-received-5"
+      ],
+      "notes": "Synthetic survivor confirmation recorded by coordinator."
     }
   ],
   "lessons": [
@@ -221,6 +907,60 @@
       "approved": true,
       "approved_at": "2025-09-05T12:00:00Z",
       "created_at": "2025-09-04T13:00:00Z"
+    },
+    {
+      "id": "lesson-shelter-checkin",
+      "source_disaster_id": "demo-flood-2025",
+      "source_run_id": "demo-history",
+      "source_outcome_ids": [
+        "history-missed-2",
+        "history-received-2"
+      ],
+      "summary": "A shelter placement reported as arranged did not reach a household without power; a coordinator agreed a check-in point and a callback window.",
+      "conditions": [
+        "shelter",
+        "no_power"
+      ],
+      "recommendation": "Agree a check-in point and a callback window with the household before the placement; verify arrival separately.",
+      "approved": true,
+      "approved_at": "2025-09-10T12:00:00Z",
+      "created_at": "2025-09-08T09:00:00Z"
+    },
+    {
+      "id": "lesson-medicine-pickup",
+      "source_disaster_id": "demo-flood-2025",
+      "source_run_id": "demo-history",
+      "source_outcome_ids": [
+        "history-missed-3",
+        "history-received-3"
+      ],
+      "summary": "A routine prescription pickup was left at a closed access point; after the pickup point was confirmed with the household it was received.",
+      "conditions": [
+        "medicine",
+        "elderly_household"
+      ],
+      "recommendation": "Confirm the pickup point and who will be present before delivery; the group supplies existing prescriptions only and gives no medical advice.",
+      "approved": true,
+      "approved_at": "2025-09-10T13:00:00Z",
+      "created_at": "2025-09-08T09:30:00Z"
+    },
+    {
+      "id": "lesson-repairs-access",
+      "source_disaster_id": "demo-flood-2025",
+      "source_run_id": "demo-history",
+      "source_outcome_ids": [
+        "history-missed-4",
+        "history-received-4"
+      ],
+      "summary": "A temporary repair crew could not reach a site behind a washed-out road; a revisit with a confirmed route completed the work.",
+      "conditions": [
+        "repairs",
+        "access_blocked"
+      ],
+      "recommendation": "Confirm a passable route to the site before dispatching a crew; verify the repair separately afterwards.",
+      "approved": false,
+      "approved_at": null,
+      "created_at": "2025-09-08T17:00:00Z"
     }
   ],
   "evaluations": [],
@@ -449,6 +1189,1054 @@
       "module": "demo_seed",
       "action": "lesson_approved",
       "subject_id": "lesson-confirm-handoff",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-001",
+      "run_id": "demo-history",
+      "disaster_id": "demo-flood-2025",
+      "created_at": "2025-09-06T08:00:00Z",
+      "module": "recovery",
+      "action": "request_created",
+      "subject_id": "history-shelter-1",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-002",
+      "run_id": "demo-history",
+      "disaster_id": "demo-flood-2025",
+      "created_at": "2025-09-06T10:00:00Z",
+      "module": "recovery",
+      "action": "request_created",
+      "subject_id": "history-medicine-1",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-003",
+      "run_id": "demo-history",
+      "disaster_id": "demo-flood-2025",
+      "created_at": "2025-09-06T20:00:00Z",
+      "module": "recovery",
+      "action": "request_verified",
+      "subject_id": "history-shelter-1",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-004",
+      "run_id": "demo-history",
+      "disaster_id": "demo-flood-2025",
+      "created_at": "2025-09-06T20:00:00Z",
+      "module": "recovery",
+      "action": "human_escalation",
+      "subject_id": "history-shelter-1",
+      "details": {
+        "synthetic": true,
+        "reason": "delivery_not_received"
+      }
+    },
+    {
+      "id": "seed-extra-event-005",
+      "run_id": "demo-history",
+      "disaster_id": "demo-flood-2025",
+      "created_at": "2025-09-06T22:00:00Z",
+      "module": "recovery",
+      "action": "request_verified",
+      "subject_id": "history-medicine-1",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-006",
+      "run_id": "demo-history",
+      "disaster_id": "demo-flood-2025",
+      "created_at": "2025-09-06T22:00:00Z",
+      "module": "recovery",
+      "action": "human_escalation",
+      "subject_id": "history-medicine-1",
+      "details": {
+        "synthetic": true,
+        "reason": "delivery_not_received"
+      }
+    },
+    {
+      "id": "seed-extra-event-007",
+      "run_id": "demo-history",
+      "disaster_id": "demo-flood-2025",
+      "created_at": "2025-09-07T09:00:00Z",
+      "module": "recovery",
+      "action": "request_created",
+      "subject_id": "history-repairs-1",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-008",
+      "run_id": "demo-history",
+      "disaster_id": "demo-flood-2025",
+      "created_at": "2025-09-07T11:00:00Z",
+      "module": "recovery",
+      "action": "request_created",
+      "subject_id": "history-supplies-1",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-009",
+      "run_id": "demo-history",
+      "disaster_id": "demo-flood-2025",
+      "created_at": "2025-09-07T15:00:00Z",
+      "module": "recovery",
+      "action": "request_verified",
+      "subject_id": "history-medicine-1",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-010",
+      "run_id": "demo-history",
+      "disaster_id": "demo-flood-2025",
+      "created_at": "2025-09-07T18:00:00Z",
+      "module": "recovery",
+      "action": "request_verified",
+      "subject_id": "history-shelter-1",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-011",
+      "run_id": "demo-history",
+      "disaster_id": "demo-flood-2025",
+      "created_at": "2025-09-07T20:00:00Z",
+      "module": "recovery",
+      "action": "request_verified",
+      "subject_id": "history-repairs-1",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-012",
+      "run_id": "demo-history",
+      "disaster_id": "demo-flood-2025",
+      "created_at": "2025-09-07T20:00:00Z",
+      "module": "recovery",
+      "action": "human_escalation",
+      "subject_id": "history-repairs-1",
+      "details": {
+        "synthetic": true,
+        "reason": "delivery_not_received"
+      }
+    },
+    {
+      "id": "seed-extra-event-013",
+      "run_id": "demo-history",
+      "disaster_id": "demo-flood-2025",
+      "created_at": "2025-09-08T09:00:00Z",
+      "module": "recovery",
+      "action": "lesson_drafted",
+      "subject_id": "lesson-shelter-checkin",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-014",
+      "run_id": "demo-history",
+      "disaster_id": "demo-flood-2025",
+      "created_at": "2025-09-08T09:30:00Z",
+      "module": "recovery",
+      "action": "lesson_drafted",
+      "subject_id": "lesson-medicine-pickup",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-015",
+      "run_id": "demo-history",
+      "disaster_id": "demo-flood-2025",
+      "created_at": "2025-09-08T12:00:00Z",
+      "module": "recovery",
+      "action": "request_verified",
+      "subject_id": "history-supplies-1",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-016",
+      "run_id": "demo-history",
+      "disaster_id": "demo-flood-2025",
+      "created_at": "2025-09-08T16:00:00Z",
+      "module": "recovery",
+      "action": "request_verified",
+      "subject_id": "history-repairs-1",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-017",
+      "run_id": "demo-history",
+      "disaster_id": "demo-flood-2025",
+      "created_at": "2025-09-08T17:00:00Z",
+      "module": "recovery",
+      "action": "lesson_drafted",
+      "subject_id": "lesson-repairs-access",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-018",
+      "run_id": "demo-history",
+      "disaster_id": "demo-flood-2025",
+      "created_at": "2025-09-10T12:00:00Z",
+      "module": "recovery",
+      "action": "lesson_approved",
+      "subject_id": "lesson-shelter-checkin",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-019",
+      "run_id": "demo-history",
+      "disaster_id": "demo-flood-2025",
+      "created_at": "2025-09-10T13:00:00Z",
+      "module": "recovery",
+      "action": "lesson_approved",
+      "subject_id": "lesson-medicine-pickup",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-020",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T08:00:00Z",
+      "module": "intake",
+      "action": "report_received",
+      "subject_id": "current-survivor-4",
+      "details": {
+        "synthetic": true,
+        "report_id": "report-current-supplies-3"
+      }
+    },
+    {
+      "id": "seed-extra-event-021",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T08:00:00Z",
+      "module": "recovery",
+      "action": "request_created",
+      "subject_id": "current-supplies-3",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-022",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T08:50:00Z",
+      "module": "recovery",
+      "action": "request_claimed",
+      "subject_id": "current-supplies-3",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-023",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T09:00:00Z",
+      "module": "intake",
+      "action": "report_received",
+      "subject_id": "current-survivor-5",
+      "details": {
+        "synthetic": true,
+        "report_id": "report-current-food-5"
+      }
+    },
+    {
+      "id": "seed-extra-event-024",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T09:00:00Z",
+      "module": "recovery",
+      "action": "request_created",
+      "subject_id": "current-food-5",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-025",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T09:30:00Z",
+      "module": "intake",
+      "action": "report_received",
+      "subject_id": "current-survivor-6",
+      "details": {
+        "synthetic": true,
+        "report_id": "report-current-food-4"
+      }
+    },
+    {
+      "id": "seed-extra-event-026",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T09:30:00Z",
+      "module": "recovery",
+      "action": "request_created",
+      "subject_id": "current-food-4",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-027",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T09:40:00Z",
+      "module": "recovery",
+      "action": "request_claimed",
+      "subject_id": "current-food-5",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-028",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T10:00:00Z",
+      "module": "intake",
+      "action": "report_received",
+      "subject_id": "current-survivor-9",
+      "details": {
+        "synthetic": true,
+        "report_id": "report-current-medicine-2"
+      }
+    },
+    {
+      "id": "seed-extra-event-029",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T10:00:00Z",
+      "module": "recovery",
+      "action": "request_created",
+      "subject_id": "current-medicine-2",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-030",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T10:20:00Z",
+      "module": "recovery",
+      "action": "request_claimed",
+      "subject_id": "current-food-4",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-031",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T10:40:00Z",
+      "module": "recovery",
+      "action": "request_claimed",
+      "subject_id": "current-medicine-2",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-032",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T11:00:00Z",
+      "module": "intake",
+      "action": "report_received",
+      "subject_id": "current-survivor-8",
+      "details": {
+        "synthetic": true,
+        "report_id": "report-current-food-3"
+      }
+    },
+    {
+      "id": "seed-extra-event-033",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T11:00:00Z",
+      "module": "recovery",
+      "action": "request_created",
+      "subject_id": "current-food-3",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-034",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T12:00:00Z",
+      "module": "recovery",
+      "action": "request_claimed",
+      "subject_id": "current-food-3",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-035",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T12:30:00Z",
+      "module": "recovery",
+      "action": "delivery_reported",
+      "subject_id": "current-supplies-3",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-036",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T13:00:00Z",
+      "module": "intake",
+      "action": "report_received",
+      "subject_id": "current-survivor-5",
+      "details": {
+        "synthetic": true,
+        "report_id": "report-current-shelter-2"
+      }
+    },
+    {
+      "id": "seed-extra-event-037",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T13:00:00Z",
+      "module": "recovery",
+      "action": "request_created",
+      "subject_id": "current-shelter-2",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-038",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T13:20:00Z",
+      "module": "recovery",
+      "action": "delivery_reported",
+      "subject_id": "current-food-5",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-039",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T14:00:00Z",
+      "module": "recovery",
+      "action": "request_claimed",
+      "subject_id": "current-shelter-2",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-040",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T14:30:00Z",
+      "module": "recovery",
+      "action": "delivery_reported",
+      "subject_id": "current-food-4",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-041",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T15:00:00Z",
+      "module": "intake",
+      "action": "report_received",
+      "subject_id": "current-survivor-7",
+      "details": {
+        "synthetic": true,
+        "report_id": "report-current-food-2"
+      }
+    },
+    {
+      "id": "seed-extra-event-042",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T15:00:00Z",
+      "module": "recovery",
+      "action": "request_created",
+      "subject_id": "current-food-2",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-043",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T16:00:00Z",
+      "module": "intake",
+      "action": "report_received",
+      "subject_id": "current-survivor-9",
+      "details": {
+        "synthetic": true,
+        "report_id": "report-current-transport-3"
+      }
+    },
+    {
+      "id": "seed-extra-event-044",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T16:00:00Z",
+      "module": "recovery",
+      "action": "request_created",
+      "subject_id": "current-transport-3",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-045",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T16:10:00Z",
+      "module": "recovery",
+      "action": "request_claimed",
+      "subject_id": "current-food-2",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-046",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T17:00:00Z",
+      "module": "recovery",
+      "action": "request_claimed",
+      "subject_id": "current-transport-3",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-047",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T17:20:00Z",
+      "module": "recovery",
+      "action": "delivery_reported",
+      "subject_id": "current-medicine-2",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-048",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T18:30:00Z",
+      "module": "intake",
+      "action": "report_received",
+      "subject_id": "current-survivor-7",
+      "details": {
+        "synthetic": true,
+        "report_id": "report-current-repairs-2"
+      }
+    },
+    {
+      "id": "seed-extra-event-049",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T18:30:00Z",
+      "module": "recovery",
+      "action": "request_created",
+      "subject_id": "current-repairs-2",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-050",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T19:30:00Z",
+      "module": "recovery",
+      "action": "request_claimed",
+      "subject_id": "current-repairs-2",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-051",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T20:00:00Z",
+      "module": "intake",
+      "action": "report_received",
+      "subject_id": "current-survivor-6",
+      "details": {
+        "synthetic": true,
+        "report_id": "report-current-repairs-1"
+      }
+    },
+    {
+      "id": "seed-extra-event-052",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T20:00:00Z",
+      "module": "recovery",
+      "action": "request_created",
+      "subject_id": "current-repairs-1",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-053",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T20:00:00Z",
+      "module": "recovery",
+      "action": "call_saved",
+      "subject_id": "current-call-received-1",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-054",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T20:00:00Z",
+      "module": "calls",
+      "action": "follow_up_started",
+      "subject_id": "current-supplies-3",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-055",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T20:00:00Z",
+      "module": "calls",
+      "action": "follow_up_finished",
+      "subject_id": "current-supplies-3",
+      "details": {
+        "synthetic": true,
+        "outcome": "verified_received",
+        "received": true
+      }
+    },
+    {
+      "id": "seed-extra-event-056",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T20:00:00Z",
+      "module": "recovery",
+      "action": "request_verified",
+      "subject_id": "current-supplies-3",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-057",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T21:30:00Z",
+      "module": "recovery",
+      "action": "request_verified",
+      "subject_id": "current-food-5",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-058",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T22:00:00Z",
+      "module": "recovery",
+      "action": "request_verified",
+      "subject_id": "current-food-4",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-059",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-15T22:00:00Z",
+      "module": "recovery",
+      "action": "human_escalation",
+      "subject_id": "current-food-4",
+      "details": {
+        "synthetic": true,
+        "reason": "delivery_not_received"
+      }
+    },
+    {
+      "id": "seed-extra-event-060",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-16T06:00:00Z",
+      "module": "intake",
+      "action": "report_received",
+      "subject_id": "current-survivor-9",
+      "details": {
+        "synthetic": true,
+        "report_id": "report-current-supplies-2"
+      }
+    },
+    {
+      "id": "seed-extra-event-061",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-16T06:00:00Z",
+      "module": "recovery",
+      "action": "request_created",
+      "subject_id": "current-supplies-2",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-062",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-16T07:15:00Z",
+      "module": "recovery",
+      "action": "request_claimed",
+      "subject_id": "current-supplies-2",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-063",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-16T07:30:00Z",
+      "module": "intake",
+      "action": "report_received",
+      "subject_id": "current-survivor-4",
+      "details": {
+        "synthetic": true,
+        "report_id": "report-current-shelter-1"
+      }
+    },
+    {
+      "id": "seed-extra-event-064",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-16T07:30:00Z",
+      "module": "recovery",
+      "action": "request_created",
+      "subject_id": "current-shelter-1",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-065",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-16T07:30:00Z",
+      "module": "recovery",
+      "action": "delivery_reported",
+      "subject_id": "current-transport-3",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-066",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-16T08:00:00Z",
+      "module": "intake",
+      "action": "report_received",
+      "subject_id": "current-survivor-4",
+      "details": {
+        "synthetic": true,
+        "report_id": "report-current-transport-2"
+      }
+    },
+    {
+      "id": "seed-extra-event-067",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-16T08:00:00Z",
+      "module": "recovery",
+      "action": "request_created",
+      "subject_id": "current-transport-2",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-068",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-16T08:20:00Z",
+      "module": "recovery",
+      "action": "delivery_reported",
+      "subject_id": "current-shelter-2",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-069",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-16T08:50:00Z",
+      "module": "recovery",
+      "action": "request_claimed",
+      "subject_id": "current-transport-2",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-070",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-16T09:10:00Z",
+      "module": "intake",
+      "action": "report_received",
+      "subject_id": "current-survivor-5",
+      "details": {
+        "synthetic": true,
+        "report_id": "report-current-medicine-1"
+      }
+    },
+    {
+      "id": "seed-extra-event-071",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-16T09:10:00Z",
+      "module": "recovery",
+      "action": "request_created",
+      "subject_id": "current-medicine-1",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-072",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-16T09:30:00Z",
+      "module": "recovery",
+      "action": "call_saved",
+      "subject_id": "current-call-not-received-1",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-073",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-16T09:30:00Z",
+      "module": "calls",
+      "action": "follow_up_started",
+      "subject_id": "current-medicine-2",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-074",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-16T09:30:00Z",
+      "module": "calls",
+      "action": "follow_up_finished",
+      "subject_id": "current-medicine-2",
+      "details": {
+        "synthetic": true,
+        "outcome": "not_received",
+        "received": false
+      }
+    },
+    {
+      "id": "seed-extra-event-075",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-16T09:30:00Z",
+      "module": "recovery",
+      "action": "request_verified",
+      "subject_id": "current-medicine-2",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-076",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-16T09:30:00Z",
+      "module": "recovery",
+      "action": "human_escalation",
+      "subject_id": "current-medicine-2",
+      "details": {
+        "synthetic": true,
+        "reason": "delivery_not_received"
+      }
+    },
+    {
+      "id": "seed-extra-event-077",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-16T10:40:00Z",
+      "module": "recovery",
+      "action": "call_saved",
+      "subject_id": "current-call-emergency-1",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-078",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-16T10:40:00Z",
+      "module": "calls",
+      "action": "follow_up_started",
+      "subject_id": "current-shelter-2",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-079",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-16T10:40:00Z",
+      "module": "calls",
+      "action": "follow_up_finished",
+      "subject_id": "current-shelter-2",
+      "details": {
+        "synthetic": true,
+        "outcome": "emergency_escalated",
+        "received": null
+      }
+    },
+    {
+      "id": "seed-extra-event-080",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-16T10:40:00Z",
+      "module": "recovery",
+      "action": "human_escalation",
+      "subject_id": "current-shelter-2",
+      "details": {
+        "synthetic": true,
+        "reason": "emergency_phrase_during_call"
+      }
+    },
+    {
+      "id": "seed-extra-event-081",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-16T10:45:00Z",
+      "module": "recovery",
+      "action": "delivery_reported",
+      "subject_id": "current-repairs-2",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-082",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-16T11:20:00Z",
+      "module": "recovery",
+      "action": "call_saved",
+      "subject_id": "current-call-unclear-1",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-083",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-16T11:20:00Z",
+      "module": "calls",
+      "action": "follow_up_started",
+      "subject_id": "current-repairs-2",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-extra-event-084",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-16T11:20:00Z",
+      "module": "calls",
+      "action": "follow_up_finished",
+      "subject_id": "current-repairs-2",
+      "details": {
+        "synthetic": true,
+        "outcome": "unverified",
+        "received": null
+      }
+    },
+    {
+      "id": "seed-extra-event-085",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-16T11:45:00Z",
+      "module": "recovery",
+      "action": "call_saved",
+      "subject_id": "current-call-queued-1",
       "details": {
         "synthetic": true
       }
