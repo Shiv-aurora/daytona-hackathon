@@ -27,7 +27,7 @@ class InMemoryRecoveryStore:
     def __init__(self, seed=None):
         self.data = deepcopy(seed or {})
         for table in ('disasters', 'organizations', 'runs', 'survivors', 'requests', 'calls',
-                      'verifications', 'lessons', 'evaluations', 'system_events'):
+                      'verifications', 'lessons', 'evaluations', 'system_events', 'helper_runs'):
             self.data.setdefault(table, [])
         self.lock = RLock()
         self.replays = {}
@@ -248,6 +248,19 @@ class InMemoryRecoveryStore:
             self.data['evaluations'].append(row)
             return row
         return self._mutate(run_id, 'evaluation_saved', None, payload, save)
+
+    def save_helper_run(self, run_id, payload):
+        def save():
+            row = self._new(run_id, {k: v for k, v in payload.items() if k != 'idempotency_key'})
+            self.data['helper_runs'].append(row)
+            return row
+        return self._mutate(run_id, 'helper_run_saved', None, payload, save)
+
+    def list_helper_runs(self, run_id):
+        with self.lock:
+            disaster = self._scope(run_id)
+            return [deepcopy(r) for r in self.data['helper_runs']
+                    if r.get('run_id') == run_id and r.get('disaster_id') == disaster]
 
     def snapshot(self):
         with self.lock:

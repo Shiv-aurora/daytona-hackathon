@@ -4,7 +4,9 @@ import re
 from hashlib import sha256
 from urllib.parse import unquote, urlsplit
 
+from api import background_routes, voice_routes
 from api.demo_store import timestamp
+from api.helper_routes import handle_helpers
 from calls.safety import emergency_line, safety_check
 from contracts.demo import Conflict, InvalidInput, NotFound
 
@@ -102,16 +104,21 @@ def decide(case, lessons_enabled=False):
                                 for lesson in lessons]}
 
 
-def handle(store, method, path, body=None):
+def handle(store, method, path, body=None, raw=None, headers=None):
     body = body or {}
     parts = [unquote(p) for p in urlsplit(path).path.split('/') if p]
     try:
+        if (voice := voice_routes.route(store, method, path, body, raw, headers)) is not None:
+            return voice
         if method == 'GET' and parts in (['disasters'], ['organizations']):
             table = parts[0]
             return 200, {table: getattr(store, 'list_' + table)()}
+        if method == 'GET' and parts == ['background-311']:
+            return background_routes.handle(store, path)
         if len(parts) < 3 or parts[0] != 'runs':
             return 404, {'error': 'not found'}
         run_id = parts[1]
+        if parts[2] == 'helpers': return handle_helpers(store, method, run_id, parts[3:], body)
         if method == 'GET' and parts[2:] == ['board']:
             return 200, store.get_board(run_id)
         if method == 'POST' and parts[2:] == ['reports']:

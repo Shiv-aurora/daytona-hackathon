@@ -25,10 +25,14 @@ def make_handler(db: Any, origin: str = "*", recovery_store=None) -> type[BaseHT
 
         def do_POST(self) -> None:
             raw = self.rfile.read(int(self.headers.get("Content-Length") or 0))
+            self._raw = raw  # exact bytes: the ElevenLabs webhook signature covers them
             try:
-                body = json.loads(raw) if raw else {}
+                body = {} if self.headers.get("Content-Type", "").startswith("multipart/") else \
+                    json.loads(raw) if raw else {}
             except ValueError:
                 body = None
+                if self.path.startswith("/webhooks/"):
+                    body = {}  # the route verifies the signature, then rejects what it cannot parse
             if not isinstance(body, dict):
                 self._send(400, {"error": "the body must be a JSON object"})
                 return
@@ -38,7 +42,8 @@ def make_handler(db: Any, origin: str = "*", recovery_store=None) -> type[BaseHT
             try:
                 from api.recovery import handle as recovery_handle
                 if recovery_store is not None:
-                    status, payload = recovery_handle(recovery_store, method, self.path, body)
+                    status, payload = recovery_handle(recovery_store, method, self.path, body,
+                                                        getattr(self, "_raw", None), self.headers)
                     if status == 404 and payload == {"error": "not found"}:
                         status, payload = handle(db, method, self.path, body)
                 else:
@@ -49,13 +54,15 @@ def make_handler(db: Any, origin: str = "*", recovery_store=None) -> type[BaseHT
             self._send(status, payload)
 
         def _send(self, status: int, payload: dict | None) -> None:
-            data = b"" if payload is None else json.dumps(payload, default=str).encode()
+            sse = payload.get("_sse") if isinstance(payload, dict) else None
+            data = sse.encode() if sse is not None else b"" if payload is None else \
+                json.dumps(payload, default=str).encode()
             self.send_response(status)
             self.send_header("Access-Control-Allow-Origin", origin)
             self.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
-            self.send_header("Access-Control-Allow-Headers", "Content-Type")
+            self.send_header("Access-Control-Allow-Headers", "Content-Type, ElevenLabs-Signature, Authorization")
             self.send_header("Cache-Control", "no-store")
-            self.send_header("Content-Type", "application/json")
+            self.send_header("Content-Type", "text/event-stream" if sse is not None else "application/json")
             self.send_header("Content-Length", str(len(data)))
             self.end_headers()
             self.wfile.write(data)

@@ -38,7 +38,8 @@ def handle(db: Any, method: str, path: str, body: dict | None = None) -> tuple[i
     parts = [unquote(part) for part in urlsplit(path).path.split("/") if part]
     try:
         if method == "GET" and parts == ["health"]:
-            return 200, {"ok": True}
+            from helpers.daytona_client import daytona_status
+            return 200, {"ok": True, "daytona": daytona_status()}
         if method == "GET" and parts == ["runs"]:
             return 200, list_runs(db)
         if parts[:1] == ["runs"] and len(parts) == 3 and parts[2] == "console" and method == "GET":
