@@ -9,6 +9,7 @@ import { categoryLabel, fmtTime, householdOf, outcomeLabel } from "@/lib/relay/s
 import type { Board, RelayCall, ScriptedAnswer } from "@/lib/relay/types";
 import { OUTCOME_GROUP_LABEL, consentSplit, outcomeMix, verificationMix, type OutcomeGroup } from "@/lib/relay/viz";
 import { Legend, ProportionBar, type Segment } from "./charts";
+import { VoiceHelper } from "./VoiceHelper";
 import { ActionButton, EmptyState, LoadingBlock, PageHeader, Panel, Select, StatusBadge } from "./ui";
 
 const ANSWERS: { value: ScriptedAnswer; label: string }[] = [
@@ -135,6 +136,14 @@ export function CallsView() {
 
   const calls = [...board.calls].sort((a, b) => Date.parse(b.created_at) - Date.parse(a.created_at));
   const followUps = board.requests.filter((r) => r.status === "awaiting_verification" || r.status === "reopened");
+  const sample = followUps[0] ?? board.requests[0];
+  const voiceVars = {
+    household_label: (sample && householdOf(board, sample.survivor_id)?.display_name) || "Household A",
+    request_category: sample ? categoryLabel(sample.category) : "food",
+    request_summary: sample ? `${categoryLabel(sample.category)} delivery` : "Water and food",
+    org_name: "Harbor Relief",
+    promised_when: "today at noon",
+  };
   const voiceLive = mode === "live" && Boolean(health?.live.elevenlabs);
 
   const mix = outcomeMix(board.calls);
@@ -157,6 +166,8 @@ export function CallsView() {
           ) : undefined
         }
       />
+
+      <VoiceHelper vars={voiceVars} />
 
       <div className="grid gap-3 @3xl:grid-cols-3">
         <Panel title="Household consent" aside={<span className="num">{board.survivors.length} {board.survivors.length === 1 ? "household" : "households"}</span>}>
