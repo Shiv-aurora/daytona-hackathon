@@ -21,7 +21,7 @@ import {
   UserCheck,
   type LucideIcon,
 } from "lucide-react";
-import { useLayoutEffect, useRef, useState, useSyncExternalStore, type CSSProperties, type ReactNode } from "react";
+import { useLayoutEffect, useRef, useState, useSyncExternalStore, type ComponentType, type CSSProperties, type ReactNode, type SVGProps } from "react";
 import { cn } from "@/lib/utils";
 import type { RunnerState } from "@/lib/relay/demoRunner";
 import type { Channel, DemoScript, Scene } from "@/lib/relay/demoScript";
@@ -31,6 +31,14 @@ import { countByStatus, metricDelta } from "@/lib/relay/viz";
 import { StatusGlyph, shortOrg } from "./ui";
 import { StatusTally } from "./charts";
 import { CategoryIcon } from "./ResponseView";
+import { ArizeLogo, DaytonaLogo, ElevenLabsLogo, GroqLogo, SurrealDBLogo } from "./logos";
+
+type Brand = { name: string; logo: ComponentType<SVGProps<SVGSVGElement>> };
+const ELEVENLABS: Brand = { name: "ElevenLabs", logo: ElevenLabsLogo };
+const GROQ: Brand = { name: "Groq", logo: GroqLogo };
+const DAYTONA: Brand = { name: "Daytona", logo: DaytonaLogo };
+const SURREAL: Brand = { name: "SurrealDB", logo: SurrealDBLogo };
+const ARIZE: Brand = { name: "Arize", logo: ArizeLogo };
 
 /* ------------------------------------------------------------------ stages */
 
@@ -265,6 +273,7 @@ function NodeBox({
   icon: Icon,
   title,
   sub,
+  brands,
   children,
   footer,
   dim,
@@ -276,6 +285,8 @@ function NodeBox({
   icon: LucideIcon;
   title: string;
   sub?: string;
+  /** The real services that run this step, shown by their marks. */
+  brands?: Brand[];
   children?: ReactNode;
   footer?: ReactNode;
   /** The run has started and has not reached this node yet. */
@@ -291,7 +302,7 @@ function NodeBox({
       data-state={state}
       style={{ ...hue(c), ...(flow ? { left: b.x, top: b.y, width: b.w, height: b.h } : {}) }}
       className={cn(
-        "flex flex-col overflow-hidden rounded-[10px] border bg-panel text-xs shadow-[0_1px_2px_rgb(0_0_0/0.04)] transition-[border-color,box-shadow,opacity] duration-300",
+        "flex flex-col overflow-hidden rounded-[12px] border bg-panel text-xs shadow-[var(--ds-shadow-small)] transition-[border-color,box-shadow,opacity] duration-300",
         flow && "absolute",
         lit ? "border-[var(--c)] shadow-[0_0_0_4px_color-mix(in_srgb,var(--c)_16%,transparent),0_8px_24px_-12px_color-mix(in_srgb,var(--c)_45%,transparent)]" : "border-line",
         state === "skipped" && "border-dashed opacity-40",
@@ -314,7 +325,18 @@ function NodeBox({
         </span>
         <div className="min-w-0 flex-1 leading-tight">
           <h3 className="truncate text-[13px] font-semibold tracking-[-0.01em] text-ink">{title}</h3>
-          {sub ? <p className="truncate text-[10.5px] text-muted-foreground">{sub}</p> : null}
+          {brands?.length ? (
+            <p className="mt-0.5 flex flex-wrap items-center gap-x-1.5 text-[11px] font-medium text-ink-2">
+              {brands.map(({ name, logo: Logo }) => (
+                <span key={name} className="inline-flex items-center gap-1">
+                  <Logo aria-hidden className="size-3 shrink-0" />
+                  {name}
+                </span>
+              ))}
+            </p>
+          ) : sub ? (
+            <p className="truncate text-[10.5px] text-muted-foreground">{sub}</p>
+          ) : null}
         </div>
       </header>
       <div className="min-h-0 flex-1 overflow-hidden px-2.5 pb-2.5 pt-1">{children}</div>
@@ -352,7 +374,7 @@ function SourceNode({ s, scene, started }: { s: (typeof SOURCES)[number]; scene:
       data-state={live ? "active" : used ? "done" : "idle"}
       style={{ left: b.x, top: b.y, width: b.w, height: b.h }}
       className={cn(
-        "absolute flex flex-col justify-between rounded-[10px] border bg-panel p-2.5 transition-[border-color,box-shadow,opacity] duration-300",
+        "absolute flex flex-col justify-between rounded-[12px] border bg-panel p-2.5 transition-[border-color,box-shadow,opacity] duration-300",
         live ? "border-ink shadow-[0_0_0_4px_color-mix(in_srgb,var(--text)_10%,transparent)]" : used ? "border-line-strong" : "border-line",
         started && !used && "opacity-55",
       )}
@@ -652,10 +674,10 @@ function Bands({ view }: { view: ReturnType<typeof useRunView> }) {
             className={cn(
               "absolute rounded-[14px] border transition-[background-color,border-color] duration-500",
               b.external
-                ? "border-dashed border-line-strong bg-[color-mix(in_srgb,var(--text)_3%,transparent)]"
+                ? "border-dashed border-line-strong bg-[color-mix(in_srgb,var(--text)_3%,var(--canvas))]"
                 : lit
-                  ? "border-[color-mix(in_srgb,var(--c)_32%,transparent)] bg-[color-mix(in_srgb,var(--c)_9%,transparent)]"
-                  : "border-[color-mix(in_srgb,var(--c)_14%,transparent)] bg-[color-mix(in_srgb,var(--c)_4%,transparent)]",
+                  ? "border-[color-mix(in_srgb,var(--c)_32%,transparent)] bg-[color-mix(in_srgb,var(--c)_9%,var(--canvas))]"
+                  : "border-[color-mix(in_srgb,var(--c)_16%,transparent)] bg-[color-mix(in_srgb,var(--c)_4%,var(--canvas))]",
             )}
           >
             <p className="flex items-center gap-1.5 px-2.5 pt-2 text-[11px] font-semibold tracking-[-0.005em]" style={b.titleX ? { paddingLeft: b.titleX } : undefined}>
@@ -790,7 +812,7 @@ export function FlowGraph({ script, scene, state, board, fit = false }: { script
   const dim = view.started && state.status !== "done";
   const nodes = {
     stt: (flow = true) => (
-      <NodeBox key="stt" flow={flow} dim={dim} id="stt" stage="ai" icon={AudioLines} title="Speech to text" sub="ElevenLabs" state={view.stateOfNode("stt")}>
+      <NodeBox key="stt" flow={flow} dim={dim} id="stt" stage="ai" icon={AudioLines} title="Speech to text" brands={[ELEVENLABS]} state={view.stateOfNode("stt")}>
         <SttBody script={script} scene={scene} />
       </NodeBox>
     ),
@@ -808,7 +830,7 @@ export function FlowGraph({ script, scene, state, board, fit = false }: { script
         stage="ai"
         icon={Sparkles}
         title="AI triage"
-        sub="Groq"
+        brands={[GROQ]}
         state={scene.triageSkipped ? "skipped" : view.stateOfNode("triage")}
         footer={
           <span className="flex items-center gap-1.5">
@@ -820,7 +842,7 @@ export function FlowGraph({ script, scene, state, board, fit = false }: { script
       </NodeBox>
     ),
     hub: (flow = true) => (
-      <NodeBox key="hub" flow={flow} dim={dim} id="hub" stage="hub" icon={LayoutDashboard} title="Triage board" sub="Coordinators" state={view.stateOfNode("hub")}>
+      <NodeBox key="hub" flow={flow} dim={dim} id="hub" stage="hub" icon={LayoutDashboard} title="Triage board" brands={[SURREAL]} state={view.stateOfNode("hub")}>
         <HubBody board={board} scene={scene} />
       </NodeBox>
     ),
@@ -830,7 +852,7 @@ export function FlowGraph({ script, scene, state, board, fit = false }: { script
       </NodeBox>
     ),
     voice: (flow = true) => (
-      <NodeBox key="voice" flow={flow} dim={dim} id="voice" stage="verify" icon={PhoneCall} title="Voice agents" sub="ElevenLabs · Daytona" state={view.stateOfNode("voice")}>
+      <NodeBox key="voice" flow={flow} dim={dim} id="voice" stage="verify" icon={PhoneCall} title="Voice agents" brands={[ELEVENLABS, DAYTONA]} state={view.stateOfNode("voice")}>
         <VoiceBody script={script} scene={scene} />
       </NodeBox>
     ),
@@ -840,7 +862,7 @@ export function FlowGraph({ script, scene, state, board, fit = false }: { script
       </NodeBox>
     ),
     lesson: (flow = true) => (
-      <NodeBox key="lesson" flow={flow} dim={dim} id="lesson" stage="learn" icon={Lightbulb} title="Reviewed lesson" sub="De-identified, reused next time" state={view.stateOfNode("lesson")}>
+      <NodeBox key="lesson" flow={flow} dim={dim} id="lesson" stage="learn" icon={Lightbulb} title="Reviewed lesson" brands={[ARIZE, SURREAL]} state={view.stateOfNode("lesson")}>
         <LessonBody scene={scene} />
       </NodeBox>
     ),

@@ -116,7 +116,7 @@ export const shortOrg = (name: string) => name.replace(/^demo\s+/i, "");
 /* ------------------------------------------------------------------ structure */
 
 export function Card({ className, ...props }: ComponentProps<"section">) {
-  return <section className={cn("rounded-md border border-line bg-panel", className)} {...props} />;
+  return <section className={cn("rounded-[12px] border border-line bg-panel shadow-[var(--ds-shadow-small)]", className)} {...props} />;
 }
 
 /** A bordered region with a hairline-separated header. The only container in the system besides a table. */
@@ -136,14 +136,14 @@ export function Panel({
   id?: string;
 }) {
   return (
-    <section aria-labelledby={id} className={cn("rounded-md border border-line bg-panel", className)}>
-      <header className="flex min-h-9 items-center justify-between gap-3 border-b border-line px-3.5">
-        <h2 id={id} className="label">
+    <section aria-labelledby={id} className={cn("rounded-[12px] border border-line bg-panel shadow-[var(--ds-shadow-small)]", className)}>
+      <header className="flex min-h-11 items-center justify-between gap-3 border-b border-line px-4">
+        <h2 id={id} className="text-sm font-semibold tracking-[-0.01em] text-ink">
           {title}
         </h2>
         {aside ? <div className="flex items-center gap-2 text-xs text-muted-foreground">{aside}</div> : null}
       </header>
-      <div className={cn("p-3.5", bodyClassName)}>{children}</div>
+      <div className={cn("p-4", bodyClassName)}>{children}</div>
     </section>
   );
 }
@@ -152,7 +152,7 @@ export function PageHeader({ title, subtitle, actions }: { title: string; subtit
   return (
     <div className="flex flex-wrap items-end justify-between gap-x-6 gap-y-2">
       <div className="min-w-0">
-        <h1 className="text-xl font-semibold tracking-[-0.015em] text-ink">{title}</h1>
+        <h1 className="text-xl font-semibold tracking-[-0.04em] text-ink">{title}</h1>
         {subtitle ? <p className="mt-0.5 text-sm text-muted-foreground">{subtitle}</p> : null}
       </div>
       {actions ? <div className="flex flex-wrap items-center gap-2">{actions}</div> : null}

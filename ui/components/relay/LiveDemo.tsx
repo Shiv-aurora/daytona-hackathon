@@ -158,7 +158,7 @@ export function LiveDemo() {
     <div className="flex flex-col gap-3 lg:min-h-0 lg:flex-1">
       <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-2">
         <div className="flex min-w-0 items-baseline gap-3">
-          <h1 className="text-xl font-semibold tracking-[-0.02em] text-ink">Live demo</h1>
+          <h1 className="text-xl font-semibold tracking-[-0.04em] text-ink">Live demo</h1>
           <p className="truncate text-sm text-muted-foreground" aria-live="polite">
             {step && rs.status !== "done" ? (
               <>
@@ -203,7 +203,7 @@ export function LiveDemo() {
         </div>
       </div>
 
-      <div className="relative rounded-2xl border border-line bg-surface p-3 [background-image:radial-gradient(color-mix(in_srgb,var(--line-strong)_70%,transparent)_1px,transparent_1px)] [background-size:20px_20px] md:p-3 lg:min-h-0 lg:flex-1">
+      <div className="relative rounded-[16px] border border-line bg-canvas p-3 [background-image:radial-gradient(var(--ds-gray-500)_1px,transparent_1px)] [background-size:20px_20px] md:p-3 lg:min-h-0 lg:flex-1">
         <FlowGraph fit script={script} scene={scene} state={rs} board={board} />
       </div>
 

@@ -5,61 +5,145 @@
 /*
   Relay design system
   -------------------
-  Reference points: Linear (dense lists, status glyphs, hairlines), Stripe (numerals first, quiet charts),
-  PagerDuty (severity you can read at a glance), Vercel (restraint). Cool grey canvas, white objects, dark rail.
-  Colour is spent on meaning only: the five request states, one hue per flow stage, and with/without history.
+  Built on Vercel's Geist (vercel.com/geist): Geist Sans/Mono, the Geist gray + accent scales, Geist type scale and
+  materials. Colour is spent on meaning only: the five request states, one hue per flow stage, with/without history.
 
   Token names from the first console (--bg, --surface, --border, --text, --agent, --promise-*, --safety-*)
   are kept so the legacy /console keeps rendering; everything new reads the semantic names below.
 */
 :root {
   color-scheme: light;
+  /* Geist colour scales (vercel.com/geist/colors), light */
+  --ds-gray-100: hsl(0 0% 95%);
+  --ds-gray-200: hsl(0 0% 92%);
+  --ds-gray-300: hsl(0 0% 90%);
+  --ds-gray-400: hsl(0 0% 92%);
+  --ds-gray-500: hsl(0 0% 79%);
+  --ds-gray-600: hsl(0 0% 66%);
+  --ds-gray-700: hsl(0 0% 56%);
+  --ds-gray-800: hsl(0 0% 49%);
+  --ds-gray-900: hsl(0 0% 30%);
+  --ds-gray-1000: hsl(0 0% 9%);
+  --ds-blue-100: hsl(212 100% 97%);
+  --ds-blue-200: hsl(210 100% 96%);
+  --ds-blue-300: hsl(210 100% 94%);
+  --ds-blue-400: hsl(209 100% 90%);
+  --ds-blue-500: hsl(209 100% 80%);
+  --ds-blue-600: hsl(208 100% 66%);
+  --ds-blue-700: hsl(212 100% 48%);
+  --ds-blue-800: hsl(212 100% 41%);
+  --ds-blue-900: hsl(211 100% 42%);
+  --ds-blue-1000: hsl(211 100% 15%);
+  --ds-red-100: hsl(0 100% 97%);
+  --ds-red-200: hsl(0 100% 96%);
+  --ds-red-300: hsl(0 100% 95%);
+  --ds-red-400: hsl(0 90% 92%);
+  --ds-red-500: hsl(0 82% 85%);
+  --ds-red-600: hsl(359 90% 71%);
+  --ds-red-700: hsl(358 75% 59%);
+  --ds-red-800: hsl(358 70% 52%);
+  --ds-red-900: hsl(358 66% 48%);
+  --ds-red-1000: hsl(355 49% 15%);
+  --ds-amber-100: hsl(39 100% 95%);
+  --ds-amber-200: hsl(44 100% 92%);
+  --ds-amber-300: hsl(43 96% 90%);
+  --ds-amber-400: hsl(42 100% 78%);
+  --ds-amber-500: hsl(38 100% 71%);
+  --ds-amber-600: hsl(36 90% 62%);
+  --ds-amber-700: hsl(39 100% 57%);
+  --ds-amber-800: hsl(35 100% 52%);
+  --ds-amber-900: hsl(30 100% 32%);
+  --ds-amber-1000: hsl(20 79% 17%);
+  --ds-green-100: hsl(120 60% 96%);
+  --ds-green-200: hsl(120 60% 95%);
+  --ds-green-300: hsl(120 60% 91%);
+  --ds-green-400: hsl(122 60% 86%);
+  --ds-green-500: hsl(124 60% 75%);
+  --ds-green-600: hsl(125 60% 64%);
+  --ds-green-700: hsl(131 41% 46%);
+  --ds-green-800: hsl(132 43% 39%);
+  --ds-green-900: hsl(133 50% 32%);
+  --ds-green-1000: hsl(128 29% 15%);
+  --ds-teal-100: hsl(169 70% 96%);
+  --ds-teal-200: hsl(167 70% 94%);
+  --ds-teal-300: hsl(168 70% 90%);
+  --ds-teal-400: hsl(170 70% 85%);
+  --ds-teal-500: hsl(170 70% 72%);
+  --ds-teal-600: hsl(170 70% 57%);
+  --ds-teal-700: hsl(173 80% 36%);
+  --ds-teal-800: hsl(173 83% 30%);
+  --ds-teal-900: hsl(174 91% 25%);
+  --ds-teal-1000: hsl(171 80% 13%);
+  --ds-purple-100: hsl(276 100% 97%);
+  --ds-purple-200: hsl(277 87% 97%);
+  --ds-purple-300: hsl(274 78% 95%);
+  --ds-purple-400: hsl(276 71% 92%);
+  --ds-purple-500: hsl(274 70% 82%);
+  --ds-purple-600: hsl(273 72% 73%);
+  --ds-purple-700: hsl(272 51% 54%);
+  --ds-purple-800: hsl(272 47% 45%);
+  --ds-purple-900: hsl(274 71% 43%);
+  --ds-purple-1000: hsl(276 100% 15%);
+  --ds-pink-100: hsl(330 100% 96%);
+  --ds-pink-200: hsl(340 90% 96%);
+  --ds-pink-300: hsl(340 82% 94%);
+  --ds-pink-400: hsl(341 76% 91%);
+  --ds-pink-500: hsl(340 75% 84%);
+  --ds-pink-600: hsl(341 75% 73%);
+  --ds-pink-700: hsl(336 80% 58%);
+  --ds-pink-800: hsl(336 74% 51%);
+  --ds-pink-900: hsl(336 65% 45%);
+  --ds-pink-1000: hsl(333 74% 15%);
+  /* Geist backgrounds */
+  --ds-background-100: hsl(0 0% 100%);
+  --ds-background-200: hsl(0 0% 98%);
+  --ds-shadow-border-base: 0 0 0 1px #00000014;
+  --ds-shadow-small: 0px 2px 2px #0000000a;
+  --ds-shadow-medium: 0px 2px 2px #0000000a, 0px 8px 8px -8px #0000000a;
+  --ds-shadow-border-small: var(--ds-shadow-border-base), var(--ds-shadow-small);
+  --ds-shadow-border-medium: var(--ds-shadow-border-base), var(--ds-shadow-medium);
+  --ds-shadow-menu: var(--ds-shadow-border-base), 0px 1px 1px #00000005, 0px 4px 8px -4px #0000000a, 0px 16px 24px -8px #0000000f;
+  --ds-focus-color: var(--ds-blue-700);
 
-  /* surfaces: a cool grey canvas so white panels read as objects, not as more page */
-  --bg: #eef0f4;
-  --surface: #f6f7f9;
-  --panel: #ffffff;
-  --border: #e1e4ea;
-  --line-strong: #c9ced8;
-  --hover: #eceff3;
+  /* Relay semantics, mapped onto Geist steps (100 bg · 400 border · 700 solid · 900 secondary text · 1000 text) */
+  --bg: var(--ds-background-200);
+  --canvas: var(--ds-gray-100);
+  --surface: var(--ds-background-200);
+  --panel: var(--ds-background-100);
+  --border: var(--ds-gray-400);
+  --line-strong: var(--ds-gray-500);
+  --hover: var(--ds-gray-100);
+  --text: var(--ds-gray-1000);
+  --ink-2: var(--ds-gray-900);
+  --muted: var(--ds-gray-800);
 
-  /* ink */
-  --text: #0e1116;
-  --ink-2: #4a5161;
-  --muted: #828a9a;
+  --agent: var(--ds-teal-700);
+  --agent-soft: var(--ds-teal-100);
+  --series-base: var(--ds-gray-500);
 
-  /* brand + data */
-  --agent: #0d8a7d; /* relay teal: with-history series, focus, brand */
-  --agent-soft: #e0f3f0;
-  --series-base: #b8bfcb; /* without-history series */
+  --promise-open: var(--ds-gray-700);
+  --promise-claimed: var(--ds-blue-700);
+  --promise-due-soon: var(--ds-amber-800);
+  --promise-lapsed: var(--ds-red-800);
+  --promise-kept: var(--ds-green-700);
+  --promise-escalated: var(--ds-red-1000);
+  --safety-ok: var(--ds-green-700);
+  --safety-pending: var(--ds-amber-800);
+  --safety-tripped: var(--ds-red-800);
 
-  /* request lifecycle */
-  --promise-open: #8a91a0;
-  --promise-claimed: #3567e6;
-  --promise-due-soon: #c27a0e; /* awaiting verification */
-  --promise-lapsed: #e0412e; /* reopened */
-  --promise-kept: #1f9a5c; /* resolved */
-  --promise-escalated: #7a1d12;
+  --st-line: var(--ds-gray-1000);
+  --st-ai: var(--ds-purple-700);
+  --st-safety: var(--ds-red-800);
+  --st-hub: var(--ds-blue-700);
+  --st-respond: var(--ds-teal-700);
+  --st-verify: var(--ds-amber-800);
+  --st-learn: var(--ds-green-700);
 
-  --safety-ok: #1f9a5c;
-  --safety-pending: #c27a0e;
-  --safety-tripped: #e0412e;
-
-  /* flow stages: one hue per job in the live graph */
-  --st-line: #6b7385; /* existing 911 / dispatch lines Relay plugs into */
-  --st-ai: #7a4cf0; /* transcription + triage models */
-  --st-safety: #e0412e; /* code-owned emergency gate, people */
-  --st-hub: #3567e6; /* the coordinator board */
-  --st-respond: #0d8a7d; /* volunteer organizations */
-  --st-verify: #d98411; /* voice agents confirming receipt */
-  --st-learn: #1f9a5c; /* reviewed lessons */
-
-  /* navigation rail: dark in both themes so the work surface stands apart */
-  --rail: #11141a;
-  --rail-2: #1b1f27;
-  --rail-line: #262b35;
-  --rail-ink: #eef0f4;
-  --rail-muted: #8c93a3;
+  --rail: hsl(0 0% 4%);
+  --rail-2: hsl(0 0% 12%);
+  --rail-line: hsl(0 0% 18%);
+  --rail-ink: hsl(0 0% 93%);
+  --rail-muted: hsl(0 0% 63%);
 
   /* shadcn bridge */
   --background: var(--bg);
@@ -77,88 +161,284 @@
   --muted-foreground: var(--muted);
   --destructive: var(--promise-lapsed);
   --input: var(--border);
-  --ring: var(--agent);
-  --radius: 0.5rem;
+  --ring: var(--ds-focus-color);
+  --radius: 0.375rem; /* Geist material-base: 6px */
 }
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --bg: #0b0d11;
-  --surface: #101318;
-  --panel: #161a21;
-  --border: #232832;
-  --line-strong: #343b48;
-  --hover: #1c212a;
-  --text: #eceef3;
-  --ink-2: #a6adbb;
-  --muted: #727a8a;
-  --agent: #2fbfae;
-  --agent-soft: #0f2e2b;
-  --series-base: #464d5a;
-  --promise-open: #8a91a0;
-  --promise-claimed: #6b98f5;
-  --promise-due-soon: #ebaa45;
-  --promise-lapsed: #f5735f;
-  --promise-kept: #4cc184;
-  --promise-escalated: #f5735f;
-  --safety-ok: #4cc184;
-  --safety-pending: #ebaa45;
-  --safety-tripped: #f5735f;
-  --st-line: #8a91a0;
-  --st-ai: #a487ff;
-  --st-safety: #f5735f;
-  --st-hub: #6b98f5;
-  --st-respond: #2fbfae;
-  --st-verify: #ebaa45;
-  --st-learn: #4cc184;
-  --rail: #07090c;
-  --rail-2: #12151b;
-  --rail-line: #1d222b;
-  --rail-ink: #eceef3;
-  --rail-muted: #7d8595;
+  /* Geist colour scales, dark */
+  --ds-gray-100: hsl(0 0% 10%);
+  --ds-gray-200: hsl(0 0% 12%);
+  --ds-gray-300: hsl(0 0% 16%);
+  --ds-gray-400: hsl(0 0% 18%);
+  --ds-gray-500: hsl(0 0% 27%);
+  --ds-gray-600: hsl(0 0% 53%);
+  --ds-gray-700: hsl(0 0% 56%);
+  --ds-gray-800: hsl(0 0% 49%);
+  --ds-gray-900: hsl(0 0% 63%);
+  --ds-gray-1000: hsl(0 0% 93%);
+  --ds-blue-100: hsl(216 50% 12%);
+  --ds-blue-200: hsl(214 59% 15%);
+  --ds-blue-300: hsl(213 71% 20%);
+  --ds-blue-400: hsl(212 78% 23%);
+  --ds-blue-500: hsl(211 86% 27%);
+  --ds-blue-600: hsl(206 100% 50%);
+  --ds-blue-700: hsl(212 100% 48%);
+  --ds-blue-800: hsl(212 100% 41%);
+  --ds-blue-900: hsl(210 100% 66%);
+  --ds-blue-1000: hsl(206 100% 96%);
+  --ds-red-100: hsl(357 37% 12%);
+  --ds-red-200: hsl(357 46% 16%);
+  --ds-red-300: hsl(356 54% 22%);
+  --ds-red-400: hsl(357 55% 26%);
+  --ds-red-500: hsl(357 60% 32%);
+  --ds-red-600: hsl(358 75% 59%);
+  --ds-red-700: hsl(358 75% 59%);
+  --ds-red-800: hsl(358 69% 52%);
+  --ds-red-900: hsl(358 100% 69%);
+  --ds-red-1000: hsl(353 90% 96%);
+  --ds-amber-100: hsl(35 100% 8%);
+  --ds-amber-200: hsl(32 100% 10%);
+  --ds-amber-300: hsl(33 100% 15%);
+  --ds-amber-400: hsl(35 100% 17%);
+  --ds-amber-500: hsl(35 91% 22%);
+  --ds-amber-600: hsl(39 85% 49%);
+  --ds-amber-700: hsl(39 100% 57%);
+  --ds-amber-800: hsl(35 100% 52%);
+  --ds-amber-900: hsl(39 90% 50%);
+  --ds-amber-1000: hsl(40 94% 93%);
+  --ds-green-100: hsl(136 50% 9%);
+  --ds-green-200: hsl(137 50% 12%);
+  --ds-green-300: hsl(136 50% 14%);
+  --ds-green-400: hsl(135 70% 16%);
+  --ds-green-500: hsl(135 70% 23%);
+  --ds-green-600: hsl(135 70% 34%);
+  --ds-green-700: hsl(131 41% 46%);
+  --ds-green-800: hsl(132 43% 39%);
+  --ds-green-900: hsl(131 43% 57%);
+  --ds-green-1000: hsl(136 73% 94%);
+  --ds-teal-100: hsl(169 78% 7%);
+  --ds-teal-200: hsl(170 74% 9%);
+  --ds-teal-300: hsl(171 75% 13%);
+  --ds-teal-400: hsl(171 85% 13%);
+  --ds-teal-500: hsl(172 85% 20%);
+  --ds-teal-600: hsl(172 85% 32%);
+  --ds-teal-700: hsl(173 80% 36%);
+  --ds-teal-800: hsl(173 83% 30%);
+  --ds-teal-900: hsl(174 90% 41%);
+  --ds-teal-1000: hsl(166 71% 93%);
+  --ds-purple-100: hsl(283 30% 12%);
+  --ds-purple-200: hsl(281 38% 16%);
+  --ds-purple-300: hsl(279 44% 23%);
+  --ds-purple-400: hsl(277 46% 28%);
+  --ds-purple-500: hsl(274 49% 35%);
+  --ds-purple-600: hsl(272 51% 54%);
+  --ds-purple-700: hsl(272 51% 54%);
+  --ds-purple-800: hsl(272 47% 45%);
+  --ds-purple-900: hsl(275 80% 71%);
+  --ds-purple-1000: hsl(281 73% 96%);
+  --ds-pink-100: hsl(335 32% 12%);
+  --ds-pink-200: hsl(335 43% 16%);
+  --ds-pink-300: hsl(335 47% 21%);
+  --ds-pink-400: hsl(335 51% 22%);
+  --ds-pink-500: hsl(335 57% 27%);
+  --ds-pink-600: hsl(336 75% 40%);
+  --ds-pink-700: hsl(336 80% 58%);
+  --ds-pink-800: hsl(336 74% 51%);
+  --ds-pink-900: hsl(341 90% 67%);
+  --ds-pink-1000: hsl(333 90% 96%);
+  /* Geist backgrounds */
+  --ds-background-100: hsl(0 0% 4%);
+  --ds-background-200: hsl(0 0% 0%);
+  --ds-shadow-border-base: 0 0 0 1px #ffffff25;
+  --ds-shadow-small: 0px 1px 2px #00000029;
+  --ds-shadow-medium: 0px 2px 2px #00000052, 0px 8px 8px -8px #00000029;
+  --ds-shadow-border-small: var(--ds-shadow-border-base), var(--ds-shadow-small);
+  --ds-shadow-border-medium: var(--ds-shadow-border-base), var(--ds-shadow-medium);
+  --ds-shadow-menu: var(--ds-shadow-border-base), 0px 1px 1px #00000005, 0px 4px 8px -4px #0000000a, 0px 16px 24px -8px #0000000f;
+  --ds-focus-color: var(--ds-blue-900);
+
+  /* Relay semantics, mapped onto Geist steps (100 bg · 400 border · 700 solid · 900 secondary text · 1000 text) */
+  --bg: var(--ds-background-200);
+  --canvas: var(--ds-gray-100);
+  --surface: var(--ds-background-200);
+  --panel: var(--ds-background-100);
+  --border: var(--ds-gray-400);
+  --line-strong: var(--ds-gray-500);
+  --hover: var(--ds-gray-100);
+  --text: var(--ds-gray-1000);
+  --ink-2: var(--ds-gray-900);
+  --muted: var(--ds-gray-900);
+
+  --agent: var(--ds-teal-700);
+  --agent-soft: var(--ds-teal-100);
+  --series-base: var(--ds-gray-500);
+
+  --promise-open: var(--ds-gray-700);
+  --promise-claimed: var(--ds-blue-700);
+  --promise-due-soon: var(--ds-amber-800);
+  --promise-lapsed: var(--ds-red-800);
+  --promise-kept: var(--ds-green-700);
+  --promise-escalated: var(--ds-red-1000);
+  --safety-ok: var(--ds-green-700);
+  --safety-pending: var(--ds-amber-800);
+  --safety-tripped: var(--ds-red-800);
+
+  --st-line: var(--ds-gray-1000);
+  --st-ai: var(--ds-purple-700);
+  --st-safety: var(--ds-red-800);
+  --st-hub: var(--ds-blue-700);
+  --st-respond: var(--ds-teal-700);
+  --st-verify: var(--ds-amber-800);
+  --st-learn: var(--ds-green-700);
+
+  --rail: hsl(0 0% 0%);
+  --rail-2: hsl(0 0% 10%);
+  --rail-line: hsl(0 0% 14%);
+  --rail-ink: hsl(0 0% 93%);
+  --rail-muted: hsl(0 0% 63%);
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     color-scheme: dark;
-    --bg: #0b0d11;
-    --surface: #101318;
-    --panel: #161a21;
-    --border: #232832;
-    --line-strong: #343b48;
-    --hover: #1c212a;
-    --text: #eceef3;
-    --ink-2: #a6adbb;
-    --muted: #727a8a;
-    --agent: #2fbfae;
-    --agent-soft: #0f2e2b;
-    --series-base: #464d5a;
-    --promise-open: #8a91a0;
-    --promise-claimed: #6b98f5;
-    --promise-due-soon: #ebaa45;
-    --promise-lapsed: #f5735f;
-    --promise-kept: #4cc184;
-    --promise-escalated: #f5735f;
-    --safety-ok: #4cc184;
-    --safety-pending: #ebaa45;
-    --safety-tripped: #f5735f;
-    --st-line: #8a91a0;
-    --st-ai: #a487ff;
-    --st-safety: #f5735f;
-    --st-hub: #6b98f5;
-    --st-respond: #2fbfae;
-    --st-verify: #ebaa45;
-    --st-learn: #4cc184;
-    --rail: #07090c;
-    --rail-2: #12151b;
-    --rail-line: #1d222b;
-    --rail-ink: #eceef3;
-    --rail-muted: #7d8595;
+    --ds-gray-100: hsl(0 0% 10%);
+    --ds-gray-200: hsl(0 0% 12%);
+    --ds-gray-300: hsl(0 0% 16%);
+    --ds-gray-400: hsl(0 0% 18%);
+    --ds-gray-500: hsl(0 0% 27%);
+    --ds-gray-600: hsl(0 0% 53%);
+    --ds-gray-700: hsl(0 0% 56%);
+    --ds-gray-800: hsl(0 0% 49%);
+    --ds-gray-900: hsl(0 0% 63%);
+    --ds-gray-1000: hsl(0 0% 93%);
+    --ds-blue-100: hsl(216 50% 12%);
+    --ds-blue-200: hsl(214 59% 15%);
+    --ds-blue-300: hsl(213 71% 20%);
+    --ds-blue-400: hsl(212 78% 23%);
+    --ds-blue-500: hsl(211 86% 27%);
+    --ds-blue-600: hsl(206 100% 50%);
+    --ds-blue-700: hsl(212 100% 48%);
+    --ds-blue-800: hsl(212 100% 41%);
+    --ds-blue-900: hsl(210 100% 66%);
+    --ds-blue-1000: hsl(206 100% 96%);
+    --ds-red-100: hsl(357 37% 12%);
+    --ds-red-200: hsl(357 46% 16%);
+    --ds-red-300: hsl(356 54% 22%);
+    --ds-red-400: hsl(357 55% 26%);
+    --ds-red-500: hsl(357 60% 32%);
+    --ds-red-600: hsl(358 75% 59%);
+    --ds-red-700: hsl(358 75% 59%);
+    --ds-red-800: hsl(358 69% 52%);
+    --ds-red-900: hsl(358 100% 69%);
+    --ds-red-1000: hsl(353 90% 96%);
+    --ds-amber-100: hsl(35 100% 8%);
+    --ds-amber-200: hsl(32 100% 10%);
+    --ds-amber-300: hsl(33 100% 15%);
+    --ds-amber-400: hsl(35 100% 17%);
+    --ds-amber-500: hsl(35 91% 22%);
+    --ds-amber-600: hsl(39 85% 49%);
+    --ds-amber-700: hsl(39 100% 57%);
+    --ds-amber-800: hsl(35 100% 52%);
+    --ds-amber-900: hsl(39 90% 50%);
+    --ds-amber-1000: hsl(40 94% 93%);
+    --ds-green-100: hsl(136 50% 9%);
+    --ds-green-200: hsl(137 50% 12%);
+    --ds-green-300: hsl(136 50% 14%);
+    --ds-green-400: hsl(135 70% 16%);
+    --ds-green-500: hsl(135 70% 23%);
+    --ds-green-600: hsl(135 70% 34%);
+    --ds-green-700: hsl(131 41% 46%);
+    --ds-green-800: hsl(132 43% 39%);
+    --ds-green-900: hsl(131 43% 57%);
+    --ds-green-1000: hsl(136 73% 94%);
+    --ds-teal-100: hsl(169 78% 7%);
+    --ds-teal-200: hsl(170 74% 9%);
+    --ds-teal-300: hsl(171 75% 13%);
+    --ds-teal-400: hsl(171 85% 13%);
+    --ds-teal-500: hsl(172 85% 20%);
+    --ds-teal-600: hsl(172 85% 32%);
+    --ds-teal-700: hsl(173 80% 36%);
+    --ds-teal-800: hsl(173 83% 30%);
+    --ds-teal-900: hsl(174 90% 41%);
+    --ds-teal-1000: hsl(166 71% 93%);
+    --ds-purple-100: hsl(283 30% 12%);
+    --ds-purple-200: hsl(281 38% 16%);
+    --ds-purple-300: hsl(279 44% 23%);
+    --ds-purple-400: hsl(277 46% 28%);
+    --ds-purple-500: hsl(274 49% 35%);
+    --ds-purple-600: hsl(272 51% 54%);
+    --ds-purple-700: hsl(272 51% 54%);
+    --ds-purple-800: hsl(272 47% 45%);
+    --ds-purple-900: hsl(275 80% 71%);
+    --ds-purple-1000: hsl(281 73% 96%);
+    --ds-pink-100: hsl(335 32% 12%);
+    --ds-pink-200: hsl(335 43% 16%);
+    --ds-pink-300: hsl(335 47% 21%);
+    --ds-pink-400: hsl(335 51% 22%);
+    --ds-pink-500: hsl(335 57% 27%);
+    --ds-pink-600: hsl(336 75% 40%);
+    --ds-pink-700: hsl(336 80% 58%);
+    --ds-pink-800: hsl(336 74% 51%);
+    --ds-pink-900: hsl(341 90% 67%);
+    --ds-pink-1000: hsl(333 90% 96%);
+    /* Geist backgrounds */
+    --ds-background-100: hsl(0 0% 4%);
+    --ds-background-200: hsl(0 0% 0%);
+    --ds-shadow-border-base: 0 0 0 1px #ffffff25;
+    --ds-shadow-small: 0px 1px 2px #00000029;
+    --ds-shadow-medium: 0px 2px 2px #00000052, 0px 8px 8px -8px #00000029;
+    --ds-shadow-border-small: var(--ds-shadow-border-base), var(--ds-shadow-small);
+    --ds-shadow-border-medium: var(--ds-shadow-border-base), var(--ds-shadow-medium);
+    --ds-shadow-menu: var(--ds-shadow-border-base), 0px 1px 1px #00000005, 0px 4px 8px -4px #0000000a, 0px 16px 24px -8px #0000000f;
+    --ds-focus-color: var(--ds-blue-900);
+
+    /* Relay semantics, mapped onto Geist steps (100 bg · 400 border · 700 solid · 900 secondary text · 1000 text) */
+    --bg: var(--ds-background-200);
+    --canvas: var(--ds-gray-100);
+    --surface: var(--ds-background-200);
+    --panel: var(--ds-background-100);
+    --border: var(--ds-gray-400);
+    --line-strong: var(--ds-gray-500);
+    --hover: var(--ds-gray-100);
+    --text: var(--ds-gray-1000);
+    --ink-2: var(--ds-gray-900);
+    --muted: var(--ds-gray-900);
+
+    --agent: var(--ds-teal-700);
+    --agent-soft: var(--ds-teal-100);
+    --series-base: var(--ds-gray-500);
+
+    --promise-open: var(--ds-gray-700);
+    --promise-claimed: var(--ds-blue-700);
+    --promise-due-soon: var(--ds-amber-800);
+    --promise-lapsed: var(--ds-red-800);
+    --promise-kept: var(--ds-green-700);
+    --promise-escalated: var(--ds-red-1000);
+    --safety-ok: var(--ds-green-700);
+    --safety-pending: var(--ds-amber-800);
+    --safety-tripped: var(--ds-red-800);
+
+    --st-line: var(--ds-gray-1000);
+    --st-ai: var(--ds-purple-700);
+    --st-safety: var(--ds-red-800);
+    --st-hub: var(--ds-blue-700);
+    --st-respond: var(--ds-teal-700);
+    --st-verify: var(--ds-amber-800);
+    --st-learn: var(--ds-green-700);
+
+    --rail: hsl(0 0% 0%);
+    --rail-2: hsl(0 0% 10%);
+    --rail-line: hsl(0 0% 14%);
+    --rail-ink: hsl(0 0% 93%);
+    --rail-muted: hsl(0 0% 63%);
   }
 }
 
 @theme inline {
   --color-bg: var(--bg);
+  --color-canvas: var(--canvas);
   --color-surface: var(--surface);
   --color-panel: var(--panel);
   --color-line: var(--border);
@@ -220,21 +500,22 @@
   --radius-xl: calc(var(--radius) * 1.4);
 }
 
-/* Type scale: dense 13px working text, 11px labels, 22px page titles, big numerals for metrics. */
+/* Type scale: Geist. label-13 working text, label-12 secondary, heading-24 page titles. */
 @theme {
   --text-2xs: 0.6875rem;
   --text-2xs--line-height: 1rem;
-  --text-xs: 0.75rem;
-  --text-xs--line-height: 1.0625rem;
-  --text-sm: 0.8125rem;
-  --text-sm--line-height: 1.25rem;
-  --text-base: 0.9375rem;
-  --text-xl: 1.375rem;
-  --text-xl--line-height: 1.75rem;
-  --text-2xl: 1.75rem;
-  --text-2xl--line-height: 2rem;
-  --text-4xl: 2.75rem;
-  --text-4xl--line-height: 2.75rem;
+  --text-xs: 0.75rem; /* label-12 */
+  --text-xs--line-height: 1rem;
+  --text-sm: 0.8125rem; /* label-13 / copy-13 */
+  --text-sm--line-height: 1.125rem;
+  --text-base: 0.875rem; /* copy-14 */
+  --text-base--line-height: 1.25rem;
+  --text-xl: 1.5rem; /* heading-24 */
+  --text-xl--line-height: 2rem;
+  --text-2xl: 2rem; /* heading-32 */
+  --text-2xl--line-height: 2.5rem;
+  --text-4xl: 3rem;
+  --text-4xl--line-height: 3.5rem;
 }
 
 /* Motion marks one change or answers one action; all of it is off under prefers-reduced-motion. */
@@ -327,12 +608,12 @@
   }
   /* One visible focus ring for every interactive element, including custom ones. */
   :where(a, button, input, select, textarea, summary, [tabindex], [role="button"]):focus-visible {
-    outline: 2px solid var(--agent);
+    outline: 2px solid var(--ds-focus-color);
     outline-offset: 2px;
   }
   body {
     @apply bg-background text-foreground;
-    font-feature-settings: "tnum" 1, "cv11" 1;
+    font-feature-settings: "tnum" 1;
     -webkit-font-smoothing: antialiased;
   }
   html {
@@ -360,7 +641,18 @@
   }
   /* tiny-caps label used for every section/column heading */
   .label {
-    @apply text-2xs font-medium uppercase tracking-[0.08em] text-muted-foreground;
+    @apply text-2xs font-medium uppercase tracking-[0.06em] text-muted-foreground;
+  }
+  /* Geist materials */
+  .material-base {
+    border-radius: 6px;
+    background: var(--ds-background-100);
+    box-shadow: var(--ds-shadow-border-small);
+  }
+  .material-medium {
+    border-radius: 12px;
+    background: var(--ds-background-100);
+    box-shadow: var(--ds-shadow-border-medium);
   }
   .num {
     font-variant-numeric: tabular-nums;

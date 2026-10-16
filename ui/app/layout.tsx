@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-// Plex: a civic, engineered grotesque with tabular figures by default. It reads like an instrument, not a landing page.
-const sans = IBM_Plex_Sans({ variable: "--font-ui", subsets: ["latin"], weight: ["400", "500", "600"] });
-const mono = IBM_Plex_Mono({ variable: "--font-data", subsets: ["latin"], weight: ["400", "500"] });
+// Geist Sans and Geist Mono: the typefaces of Vercel's Geist design system.
+const sans = Geist({ variable: "--font-ui", subsets: ["latin"] });
+const mono = Geist_Mono({ variable: "--font-data", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Relay · Disaster recovery workspace",
