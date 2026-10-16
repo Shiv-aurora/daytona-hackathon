@@ -8,11 +8,14 @@ from api.demo_store import timestamp
 from calls.safety import emergency_line, safety_check
 from contracts.demo import Conflict, InvalidInput, NotFound
 
-NEEDS = {'food': ('food', 'meal', 'groceries', 'water'),
-         'supplies': ('supplies', 'blanket', 'diaper', 'hygiene'),
-         'transportation': ('transport', 'ride', 'bus'),
-         'shelter': ('shelter', 'housing'), 'repairs': ('repair', 'roof'),
-         'medicine': ('medicine', 'medication')}
+# Explicit vocabulary rather than stemming: medical terms and unrelated words
+# must not become needs merely because they share a substring or suffix.
+NEEDS = {'food': ('food', 'meal', 'meals', 'groceries', 'water'),
+         'supplies': ('supply', 'supplies', 'blanket', 'blankets', 'diaper', 'diapers', 'hygiene'),
+         'transportation': ('transport', 'transportation', 'ride', 'rides', 'bus', 'buses'),
+         'shelter': ('shelter', 'shelters', 'housing'),
+         'repairs': ('repair', 'repairs', 'roof', 'roofs'),
+         'medicine': ('medicine', 'medicines', 'medication', 'medications')}
 
 
 def categories(text):
@@ -152,17 +155,24 @@ def compare(store, run_id, body):
         raise Conflict('idempotency key was used with another evaluation payload')
     if len(previous) == 2:
         return {'evaluations': previous}
-    with (Path(__file__).resolve().parents[1] / 'data/demo/held_out.json').open() as stream:
-        fixture = json.load(stream)
-    cases = fixture if isinstance(fixture, list) else fixture['cases']
-    cases = [case for case in cases if case.get('disaster_id') == board['disaster']['id']]
-    if not cases:
-        raise InvalidInput('no evaluation cases for this run')
-    result = run_comparison(cases, decide)
+    if previous:
+        # The first immutable variant also records the full comparison. A retry
+        # after a partial write reuses its UUID, timestamp, and measured results.
+        result = previous[0]['comparison_result']
+    else:
+        with (Path(__file__).resolve().parents[1] / 'data/demo/held_out.json').open() as stream:
+            fixture = json.load(stream)
+        cases = fixture if isinstance(fixture, list) else fixture['cases']
+        cases = [case for case in cases if case.get('disaster_id') == board['disaster']['id']]
+        if not cases:
+            raise InvalidInput('no evaluation cases for this run')
+        result = run_comparison(cases, decide)
     records = []
     for variant in ('without_history', 'with_history'):
         records.append(store.save_evaluation(run_id, {'experiment_id': result['experiment_id'],
             'variant': variant, 'invocation_key': key, 'invocation_fingerprint': fingerprint, 'case_count': result['case_count'], 'metrics': result[variant],
             'measured_at': result['measured_at'], 'trace_url': result.get('trace_url'),
+            'measurement_type': result['measurement_type'], 'limitations': result['limitations'],
+            'comparison_result': result,
             'idempotency_key': key + ':' + variant}))
     return {'evaluations': records}

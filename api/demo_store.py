@@ -186,8 +186,16 @@ class InMemoryRecoveryStore:
             if existing:
                 if existing['run_id'] != run_id or existing['disaster_id'] != self._scope(run_id):
                     raise NotFound('out-of-scope call')
+                if existing['request_id'] != request['id'] or existing['survivor_id'] != survivor['id']:
+                    raise Conflict('call request and survivor cannot change')
+                allowed = {'queued': 'active', 'active': 'completed'}
+                if allowed.get(existing['status']) != row.get('status'):
+                    raise Conflict('call must advance queued -> active -> completed; terminal calls are immutable')
+                row['created_at'] = existing['created_at']
                 existing.update(row)
                 return existing
+            if row.get('status') != 'queued':
+                raise InvalidInput('new calls must be queued before execution')
             self.data['calls'].append(row)
             return row
         return self._mutate(run_id, 'call_saved', payload.get('id'), payload, save)

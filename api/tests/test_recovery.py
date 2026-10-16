@@ -185,3 +185,77 @@ def test_cross_run_same_disaster_lesson_and_timezone_cutoff(store):
         {'id': 'offset-past', 'source_run_id': 'r2', 'source_disaster_id': 'd2',
          'approved': True, 'approved_at': '2026-10-16T13:00:00+05:00'}]
     assert [l['id'] for l in store.get_board('r3')['lessons']] == ['offset-past']
+
+
+@pytest.mark.parametrize('text', ['We need food and blankets', 'We need meals and diapers',
+                                 'We need groceries and supplies'])
+def test_report_splits_mixed_food_and_plural_supplies(store, text):
+    result = report(store, 'r1', {'disaster_id': 'd1', 'survivor_id': 's1',
+                                 'text': text, 'idempotency_key': 'plural-report'})
+    assert [r['category'] for r in result['requests']] == ['food', 'supplies']
+
+
+def test_category_vocabulary_does_not_stem_unrelated_terms():
+    from api.recovery import categories
+    assert categories('The medic is preparing a statement about busyness') == ['other']
+    assert categories('medications and repairs') == ['repairs', 'medicine']
+
+
+def test_call_transitions_cannot_rewind_reassign_or_skip(store):
+    from api.recovery import queue_follow_up
+    result, _ = submit(store)
+    request_id = result['requests'][0]['id']
+    delivery(store, request_id)
+    call = queue_follow_up(store, 'r1', request_id, {'idempotency_key': 'queue'})['call']
+    for status in ('active', 'completed'):
+        payload = {**call, 'status': status, 'idempotency_key': status}
+        updated = store.save_call('r1', payload)
+        assert updated['created_at'] == call['created_at']
+        before = store.snapshot()
+        assert store.save_call('r1', payload) == updated
+        assert store.snapshot() == before
+        for rewind in ('queued', status):
+            with pytest.raises(Conflict):
+                store.save_call('r1', {**call, 'status': rewind, 'idempotency_key': status + '-' + rewind})
+        with pytest.raises(Conflict):
+            store.save_call('r1', {**call, 'request_id': result['requests'][1]['id'],
+                                  'status': 'completed', 'idempotency_key': status + '-reassign'})
+    with pytest.raises(Conflict):
+        store.save_call('r1', {**call, 'status': 'active', 'idempotency_key': 'terminal-redial'})
+    with pytest.raises(InvalidInput):
+        store.save_call('r1', {'request_id': request_id, 'status': 'completed', 'idempotency_key': 'skip-queue'})
+    queued = queue_follow_up(store, 'r1', request_id, {'idempotency_key': 'queue2'})['call']
+    with pytest.raises(Conflict):
+        store.save_call('r1', {**queued, 'status': 'completed', 'idempotency_key': 'skip-active'})
+
+
+def test_evaluation_repairs_partial_write_without_measuring_again(monkeypatch):
+    import json
+    from pathlib import Path
+
+    import eval.recovery
+    from api.recovery import compare
+
+    seed = json.loads((Path(__file__).resolve().parents[2] / 'data/demo/seed.json').read_text())
+    store = InMemoryRecoveryStore(seed)
+    original_save = store.save_evaluation
+    attempts = []
+    def interrupted_save(run_id, payload):
+        attempts.append(payload['variant'])
+        if payload['variant'] == 'with_history':
+            raise RuntimeError('simulated interruption after first persisted variant')
+        return original_save(run_id, payload)
+    monkeypatch.setattr(store, 'save_evaluation', interrupted_save)
+    with pytest.raises(RuntimeError):
+        compare(store, 'demo-current', {'idempotency_key': 'partial'})
+    first = store.get_board('demo-current')['evaluations'][0]
+    restored = InMemoryRecoveryStore.from_snapshot(store.snapshot())
+    def never_measure_again(*args):
+        pytest.fail('partial replay measured the experiment again')
+    monkeypatch.setattr(eval.recovery, 'run_comparison', never_measure_again)
+    records = compare(restored, 'demo-current', {'idempotency_key': 'partial'})['evaluations']
+    assert len(records) == 2 and records[0] == first
+    assert {r['experiment_id'] for r in records} == {first['experiment_id']}
+    assert {r['measured_at'] for r in records} == {first['measured_at']}
+    assert all(r['measurement_type'] == 'synthetic_deterministic' and r['limitations'] for r in records)
+    assert len(restored.get_board('demo-current')['evaluations']) == 2
