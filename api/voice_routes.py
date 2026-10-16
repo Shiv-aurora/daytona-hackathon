@@ -87,10 +87,33 @@ def route(store, method, path, body=None, raw=None, headers=None):
         return 503, {'error': str(exc)}
 
 
+def _health(store):
+    import os
+
+    from db.remote import surreal_status
+    from helpers.daytona_client import daytona_status
+
+    eleven, daytona, surreal = elevenlabs_status(), daytona_status(), surreal_status()
+    kind = 'surreal' if 'surreal' in type(store).__name__.lower() else 'memory'
+    return {
+        'ok': True,
+        'store': kind,
+        'live': {
+            'elevenlabs': bool(eleven['configured'] and eleven['agent_configured']),
+            'arize': bool((os.environ.get('ARIZE_API_KEY') or '').strip()),
+            'surreal': bool(surreal['configured']),
+            'daytona': bool(daytona['configured']),
+        },
+        'elevenlabs': eleven,
+        'daytona': daytona,
+        'surreal': surreal,
+    }
+
+
 def _route(store, method, path, body, raw, headers):
     parts = [unquote(p) for p in urlsplit(path).path.split('/') if p]
     if method == 'GET' and parts == ['health']:
-        return 200, {'ok': True, 'elevenlabs': elevenlabs_status()}
+        return 200, _health(store)
     if method != 'POST':
         return None
     if parts == ['webhooks', 'elevenlabs']:
