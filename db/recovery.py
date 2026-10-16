@@ -10,7 +10,7 @@ from __future__ import annotations
 import argparse
 import fcntl
 import json
-import os
+from contextlib import suppress
 from copy import deepcopy
 from datetime import UTC, datetime
 from pathlib import Path
@@ -36,7 +36,12 @@ def _engine():
 
 
 class SurrealRecoveryStore:
-    """Fresh local embedded or local-server SurrealDB; never opens cloud URLs."""
+    """Embedded SurrealDB (default) or, with allow_remote, a remote ws(s)/http(s) server.
+
+    Remote differences handled: no file lock (optimistic revisions arbitrate writers), scoped
+    sign-in (root/namespace/database user), one reconnect+retry on a dropped connection, and a
+    seed race between processes (loser re-reads the winner's seed).
+    """
 
     def __init__(
         self,
@@ -47,18 +52,22 @@ class SurrealRecoveryStore:
         seed=None,
         username=None,
         password=None,
+        allow_remote=False,
     ):
-        from surrealdb import Surreal
+        from db.remote import REMOTE_SCHEMES, open_db
 
-        scheme = urlparse(endpoint).scheme
-        if scheme not in {"mem", "memory", "file", "surrealkv", "ws", "http"}:
-            raise InvalidInput("Use a fresh local SurrealDB endpoint")
-        if scheme in {"ws", "http"} and urlparse(endpoint).hostname not in {
-            "localhost",
-            "127.0.0.1",
-            "::1",
-        }:
-            raise InvalidInput("Only a local SurrealDB server is allowed")
+        parsed = urlparse(endpoint)
+        scheme = parsed.scheme
+        self._remote = bool(allow_remote) and scheme in REMOTE_SCHEMES
+        if not self._remote:
+            if scheme not in {"mem", "memory", "file", "surrealkv", "ws", "http"}:
+                raise InvalidInput("Use a fresh local SurrealDB endpoint")
+            if scheme in {"ws", "http"} and parsed.hostname not in {
+                "localhost",
+                "127.0.0.1",
+                "::1",
+            }:
+                raise InvalidInput("Only a local SurrealDB server is allowed")
         self._lock = RLock()
         self._file_lock = None
         # Embedded engines must not open the same file from separate connections:
@@ -76,27 +85,44 @@ class SurrealRecoveryStore:
                 raise Conflict(
                     "Local database already open; use the running API process"
                 ) from None
-        self._db = Surreal(endpoint)
-        self._db.connect()
-        if username is not None:
-            self._db.signin({"username": username, "password": password})
-        self._db.use(namespace, database)
-        self._db.query(Path(__file__).with_name("recovery_schema.surql").read_text())
+        self._conn = (endpoint, namespace, database, username, password)
+        self._db = open_db(*self._conn, remote=self._remote)
+        self._q(Path(__file__).with_name("recovery_schema.surql").read_text())
         if seed is not None:
             self.seed(seed)
 
-    @classmethod
-    def from_env(cls, *, seed=None):
-        from db.config import read_dotenv
+    def _q(self, sql, params=None):
+        try:
+            return self._db.query(sql) if params is None else self._db.query(sql, params)
+        except (OSError, ConnectionError, TimeoutError):
+            if not self._remote:
+                raise
+        except Exception as exc:
+            if not self._remote or "Connection" not in type(exc).__name__:
+                raise
+        # Remote connection dropped: reconnect once. Writes are revision-checked or
+        # transactional, so replaying the statement is safe.
+        from db.remote import open_db
 
-        env = {**read_dotenv(".env"), **os.environ}
+        with suppress(Exception):
+            self._db.close()
+        self._db = open_db(*self._conn, remote=True)
+        return self._db.query(sql) if params is None else self._db.query(sql, params)
+
+    @classmethod
+    def from_env(cls, *, seed=None, env=None, dotenv=".env"):
+        from db.remote import DEFAULT_EMBEDDED_URL, mode_for, surreal_env
+
+        env = surreal_env(env, dotenv)
+        url = (env.get("SURREAL_URL") or "").strip() or DEFAULT_EMBEDDED_URL
         return cls(
-            env.get("SURREAL_URL") or "surrealkv://.relay-demo",
-            env.get("SURREAL_NAMESPACE") or "relay",
-            env.get("SURREAL_DATABASE") or "relay",
+            url,
+            (env.get("SURREAL_NAMESPACE") or "relay").strip(),
+            (env.get("SURREAL_DATABASE") or "relay").strip(),
             seed=seed,
-            username=env.get("SURREAL_USERNAME") or None,
+            username=(env.get("SURREAL_USERNAME") or "").strip() or None,
             password=env.get("SURREAL_PASSWORD") or None,
+            allow_remote=mode_for(url) == "remote",
         )
 
     def close(self):
@@ -121,7 +147,7 @@ class SurrealRecoveryStore:
                 if known.get(row.get("run_id")) != row.get("disaster_id"):
                     raise InvalidInput(f"{table} record has invalid scope")
         with self._lock:
-            if not reset and self._db.query("SELECT * FROM relay_demo_config:seed;"):
+            if not reset and self._q("SELECT * FROM relay_demo_config:seed;"):
                 return
             # Validate each scoped seed with the exact workflow engine before writing.
             rows = []
@@ -169,16 +195,21 @@ class SurrealRecoveryStore:
                 if reset
                 else ""
             )
-            self._db.query(
-                "BEGIN; "
-                + deletion
-                + "CREATE relay_demo_config:seed SET snapshot=$config; "
-                "INSERT INTO relay_demo_run $rows; INSERT INTO relay_demo_lesson $public; COMMIT;",
-                {"config": config, "rows": rows, "public": public_rows},
-            )
+            try:
+                self._q(
+                    "BEGIN; "
+                    + deletion
+                    + "CREATE relay_demo_config:seed SET snapshot=$config; "
+                    "INSERT INTO relay_demo_run $rows; INSERT INTO relay_demo_lesson $public; COMMIT;",
+                    {"config": config, "rows": rows, "public": public_rows},
+                )
+            except Exception:
+                # Another process seeded first (remote): keep its data unless reset was requested.
+                if reset or not self._remote or not self._q("SELECT * FROM relay_demo_config:seed;"):
+                    raise
 
     def _config(self):
-        rows = self._db.query("SELECT * FROM relay_demo_config:seed;")
+        rows = self._q("SELECT * FROM relay_demo_config:seed;")
         if not rows:
             raise NotFound("Demo database has not been seeded")
         return json.loads(rows[0]["snapshot"])
@@ -193,7 +224,7 @@ class SurrealRecoveryStore:
         run = next((r for r in self._config()["runs"] if r["run_id"] == run_id), None)
         if run is None:
             raise NotFound("Unknown run")
-        rows = self._db.query(
+        rows = self._q(
             "SELECT * FROM relay_demo_run WHERE run_id=$run AND disaster_id=$disaster;",
             {"run": run_id, "disaster": run["disaster_id"]},
         )
@@ -212,7 +243,7 @@ class SurrealRecoveryStore:
             row, store = self._read(run_id)
             board = store.get_board(run_id)
             # Query only reviewed public lessons, never other runs' survivor data.
-            lessons = self._db.query(
+            lessons = self._q(
                 "SELECT * FROM relay_demo_lesson WHERE approved=true "
                 "AND approved_epoch <= $cutoff AND created_epoch <= $cutoff;",
                 {"cutoff": self._cutoff(run_id)},
@@ -277,7 +308,7 @@ class SurrealRecoveryStore:
                         "IF array::len($changed)>0 { UPSERT relay_demo_lesson "
                         "CONTENT $public WHERE lesson_id=$lesson; }; "
                     )
-                updated = self._db.query(
+                updated = self._q(
                     "BEGIN; LET $changed = (UPDATE relay_demo_run SET snapshot=$snapshot, revision += 1 "
                     "WHERE run_id=$run AND disaster_id=$disaster AND revision=$revision RETURN AFTER); "
                     + publication
