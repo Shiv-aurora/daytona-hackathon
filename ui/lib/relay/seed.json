@@ -1,0 +1,457 @@
+{
+  "disasters": [
+    {
+      "id": "demo-flood-2025",
+      "name": "Cedar Valley Flood (fictional)",
+      "kind": "flood",
+      "region": "Cedar Valley (fictional)",
+      "started_at": "2025-09-01T00:00:00Z"
+    },
+    {
+      "id": "demo-storm-2026",
+      "name": "Cedar Valley Storm (fictional)",
+      "kind": "storm",
+      "region": "Cedar Valley (fictional)",
+      "started_at": "2026-10-15T00:00:00Z"
+    }
+  ],
+  "organizations": [
+    {
+      "id": "demo-food",
+      "name": "Demo Food Collective",
+      "capabilities": [
+        "food"
+      ],
+      "region": "Cedar Valley (fictional)"
+    },
+    {
+      "id": "demo-supplies",
+      "name": "Demo Supplies Collective",
+      "capabilities": [
+        "supplies"
+      ],
+      "region": "Cedar Valley (fictional)"
+    },
+    {
+      "id": "demo-transport",
+      "name": "Demo Transport Collective",
+      "capabilities": [
+        "transportation"
+      ],
+      "region": "Cedar Valley (fictional)"
+    }
+  ],
+  "runs": [
+    {
+      "run_id": "demo-history",
+      "disaster_id": "demo-flood-2025"
+    },
+    {
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026"
+    }
+  ],
+  "survivors": [
+    {
+      "id": "history-survivor-1",
+      "run_id": "demo-history",
+      "disaster_id": "demo-flood-2025",
+      "created_at": "2025-09-03T12:00:00Z",
+      "display_name": "Fictional household H",
+      "language": "en",
+      "call_opt_in": false
+    },
+    {
+      "id": "current-survivor-1",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-16T12:00:00Z",
+      "display_name": "Fictional household A",
+      "language": "en",
+      "call_opt_in": true
+    },
+    {
+      "id": "current-survivor-2",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-16T12:00:00Z",
+      "display_name": "Fictional household B",
+      "language": "en",
+      "call_opt_in": true
+    },
+    {
+      "id": "current-survivor-3",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-16T12:00:00Z",
+      "display_name": "Fictional household C",
+      "language": "en",
+      "call_opt_in": false
+    }
+  ],
+  "requests": [
+    {
+      "id": "history-food-1",
+      "run_id": "demo-history",
+      "disaster_id": "demo-flood-2025",
+      "created_at": "2025-09-03T12:00:00Z",
+      "survivor_id": "history-survivor-1",
+      "category": "food",
+      "description": "Synthetic request for food.",
+      "status": "resolved",
+      "due_at": null,
+      "organization_id": "demo-food",
+      "promised_at": null,
+      "source_report_id": "report-history-food-1"
+    },
+    {
+      "id": "current-food-1",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-16T12:00:00Z",
+      "survivor_id": "current-survivor-1",
+      "category": "food",
+      "description": "Synthetic request for food.",
+      "status": "open",
+      "due_at": null,
+      "organization_id": null,
+      "promised_at": null,
+      "source_report_id": "report-current-food-1"
+    },
+    {
+      "id": "current-supplies-1",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-16T12:00:00Z",
+      "survivor_id": "current-survivor-2",
+      "category": "supplies",
+      "description": "Synthetic request for supplies.",
+      "status": "awaiting_verification",
+      "due_at": null,
+      "organization_id": "demo-supplies",
+      "promised_at": null,
+      "source_report_id": "report-current-supplies-1"
+    },
+    {
+      "id": "current-transport-1",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-16T12:00:00Z",
+      "survivor_id": "current-survivor-3",
+      "category": "transportation",
+      "description": "Synthetic request for transportation.",
+      "status": "reopened",
+      "due_at": null,
+      "organization_id": "demo-transport",
+      "promised_at": null,
+      "source_report_id": "report-current-transport-1"
+    }
+  ],
+  "calls": [
+    {
+      "id": "current-no-answer-1",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-16T12:00:00Z",
+      "request_id": "current-supplies-1",
+      "survivor_id": "current-survivor-2",
+      "status": "completed",
+      "provider_conversation_id": null,
+      "outcome": "no_answer",
+      "summary": "Synthetic scripted no-answer; no live call was made. Receipt remains unverified.",
+      "evidence_ids": []
+    }
+  ],
+  "verifications": [
+    {
+      "id": "history-missed-1",
+      "run_id": "demo-history",
+      "disaster_id": "demo-flood-2025",
+      "created_at": "2025-09-03T12:00:00Z",
+      "request_id": "history-food-1",
+      "received": false,
+      "source": "human_review",
+      "evidence_ids": [
+        "evidence-history-missed-1"
+      ],
+      "notes": "Synthetic survivor confirmation recorded by coordinator."
+    },
+    {
+      "id": "history-received-1",
+      "run_id": "demo-history",
+      "disaster_id": "demo-flood-2025",
+      "created_at": "2025-09-04T12:00:00Z",
+      "request_id": "history-food-1",
+      "received": true,
+      "source": "human_review",
+      "evidence_ids": [
+        "evidence-history-received-1"
+      ],
+      "notes": "Synthetic survivor confirmation recorded by coordinator."
+    },
+    {
+      "id": "current-missed-1",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-16T12:00:00Z",
+      "request_id": "current-transport-1",
+      "received": false,
+      "source": "human_review",
+      "evidence_ids": [
+        "evidence-current-missed-1"
+      ],
+      "notes": "Synthetic survivor confirmation recorded by coordinator."
+    }
+  ],
+  "lessons": [
+    {
+      "id": "lesson-confirm-handoff",
+      "source_disaster_id": "demo-flood-2025",
+      "source_run_id": "demo-history",
+      "source_outcome_ids": [
+        "history-missed-1",
+        "history-received-1"
+      ],
+      "summary": "A reported delivery failed; a coordinator arranged a confirmed handoff.",
+      "conditions": [
+        "food",
+        "access_blocked"
+      ],
+      "recommendation": "Confirm an accessible handoff point with the survivor; verify receipt after delivery.",
+      "approved": true,
+      "approved_at": "2025-09-05T12:00:00Z",
+      "created_at": "2025-09-04T13:00:00Z"
+    }
+  ],
+  "evaluations": [],
+  "system_events": [
+    {
+      "id": "history-event-0",
+      "run_id": "demo-history",
+      "disaster_id": "demo-flood-2025",
+      "created_at": "2025-09-03T11:00:00Z",
+      "module": "demo_seed",
+      "action": "delivery_reported",
+      "subject_id": "history-food-1",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "history-event-1",
+      "run_id": "demo-history",
+      "disaster_id": "demo-flood-2025",
+      "created_at": "2025-09-03T12:00:00Z",
+      "module": "demo_seed",
+      "action": "verification_reopened",
+      "subject_id": "history-food-1",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "history-event-2",
+      "run_id": "demo-history",
+      "disaster_id": "demo-flood-2025",
+      "created_at": "2025-09-04T10:00:00Z",
+      "module": "demo_seed",
+      "action": "request_claimed",
+      "subject_id": "history-food-1",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "history-event-3",
+      "run_id": "demo-history",
+      "disaster_id": "demo-flood-2025",
+      "created_at": "2025-09-04T11:00:00Z",
+      "module": "demo_seed",
+      "action": "delivery_reported",
+      "subject_id": "history-food-1",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "history-event-4",
+      "run_id": "demo-history",
+      "disaster_id": "demo-flood-2025",
+      "created_at": "2025-09-04T12:00:00Z",
+      "module": "demo_seed",
+      "action": "verification_resolved",
+      "subject_id": "history-food-1",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-history-survivor-1",
+      "run_id": "demo-history",
+      "disaster_id": "demo-flood-2025",
+      "created_at": "2025-09-03T12:00:00Z",
+      "module": "demo_seed",
+      "action": "record_seeded",
+      "subject_id": "history-survivor-1",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-current-survivor-1",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-16T12:00:00Z",
+      "module": "demo_seed",
+      "action": "record_seeded",
+      "subject_id": "current-survivor-1",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-current-survivor-2",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-16T12:00:00Z",
+      "module": "demo_seed",
+      "action": "record_seeded",
+      "subject_id": "current-survivor-2",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-current-survivor-3",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-16T12:00:00Z",
+      "module": "demo_seed",
+      "action": "record_seeded",
+      "subject_id": "current-survivor-3",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-history-food-1",
+      "run_id": "demo-history",
+      "disaster_id": "demo-flood-2025",
+      "created_at": "2025-09-03T12:00:00Z",
+      "module": "demo_seed",
+      "action": "record_seeded",
+      "subject_id": "history-food-1",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-current-food-1",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-16T12:00:00Z",
+      "module": "demo_seed",
+      "action": "record_seeded",
+      "subject_id": "current-food-1",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-current-supplies-1",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-16T12:00:00Z",
+      "module": "demo_seed",
+      "action": "record_seeded",
+      "subject_id": "current-supplies-1",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-current-transport-1",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-16T12:00:00Z",
+      "module": "demo_seed",
+      "action": "record_seeded",
+      "subject_id": "current-transport-1",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-history-missed-1",
+      "run_id": "demo-history",
+      "disaster_id": "demo-flood-2025",
+      "created_at": "2025-09-03T12:00:00Z",
+      "module": "demo_seed",
+      "action": "record_seeded",
+      "subject_id": "history-missed-1",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-history-received-1",
+      "run_id": "demo-history",
+      "disaster_id": "demo-flood-2025",
+      "created_at": "2025-09-04T12:00:00Z",
+      "module": "demo_seed",
+      "action": "record_seeded",
+      "subject_id": "history-received-1",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-current-missed-1",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-16T12:00:00Z",
+      "module": "demo_seed",
+      "action": "record_seeded",
+      "subject_id": "current-missed-1",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-lesson-confirm-handoff",
+      "run_id": "demo-history",
+      "disaster_id": "demo-flood-2025",
+      "created_at": "2025-09-04T13:00:00Z",
+      "module": "demo_seed",
+      "action": "record_seeded",
+      "subject_id": "lesson-confirm-handoff",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "seed-current-no-answer-1",
+      "run_id": "demo-current",
+      "disaster_id": "demo-storm-2026",
+      "created_at": "2026-10-16T12:00:00Z",
+      "module": "demo_seed",
+      "action": "scripted_call_seeded",
+      "subject_id": "current-no-answer-1",
+      "details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "history-lesson-approved",
+      "run_id": "demo-history",
+      "disaster_id": "demo-flood-2025",
+      "created_at": "2025-09-05T12:00:00Z",
+      "module": "demo_seed",
+      "action": "lesson_approved",
+      "subject_id": "lesson-confirm-handoff",
+      "details": {
+        "synthetic": true
+      }
+    }
+  ]
+}
