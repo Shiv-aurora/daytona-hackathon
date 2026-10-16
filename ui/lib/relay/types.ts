@@ -125,7 +125,27 @@ export interface RunInfo {
 export interface Health {
   ok: boolean;
   store: string;
-  live: { elevenlabs: boolean; arize: boolean; surreal: boolean };
+  live: { elevenlabs: boolean; arize: boolean; surreal: boolean; daytona?: boolean };
+}
+
+/**
+ * A consent-checked browser voice session from POST /runs/{run}/requests/{id}/voice-session.
+ * The server owns everything: the browser only gets an opaque session id to pass back as the Custom LLM extra body,
+ * so every caller turn goes through the code-owned emergency check before any model.
+ */
+export interface VoiceSession {
+  session_id: string;
+  provider: "elevenlabs" | "fake" | string;
+  live: boolean;
+  run_id: string;
+  disaster_id: string;
+  request_id: string;
+  call_id: string;
+  signed_url: string | null;
+  conversation_id: string | null;
+  custom_llm_extra_body: Record<string, unknown>;
+  disclosure: string;
+  question: string;
 }
 
 export interface Recommendation {
@@ -189,6 +209,8 @@ export interface RelayApi {
   compare(runId: string): Promise<CompareResult>;
   /** null when the backend has no reset route. */
   reset(): Promise<boolean>;
+  /** Live API only: open a voice session with the ElevenLabs agent for a delivered, opted-in request. */
+  startVoiceSession?(runId: string, requestId: string, input: { idempotency_key: string }): Promise<VoiceSession>;
 }
 
 export class RelayError extends Error {

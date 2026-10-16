@@ -1,6 +1,6 @@
 "use client";
 
-import { BookOpen, Building2, ChevronsUpDown, CircleAlert, Compass, LayoutList, Moon, Phone, Play, Plug, RefreshCw, RotateCcw, ShieldCheck, Sun, X, type LucideIcon } from "lucide-react";
+import { BookOpen, Building2, ChevronsUpDown, CircleAlert, Compass, LayoutList, Moon, Phone, PhoneCall, Play, Plug, RefreshCw, RotateCcw, ShieldCheck, Sun, X, type LucideIcon } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useSyncExternalStore, type ReactNode } from "react";
@@ -13,6 +13,7 @@ import { RequestDrawer } from "./RequestDrawer";
 
 const NAV: { href: string; label: string; icon: LucideIcon; badge?: "requests" | "calls" | "lessons" }[] = [
   { href: "/live", label: "Live demo", icon: Play },
+  { href: "/agent-call", label: "Start the Agent Call", icon: PhoneCall },
   { href: "/response", label: "Response", icon: LayoutList, badge: "requests" },
   { href: "/organizations", label: "Organizations", icon: Building2 },
   { href: "/calls", label: "Calls", icon: Phone, badge: "calls" },

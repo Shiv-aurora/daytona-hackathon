@@ -15,6 +15,7 @@ import {
   type RunInfo,
   type ScriptedAnswer,
   type Verification,
+  type VoiceSession,
 } from "./types";
 
 type Fetch = typeof fetch;
@@ -72,9 +73,9 @@ export class HttpApi implements RelayApi {
     return `${this.base.replace(/\/$/, "")}${path}`;
   }
 
-  private async send<T>(method: "GET" | "POST", path: string, body?: unknown): Promise<T> {
+  private async send<T>(method: "GET" | "POST", path: string, body?: unknown, timeoutMs = this.timeoutMs): Promise<T> {
     const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), this.timeoutMs);
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
     let res: Response;
     try {
       res = await this.fetchImpl(this.url(path), {
@@ -157,6 +158,11 @@ export class HttpApi implements RelayApi {
       evidence_ids: [],
       idempotency_key: newKey("verify"),
     });
+  }
+
+  startVoiceSession(runId: string, requestId: string, input: { idempotency_key: string }): Promise<VoiceSession> {
+    // The server fetches a signed URL from ElevenLabs before answering, so allow longer than a board read.
+    return this.send<VoiceSession>("POST", this.run(runId, "requests", requestId, "voice-session"), input, 20_000);
   }
 
   async queueFollowUp(runId: string, requestId: string): Promise<RelayCall> {

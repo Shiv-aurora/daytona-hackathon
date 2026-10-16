@@ -264,6 +264,19 @@ describe("HttpApi requests and errors", () => {
     expect(calls[0].body).toMatchObject({ mode: "scripted", scripted_answer: "no_answer" });
   });
 
+  it("startVoiceSession() posts the idempotency key to the run-scoped voice-session route", async () => {
+    const { api: http, calls } = api(() => ({ body: { session_id: "s", call_id: "call-1", signed_url: "wss://x", custom_llm_extra_body: { relay_session_id: "s" } } }));
+    const session = await http.startVoiceSession(RUN, "req 1", { idempotency_key: "k1" });
+    expect(calls[0]).toMatchObject({ method: "POST", url: `${BASE}/runs/${RUN}/requests/req%201/voice-session` });
+    expect(calls[0].body).toEqual({ idempotency_key: "k1" });
+    expect(session.custom_llm_extra_body).toEqual({ relay_session_id: "s" });
+  });
+
+  it("startVoiceSession() surfaces the consent refusal from the server", async () => {
+    const { api: http } = api(() => ({ status: 409, body: { error: "confirmed survivor call opt-in is required" } }));
+    await expect(http.startVoiceSession(RUN, "req-1", { idempotency_key: "k" })).rejects.toMatchObject({ status: 409, message: "confirmed survivor call opt-in is required" });
+  });
+
   it("uses the contract routes under the base URL with no /api prefix, and encodes ids", async () => {
     const f = fakeFetch();
     const http = new HttpApi(`${BASE}/`, f.fetch);
