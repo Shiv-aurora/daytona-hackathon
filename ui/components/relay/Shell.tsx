@@ -1,6 +1,6 @@
 "use client";
 
-import { BookOpen, Building2, ChevronsUpDown, CircleAlert, Compass, LayoutList, Moon, Phone, Play, RefreshCw, RotateCcw, ShieldCheck, Sun, X, type LucideIcon } from "lucide-react";
+import { BookOpen, Building2, ChevronsUpDown, CircleAlert, Compass, LayoutList, Moon, Phone, Play, Plug, RefreshCw, RotateCcw, ShieldCheck, Sun, X, type LucideIcon } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useSyncExternalStore, type ReactNode } from "react";
@@ -29,7 +29,7 @@ function useBadges() {
   } as Record<string, number>;
 }
 
-function Nav({ orientation }: { orientation: "side" | "top" }) {
+function Nav({ orientation, compact = false, dark = true }: { orientation: "side" | "top"; compact?: boolean; dark?: boolean }) {
   const path = usePathname();
   const badges = useBadges();
   return (
@@ -37,24 +37,34 @@ function Nav({ orientation }: { orientation: "side" | "top" }) {
       {NAV.map(({ href, label, icon: Icon, badge }) => {
         const active = path === href || path.startsWith(`${href}/`);
         const n = badge ? badges[badge] : 0;
+        const side = dark;
         return (
           <Link
             key={href}
             href={href}
+            title={compact ? label : undefined}
+            aria-label={compact ? label : undefined}
             aria-current={active ? "page" : undefined}
             className={cn(
-              "group relative flex h-8 items-center gap-2.5 rounded-md px-2.5 text-sm whitespace-nowrap outline-none transition-colors",
-              active ? "bg-panel font-medium text-ink shadow-[0_0_0_1px_var(--border)]" : "text-ink-2 hover:bg-hover hover:text-ink",
+              "group relative flex h-8 items-center gap-2.5 rounded-md text-sm whitespace-nowrap outline-none transition-colors",
+              compact ? "size-9 justify-center" : "px-2.5",
+              side
+                ? active
+                  ? "bg-rail-2 font-medium text-rail-ink shadow-[inset_0_0_0_1px_var(--rail-line)]"
+                  : "text-rail-muted hover:bg-rail-2 hover:text-rail-ink"
+                : active
+                  ? "bg-panel font-medium text-ink shadow-[0_0_0_1px_var(--border)]"
+                  : "text-ink-2 hover:bg-hover hover:text-ink",
             )}
           >
-            {active && orientation === "side" ? <span aria-hidden className="absolute -left-2.5 top-2 h-4 w-[2px] rounded-full bg-agent" /> : null}
-            <Icon aria-hidden className={cn("size-[15px]", active ? "text-agent" : "text-muted-foreground group-hover:text-ink-2")} />
-            {label}
-            {n ? (
-              <span className="num ml-auto rounded-[4px] bg-hover px-1.5 text-2xs font-medium text-ink-2" aria-label={`${n} need attention`}>
+            <Icon aria-hidden className={cn("size-[15px]", active ? "text-agent" : side ? "text-rail-muted group-hover:text-rail-ink" : "text-muted-foreground")} />
+            {compact ? null : label}
+            {n && !compact ? (
+              <span className={cn("num ml-auto rounded-[4px] px-1.5 text-2xs font-medium", side ? "bg-rail-line text-rail-ink" : "bg-hover text-ink-2")} aria-label={`${n} need attention`}>
                 {n}
               </span>
             ) : null}
+            {n && compact ? <span aria-hidden className="absolute right-1.5 top-1.5 size-1.5 rounded-full bg-agent" /> : null}
           </Link>
         );
       })}
@@ -63,28 +73,28 @@ function Nav({ orientation }: { orientation: "side" | "top" }) {
 }
 
 /** The mark: two relay nodes joined by a baton line. */
-function Mark({ size = 22 }: { size?: number }) {
+function Mark({ size = 24 }: { size?: number }) {
   return (
     <svg aria-hidden width={size} height={size} viewBox="0 0 24 24" fill="none">
-      <rect width="24" height="24" rx="6" fill="var(--agent)" />
-      <path d="M7.5 15.5c3.4 0 5-7 9-7" stroke="var(--panel)" strokeWidth="1.6" strokeLinecap="round" />
-      <circle cx="7.5" cy="15.5" r="2.1" fill="var(--panel)" />
-      <circle cx="16.5" cy="8.5" r="2.1" fill="var(--panel)" />
+      <rect width="24" height="24" rx="7" fill="var(--agent)" />
+      <path d="M7.5 15.5c3.4 0 5-7 9-7" stroke="#fff" strokeWidth="1.6" strokeLinecap="round" />
+      <circle cx="7.5" cy="15.5" r="2.1" fill="#fff" />
+      <circle cx="16.5" cy="8.5" r="2.1" fill="#fff" />
     </svg>
   );
 }
 
-function Brand() {
+function Brand({ compact = false, onDark = false }: { compact?: boolean; onDark?: boolean }) {
   return (
     <Link href="/live" className="flex items-center gap-2 rounded-md outline-none" aria-label="Relay home">
       <Mark />
-      <span className="text-[15px] font-semibold tracking-[-0.02em] text-ink">Relay</span>
+      {compact ? null : <span className={cn("text-[15px] font-semibold tracking-[-0.02em]", onDark ? "text-rail-ink" : "text-ink")}>Relay</span>}
     </Link>
   );
 }
 
 /** Workspace switcher, in the Linear mould: the current disaster is the "workspace". */
-function DisasterSwitcher() {
+function DisasterSwitcher({ onDark = false }: { onDark?: boolean }) {
   const { runs, disasters, runId, selectRun, board } = useRelay();
   const name = (disasterId: string) => disasters.find((d) => d.id === disasterId)?.name ?? disasterId;
   const current = runs.find((r) => r.run_id === runId);
@@ -92,21 +102,17 @@ function DisasterSwitcher() {
   return (
     <label className="relative block">
       <span className="sr-only">Disaster</span>
-      <span className="pointer-events-none flex items-center gap-2.5 rounded-md border border-line bg-panel px-2.5 py-2">
-        <span aria-hidden className="grid size-6 shrink-0 place-items-center rounded-[5px] bg-ink font-mono text-[10px] font-medium text-panel">
+      <span className={cn("pointer-events-none flex items-center gap-2.5 rounded-md border px-2.5 py-2", onDark ? "border-rail-line bg-rail-2" : "border-line bg-panel")}>
+        <span aria-hidden className="grid size-6 shrink-0 place-items-center rounded-[5px] bg-st-verify font-mono text-[10px] font-semibold text-white">
           {(d?.kind ?? "dz").slice(0, 2).toUpperCase()}
         </span>
         <span className="min-w-0 flex-1 leading-tight">
-          <span className="block truncate text-[12.5px] font-medium text-ink">{d ? name(d.id) : "Loading…"}</span>
-          <span className="block truncate text-[10.5px] text-muted-foreground">{d ? `${d.kind} · ${d.region}` : ""}</span>
+          <span className={cn("block truncate text-[12.5px] font-medium", onDark ? "text-rail-ink" : "text-ink")}>{d ? name(d.id) : "Loading…"}</span>
+          <span className={cn("block truncate text-[10.5px]", onDark ? "text-rail-muted" : "text-muted-foreground")}>{d ? `${d.kind} · ${d.region}` : ""}</span>
         </span>
-        <ChevronsUpDown aria-hidden className="size-3.5 shrink-0 text-muted-foreground" />
+        <ChevronsUpDown aria-hidden className={cn("size-3.5 shrink-0", onDark ? "text-rail-muted" : "text-muted-foreground")} />
       </span>
-      <select
-        value={runId}
-        onChange={(e) => selectRun(e.target.value)}
-        className="absolute inset-0 size-full cursor-pointer rounded-md opacity-0"
-      >
+      <select value={runId} onChange={(e) => selectRun(e.target.value)} className="absolute inset-0 size-full cursor-pointer rounded-md opacity-0">
         {runs.map((r) => (
           <option key={r.run_id} value={r.run_id}>
             {name(r.disaster_id)}
@@ -117,25 +123,20 @@ function DisasterSwitcher() {
   );
 }
 
-function ActingAs() {
+function ActingAs({ onDark = false }: { onDark?: boolean }) {
   const { board, orgId, setOrgId } = useRelay();
   const orgs = board?.organizations ?? [];
   const current = orgs.find((o) => o.id === orgId);
   return (
     <label className="relative block">
-      <span className="label mb-1 flex items-center gap-1.5">
-        Acting as
-        <span title="Demo organization selector. Not production authorization." className="rounded-[4px] border border-dashed border-line-strong px-1 text-[9px] normal-case tracking-normal">
-          simulated
-        </span>
-      </span>
-      <span className="pointer-events-none flex items-center gap-2 rounded-md border border-line bg-panel px-2 py-1.5">
+      <span className={cn("label mb-1 block", onDark && "!text-rail-muted")}>Acting as</span>
+      <span className={cn("pointer-events-none flex items-center gap-2 rounded-md border px-2 py-1.5", onDark ? "border-rail-line bg-rail-2" : "border-line bg-panel")}>
         <Monogram name={current?.name ?? orgId} active />
-        <span className="min-w-0 flex-1 truncate text-[12.5px] text-ink">{current ? shortOrg(current.name) : orgId}</span>
-        <ChevronsUpDown aria-hidden className="size-3.5 shrink-0 text-muted-foreground" />
+        <span className={cn("min-w-0 flex-1 truncate text-[12.5px]", onDark ? "text-rail-ink" : "text-ink")}>{current ? shortOrg(current.name) : orgId}</span>
+        <ChevronsUpDown aria-hidden className={cn("size-3.5 shrink-0", onDark ? "text-rail-muted" : "text-muted-foreground")} />
       </span>
       <select
-        aria-label="Acting as (simulated access)"
+        aria-label="Acting as organization"
         value={orgId}
         onChange={(e) => setOrgId(e.target.value)}
         disabled={!orgs.length}
@@ -151,38 +152,14 @@ function ActingAs() {
   );
 }
 
-function Services() {
-  const { mode, health } = useRelay();
-  const live = mode === "live";
-  const rows = [
-    { name: "Database", on: live && Boolean(health?.live.surreal), text: !live ? "Simulated" : health ? (health.live.surreal ? "SurrealDB" : "In-memory") : "Unknown" },
-    { name: "Voice", on: live && Boolean(health?.live.elevenlabs), text: live && health?.live.elevenlabs ? "ElevenLabs" : "Scripted" },
-    { name: "Evaluation", on: live && Boolean(health?.live.arize), text: live && health?.live.arize ? "Arize" : "Local" },
-  ];
-  return (
-    <div>
-      <p className="label mb-1.5">What is live</p>
-      <ul className="space-y-1">
-        {rows.map((r) => (
-          <li key={r.name} className="flex items-center gap-2 text-xs">
-            <span aria-hidden className={cn("size-1.5 shrink-0 rounded-full", r.on ? "bg-safety-ok" : "border border-line-strong")} />
-            <span className="text-ink-2">{r.name}</span>
-            <span className="ml-auto text-muted-foreground">{r.text}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
-
 function Safeguards() {
   return (
-    <details className="group rounded-md border border-line bg-panel">
-      <summary className="flex cursor-pointer list-none items-center gap-2 px-2.5 py-1.5 text-xs font-medium text-ink outline-none">
+    <details className="group rounded-md border border-rail-line bg-rail-2">
+      <summary className="flex cursor-pointer list-none items-center gap-2 px-2.5 py-1.5 text-xs font-medium text-rail-ink outline-none">
         <ShieldCheck aria-hidden className="size-3.5 text-agent" /> Safeguards
-        <span aria-hidden className="ml-auto text-muted-foreground transition-transform group-open:rotate-90">›</span>
+        <span aria-hidden className="ml-auto text-rail-muted transition-transform group-open:rotate-90">›</span>
       </summary>
-      <ul className="space-y-1.5 border-t border-line px-2.5 py-2 text-xs text-muted-foreground">
+      <ul className="space-y-1.5 border-t border-rail-line px-2.5 py-2 text-xs text-rail-muted">
         <li>Emergencies alert a person first.</li>
         <li>Calls need confirmed opt-in.</li>
         <li>Delivery reports never resolve requests.</li>
@@ -210,12 +187,15 @@ const currentTheme = (): "light" | "dark" => {
   return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 };
 
-function ThemeToggle() {
+const railBtn = "text-rail-muted hover:bg-rail-2 hover:text-rail-ink";
+
+function ThemeToggle({ className }: { className?: string }) {
   const theme = useSyncExternalStore(subscribeTheme, currentTheme, () => "light" as const);
   return (
     <Button
       variant="ghost"
       size="icon-sm"
+      className={className}
       aria-label={theme === "dark" ? "Switch to light theme" : "Switch to dark theme"}
       title={theme === "dark" ? "Light theme" : "Dark theme"}
       onClick={() => {
@@ -234,35 +214,23 @@ function ThemeToggle() {
   );
 }
 
-/** One quiet strip above everything: what is simulated, which run/disaster is on screen, and the global actions. */
-function StatusStrip() {
-  const { board, mode, apiConfigured, setMode, guideOpen, setGuideOpen, resetDemo } = useRelay();
+/** Global actions: reset, guide, data source, theme. Icon-only so they never compete with the page. */
+function Actions({ vertical = false, className, btn }: { vertical?: boolean; className?: string; btn?: string }) {
+  const { mode, apiConfigured, setMode, guideOpen, setGuideOpen, resetDemo } = useRelay();
   return (
-    <div className="flex flex-wrap items-center gap-x-4 gap-y-1 border-b border-line bg-surface px-4 py-1.5 lg:px-6">
-      <p role="note" className="flex items-center gap-2 text-[11px] text-ink-2">
-        <span aria-hidden className={cn("size-1.5 rounded-full", mode === "live" ? "bg-safety-ok" : "bg-promise-due-soon")} />
-        <span className="font-medium">{mode === "live" ? "Live API" : "Simulated data"}</span>
-        <span className="text-muted-foreground">· synthetic data · simulated access · no real calls</span>
-      </p>
-      {board ? (
-        <p className="font-mono text-[10.5px] text-muted-foreground" title="Every record on screen belongs to this run and disaster">
-          run {board.run_id} · disaster {board.disaster.id}
-        </p>
+    <div className={cn("flex items-center gap-0.5", vertical && "flex-col", className)}>
+      {apiConfigured ? (
+        <Button variant="ghost" size="icon-sm" className={btn} title={mode === "live" ? "Connected to the API" : "Connect to the API"} aria-pressed={mode === "live"} onClick={() => setMode(mode === "live" ? "mock" : "live")}>
+          <Plug aria-hidden className={cn(mode === "live" && "text-agent")} />
+        </Button>
       ) : null}
-      <div className="ml-auto flex items-center gap-1">
-        {apiConfigured ? (
-          <Button variant="ghost" size="xs" onClick={() => setMode(mode === "live" ? "mock" : "live")}>
-            {mode === "live" ? "Use simulated" : "Use live API"}
-          </Button>
-        ) : null}
-        <Button variant="ghost" size="xs" onClick={() => void resetDemo()}>
-          <RotateCcw aria-hidden /> Reset demo
-        </Button>
-        <Button variant="ghost" size="xs" aria-pressed={guideOpen} onClick={() => setGuideOpen(!guideOpen)} className={cn(guideOpen && "bg-hover text-ink")}>
-          <Compass aria-hidden /> Demo guide
-        </Button>
-        <ThemeToggle />
-      </div>
+      <Button variant="ghost" size="icon-sm" className={btn} title="Reset demo" aria-label="Reset demo" onClick={() => void resetDemo()}>
+        <RotateCcw aria-hidden />
+      </Button>
+      <Button variant="ghost" size="icon-sm" className={cn(btn, guideOpen && "text-agent")} title="Demo guide" aria-label="Demo guide" aria-pressed={guideOpen} onClick={() => setGuideOpen(!guideOpen)}>
+        <Compass aria-hidden />
+      </Button>
+      <ThemeToggle className={btn} />
     </div>
   );
 }
@@ -334,43 +302,55 @@ function Toasts() {
 export function Shell({ children }: { children: ReactNode }) {
   const { board, selectedRequestId } = useRelay();
   const path = usePathname();
-  // Lessons need the full width; the request drawer is for the board, organizations and calls.
+  // Live is a single, fixed screen: the graph is the page. Lessons need the full width; the request drawer is for the
+  // board, organizations and calls.
   const cinematic = path.startsWith("/live");
   const showDrawer = !path.startsWith("/intelligence") && !cinematic;
   const drawerOpen = showDrawer && Boolean(selectedRequestId && board?.requests.some((r) => r.id === selectedRequestId));
   return (
-    <div className="flex min-h-screen flex-col lg:flex-row">
-      <aside className="hidden w-[232px] shrink-0 flex-col gap-5 border-r border-line bg-surface px-3 py-3.5 lg:sticky lg:top-0 lg:flex lg:h-screen lg:overflow-y-auto">
-        <div className="px-1">
-          <Brand />
+    <div className={cn("flex min-h-screen flex-col lg:flex-row", cinematic && "lg:h-screen lg:overflow-hidden")}>
+      <aside
+        className={cn(
+          "hidden shrink-0 flex-col gap-5 bg-rail py-3.5 lg:sticky lg:top-0 lg:flex lg:h-screen lg:overflow-y-auto",
+          cinematic ? "w-[60px] items-center px-2" : "w-[236px] px-3",
+        )}
+      >
+        <div className={cn(!cinematic && "px-1")}>
+          <Brand compact={cinematic} onDark />
         </div>
-        <DisasterSwitcher />
-        <Nav orientation="side" />
-        <div className="mt-auto space-y-4">
-          <ActingAs />
-          <Services />
-          <Safeguards />
+        {cinematic ? null : <DisasterSwitcher onDark />}
+        <Nav orientation="side" compact={cinematic} />
+        <div className={cn("mt-auto space-y-4", cinematic && "flex flex-col items-center")}>
+          {cinematic ? null : (
+            <>
+              <ActingAs onDark />
+              <Safeguards />
+            </>
+          )}
+          <Actions vertical={cinematic} btn={railBtn} className={cn(!cinematic && "border-t border-rail-line pt-3")} />
         </div>
       </aside>
-      <header className="flex items-center gap-3 border-b border-line bg-surface px-4 py-2 lg:hidden">
-        <Brand />
-        <Nav orientation="top" />
+      <header className="flex items-center gap-3 bg-rail px-4 py-2 lg:hidden">
+        <Brand compact onDark />
+        <Nav orientation="top" compact />
+        <Actions btn={railBtn} className="ml-auto" />
       </header>
-      <div className={cn("flex min-w-0 flex-1 flex-col transition-[margin] sm:duration-150", drawerOpen && "sm:mr-[26rem]")}>
-        <StatusStrip />
-        <div className="space-y-3 border-b border-line bg-surface px-4 py-2 empty:hidden lg:hidden">
-          <DisasterSwitcher />
-        </div>
+      <div className={cn("flex min-w-0 flex-1 flex-col transition-[margin] sm:duration-150", drawerOpen && "sm:mr-[26rem]", cinematic && "lg:min-h-0")}>
+        {cinematic ? null : (
+          <div className="border-b border-line bg-surface px-4 py-2 lg:hidden">
+            <DisasterSwitcher />
+          </div>
+        )}
         <Banners />
         <DemoGuide />
-        <main id="main" tabIndex={-1} className="min-w-0 flex-1 px-4 py-5 outline-none lg:px-8 lg:py-6">
+        <main id="main" tabIndex={-1} className={cn("min-w-0 flex-1 outline-none", cinematic ? "flex flex-col px-4 py-4 lg:min-h-0 lg:px-6" : "px-4 py-5 lg:px-8 lg:py-6")}>
           {children}
         </main>
-        <div className="space-y-4 border-t border-line bg-surface p-4 lg:hidden">
-          <ActingAs />
-          <Services />
-          <Safeguards />
-        </div>
+        {cinematic ? null : (
+          <div className="space-y-4 border-t border-line bg-surface p-4 lg:hidden">
+            <ActingAs />
+          </div>
+        )}
       </div>
       {showDrawer ? <RequestDrawer /> : null}
       <Toasts />

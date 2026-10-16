@@ -6,8 +6,8 @@
   Relay design system
   -------------------
   Reference points: Linear (dense lists, status glyphs, hairlines), Stripe (numerals first, quiet charts),
-  PagerDuty (severity you can read at a glance), Vercel (restraint). Warm neutral paper, one ink, one teal.
-  Colour is spent on meaning only: the five request states and the with/without-history contrast.
+  PagerDuty (severity you can read at a glance), Vercel (restraint). Cool grey canvas, white objects, dark rail.
+  Colour is spent on meaning only: the five request states, one hue per flow stage, and with/without history.
 
   Token names from the first console (--bg, --surface, --border, --text, --agent, --promise-*, --safety-*)
   are kept so the legacy /console keeps rendering; everything new reads the semantic names below.
@@ -15,35 +15,51 @@
 :root {
   color-scheme: light;
 
-  /* surfaces */
-  --bg: #f4f4f1;
-  --surface: #fbfbf9;
+  /* surfaces: a cool grey canvas so white panels read as objects, not as more page */
+  --bg: #eef0f4;
+  --surface: #f6f7f9;
   --panel: #ffffff;
-  --border: #e5e4de;
-  --line-strong: #d3d2ca;
-  --hover: #efeee9;
+  --border: #e1e4ea;
+  --line-strong: #c9ced8;
+  --hover: #eceff3;
 
   /* ink */
-  --text: #181814;
-  --ink-2: #56554d;
-  --muted: #86857c;
+  --text: #0e1116;
+  --ink-2: #4a5161;
+  --muted: #828a9a;
 
   /* brand + data */
-  --agent: #0f766e; /* relay teal: with-history series, focus, brand */
-  --agent-soft: #e2f0ed;
-  --series-base: #b9b8ae; /* without-history series */
+  --agent: #0d8a7d; /* relay teal: with-history series, focus, brand */
+  --agent-soft: #e0f3f0;
+  --series-base: #b8bfcb; /* without-history series */
 
   /* request lifecycle */
-  --promise-open: #8a897f;
-  --promise-claimed: #3f6fd1;
-  --promise-due-soon: #b8730a; /* awaiting verification */
-  --promise-lapsed: #d0402d; /* reopened */
-  --promise-kept: #2c8a58; /* resolved */
+  --promise-open: #8a91a0;
+  --promise-claimed: #3567e6;
+  --promise-due-soon: #c27a0e; /* awaiting verification */
+  --promise-lapsed: #e0412e; /* reopened */
+  --promise-kept: #1f9a5c; /* resolved */
   --promise-escalated: #7a1d12;
 
-  --safety-ok: #2c8a58;
-  --safety-pending: #b8730a;
-  --safety-tripped: #d0402d;
+  --safety-ok: #1f9a5c;
+  --safety-pending: #c27a0e;
+  --safety-tripped: #e0412e;
+
+  /* flow stages: one hue per job in the live graph */
+  --st-line: #6b7385; /* existing 911 / dispatch lines Relay plugs into */
+  --st-ai: #7a4cf0; /* transcription + triage models */
+  --st-safety: #e0412e; /* code-owned emergency gate, people */
+  --st-hub: #3567e6; /* the coordinator board */
+  --st-respond: #0d8a7d; /* volunteer organizations */
+  --st-verify: #d98411; /* voice agents confirming receipt */
+  --st-learn: #1f9a5c; /* reviewed lessons */
+
+  /* navigation rail: dark in both themes so the work surface stands apart */
+  --rail: #11141a;
+  --rail-2: #1b1f27;
+  --rail-line: #262b35;
+  --rail-ink: #eef0f4;
+  --rail-muted: #8c93a3;
 
   /* shadcn bridge */
   --background: var(--bg);
@@ -62,58 +78,82 @@
   --destructive: var(--promise-lapsed);
   --input: var(--border);
   --ring: var(--agent);
-  --radius: 0.375rem;
+  --radius: 0.5rem;
 }
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --bg: #0d0e0d;
-  --surface: #121413;
-  --panel: #171918;
-  --border: #252827;
-  --line-strong: #353937;
-  --hover: #1e2120;
-  --text: #ecebe5;
-  --ink-2: #aaa99f;
-  --muted: #76766d;
-  --agent: #35b3a6;
-  --agent-soft: #12302d;
-  --series-base: #4a4c47;
-  --promise-open: #8b8a80;
-  --promise-claimed: #6b9bf0;
-  --promise-due-soon: #e0a03a;
-  --promise-lapsed: #f0705e;
-  --promise-kept: #4cb67f;
-  --promise-escalated: #f0705e;
-  --safety-ok: #4cb67f;
-  --safety-pending: #e0a03a;
-  --safety-tripped: #f0705e;
+  --bg: #0b0d11;
+  --surface: #101318;
+  --panel: #161a21;
+  --border: #232832;
+  --line-strong: #343b48;
+  --hover: #1c212a;
+  --text: #eceef3;
+  --ink-2: #a6adbb;
+  --muted: #727a8a;
+  --agent: #2fbfae;
+  --agent-soft: #0f2e2b;
+  --series-base: #464d5a;
+  --promise-open: #8a91a0;
+  --promise-claimed: #6b98f5;
+  --promise-due-soon: #ebaa45;
+  --promise-lapsed: #f5735f;
+  --promise-kept: #4cc184;
+  --promise-escalated: #f5735f;
+  --safety-ok: #4cc184;
+  --safety-pending: #ebaa45;
+  --safety-tripped: #f5735f;
+  --st-line: #8a91a0;
+  --st-ai: #a487ff;
+  --st-safety: #f5735f;
+  --st-hub: #6b98f5;
+  --st-respond: #2fbfae;
+  --st-verify: #ebaa45;
+  --st-learn: #4cc184;
+  --rail: #07090c;
+  --rail-2: #12151b;
+  --rail-line: #1d222b;
+  --rail-ink: #eceef3;
+  --rail-muted: #7d8595;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     color-scheme: dark;
-    --bg: #0d0e0d;
-    --surface: #121413;
-    --panel: #171918;
-    --border: #252827;
-    --line-strong: #353937;
-    --hover: #1e2120;
-    --text: #ecebe5;
-    --ink-2: #aaa99f;
-    --muted: #76766d;
-    --agent: #35b3a6;
-    --agent-soft: #12302d;
-    --series-base: #4a4c47;
-    --promise-open: #8b8a80;
-    --promise-claimed: #6b9bf0;
-    --promise-due-soon: #e0a03a;
-    --promise-lapsed: #f0705e;
-    --promise-kept: #4cb67f;
-    --promise-escalated: #f0705e;
-    --safety-ok: #4cb67f;
-    --safety-pending: #e0a03a;
-    --safety-tripped: #f0705e;
+    --bg: #0b0d11;
+    --surface: #101318;
+    --panel: #161a21;
+    --border: #232832;
+    --line-strong: #343b48;
+    --hover: #1c212a;
+    --text: #eceef3;
+    --ink-2: #a6adbb;
+    --muted: #727a8a;
+    --agent: #2fbfae;
+    --agent-soft: #0f2e2b;
+    --series-base: #464d5a;
+    --promise-open: #8a91a0;
+    --promise-claimed: #6b98f5;
+    --promise-due-soon: #ebaa45;
+    --promise-lapsed: #f5735f;
+    --promise-kept: #4cc184;
+    --promise-escalated: #f5735f;
+    --safety-ok: #4cc184;
+    --safety-pending: #ebaa45;
+    --safety-tripped: #f5735f;
+    --st-line: #8a91a0;
+    --st-ai: #a487ff;
+    --st-safety: #f5735f;
+    --st-hub: #6b98f5;
+    --st-respond: #2fbfae;
+    --st-verify: #ebaa45;
+    --st-learn: #4cc184;
+    --rail: #07090c;
+    --rail-2: #12151b;
+    --rail-line: #1d222b;
+    --rail-ink: #eceef3;
+    --rail-muted: #7d8595;
   }
 }
 
@@ -138,6 +178,18 @@
   --color-safety-ok: var(--safety-ok);
   --color-safety-pending: var(--safety-pending);
   --color-safety-tripped: var(--safety-tripped);
+  --color-st-line: var(--st-line);
+  --color-st-ai: var(--st-ai);
+  --color-st-safety: var(--st-safety);
+  --color-st-hub: var(--st-hub);
+  --color-st-respond: var(--st-respond);
+  --color-st-verify: var(--st-verify);
+  --color-st-learn: var(--st-learn);
+  --color-rail: var(--rail);
+  --color-rail-2: var(--rail-2);
+  --color-rail-line: var(--rail-line);
+  --color-rail-ink: var(--rail-ink);
+  --color-rail-muted: var(--rail-muted);
 
   --color-muted: var(--secondary);
   --color-muted-foreground: var(--muted-foreground);

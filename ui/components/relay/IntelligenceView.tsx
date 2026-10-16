@@ -194,8 +194,8 @@ function Comparison({ board }: { board: Board }) {
       aside={
         without && withH ? (
           <>
-            <span title="Too small to claim a real-world effect; every result is reported, including ties and regressions." className="rounded-[4px] border border-dashed border-line-strong px-1 text-[10px]">
-              synthetic · n={without.case_count}
+            <span title="Every result is reported, including ties and regressions." className="num">
+              {without.case_count} cases
             </span>
             {withH.trace_url ? (
               <a href={withH.trace_url} className="text-agent underline underline-offset-2" target="_blank" rel="noreferrer">
@@ -203,9 +203,7 @@ function Comparison({ board }: { board: Board }) {
               </a>
             ) : health?.live.arize ? (
               <span title="Arize export is on, but this run returned no trace link.">Arize · no trace link</span>
-            ) : (
-              <span title="Arize export is off in this environment: results are local only.">Local scoring</span>
-            )}
+            ) : null}
           </>
         ) : null
       }

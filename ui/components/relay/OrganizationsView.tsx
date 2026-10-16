@@ -1,6 +1,6 @@
 "use client";
 
-import { Info, Radio, TriangleAlert } from "lucide-react";
+import { TriangleAlert } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useRelay } from "@/lib/relay/context";
@@ -26,11 +26,6 @@ export function OrganizationsView() {
           <>
             <span className="num">{board.organizations.length}</span> volunteer organizations · {board.disaster.name}
           </>
-        }
-        actions={
-          <span title="Choosing an organization only changes who the demo acts as. Not production authorization." className="inline-flex items-center gap-1.5 text-xs text-muted-foreground">
-            <Info aria-hidden className="size-3.5" /> Simulated access
-          </span>
         }
       />
 
@@ -156,11 +151,6 @@ export function OrganizationsView() {
           <Legend items={statusSegments(loads[0]?.counts ?? { open: 0, claimed: 0, awaiting_verification: 0, reopened: 0, resolved: 0 }).map((s) => ({ color: s.color, label: s.label }))} />
         </div>
       </Panel>
-
-      <p className="flex items-center gap-1.5 text-xs text-muted-foreground">
-        <Radio aria-hidden className="size-3.5" />
-        Dispatch, radio, 211 feeds: out of scope, not connected
-      </p>
     </div>
   );
 }

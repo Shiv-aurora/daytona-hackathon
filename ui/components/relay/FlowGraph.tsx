@@ -1,25 +1,73 @@
 "use client";
 
-// The Live demo's hero: one left-to-right graph from "a call arrives" to "the next disaster is triaged better".
-// Nodes and edges are driven by the same Scene/RunnerState the scripted demo already produces, so what lights up is
-// what actually happened in the (simulated) backend. Phone lines, radio, STT, the triage model and the voice agents
-// are sample adapters and say so on the node.
-import { Check, Headphones, MessageSquareText, Phone, Radio, ShieldAlert, ShieldCheck, UserCheck, type LucideIcon } from "lucide-react";
-import { useLayoutEffect, useRef, useState, useSyncExternalStore, type ReactNode } from "react";
+// The Live demo's hero: one left-to-right graph from "a 911 call comes in" to "the next disaster is triaged better".
+// Relay plugs onto the existing call lines; every node and edge is driven by the same Scene/RunnerState the scripted
+// demo produces, so what lights up is what actually happened in the backend. Each stage owns one hue.
+import {
+  AudioLines,
+  Building2,
+  Check,
+  Headphones,
+  LayoutDashboard,
+  Lightbulb,
+  MessageSquareText,
+  Phone,
+  PhoneCall,
+  Plug,
+  Radio,
+  ShieldAlert,
+  ShieldCheck,
+  Sparkles,
+  UserCheck,
+  type LucideIcon,
+} from "lucide-react";
+import { useLayoutEffect, useRef, useState, useSyncExternalStore, type CSSProperties, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import type { RunnerState } from "@/lib/relay/demoRunner";
 import type { Channel, DemoScript, Scene } from "@/lib/relay/demoScript";
 import { categoryLabel, conditionLabel, orgName } from "@/lib/relay/selectors";
 import type { Board } from "@/lib/relay/types";
 import { countByStatus, metricDelta } from "@/lib/relay/viz";
-import { StatusGlyph, shortOrg, Monogram } from "./ui";
+import { StatusGlyph, shortOrg } from "./ui";
 import { StatusTally } from "./charts";
 import { CategoryIcon } from "./ResponseView";
 
+/* ------------------------------------------------------------------ stages */
+
+type Stage = "line" | "ai" | "safety" | "hub" | "respond" | "verify" | "learn";
+const HUE: Record<Stage, string> = {
+  line: "var(--text)",
+  ai: "var(--st-ai)",
+  safety: "var(--st-safety)",
+  hub: "var(--st-hub)",
+  respond: "var(--st-respond)",
+  verify: "var(--st-verify)",
+  learn: "var(--st-learn)",
+};
+
+/** Which hue a demo step belongs to, so the progress rail matches the graph. */
+export const STEP_HUE: Record<string, string> = {
+  call: HUE.ai,
+  emergency: HUE.safety,
+  triage: HUE.ai,
+  dashboard: HUE.hub,
+  claim: HUE.respond,
+  delivery: HUE.respond,
+  "helper-call": HUE.verify,
+  reopen: HUE.safety,
+  alert: HUE.safety,
+  resolve: HUE.learn,
+  lesson: HUE.learn,
+  measure: HUE.learn,
+};
+
+const hue = (c: string) => ({ "--c": c }) as CSSProperties;
+
 /* ------------------------------------------------------------------ geometry */
 
-const W = 1260;
-const H = 644;
+const W = 1280;
+const H = 664;
+const CY = 231; // every box on the main axis shares this centre line, so the primary edges are dead straight
 
 interface Box {
   x: number;
@@ -30,32 +78,44 @@ interface Box {
 type NodeId = "stt" | "gate" | "triage" | "hub" | "orgs" | "voice" | "human" | "lesson" | `src-${Channel}`;
 
 const SOURCES: { channel: Channel; name: string; sub: string; icon: LucideIcon }[] = [
-  { channel: "phone", name: "911 phone line", sub: "voice", icon: Phone },
-  { channel: "radio", name: "Radio dispatch", sub: "voice", icon: Radio },
-  { channel: "helpline", name: "211 helpline", sub: "voice", icon: Headphones },
-  { channel: "sms", name: "SMS · web form", sub: "text", icon: MessageSquareText },
+  { channel: "phone", name: "911 calls", sub: "Voice", icon: Phone },
+  { channel: "radio", name: "Radio dispatch", sub: "Voice", icon: Radio },
+  { channel: "helpline", name: "211 helpline", sub: "Voice", icon: Headphones },
+  { channel: "sms", name: "Text to 911", sub: "SMS · web", icon: MessageSquareText },
 ];
 
-// Every box on the main axis shares the centre line y = 247, so the primary edges are dead straight.
 const BOX: Record<NodeId, Box> = {
-  "src-phone": { x: 0, y: 40, w: 140, h: 78 },
-  "src-radio": { x: 0, y: 132, w: 140, h: 78 },
-  "src-helpline": { x: 0, y: 224, w: 140, h: 78 },
-  "src-sms": { x: 0, y: 316, w: 140, h: 78 },
-  stt: { x: 196, y: 90, w: 180, h: 314 },
-  gate: { x: 416, y: 172, w: 100, h: 150 },
-  triage: { x: 572, y: 74, w: 190, h: 346 },
-  hub: { x: 818, y: 72, w: 190, h: 350 },
-  orgs: { x: 1072, y: 16, w: 188, h: 214 },
-  voice: { x: 1072, y: 252, w: 188, h: 350 },
-  human: { x: 410, y: 486, w: 200, h: 108 },
-  lesson: { x: 650, y: 486, w: 260, h: 128 },
+  "src-phone": { x: 12, y: 56, w: 148, h: 80 },
+  "src-radio": { x: 12, y: 146, w: 148, h: 80 },
+  "src-helpline": { x: 12, y: 236, w: 148, h: 80 },
+  "src-sms": { x: 12, y: 326, w: 148, h: 80 },
+  stt: { x: 216, y: CY - 160, w: 172, h: 320 },
+  gate: { x: 430, y: CY - 78, w: 140, h: 156 },
+  triage: { x: 612, y: CY - 170, w: 184, h: 340 },
+  hub: { x: 840, y: CY - 170, w: 196, h: 340 },
+  orgs: { x: 1080, y: 58, w: 188, h: 214 },
+  voice: { x: 1080, y: 284, w: 188, h: 316 },
+  human: { x: 430, y: 496, w: 210, h: 102 },
+  lesson: { x: 664, y: 496, w: 288, h: 116 },
 };
+
+const PLUG = { x: 190, y: CY, r: 13 };
+
+/** Tinted lanes behind each stage, numbered so the order reads in one glance. */
+const BANDS: { n: number; title: string; stage: Stage; x: number; y: number; w: number; h: number; external?: boolean; steps: string[]; titleX?: number }[] = [
+  { n: 1, title: "911 lines", stage: "line", x: 0, y: 26, w: 172, h: 394, external: true, steps: ["call"] },
+  { n: 2, title: "Transcribe", stage: "ai", x: 204, y: 26, w: 196, h: 394, steps: ["call"] },
+  { n: 3, title: "Safety", stage: "safety", x: 418, y: 26, w: 164, h: 394, steps: ["emergency"] },
+  { n: 4, title: "Triage", stage: "ai", x: 600, y: 26, w: 208, h: 394, steps: ["triage"] },
+  { n: 5, title: "Dashboard", stage: "hub", x: 828, y: 26, w: 220, h: 394, steps: ["dashboard"] },
+  { n: 6, title: "Respond + verify", stage: "respond", x: 1068, y: 26, w: 212, h: 586, steps: ["claim", "delivery", "helper-call"] },
+  { n: 7, title: "Close the loop", stage: "learn", x: 412, y: 462, w: 556, h: 162, steps: ["alert", "reopen", "resolve", "lesson", "measure"], titleX: 160 }, // title sits clear of the edges entering from above
+];
 
 type Pt = [number, number];
 
 /** Orthogonal path with softened corners. */
-function rounded(points: Pt[], r = 9): string {
+function rounded(points: Pt[], r = 10): string {
   let d = `M${points[0][0]} ${points[0][1]}`;
   for (let i = 1; i < points.length - 1; i++) {
     const [px, py] = points[i - 1];
@@ -85,6 +145,8 @@ interface Edge {
   points: Pt[];
   /** Demo step during which this edge carries something. */
   at: string;
+  /** Hue of the stage the edge delivers into. */
+  stage: Stage;
   kind?: EdgeKind;
   label?: string;
   labelAt?: Pt;
@@ -94,33 +156,72 @@ interface Edge {
   channel?: Channel;
 }
 
-const sttIn = left("stt");
 const GAP_R = (BOX.hub.x + BOX.hub.w + BOX.orgs.x) / 2; // channel between the dashboard and the right-hand column
 const gateX = bottom("gate")[0];
-const LOOP_Y = 622; // the long return edge runs under the bottom row
+const LOOP_Y = 640; // the long return edge runs under the bottom row
+const JOIN_X = 176;
 
 const EDGES: Edge[] = [
   ...SOURCES.map((s): Edge => {
     const [x0, y0] = right(`src-${s.channel}` as NodeId);
-    return { id: `e-${s.channel}`, at: "call", channel: s.channel, points: [[x0, y0], [x0 + 28, y0], [x0 + 28, sttIn[1]], sttIn] };
+    return { id: `e-${s.channel}`, at: "call", stage: "line", channel: s.channel, points: [[x0, y0], [JOIN_X, y0], [JOIN_X, CY], [PLUG.x - PLUG.r, CY]] };
   }),
-  { id: "e-stt-gate", at: "emergency", points: [right("stt"), left("gate")] },
-  { id: "e-gate-triage", at: "triage", points: [right("gate"), left("triage")], label: "clear", labelAt: [544, 239], anchor: "middle" },
-  { id: "e-triage-hub", at: "dashboard", points: [right("triage"), left("hub")], label: "needs", labelAt: [790, 239], anchor: "middle" },
-  { id: "e-hub-orgs", at: "claim", points: [right("hub", 0.2), [GAP_R - 12, right("hub", 0.2)[1]], [GAP_R - 12, BOX.orgs.y + 62], [BOX.orgs.x, BOX.orgs.y + 62]], label: "match", labelAt: [GAP_R - 12, 100], anchor: "middle" },
-  { id: "e-orgs-hub", at: "delivery", points: [[BOX.orgs.x, BOX.orgs.y + 150], [GAP_R + 12, BOX.orgs.y + 150], [GAP_R + 12, right("hub", 0.4)[1]], [right("hub")[0], right("hub", 0.4)[1]]], label: "delivered", labelAt: [GAP_R + 12, 212], anchor: "middle" },
-  { id: "e-hub-voice", at: "helper-call", points: [right("hub", 0.82), [GAP_R - 12, right("hub", 0.82)[1]], [GAP_R - 12, BOX.voice.y + 60], [BOX.voice.x, BOX.voice.y + 60]], label: "call", labelAt: [GAP_R - 12, 332], anchor: "middle" },
-  { id: "e-voice-human", at: "reopen", kind: "alert", points: [bottom("voice", 0.5), [bottom("voice", 0.5)[0], LOOP_Y], [BOX.human.x + 160, LOOP_Y], [BOX.human.x + 160, BOX.human.y + BOX.human.h]], label: "household: did not arrive", labelAt: [1000, LOOP_Y + 16], anchor: "middle" },
-  { id: "e-gate-human", at: "emergency", only: "safety", kind: "alert", points: [bottom("gate"), [gateX, BOX.human.y]], label: "emergency", labelAt: [gateX + 8, 420], anchor: "start" },
-  { id: "e-gate-human-alert", at: "alert", only: "safety", kind: "alert", points: [bottom("gate"), [gateX, BOX.human.y]] },
-  { id: "e-human-hub", at: "resolve", points: [[BOX.human.x + 120, BOX.human.y], [BOX.human.x + 120, 452], [860, 452], [860, bottom("hub")[1]]], label: "verified by a person", labelAt: [BOX.human.x + 132, 446], anchor: "start" },
-  { id: "e-hub-lesson", at: "lesson", points: [[950, bottom("hub")[1]], [950, 466], [880, 466], [880, BOX.lesson.y]], label: "reviewed", labelAt: [958, 458], anchor: "start" },
-  { id: "e-lesson-triage", at: "measure", kind: "feedback", points: [[720, BOX.lesson.y], [720, bottom("triage")[1]]], label: "history informs the next triage", labelAt: [730, 478], anchor: "start" },
+  { id: "e-plug-stt", at: "call", stage: "ai", points: [[PLUG.x + PLUG.r, CY], left("stt")] },
+  { id: "e-stt-gate", at: "emergency", stage: "safety", points: [right("stt"), left("gate")] },
+  { id: "e-gate-triage", at: "triage", stage: "ai", points: [right("gate"), left("triage")], label: "clear", labelAt: [591, CY - 8] },
+  { id: "e-triage-hub", at: "dashboard", stage: "hub", points: [right("triage"), left("hub")], label: "needs", labelAt: [818, CY - 8] },
+  {
+    id: "e-hub-orgs",
+    at: "claim",
+    stage: "respond",
+    points: [right("hub", 0.2), [GAP_R - 10, right("hub", 0.2)[1]], [GAP_R - 10, BOX.orgs.y + 66], [BOX.orgs.x, BOX.orgs.y + 66]],
+    label: "match",
+    labelAt: [GAP_R, right("hub", 0.2)[1] - 10],
+  },
+  {
+    id: "e-orgs-hub",
+    at: "delivery",
+    stage: "hub",
+    points: [[BOX.orgs.x, BOX.orgs.y + 150], [GAP_R + 10, BOX.orgs.y + 150], [GAP_R + 10, right("hub", 0.42)[1]], [right("hub")[0], right("hub", 0.42)[1]]],
+    label: "delivered",
+    labelAt: [GAP_R, BOX.orgs.y + 166],
+  },
+  {
+    id: "e-hub-voice",
+    at: "helper-call",
+    stage: "verify",
+    points: [right("hub", 0.82), [GAP_R - 10, right("hub", 0.82)[1]], [GAP_R - 10, BOX.voice.y + 62], [BOX.voice.x, BOX.voice.y + 62]],
+    label: "verify",
+    labelAt: [GAP_R, BOX.voice.y + 52],
+  },
+  {
+    id: "e-voice-human",
+    at: "reopen",
+    stage: "safety",
+    kind: "alert",
+    points: [bottom("voice"), [bottom("voice")[0], LOOP_Y], [BOX.human.x + 170, LOOP_Y], [BOX.human.x + 170, BOX.human.y + BOX.human.h]],
+    label: "household: did not arrive",
+    labelAt: [1010, LOOP_Y + 15],
+  },
+  { id: "e-gate-human", at: "emergency", stage: "safety", only: "safety", kind: "alert", points: [bottom("gate"), [gateX, BOX.human.y]], label: "emergency", labelAt: [gateX + 8, 446], anchor: "start" },
+  { id: "e-gate-human-alert", at: "alert", stage: "safety", only: "safety", kind: "alert", points: [bottom("gate"), [gateX, BOX.human.y]] },
+  {
+    id: "e-human-hub",
+    at: "resolve",
+    stage: "learn",
+    points: [[BOX.human.x + 124, BOX.human.y], [BOX.human.x + 124, 440], [880, 440], [880, bottom("hub")[1]]],
+    label: "verified by a person",
+    labelAt: [BOX.human.x + 136, 434],
+    anchor: "start",
+  },
+  { id: "e-hub-lesson", at: "lesson", stage: "learn", points: [[996, bottom("hub")[1]], [996, 452], [920, 452], [920, BOX.lesson.y]], label: "reviewed", labelAt: [1004, 448], anchor: "start" },
+  { id: "e-lesson-triage", at: "measure", stage: "ai", kind: "feedback", points: [[724, BOX.lesson.y], [724, bottom("triage")[1]]], label: "history improves triage", labelAt: [732, 482], anchor: "start" },
 ];
 
 /* ------------------------------------------------------------------ run-state helpers */
 
 type NodeState = "idle" | "active" | "done" | "alert" | "skipped";
+type StepState = "off" | "idle" | "active" | "done";
 
 const NODE_STEPS: Record<string, string[]> = {
   stt: ["call"],
@@ -137,15 +238,14 @@ function useRunView(script: DemoScript, rs: RunnerState) {
   const stepIndex = (id: string) => script.steps.findIndex((s) => s.id === id);
   const started = rs.status !== "idle";
   const finished = rs.status === "done";
-  const stateOfStep = (id: string): "off" | "idle" | "active" | "done" => {
+  const stateOfStep = (id: string): StepState => {
     const i = stepIndex(id);
     if (i < 0) return "off";
     if (!started) return "idle";
     if (finished || i < rs.index) return "done";
     return i === rs.index ? "active" : "idle";
   };
-  const stateOfNode = (id: string): NodeState => {
-    const steps = NODE_STEPS[id] ?? [];
+  const combine = (steps: string[]): NodeState => {
     const states = steps.map(stateOfStep).filter((s) => s !== "off");
     if (!states.length) return "skipped";
     if (states.includes("active")) return "active";
@@ -153,7 +253,7 @@ function useRunView(script: DemoScript, rs: RunnerState) {
     if (states.includes("done")) return "active"; // between steps of a multi-step node
     return "idle";
   };
-  return { stateOfStep, stateOfNode };
+  return { started, stateOfStep, combine, stateOfNode: (id: string) => combine(NODE_STEPS[id] ?? []) };
 }
 
 /* ------------------------------------------------------------------ node chrome */
@@ -161,57 +261,63 @@ function useRunView(script: DemoScript, rs: RunnerState) {
 function NodeBox({
   id,
   state,
+  stage,
+  icon: Icon,
   title,
-  kicker,
-  tag,
+  sub,
   children,
   footer,
-  className,
+  dim,
   flow = true,
 }: {
   id: NodeId;
   state: NodeState;
+  stage: Stage;
+  icon: LucideIcon;
   title: string;
-  kicker?: string;
-  tag?: string;
+  sub?: string;
   children?: ReactNode;
   footer?: ReactNode;
-  className?: string;
+  /** The run has started and has not reached this node yet. */
+  dim?: boolean;
   flow?: boolean;
 }) {
   const b = BOX[id];
+  const c = state === "alert" ? HUE.safety : HUE[stage];
+  const lit = state === "active" || state === "alert";
   return (
     <section
       aria-label={title}
       data-state={state}
-      style={flow ? { left: b.x, top: b.y, width: b.w, height: b.h } : undefined}
+      style={{ ...hue(c), ...(flow ? { left: b.x, top: b.y, width: b.w, height: b.h } : {}) }}
       className={cn(
-        "flex flex-col overflow-hidden rounded-md border bg-panel text-xs transition-[border-color,box-shadow,opacity] duration-300",
+        "flex flex-col overflow-hidden rounded-[10px] border bg-panel text-xs shadow-[0_1px_2px_rgb(0_0_0/0.04)] transition-[border-color,box-shadow,opacity] duration-300",
         flow && "absolute",
-        state === "active" && "border-agent shadow-[0_0_0_3px_color-mix(in_srgb,var(--agent)_16%,transparent)]",
-        state === "done" && "border-line-strong",
-        state === "idle" && "border-line",
-        state === "alert" && "border-promise-lapsed shadow-[0_0_0_3px_color-mix(in_srgb,var(--promise-lapsed)_14%,transparent)]",
-        state === "skipped" && "border-dashed border-line opacity-55",
-        className,
+        lit ? "border-[var(--c)] shadow-[0_0_0_4px_color-mix(in_srgb,var(--c)_16%,transparent),0_8px_24px_-12px_color-mix(in_srgb,var(--c)_45%,transparent)]" : "border-line",
+        state === "skipped" && "border-dashed opacity-40",
+        dim && state === "idle" && "opacity-55",
       )}
     >
-      <header className="flex items-start gap-2 border-b border-line px-2.5 py-2">
+      <header className="flex items-center gap-2 px-2.5 pb-1.5 pt-2.5">
         <span
-          aria-hidden
           className={cn(
-            "mt-[3px] grid size-2 shrink-0 place-items-center rounded-full transition-colors",
-            state === "active" ? "animate-pulse bg-agent" : state === "done" ? "bg-agent/60" : state === "alert" ? "bg-promise-lapsed" : "bg-line-strong",
+            "relative grid size-7 shrink-0 place-items-center rounded-[7px] transition-colors duration-300",
+            lit ? "bg-[var(--c)] text-white" : "bg-[color-mix(in_srgb,var(--c)_11%,transparent)] text-[var(--c)]",
           )}
-        />
+        >
+          <Icon aria-hidden className="size-3.5" />
+          {state === "done" ? (
+            <span className="absolute -right-1 -top-1 grid size-3.5 place-items-center rounded-full bg-[var(--c)] ring-2 ring-panel">
+              <Check aria-label="Done" className="size-2 text-white" strokeWidth={3.5} />
+            </span>
+          ) : null}
+        </span>
         <div className="min-w-0 flex-1 leading-tight">
-          {kicker ? <p className="label !text-[9.5px]">{kicker}</p> : null}
-          <h3 className="text-[12.5px] font-medium text-ink">{title}</h3>
-          {tag ? <span className="mt-1 inline-block rounded-[4px] border border-dashed border-line-strong px-1 py-px text-[9px] leading-3.5 text-muted-foreground">{tag}</span> : null}
+          <h3 className="truncate text-[13px] font-semibold tracking-[-0.01em] text-ink">{title}</h3>
+          {sub ? <p className="truncate text-[10.5px] text-muted-foreground">{sub}</p> : null}
         </div>
-        {state === "done" ? <Check aria-label="Done" className="mt-0.5 size-3 shrink-0 text-agent" /> : null}
       </header>
-      <div className="min-h-0 flex-1 overflow-hidden px-2.5 py-2">{children}</div>
+      <div className="min-h-0 flex-1 overflow-hidden px-2.5 pb-2.5 pt-1">{children}</div>
       {footer ? <footer className="border-t border-line px-2.5 py-1.5 text-[11px] text-ink-2">{footer}</footer> : null}
     </section>
   );
@@ -223,42 +329,52 @@ const Quiet = ({ children }: { children: ReactNode }) => <p className="pt-4 text
 
 function Waveform({ live }: { live: boolean }) {
   return (
-    <span aria-hidden className="flex h-5 items-center gap-[2px]">
-      {[0, 2, 1, 3, 1, 2, 0, 3, 1, 2, 0, 3].map((d, i) => (
-        <span key={i} className={cn("h-full w-[2px] origin-center rounded-full", live ? "animate-wave bg-agent" : "scale-y-[0.2] bg-line-strong")} style={live ? { animationDelay: `${d * 110 + i * 35}ms` } : undefined} />
+    <span aria-hidden className="flex h-6 flex-1 items-center gap-[2px]">
+      {[0, 2, 1, 3, 1, 2, 0, 3, 1, 2, 0, 3, 2, 1, 3, 0, 2, 1].map((d, i) => (
+        <span
+          key={i}
+          className={cn("h-full w-[2px] origin-center rounded-full", live ? "animate-wave bg-[var(--c)]" : "scale-y-[0.18] bg-line-strong")}
+          style={live ? { animationDelay: `${d * 110 + i * 35}ms` } : undefined}
+        />
       ))}
     </span>
   );
 }
 
-function SourceNode({ s, scene, state }: { s: (typeof SOURCES)[number]; scene: Scene; state: NodeState }) {
+function SourceNode({ s, scene, started }: { s: (typeof SOURCES)[number]; scene: Scene; started: boolean }) {
   const Icon = s.icon;
-  const used = scene.channel === s.channel;
-  const st: NodeState = used ? (scene.callActive ? "active" : state === "idle" ? "idle" : "done") : "idle";
+  const used = started && scene.channel === s.channel;
+  const live = used && scene.callActive;
   const b = BOX[`src-${s.channel}` as NodeId];
   return (
     <section
       aria-label={s.name}
-      data-state={st}
+      data-state={live ? "active" : used ? "done" : "idle"}
       style={{ left: b.x, top: b.y, width: b.w, height: b.h }}
       className={cn(
-        "absolute flex flex-col justify-between rounded-md border bg-panel p-2.5 transition-[border-color,box-shadow,opacity] duration-300",
-        st === "active" ? "border-agent shadow-[0_0_0_3px_color-mix(in_srgb,var(--agent)_16%,transparent)]" : used ? "border-line-strong" : "border-line opacity-80",
+        "absolute flex flex-col justify-between rounded-[10px] border bg-panel p-2.5 transition-[border-color,box-shadow,opacity] duration-300",
+        live ? "border-ink shadow-[0_0_0_4px_color-mix(in_srgb,var(--text)_10%,transparent)]" : used ? "border-line-strong" : "border-line",
+        started && !used && "opacity-55",
       )}
     >
       <div className="flex items-center gap-2">
-        <span className={cn("grid size-6 place-items-center rounded-[5px] border", used ? "border-agent text-agent" : "border-line text-muted-foreground")}>
+        <span className={cn("relative grid size-7 place-items-center rounded-[7px] transition-colors", live ? "bg-ink text-panel" : "bg-hover text-ink-2")}>
           <Icon aria-hidden className="size-3.5" />
+          {live ? <span aria-hidden className="absolute inset-0 animate-call-ring rounded-[7px]" /> : null}
         </span>
-        <span className="min-w-0">
-          <span className="block truncate text-[12px] font-medium text-ink">{s.name}</span>
-          <span className="block text-[10px] text-muted-foreground">{s.sub}</span>
+        <span className="min-w-0 leading-tight">
+          <span className="block truncate text-[12.5px] font-semibold text-ink">{s.name}</span>
+          <span className="block text-[10.5px] text-muted-foreground">{s.sub}</span>
         </span>
       </div>
-      <p className="flex items-center gap-1.5 text-[10px] text-muted-foreground">
-        <span aria-hidden className={cn("size-1.5 rounded-full", used && st !== "idle" ? "bg-agent" : "border border-line-strong")} />
-        {used && st !== "idle" ? (scene.callActive ? "Call in progress" : "Call received") : "Not connected"}
-      </p>
+      {used ? (
+        <p className="flex items-center gap-1.5 text-[10.5px] font-medium text-ink">
+          <span aria-hidden className={cn("size-1.5 rounded-full bg-promise-kept", live && "animate-pulse")} />
+          {live ? "On the line" : "Call received"}
+        </p>
+      ) : (
+        <span aria-hidden className="h-px w-full bg-line" />
+      )}
     </section>
   );
 }
@@ -268,9 +384,8 @@ function SttBody({ script, scene }: { script: DemoScript; scene: Scene }) {
   const shown = lines.slice(-4);
   return (
     <div className="flex h-full flex-col gap-2">
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 rounded-md bg-surface px-2 py-1">
         <Waveform live={scene.callActive} />
-        <span className="text-[10px] text-muted-foreground">{scene.callActive ? "Transcribing" : lines.length ? "Transcript ready" : "Waiting for a call"}</span>
       </div>
       <ul aria-label="Call transcript" aria-live="polite" className="flex-1 space-y-1.5 overflow-hidden">
         {shown.map((l, i) =>
@@ -279,12 +394,19 @@ function SttBody({ script, scene }: { script: DemoScript; scene: Scene }) {
               {l.text}
             </li>
           ) : (
-            <li key={`${lines.length - shown.length + i}`} className={cn("animate-arrive rounded-[5px] px-1.5 py-1 text-[11px] leading-snug", l.speaker === "caller" ? "bg-hover text-ink" : "border border-line text-ink-2")}>
-              <span className="mb-0.5 block text-[9px] uppercase tracking-wider text-muted-foreground">{l.speaker === "caller" ? "Caller" : "Relay"}</span>
+            <li
+              key={`${lines.length - shown.length + i}`}
+              className={cn(
+                "animate-arrive rounded-md px-2 py-1 text-[11px] leading-snug",
+                l.speaker === "caller" ? "bg-[color-mix(in_srgb,var(--c)_9%,transparent)] text-ink" : "border border-line text-ink-2",
+              )}
+            >
+              <span className="mb-0.5 block text-[9px] font-medium uppercase tracking-wider text-muted-foreground">{l.speaker === "caller" ? "Caller" : "Relay"}</span>
               {l.text}
             </li>
           ),
         )}
+        {!lines.length ? <li className="pt-6 text-center text-[11px] text-muted-foreground">Waiting for a call</li> : null}
       </ul>
     </div>
   );
@@ -294,19 +416,18 @@ function GateBody({ scene }: { scene: Scene }) {
   const e = scene.emergency;
   const Icon = e === "tripped" ? ShieldAlert : ShieldCheck;
   return (
-    <div className="flex h-full flex-col items-center gap-2 pt-1 text-center">
+    <div className="flex h-full flex-col items-center justify-center gap-1.5 text-center">
       <span
         className={cn(
-          "grid size-9 place-items-center rounded-full border",
-          e === "tripped" ? "border-promise-lapsed bg-promise-lapsed/10 text-promise-lapsed" : e === "clear" ? "border-promise-kept bg-promise-kept/10 text-promise-kept" : e === "checking" ? "animate-pulse border-agent text-agent" : "border-line-strong text-muted-foreground",
+          "grid size-10 place-items-center rounded-full",
+          e === "tripped" ? "bg-promise-lapsed text-white" : e === "clear" ? "bg-promise-kept/12 text-promise-kept" : e === "checking" ? "animate-pulse bg-[color-mix(in_srgb,var(--c)_14%,transparent)] text-[var(--c)]" : "bg-hover text-muted-foreground",
         )}
       >
-        <Icon aria-hidden className="size-4" />
+        <Icon aria-hidden className="size-[18px]" />
       </span>
-      <p className={cn("text-[11px] font-medium", e === "tripped" ? "text-promise-lapsed" : e === "clear" ? "text-promise-kept" : "text-ink")} role="status">
-        {e === "idle" ? "Waiting" : e === "checking" ? "Checking…" : e === "clear" ? "Clear" : "Tripped"}
+      <p className={cn("text-[12px] font-semibold", e === "tripped" ? "text-promise-lapsed" : e === "clear" ? "text-promise-kept" : "text-ink-2")} role="status">
+        {e === "idle" ? "Waiting" : e === "checking" ? "Checking" : e === "clear" ? "Clear" : "Emergency"}
       </p>
-      <p className="text-[10px] leading-tight text-muted-foreground">Code-owned. Runs before any model.</p>
     </div>
   );
 }
@@ -318,7 +439,7 @@ function TriageBody({ scene }: { scene: Scene }) {
     return (
       <div role="status" aria-label="Triage running" className="space-y-2 pt-1">
         {[80, 52, 66, 40].map((w) => (
-          <div key={w} className="h-5 animate-shimmer rounded-[4px] bg-hover" style={{ width: `${w}%` }} />
+          <div key={w} className="h-5 animate-shimmer rounded-[5px] bg-[color-mix(in_srgb,var(--c)_10%,transparent)]" style={{ width: `${w}%` }} />
         ))}
       </div>
     );
@@ -326,10 +447,14 @@ function TriageBody({ scene }: { scene: Scene }) {
   return (
     <div className="space-y-3">
       <div>
-        <p className="label !text-[9.5px]">Needs found</p>
+        <p className="label !text-[9.5px]">Needs</p>
         <ul className="mt-1.5 space-y-1">
           {t.needs.map((n, i) => (
-            <li key={n} style={{ animationDelay: `${i * 140}ms` }} className="flex animate-arrive items-center gap-2 rounded-[5px] border border-agent/40 bg-agent-soft px-2 py-1 text-[12px] font-medium text-agent [animation-fill-mode:backwards]">
+            <li
+              key={n}
+              style={{ animationDelay: `${i * 140}ms` }}
+              className="flex animate-arrive items-center gap-2 rounded-md bg-[color-mix(in_srgb,var(--c)_10%,transparent)] px-2 py-1.5 text-[12px] font-semibold text-[var(--c)] [animation-fill-mode:backwards]"
+            >
               <CategoryIcon category={n} className="size-3.5" />
               {categoryLabel(n)}
             </li>
@@ -342,7 +467,7 @@ function TriageBody({ scene }: { scene: Scene }) {
           <p className="mt-1 text-[11.5px] text-ink">{t.conditions.map(conditionLabel).join(" · ")}</p>
         </div>
       ) : null}
-      <dl className="space-y-1.5 text-[11px]">
+      <dl className="grid grid-cols-2 gap-2 text-[11px]">
         <div>
           <dt className="label !text-[9.5px]">Deadline</dt>
           <dd className="text-ink">{t.deadline}</dd>
@@ -363,14 +488,14 @@ function HubBody({ board, scene }: { board: Board | null; scene: Scene }) {
     <div className="flex h-full flex-col gap-3">
       <StatusTally counts={countByStatus(requests)} variant="list" />
       {scene.alert ? (
-        <p role="alert" className="animate-arrive rounded-[5px] border border-promise-lapsed/40 bg-promise-lapsed/8 px-2 py-1.5 text-[11px] font-medium text-ink">
+        <p role="alert" className="animate-arrive rounded-md bg-promise-lapsed/10 px-2 py-1.5 text-[11px] font-medium text-ink">
           <ShieldAlert aria-hidden className="mr-1 inline size-3 -translate-y-px text-promise-lapsed" />
           {scene.alert}
         </p>
       ) : null}
       <ul className="flex-1 space-y-1 overflow-hidden" aria-label="Requests from this call">
         {mine.map((r) => (
-          <li key={r.id} className="flex animate-arrive items-center gap-2 rounded-[5px] border border-line px-2 py-1.5">
+          <li key={r.id} className="flex animate-arrive items-center gap-2 rounded-md border border-line px-2 py-1.5">
             <StatusGlyph status={r.status} />
             <span className="min-w-0 flex-1">
               <span className="block truncate text-[11.5px] font-medium text-ink">{categoryLabel(r.category)}</span>
@@ -378,7 +503,6 @@ function HubBody({ board, scene }: { board: Board | null; scene: Scene }) {
             </span>
           </li>
         ))}
-        {!mine.length ? <li className="pt-3 text-center text-[11px] text-muted-foreground">Requests from the call appear here</li> : null}
       </ul>
     </div>
   );
@@ -388,24 +512,29 @@ const PHASE: Record<string, string> = { idle: "", tagging: "Suggested", claimed:
 
 function OrgsBody({ board, scene }: { board: Board | null; scene: Scene }) {
   return (
-    <ul className="space-y-2" aria-label="Volunteer organizations">
+    <ul className="space-y-1.5" aria-label="Volunteer organizations">
       {(board?.organizations ?? []).map((o) => {
         const st = scene.orgs[o.id];
         const active = st && st.phase !== "idle";
         return (
-          <li key={o.id} className={cn("rounded-[5px] border px-2 py-1.5 transition-colors", active ? "border-agent/50 bg-agent-soft" : "border-line")}>
+          <li key={o.id} className={cn("rounded-md border px-2 py-1.5 transition-colors", active ? "border-transparent bg-[color-mix(in_srgb,var(--c)_10%,transparent)]" : "border-line")}>
             <div className="flex items-center gap-2">
-              <Monogram name={o.name} active={Boolean(active)} />
+              <span
+                aria-hidden
+                className={cn("grid size-[18px] shrink-0 place-items-center rounded-[5px] font-mono text-[10px] font-semibold", active ? "bg-[var(--c)] text-white" : "bg-hover text-ink-2")}
+              >
+                {shortOrg(o.name).charAt(0)}
+              </span>
               <span className="min-w-0 flex-1 truncate text-[11.5px] font-medium text-ink">{shortOrg(o.name)}</span>
               <span className="flex shrink-0 gap-1 text-muted-foreground">
                 {o.capabilities.map((c) => (
-                  <CategoryIcon key={c} category={c} className={cn("size-3", st?.phase === "tagging" && st.category === c && "text-agent")} />
+                  <CategoryIcon key={c} category={c} className={cn("size-3", active && "text-[var(--c)]")} />
                 ))}
               </span>
             </div>
             {active ? (
-              <p key={st.phase} className="mt-1 flex animate-arrive items-center gap-1 pl-[26px] text-[10.5px] font-medium text-agent">
-                {st.phase !== "tagging" ? <Check aria-hidden className="size-3" /> : null}
+              <p key={st.phase} className="mt-0.5 flex animate-arrive items-center gap-1 pl-[26px] text-[10.5px] font-semibold text-[var(--c)]">
+                {st.phase !== "tagging" ? <Check aria-hidden className="size-3" strokeWidth={2.5} /> : null}
                 {PHASE[st.phase]}
               </p>
             ) : null}
@@ -420,47 +549,43 @@ function VoiceBody({ script, scene }: { script: DemoScript; scene: Scene }) {
   const lines = script.followUp.slice(0, scene.followLines).filter((l) => l.speaker !== "system");
   return (
     <div className="flex h-full flex-col gap-2">
-      <ul aria-label="Voice agents" className="space-y-1">
+      <ul aria-label="Voice agents" className="grid grid-cols-1 gap-1">
         {scene.helpers.map((h) => (
-          <li key={h.id} className="flex items-start gap-1.5">
-            <span aria-hidden className={cn("mt-[5px] size-1.5 shrink-0 rounded-full", h.status === "working" ? "animate-pulse bg-agent" : "bg-line-strong")} />
-            <span className="min-w-0 flex-1 leading-tight">
-              <span className={cn("block text-[11.5px] font-medium", h.status === "working" ? "text-ink" : "text-ink-2")}>
-                {h.role}
-                <span className="sr-only"> {h.status}</span>
-              </span>
-              <span className="block truncate text-[10px] text-muted-foreground">{h.lastAction}</span>
+          <li key={h.id} className="flex flex-wrap items-baseline gap-x-1.5">
+            <span aria-hidden className={cn("size-1.5 shrink-0 -translate-y-px rounded-full", h.status === "working" ? "animate-pulse bg-[var(--c)]" : "bg-line-strong")} />
+            <span className={cn("shrink-0 text-[11px]", h.status === "working" ? "font-semibold text-ink" : "text-ink-2")}>
+              {h.role}
+              <span className="sr-only"> {h.status}</span>
             </span>
-            <span className="mt-0.5 shrink-0 font-mono text-[9px] text-muted-foreground">{h.sandbox.replace("sbx-", "")}</span>
+            {h.status === "working" ? <span className="w-full truncate pl-3 text-[10px] text-[var(--c)]">{h.lastAction}</span> : null}
           </li>
         ))}
       </ul>
       <div className="mt-auto space-y-1 border-t border-line pt-2">
-        <p className="label !text-[9.5px]">Follow-up call</p>
-        <ul aria-label="Follow-up call transcript" aria-live="polite" className="max-h-[92px] space-y-1 overflow-hidden">
-          {lines.slice(-3).map((l, i) => (
-            <li key={`${lines.length}-${i}`} className={cn("animate-arrive line-clamp-2 rounded-[4px] px-1.5 py-1 text-[10.5px] leading-snug", l.speaker === "caller" ? "bg-hover text-ink" : "border border-line text-ink-2")}>
+        <ul aria-label="Follow-up call transcript" aria-live="polite" className="space-y-1">
+          {lines.slice(scene.followOutcome ? -2 : -3).map((l, i) => (
+            <li
+              key={`${lines.length}-${i}`}
+              className={cn(
+                "animate-arrive line-clamp-2 rounded-md px-2 py-1 text-[10.5px] leading-snug",
+                l.speaker === "caller" ? "bg-[color-mix(in_srgb,var(--c)_11%,transparent)] text-ink" : "border border-line text-ink-2",
+              )}
+            >
               {l.text}
             </li>
           ))}
-          {!lines.length ? <li className="text-[10.5px] text-muted-foreground">No call yet</li> : null}
+          {!lines.length ? <li className="text-[10.5px] text-muted-foreground">Calls the household after delivery</li> : null}
         </ul>
-        {scene.followOutcome ? (
-          <p className="animate-arrive text-[11px] font-medium text-promise-lapsed">Household: did not arrive</p>
-        ) : null}
+        {scene.followOutcome ? <p className="animate-arrive text-[11px] font-semibold text-promise-lapsed">Household: did not arrive</p> : null}
       </div>
     </div>
   );
 }
 
 function HumanBody({ scene }: { scene: Scene }) {
+  const hot = Boolean(scene.alert || scene.humanReview);
   const text = scene.humanReview ? "Reviewing the re-delivery" : scene.alert ? scene.alert : "Standing by. A person decides, never the model.";
-  return (
-    <div className="flex h-full items-start gap-2">
-      <UserCheck aria-hidden className={cn("mt-0.5 size-4 shrink-0", scene.alert || scene.humanReview ? "text-promise-lapsed" : "text-muted-foreground")} />
-      <p className={cn("text-[11.5px] leading-snug", scene.alert || scene.humanReview ? "font-medium text-ink" : "text-muted-foreground")}>{text}</p>
-    </div>
-  );
+  return <p className={cn("text-[11.5px] leading-snug", hot ? "font-medium text-ink" : "text-muted-foreground")}>{text}</p>;
 }
 
 const METRIC_SHORT: Record<string, { label: string; lower?: boolean }> = {
@@ -480,16 +605,16 @@ function LessonBody({ scene }: { scene: Scene }) {
       ? Object.keys(METRIC_SHORT)
           .map((m) => metricDelta(m, without.metrics[m], withH.metrics[m], METRIC_SHORT[m].lower))
           .filter((d) => d.direction !== "same")
+          .slice(0, 2)
       : [];
   return (
     <div className="space-y-1.5">
       {l ? (
-        <p className="animate-arrive text-[11px] leading-snug text-ink">
-          <Check aria-hidden className="mr-1 inline size-3 -translate-y-px text-promise-kept" />
+        <p className="line-clamp-2 animate-arrive text-[11px] leading-snug text-ink" title={l.recommendation}>
           {l.recommendation}
         </p>
       ) : (
-        <p className="text-[11px] text-muted-foreground">Drafted from a verified outcome, then approved by a person.</p>
+        <p className="text-[11px] text-muted-foreground">Learned from verified outcomes, approved by a person.</p>
       )}
       {without && withH ? (
         <ul className="animate-arrive space-y-0.5 border-t border-line pt-1.5 text-[10.5px]" aria-label="Measured with versus without history">
@@ -497,34 +622,79 @@ function LessonBody({ scene }: { scene: Scene }) {
             deltas.map((d) => (
               <li key={d.metric} className="flex justify-between gap-2">
                 <span className="text-ink-2">{METRIC_SHORT[d.metric].label}</span>
-                <span className="num font-medium text-ink">{d.without === null ? "n/a" : `${Math.round(d.without * 100)}%`} → {d.withHistory === null ? "n/a" : `${Math.round(d.withHistory * 100)}%`}</span>
+                <span className="num font-semibold text-[var(--c)]">
+                  {d.without === null ? "–" : `${Math.round(d.without * 100)}%`} → {d.withHistory === null ? "–" : `${Math.round(d.withHistory * 100)}%`}
+                </span>
               </li>
             ))
           ) : (
             <li className="text-muted-foreground">No metric changed</li>
           )}
-          <li className="pt-0.5 text-[9.5px] text-muted-foreground">Synthetic · {scene.compare?.case_count ?? "?"} cases</li>
         </ul>
       ) : null}
     </div>
   );
 }
 
-/* ------------------------------------------------------------------ edges */
+/* ------------------------------------------------------------------ lanes, plug, edges */
+
+function Bands({ view }: { view: ReturnType<typeof useRunView> }) {
+  return (
+    <>
+      {BANDS.map((b) => {
+        const st = view.combine(b.steps);
+        const lit = st === "active";
+        return (
+          <div
+            key={b.n}
+            aria-hidden
+            style={{ ...hue(HUE[b.stage]), left: b.x, top: b.y, width: b.w, height: b.h }}
+            className={cn(
+              "absolute rounded-[14px] border transition-[background-color,border-color] duration-500",
+              b.external
+                ? "border-dashed border-line-strong bg-[color-mix(in_srgb,var(--text)_3%,transparent)]"
+                : lit
+                  ? "border-[color-mix(in_srgb,var(--c)_32%,transparent)] bg-[color-mix(in_srgb,var(--c)_9%,transparent)]"
+                  : "border-[color-mix(in_srgb,var(--c)_14%,transparent)] bg-[color-mix(in_srgb,var(--c)_4%,transparent)]",
+            )}
+          >
+            <p className="flex items-center gap-1.5 px-2.5 pt-2 text-[11px] font-semibold tracking-[-0.005em]" style={b.titleX ? { paddingLeft: b.titleX } : undefined}>
+              <span
+                className={cn(
+                  "grid size-[17px] place-items-center rounded-full text-[9.5px] font-bold tabular-nums transition-colors",
+                  lit || st === "done" ? "bg-[var(--c)] text-panel" : "bg-[color-mix(in_srgb,var(--c)_14%,transparent)] text-[var(--c)]",
+                )}
+              >
+                {b.n}
+              </span>
+              <span className={cn(b.external ? "text-ink-2" : "text-[var(--c)]")}>{b.title}</span>
+            </p>
+          </div>
+        );
+      })}
+    </>
+  );
+}
+
+function PlugBadge({ state }: { state: StepState }) {
+  const lit = state === "active" || state === "done";
+  return (
+    <div className="absolute flex flex-col items-center" style={{ left: PLUG.x - PLUG.r, top: PLUG.y - PLUG.r, width: PLUG.r * 2 }} title="Relay plugs into the existing call lines">
+      <span className={cn("grid size-[26px] place-items-center rounded-full border-2 bg-panel transition-colors", lit ? "border-st-ai text-st-ai" : "border-line-strong text-muted-foreground")}>
+        <Plug aria-hidden className="size-3" />
+      </span>
+      <span className="mt-1 whitespace-nowrap rounded-full bg-panel px-1.5 text-[9.5px] font-semibold text-ink-2 shadow-[0_0_0_1px_var(--border)]">plug-in</span>
+    </div>
+  );
+}
 
 function Edges({ script, scene, view }: { script: DemoScript; scene: Scene; view: ReturnType<typeof useRunView> }) {
   return (
-    <svg aria-hidden width={W} height={H} viewBox={`0 0 ${W} ${H}`} className="pointer-events-none absolute inset-0">
+    <svg aria-hidden width={W} height={H} viewBox={`0 0 ${W} ${H}`} className="pointer-events-none absolute inset-0 overflow-visible">
       <defs>
-        {(
-          [
-            ["idle", "var(--line-strong)"],
-            ["flow", "var(--agent)"],
-            ["alert", "var(--promise-lapsed)"],
-          ] as const
-        ).map(([k, c]) => (
+        {(["idle", ...Object.keys(HUE)] as const).map((k) => (
           <marker key={k} id={`arrow-${k}`} viewBox="0 0 8 8" refX="6.5" refY="4" markerWidth="7" markerHeight="7" orient="auto">
-            <path d="M1 1l5.5 3L1 7" fill="none" stroke={c} strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M1 1l5.5 3L1 7" fill="none" stroke={k === "idle" ? "var(--line-strong)" : HUE[k as Stage]} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </marker>
         ))}
       </defs>
@@ -537,8 +707,8 @@ function Edges({ script, scene, view }: { script: DemoScript; scene: Scene; view
         }
         if (state === "off") return null;
         const kind = e.kind ?? "flow";
-        const color = state === "idle" ? "var(--line-strong)" : kind === "alert" ? "var(--promise-lapsed)" : "var(--agent)";
-        const marker = state === "idle" ? "idle" : kind === "alert" ? "alert" : "flow";
+        const lit = state !== "idle";
+        const color = lit ? HUE[e.stage] : "var(--line-strong)";
         const d = rounded(e.points);
         return (
           <g key={e.id} data-edge={e.id} data-state={state}>
@@ -546,15 +716,27 @@ function Edges({ script, scene, view }: { script: DemoScript; scene: Scene; view
               d={d}
               fill="none"
               stroke={color}
-              strokeWidth={state === "idle" ? 1.25 : 1.6}
-              strokeOpacity={state === "done" ? 0.75 : 1}
+              strokeWidth={lit ? 2 : 1.25}
+              strokeOpacity={state === "done" ? 0.55 : 1}
               strokeDasharray={kind === "feedback" ? "5 4" : undefined}
-              markerEnd={`url(#arrow-${marker})`}
+              markerEnd={e.channel ? undefined : `url(#arrow-${lit ? e.stage : "idle"})`}
               className="transition-[stroke] duration-300"
             />
-            {state === "active" ? <path d={d} fill="none" stroke={color} strokeWidth="3.5" strokeLinecap="round" strokeDasharray="0.1 14" className="flow-dots" /> : null}
-            {e.label && e.labelAt && state !== "idle" ? (
-              <text x={e.labelAt[0]} y={e.labelAt[1]} fontSize="10" textAnchor={e.anchor ?? "middle"} className="animate-fade fill-ink-2" stroke="var(--bg)" strokeWidth="4" paintOrder="stroke" strokeLinejoin="round">
+            {state === "active" ? <path d={d} fill="none" stroke={color} strokeWidth="4" strokeLinecap="round" strokeDasharray="0.1 14" className="flow-dots" /> : null}
+            {e.label && e.labelAt && lit ? (
+              <text
+                x={e.labelAt[0]}
+                y={e.labelAt[1]}
+                fontSize="10.5"
+                fontWeight="600"
+                textAnchor={e.anchor ?? "middle"}
+                fill={color}
+                className="animate-fade"
+                stroke="var(--bg)"
+                strokeWidth="4"
+                paintOrder="stroke"
+                strokeLinejoin="round"
+              >
                 {e.label}
               </text>
             ) : null}
@@ -567,69 +749,98 @@ function Edges({ script, scene, view }: { script: DemoScript; scene: Scene; view
 
 /* ------------------------------------------------------------------ layout */
 
-const subscribeNarrow = (cb: () => void) => {
-  const mq = window.matchMedia("(max-width: 767px)");
-  mq.addEventListener("change", cb);
-  return () => mq.removeEventListener("change", cb);
-};
-const useNarrow = () => useSyncExternalStore(subscribeNarrow, () => window.matchMedia("(max-width: 767px)").matches, () => false);
+const media = (q: string) => ({
+  subscribe: (cb: () => void) => {
+    const mq = window.matchMedia(q);
+    mq.addEventListener("change", cb);
+    return () => mq.removeEventListener("change", cb);
+  },
+  get: () => window.matchMedia(q).matches,
+});
+const NARROW = media("(max-width: 767px)");
+const TALL = media("(min-width: 1024px)");
+const useMedia = (m: typeof NARROW) => useSyncExternalStore(m.subscribe, m.get, () => false);
 
-export function FlowGraph({ script, scene, state, board }: { script: DemoScript; scene: Scene; state: RunnerState; board: Board | null }) {
+/**
+ * `fit`: on large screens the graph scales to fill its parent in both directions (the Live page is one fixed screen).
+ * Below that it scales to the width and takes the height it needs.
+ */
+export function FlowGraph({ script, scene, state, board, fit = false }: { script: DemoScript; scene: Scene; state: RunnerState; board: Board | null; fit?: boolean }) {
   const view = useRunView(script, state);
-  const narrow = useNarrow();
+  const narrow = useMedia(NARROW);
+  const tall = useMedia(TALL) && fit;
   const wrap = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(1);
 
   useLayoutEffect(() => {
     const el = wrap.current;
     if (!el) return;
-    const fit = () => setScale(Math.min(1, el.clientWidth / W));
-    fit();
-    const ro = new ResizeObserver(fit);
+    const measure = () => {
+      const byWidth = el.clientWidth / W;
+      setScale(tall ? Math.min(byWidth, el.clientHeight / H, 1.5) : Math.min(1, byWidth));
+    };
+    measure();
+    const ro = new ResizeObserver(measure);
     ro.observe(el);
     return () => ro.disconnect();
-  }, [narrow]);
+  }, [narrow, tall]);
 
   const tripped = scene.emergency === "tripped";
   const humanState: NodeState = scene.humanReview || scene.alert || tripped ? "alert" : view.stateOfNode("human");
+  const dim = view.started && state.status !== "done";
   const nodes = {
     stt: (flow = true) => (
-      <NodeBox key="stt" flow={flow} id="stt" kicker="Transcribe" title="ElevenLabs speech-to-text" tag="sample" state={view.stateOfNode("stt")}>
+      <NodeBox key="stt" flow={flow} dim={dim} id="stt" stage="ai" icon={AudioLines} title="Speech to text" sub="ElevenLabs" state={view.stateOfNode("stt")}>
         <SttBody script={script} scene={scene} />
       </NodeBox>
     ),
     gate: (flow = true) => (
-      <NodeBox key="gate" flow={flow} id="gate" kicker="Safety" title="Emergency check" state={tripped ? "alert" : view.stateOfNode("gate")}>
+      <NodeBox key="gate" flow={flow} dim={dim} id="gate" stage="safety" icon={ShieldCheck} title="Emergency" sub="Rules before AI" state={tripped ? "alert" : view.stateOfNode("gate")}>
         <GateBody scene={scene} />
       </NodeBox>
     ),
     triage: (flow = true) => (
-      <NodeBox key="triage" flow={flow} id="triage" kicker="Understand" title="AI triage" tag="Groq · sample" state={scene.triageSkipped ? "skipped" : view.stateOfNode("triage")} footer={<span className="flex items-center gap-1.5"><UserCheck aria-hidden className="size-3 text-agent" /> A person decides</span>}>
+      <NodeBox
+        key="triage"
+        flow={flow}
+        dim={dim}
+        id="triage"
+        stage="ai"
+        icon={Sparkles}
+        title="AI triage"
+        sub="Groq"
+        state={scene.triageSkipped ? "skipped" : view.stateOfNode("triage")}
+        footer={
+          <span className="flex items-center gap-1.5">
+            <UserCheck aria-hidden className="size-3 text-[var(--c)]" /> A person decides
+          </span>
+        }
+      >
         <TriageBody scene={scene} />
       </NodeBox>
     ),
     hub: (flow = true) => (
-      <NodeBox key="hub" flow={flow} id="hub" kicker="Coordinate" title="Triage dashboard" state={view.stateOfNode("hub")}>
+      <NodeBox key="hub" flow={flow} dim={dim} id="hub" stage="hub" icon={LayoutDashboard} title="Triage board" sub="Coordinators" state={view.stateOfNode("hub")}>
         <HubBody board={board} scene={scene} />
       </NodeBox>
     ),
     orgs: (flow = true) => (
-      <NodeBox key="orgs" flow={flow} id="orgs" kicker="Volunteers" title="Organizations" state={view.stateOfNode("orgs")}>
+      <NodeBox key="orgs" flow={flow} dim={dim} id="orgs" stage="respond" icon={Building2} title="Volunteer orgs" sub="Claim and deliver" state={view.stateOfNode("orgs")}>
         <OrgsBody board={board} scene={scene} />
       </NodeBox>
     ),
     voice: (flow = true) => (
-      <NodeBox key="voice" flow={flow} id="voice" kicker="Verify" title="Voice agent org" tag="ElevenLabs · Daytona · sample" state={view.stateOfNode("voice")}>
+      <NodeBox key="voice" flow={flow} dim={dim} id="voice" stage="verify" icon={PhoneCall} title="Voice agents" sub="ElevenLabs · Daytona" state={view.stateOfNode("voice")}>
         <VoiceBody script={script} scene={scene} />
       </NodeBox>
     ),
     human: (flow = true) => (
-      <NodeBox key="human" flow={flow} id="human" kicker="Human in the loop" title="Coordinator" state={humanState}>
+      <NodeBox key="human" flow={flow} dim={dim} id="human" stage="safety" icon={UserCheck} title="Coordinator" sub="Human in the loop" state={humanState}>
         <HumanBody scene={scene} />
       </NodeBox>
     ),
     lesson: (flow = true) => (
-      <NodeBox key="lesson" flow={flow} id="lesson" kicker="Learn" title="Reviewed lesson" state={view.stateOfNode("lesson")}>
+      <NodeBox key="lesson" flow={flow} dim={dim} id="lesson" stage="learn" icon={Lightbulb} title="Reviewed lesson" sub="De-identified, reused next time" state={view.stateOfNode("lesson")}>
         <LessonBody scene={scene} />
       </NodeBox>
     ),
@@ -637,14 +848,16 @@ export function FlowGraph({ script, scene, state, board }: { script: DemoScript;
 
   if (narrow) {
     // Small screens: the same nodes as a vertical sequence. The geometry above is for the wide canvas only.
+    const src = SOURCES.find((s) => s.channel === scene.channel) ?? SOURCES[0];
     return (
       <ol aria-label="Relay flow" className="space-y-2">
-        {SOURCES.filter((s) => s.channel === scene.channel || (!scene.channel && s.channel === "phone")).map((s) => (
-          <li key={s.channel}>
-            <p className="label mb-1">Input · sample adapter</p>
-            <p className="rounded-md border border-line bg-panel px-3 py-2 text-xs text-ink">{s.name}</p>
-          </li>
-        ))}
+        <li className="flex items-center gap-2 rounded-[10px] border border-dashed border-line-strong px-3 py-2 text-xs text-ink">
+          <src.icon aria-hidden className="size-3.5 text-ink-2" />
+          <span className="font-semibold">{src.name}</span>
+          <span className="ml-auto flex items-center gap-1 text-[10.5px] font-semibold text-st-ai">
+            <Plug aria-hidden className="size-3" /> plug-in
+          </span>
+        </li>
         {(["stt", "gate", "triage", "hub", "orgs", "voice", "human", "lesson"] as const).map((k) => (
           <li key={k} className="h-auto [&_section]:!h-auto">
             {nodes[k](false)}
@@ -655,13 +868,18 @@ export function FlowGraph({ script, scene, state, board }: { script: DemoScript;
   }
 
   return (
-    <div ref={wrap} className="w-full overflow-hidden" style={{ height: H * scale }}>
-      <div role="group" aria-label="Relay flow: calls to triage to dashboard to organizations and voice agents" className="relative origin-top-left" style={{ width: W, height: H, transform: `scale(${scale})` }}>
-        <p className="label absolute left-0 top-[6px]">Inputs · plug-in adapters</p>
-        <p className="absolute left-0 top-[410px] w-[150px] text-[10px] leading-snug text-muted-foreground">Sample adapters. No live emergency feed is connected.</p>
+    <div ref={wrap} className={cn("relative w-full overflow-hidden", tall && "h-full")} style={tall ? undefined : { height: H * scale }}>
+      <div
+        role="group"
+        aria-label="Relay flow: 911 calls, transcription, emergency check, AI triage, dashboard, volunteer organizations and voice agents"
+        className="absolute left-1/2 top-1/2"
+        style={{ width: W, height: H, transform: `translate(-50%, -50%) scale(${scale})` }}
+      >
+        <Bands view={view} />
         <Edges script={script} scene={scene} view={view} />
+        <PlugBadge state={view.stateOfStep("call")} />
         {SOURCES.map((s) => (
-          <SourceNode key={s.channel} s={s} scene={scene} state={view.stateOfStep("call") === "off" ? "idle" : view.stateOfStep("call") === "active" ? "active" : view.stateOfStep("call") === "done" ? "done" : "idle"} />
+          <SourceNode key={s.channel} s={s} scene={scene} started={view.started} />
         ))}
         {(Object.keys(nodes) as (keyof typeof nodes)[]).map((k) => nodes[k]())}
       </div>

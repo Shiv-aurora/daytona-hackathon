@@ -90,7 +90,7 @@ function CallEntry({ call, board, last }: { call: RelayCall; board: Board; last:
 
         {call.status === "queued" ? (
           <div className="flex flex-wrap items-center gap-2 rounded-md border border-line bg-surface p-2">
-            <Select id={`ans-${call.id}`} aria-label="Scripted reply" value={answer} onChange={(e) => setAnswer(e.target.value as ScriptedAnswer)} className="min-w-44 flex-1">
+            <Select id={`ans-${call.id}`} aria-label="Household reply" value={answer} onChange={(e) => setAnswer(e.target.value as ScriptedAnswer)} className="min-w-44 flex-1">
               {ANSWERS.map((a) => (
                 <option key={a.value} value={a.value}>
                   {a.label}
@@ -113,7 +113,7 @@ function CallEntry({ call, board, last }: { call: RelayCall; board: Board; last:
                 )
               }
             >
-              <Phone aria-hidden /> Run scripted call
+              <Phone aria-hidden /> Run call
             </ActionButton>
           </div>
         ) : null}
@@ -149,10 +149,12 @@ export function CallsView() {
         title="Calls"
         subtitle="Confirm by phone that help arrived."
         actions={
-          <span className="inline-flex items-center gap-1.5 text-xs text-muted-foreground">
-            <span aria-hidden className={cn("size-1.5 rounded-full", voiceLive ? "bg-safety-ok" : "border border-line-strong")} />
-            {voiceLive ? "ElevenLabs connected" : "Scripted rehearsal · no phone call placed"}
-          </span>
+          voiceLive ? (
+            <span className="inline-flex items-center gap-1.5 text-xs text-muted-foreground">
+              <span aria-hidden className="size-1.5 rounded-full bg-safety-ok" />
+              ElevenLabs connected
+            </span>
+          ) : undefined
         }
       />
 
