@@ -1,6 +1,9 @@
 PYTHON ?= python3
 
-.PHONY: smoke demo demo-surreal demo-legacy serve
+.PHONY: check-surreal smoke demo demo-surreal demo-legacy serve
+check-surreal:
+	$(PYTHON) scripts/check_surreal.py
+
 smoke:
 	$(PYTHON) -m pytest -q calls/tests/test_safety.py runtime/tests/test_runtime.py eval/tests/test_scenario1_smoke.py tests/test_recovery_integration.py
 
