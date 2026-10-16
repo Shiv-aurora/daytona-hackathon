@@ -1,6 +1,6 @@
 PYTHON ?= python3
 
-.PHONY: check-surreal smoke demo demo-surreal demo-legacy serve
+.PHONY: check-surreal check-daytona smoke demo demo-surreal demo-legacy serve
 check-surreal:
 	$(PYTHON) scripts/check_surreal.py
 
@@ -18,3 +18,6 @@ serve:
 
 demo-legacy:
 	$(PYTHON) -m runtime.demo --store local --score
+
+check-daytona:
+	$(PYTHON) scripts/check_daytona.py

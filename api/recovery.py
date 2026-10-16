@@ -5,6 +5,7 @@ from hashlib import sha256
 from urllib.parse import unquote, urlsplit
 
 from api.demo_store import timestamp
+from api.helper_routes import handle_helpers
 from calls.safety import emergency_line, safety_check
 from contracts.demo import Conflict, InvalidInput, NotFound
 
@@ -112,6 +113,7 @@ def handle(store, method, path, body=None):
         if len(parts) < 3 or parts[0] != 'runs':
             return 404, {'error': 'not found'}
         run_id = parts[1]
+        if parts[2] == 'helpers': return handle_helpers(store, method, run_id, parts[3:], body)
         if method == 'GET' and parts[2:] == ['board']:
             return 200, store.get_board(run_id)
         if method == 'POST' and parts[2:] == ['reports']:

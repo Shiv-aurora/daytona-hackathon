@@ -105,7 +105,8 @@ def test_escalation_is_idempotent_and_run_scoped(relay):
 def test_bad_paths_and_the_scenario_pseudo_run(relay):
     assert handle(relay, "GET", "/runs/run-a/nope")[0] == 404
     assert handle(relay, "GET", "/runs/scenario/console")[0] in (400, 404)
-    assert handle(relay, "GET", "/health") == (200, {"ok": True})
+    status, body = handle(relay, "GET", "/health")
+    assert status == 200 and body["ok"] is True and body["daytona"]["provider"] in ("daytona", "local")
 
 
 def test_the_http_server_speaks_json_with_cors(relay):
