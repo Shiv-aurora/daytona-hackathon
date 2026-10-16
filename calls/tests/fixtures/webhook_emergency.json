@@ -1,0 +1,49 @@
+{
+  "type": "post_call_transcription",
+  "event_timestamp": 1792000000,
+  "data": {
+    "agent_id": "agent_9901m52xtp8aenjb85rmkdxcyacr",
+    "conversation_id": "conv_fix_emergency",
+    "status": "done",
+    "user_id": null,
+    "transcript": [
+      {
+        "role": "agent",
+        "message": "This is an automated call from Relay for the recovery team. To confirm this call is real, call us back at +1 555 010 0199.",
+        "time_in_call_secs": 0
+      },
+      {
+        "role": "agent",
+        "message": "Did Harbor Relief bring the food that was promised?",
+        "time_in_call_secs": 6
+      },
+      {
+        "role": "user",
+        "message": "My father fell down and can't get up.",
+        "time_in_call_secs": 12
+      },
+      {
+        "role": "agent",
+        "message": "Please hang up and call 911 now. I'm alerting a person on the recovery team.",
+        "time_in_call_secs": 18
+      }
+    ],
+    "metadata": {
+      "start_time_unix_secs": 1791999900,
+      "call_duration_secs": 24
+    },
+    "analysis": {
+      "call_successful": "success",
+      "transcript_summary": "Emergency mentioned."
+    },
+    "conversation_initiation_client_data": {
+      "dynamic_variables": {
+        "household_label": "Household A",
+        "request_category": "food",
+        "request_summary": "Water and food",
+        "org_name": "Harbor Relief",
+        "promised_when": "today at noon"
+      }
+    }
+  }
+}
