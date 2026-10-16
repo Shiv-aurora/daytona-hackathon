@@ -1,6 +1,11 @@
 import re
 
-from calls.agent_prompt import DYNAMIC_VARIABLES, OUTCOME_LABELS, REQUIRED_RULES, SYSTEM_PROMPT
+from calls.agent_prompt import (
+    DYNAMIC_VARIABLES,
+    OUTCOME_LABELS,
+    REQUIRED_RULES,
+    SYSTEM_PROMPT,
+)
 from calls.safety import EMERGENCY_LINES
 
 

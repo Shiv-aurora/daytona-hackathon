@@ -10,7 +10,15 @@ import pytest
 from api import voice_routes
 from api.demo_store import InMemoryRecoveryStore
 from api.recovery import handle
-from api.tests.test_voice_routes import RUN, SECRET, SEED, FakeClient, make_store, request_state, start
+from api.tests.test_voice_routes import (
+    RUN,
+    SECRET,
+    SEED,
+    FakeClient,
+    make_store,
+    request_state,
+    start,
+)
 
 FIX = Path(__file__).parent / 'fixtures'
 
