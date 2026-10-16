@@ -571,7 +571,7 @@ function VoiceBody({ script, scene }: { script: DemoScript; scene: Scene }) {
   const lines = script.followUp.slice(0, scene.followLines).filter((l) => l.speaker !== "system");
   return (
     <div className="flex h-full flex-col gap-2">
-      <ul aria-label="Voice agents" className="grid grid-cols-1 gap-1">
+      <ul aria-label="AI Help Force" className="grid grid-cols-1 gap-1">
         {scene.helpers.map((h) => (
           <li key={h.id} className="flex flex-wrap items-baseline gap-x-1.5">
             <span aria-hidden className={cn("size-1.5 shrink-0 -translate-y-px rounded-full", h.status === "working" ? "animate-pulse bg-[var(--c)]" : "bg-line-strong")} />
@@ -852,7 +852,7 @@ export function FlowGraph({ script, scene, state, board, fit = false }: { script
       </NodeBox>
     ),
     voice: (flow = true) => (
-      <NodeBox key="voice" flow={flow} dim={dim} id="voice" stage="verify" icon={PhoneCall} title="Voice agents" brands={[ELEVENLABS, DAYTONA]} state={view.stateOfNode("voice")}>
+      <NodeBox key="voice" flow={flow} dim={dim} id="voice" stage="verify" icon={PhoneCall} title="AI Help Force" brands={[ELEVENLABS, DAYTONA]} state={view.stateOfNode("voice")}>
         <VoiceBody script={script} scene={scene} />
       </NodeBox>
     ),
@@ -893,7 +893,7 @@ export function FlowGraph({ script, scene, state, board, fit = false }: { script
     <div ref={wrap} className={cn("relative w-full overflow-hidden", tall && "h-full")} style={tall ? undefined : { height: H * scale }}>
       <div
         role="group"
-        aria-label="Relay flow: 911 calls, transcription, emergency check, AI triage, dashboard, volunteer organizations and voice agents"
+        aria-label="Relay flow: 911 calls, transcription, emergency check, AI triage, dashboard, volunteer organizations and the AI Help Force"
         className="absolute left-1/2 top-1/2"
         style={{ width: W, height: H, transform: `translate(-50%, -50%) scale(${scale})` }}
       >
