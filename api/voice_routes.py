@@ -54,6 +54,7 @@ class VoiceService:
         self.by_key: dict[tuple, str] = {}
         self.bridge: RecoveryVoiceBridge | None = None
         self.bridge_secret = ''
+        self.unlinked: dict[str, dict] = {}  # widget/phone conversations with no server-bound session
 
     def custom_llm(self, secret: str) -> RecoveryVoiceBridge:
         if self.bridge is None or self.bridge_secret != secret:
@@ -114,6 +115,8 @@ def _route(store, method, path, body, raw, headers):
     parts = [unquote(p) for p in urlsplit(path).path.split('/') if p]
     if method == 'GET' and parts == ['health']:
         return 200, _health(store)
+    if method == 'GET' and parts == ['webhooks', 'elevenlabs', 'unlinked']:
+        return 200, {'unlinked': list(service_for(store).unlinked.values())}
     if method != 'POST':
         return None
     if parts == ['webhooks', 'elevenlabs']:
@@ -258,13 +261,41 @@ def webhook(store, raw, signature):
     with service.lock:
         sid = service.by_conversation.get(conversation_id) if isinstance(conversation_id, str) else None
         entry = service.by_session.get(sid) if sid else None
-        if entry is None:
-            return 404, {'error': 'unknown provider conversation'}  # fail closed
+        if entry is None:  # fail closed: change no request, never guess one; a human reviews the record
+            return 202, record_unlinked(service, kind, data, conversation_id)
         result = apply_outcome(entry['session'], kind, data, conversation_id)
     return 200, {'call_id': result['call_id'], 'request_id': result['request_id'],
                  'run_id': result['run_id'], 'disaster_id': result['disaster_id'],
                  'outcome': result['outcome'], 'received': result['received'],
                  'emergency': result['emergency'], 'evidence_ids': result['evidence_ids']}
+
+
+MAX_UNLINKED = 200
+
+
+def record_unlinked(service: VoiceService, kind: str, data: dict, conversation_id) -> dict:
+    """Keep a human-reviewable record of a conversation we did not start. Never touches a request.
+
+    Dynamic variables and agent ids in the payload are untrusted and are not used to pick a request.
+    Held in process memory like voice sessions; the emergency flag tells a human to look first.
+    """
+    turns = data.get('transcript') or []
+    user_texts = [t['message'] for t in turns if isinstance(t, dict) and t.get('role') == 'user'
+                  and isinstance(t.get('message'), str) and t['message'].strip()]
+    hit = next((safety_check(t)['reason'] for t in user_texts if safety_check(t)['emergency']), None)
+    key = conversation_id if isinstance(conversation_id, str) and conversation_id else 'missing'
+    record = service.unlinked.get(key) or {
+        'event': 'unlinked_conversation', 'conversation_id': key, 'type': kind,
+        'agent_id': data.get('agent_id') if isinstance(data.get('agent_id'), str) else None,
+        'emergency': hit is not None, 'emergency_phrase': hit, 'user_turns': len(user_texts),
+        'transcript': [{'role': t.get('role'), 'message': t.get('message')} for t in turns
+                       if isinstance(t, dict) and isinstance(t.get('message'), str)][:60],
+        'action': 'human review needed: no request was changed'}
+    if len(service.unlinked) >= MAX_UNLINKED and key not in service.unlinked:
+        service.unlinked.pop(next(iter(service.unlinked)))
+    service.unlinked[key] = record
+    return {'unlinked': True, 'conversation_id': key, 'emergency': record['emergency'],
+            'request_changed': False}
 
 
 def apply_outcome(session: RecoverySession, kind: str, data: dict, conversation_id: str) -> dict:

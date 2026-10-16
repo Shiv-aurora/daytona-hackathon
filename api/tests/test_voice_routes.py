@@ -137,7 +137,7 @@ def test_unknown_conversation_fails_closed(env):
     store, rid = make_store()
     start(store, rid)
     (status, _), _ = post_event(store, 'someone-elses', [('user', 'yes')])
-    assert status == 404 and request_state(store, rid)[0]['status'] == 'awaiting_verification'
+    assert status == 202 and request_state(store, rid)[0]['status'] == 'awaiting_verification'
 
 
 def test_received_outcome_verifies_with_evidence_and_replays(env):
@@ -226,7 +226,7 @@ def test_sessions_do_not_cross_stores(env):
     store_b, rid_b = make_store()
     start(store_a, rid_a)
     (status, _), _ = post_event(store_b, 'conv-1', [('user', 'yes')])
-    assert status == 404 and request_state(store_b, rid_b)[0]['status'] == 'awaiting_verification'
+    assert status == 202 and request_state(store_b, rid_b)[0]['status'] == 'awaiting_verification'
 
 
 def test_stt_fake_when_no_key(monkeypatch):
