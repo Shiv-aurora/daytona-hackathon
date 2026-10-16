@@ -29,6 +29,7 @@ from calls.safety import DEFAULT_LANGUAGE, disclosure
 from calls.voice.setup_agent import END_CALL_TOOL, MODEL_ID
 
 DEFAULT_AGENT_ID = 'agent_9901m52xtp8aenjb85rmkdxcyacr'
+ALLOWED_HOSTS = ('relay-demo-swart.vercel.app', 'localhost')
 SIM_TIMEOUT = 180
 PASS, FAIL, WARN = 'PASS', 'FAIL', 'WARN'
 
@@ -168,6 +169,11 @@ def build_patch(agent: dict, callback: str, custom_llm: dict | None = None) -> d
         overrides['custom_llm_extra_body'] = True
     if overrides:
         patch['platform_settings'] = {'overrides': overrides}
+    auth = _get(agent, 'platform_settings', 'auth') or {}
+    have = {a.get('hostname') for a in auth.get('allowlist') or [] if isinstance(a, dict)}
+    if not auth.get('enable_auth') and not set(ALLOWED_HOSTS) <= have:
+        hosts = sorted(have | set(ALLOWED_HOSTS))
+        patch.setdefault('platform_settings', {})['auth'] = {'allowlist': [{'hostname': h} for h in hosts]}
     return patch
 
 
