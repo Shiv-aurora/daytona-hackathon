@@ -106,6 +106,31 @@
   --animate-arrive: arrive 250ms ease-out;
   --animate-pulse-once: pulse-once 250ms ease-out 2;
   --animate-toast: toast 200ms ease-out;
+  --animate-call-ring: call-ring 1.6s ease-out infinite;
+  --animate-wave: wave 900ms ease-in-out infinite;
+  --animate-shimmer: shimmer 1.4s ease-in-out infinite;
+  @keyframes call-ring {
+    from {
+      box-shadow: 0 0 0 0 color-mix(in srgb, var(--agent) 45%, transparent);
+    }
+    to {
+      box-shadow: 0 0 0 16px transparent;
+    }
+  }
+  @keyframes wave {
+    0%,
+    100% {
+      transform: scaleY(0.25);
+    }
+    50% {
+      transform: scaleY(1);
+    }
+  }
+  @keyframes shimmer {
+    50% {
+      opacity: 0.45;
+    }
+  }
   @keyframes ring-fill {
     from {
       stroke-dasharray: 0 var(--c);
