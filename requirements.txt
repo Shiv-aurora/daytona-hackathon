@@ -1,2 +1,3 @@
-# Core runtime uses the Python standard library.
-# W1 adds the pinned SurrealDB SDK; W5 adds the pinned Arize integration.
+# New demo integrations. Both remain optional for the offline reference scenario.
+surrealdb==2.0.0
+arize-otel==0.14.1

@@ -55,6 +55,11 @@ The demo org selector chooses one of the seed organizations and is visibly label
 - `POST /runs/{run_id}/requests/{id}/follow-up` body `{ idempotency_key }`
   -> `{ call: Call }`. Queue only for confirmed opt-in. Starting an actual call requires an explicit demo action.
 - `POST /runs/{run_id}/lessons/{id}/approve` body `{ idempotency_key }` -> `{ lesson: Lesson }`.
+- `POST /runs/{run_id}/lessons` body `{ source_outcome_ids, summary, conditions, recommendation,
+  idempotency_key }` -> `{ lesson: Lesson }`. Draft only, with `approved=false`; source outcomes must
+  exist in this run's verification evidence. Approval is a separate human demo action.
+- `POST /runs/{run_id}/evaluations/compare` body `{ idempotency_key }` -> comparison result from the
+  frozen held-out demo cases. Persist measured variants for the board. Clearly label synthetic runs.
 
 Board is `{ run_id, disaster: Disaster, organizations: Organization[], survivors: Survivor[],
 requests: Request[], calls: Call[], verifications: Verification[], lessons: Lesson[],
@@ -68,6 +73,8 @@ and 503 for unavailable live services. Error body is `{ error: string }`.
 `contracts/demo.py` is the storage protocol; W1 implements it and W2 calls it. Payloads use the fields above.
 Report parsing is W2's responsibility; storage receives one normalized request at a time.
 All mutation payloads include `idempotency_key`. Storage enforces identity and transition checks atomically.
+`emit_event(run_id, payload)` writes an event without manufacturing an assistance request; emergency
+handling uses it to record immediate human escalation before extraction or model execution.
 
 W3 exports `calls.recovery.run_follow_up(job: dict, context: dict, transport) -> dict`.
 Its result has `call_id`, `request_id`, `run_id`, `disaster_id`, `outcome`, `received` (true/false/null),
