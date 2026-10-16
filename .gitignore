@@ -45,6 +45,8 @@ coverage/
 *.sqlite3
 *.db
 *.log
+.relay-demo*
+*.relay-lock
 
 # OS / editors
 .DS_Store
