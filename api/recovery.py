@@ -4,6 +4,7 @@ import re
 from hashlib import sha256
 from urllib.parse import unquote, urlsplit
 
+from api import voice_routes
 from api.demo_store import timestamp
 from calls.safety import emergency_line, safety_check
 from contracts.demo import Conflict, InvalidInput, NotFound
@@ -102,10 +103,12 @@ def decide(case, lessons_enabled=False):
                                 for lesson in lessons]}
 
 
-def handle(store, method, path, body=None):
+def handle(store, method, path, body=None, raw=None, headers=None):
     body = body or {}
     parts = [unquote(p) for p in urlsplit(path).path.split('/') if p]
     try:
+        if (voice := voice_routes.route(store, method, path, body, raw, headers)) is not None:
+            return voice
         if method == 'GET' and parts in (['disasters'], ['organizations']):
             table = parts[0]
             return 200, {table: getattr(store, 'list_' + table)()}
