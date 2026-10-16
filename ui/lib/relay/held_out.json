@@ -1,0 +1,216 @@
+[
+  {
+    "id": "held-out-1",
+    "report": "We need food; the road is blocked.",
+    "organizations": [
+      {
+        "id": "demo-food",
+        "name": "Demo Food Collective",
+        "capabilities": [
+          "food"
+        ],
+        "region": "Cedar Valley (fictional)"
+      },
+      {
+        "id": "demo-supplies",
+        "name": "Demo Supplies Collective",
+        "capabilities": [
+          "supplies"
+        ],
+        "region": "Cedar Valley (fictional)"
+      },
+      {
+        "id": "demo-transport",
+        "name": "Demo Transport Collective",
+        "capabilities": [
+          "transportation"
+        ],
+        "region": "Cedar Valley (fictional)"
+      }
+    ],
+    "conditions": [
+      "food",
+      "access_blocked"
+    ],
+    "lessons": [
+      {
+        "id": "lesson-confirm-handoff",
+        "source_disaster_id": "demo-flood-2025",
+        "source_run_id": "demo-history",
+        "source_outcome_ids": [
+          "history-missed-1",
+          "history-received-1"
+        ],
+        "summary": "A reported delivery failed; a coordinator arranged a confirmed handoff.",
+        "conditions": [
+          "food",
+          "access_blocked"
+        ],
+        "recommendation": "Confirm an accessible handoff point with the survivor; verify receipt after delivery.",
+        "approved": true,
+        "approved_at": "2025-09-05T12:00:00Z",
+        "created_at": "2025-09-04T13:00:00Z"
+      }
+    ],
+    "as_of": "2026-10-16T12:00:00Z",
+    "disaster_id": "demo-storm-2026",
+    "verification": {
+      "received": null,
+      "evidence_ids": []
+    },
+    "expected": {
+      "categories": [
+        "food"
+      ],
+      "valid_organization_ids": [
+        "demo-food"
+      ],
+      "received": null,
+      "relevant_lesson_ids": [
+        "lesson-confirm-handoff"
+      ]
+    }
+  },
+  {
+    "id": "held-out-2",
+    "report": "The organization marked supplies delivered, but nothing arrived.",
+    "organizations": [
+      {
+        "id": "demo-food",
+        "name": "Demo Food Collective",
+        "capabilities": [
+          "food"
+        ],
+        "region": "Cedar Valley (fictional)"
+      },
+      {
+        "id": "demo-supplies",
+        "name": "Demo Supplies Collective",
+        "capabilities": [
+          "supplies"
+        ],
+        "region": "Cedar Valley (fictional)"
+      },
+      {
+        "id": "demo-transport",
+        "name": "Demo Transport Collective",
+        "capabilities": [
+          "transportation"
+        ],
+        "region": "Cedar Valley (fictional)"
+      }
+    ],
+    "conditions": [
+      "supplies"
+    ],
+    "lessons": [
+      {
+        "id": "lesson-confirm-handoff",
+        "source_disaster_id": "demo-flood-2025",
+        "source_run_id": "demo-history",
+        "source_outcome_ids": [
+          "history-missed-1",
+          "history-received-1"
+        ],
+        "summary": "A reported delivery failed; a coordinator arranged a confirmed handoff.",
+        "conditions": [
+          "food",
+          "access_blocked"
+        ],
+        "recommendation": "Confirm an accessible handoff point with the survivor; verify receipt after delivery.",
+        "approved": true,
+        "approved_at": "2025-09-05T12:00:00Z",
+        "created_at": "2025-09-04T13:00:00Z"
+      }
+    ],
+    "as_of": "2026-10-16T12:00:00Z",
+    "disaster_id": "demo-storm-2026",
+    "verification": {
+      "received": false,
+      "evidence_ids": [
+        "case-evidence-2"
+      ]
+    },
+    "expected": {
+      "categories": [
+        "supplies"
+      ],
+      "valid_organization_ids": [
+        "demo-supplies"
+      ],
+      "received": false,
+      "relevant_lesson_ids": []
+    }
+  },
+  {
+    "id": "held-out-3",
+    "report": "The coordinator confirmed our ride arrived.",
+    "organizations": [
+      {
+        "id": "demo-food",
+        "name": "Demo Food Collective",
+        "capabilities": [
+          "food"
+        ],
+        "region": "Cedar Valley (fictional)"
+      },
+      {
+        "id": "demo-supplies",
+        "name": "Demo Supplies Collective",
+        "capabilities": [
+          "supplies"
+        ],
+        "region": "Cedar Valley (fictional)"
+      },
+      {
+        "id": "demo-transport",
+        "name": "Demo Transport Collective",
+        "capabilities": [
+          "transportation"
+        ],
+        "region": "Cedar Valley (fictional)"
+      }
+    ],
+    "conditions": [
+      "transportation"
+    ],
+    "lessons": [
+      {
+        "id": "lesson-confirm-handoff",
+        "source_disaster_id": "demo-flood-2025",
+        "source_run_id": "demo-history",
+        "source_outcome_ids": [
+          "history-missed-1",
+          "history-received-1"
+        ],
+        "summary": "A reported delivery failed; a coordinator arranged a confirmed handoff.",
+        "conditions": [
+          "food",
+          "access_blocked"
+        ],
+        "recommendation": "Confirm an accessible handoff point with the survivor; verify receipt after delivery.",
+        "approved": true,
+        "approved_at": "2025-09-05T12:00:00Z",
+        "created_at": "2025-09-04T13:00:00Z"
+      }
+    ],
+    "as_of": "2026-10-16T12:00:00Z",
+    "disaster_id": "demo-storm-2026",
+    "verification": {
+      "received": true,
+      "evidence_ids": [
+        "case-evidence-3"
+      ]
+    },
+    "expected": {
+      "categories": [
+        "transportation"
+      ],
+      "valid_organization_ids": [
+        "demo-transport"
+      ],
+      "received": true,
+      "relevant_lesson_ids": []
+    }
+  }
+]
