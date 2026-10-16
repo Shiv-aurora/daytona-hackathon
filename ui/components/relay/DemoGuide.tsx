@@ -48,7 +48,7 @@ export const STEPS: Step[] = [
   {
     id: "call",
     title: "Follow-up call",
-    doThis: "Queue the follow-up call, then in Calls run the scripted reply “did not arrive”.",
+    doThis: "Queue the follow-up call, then in Calls run the call with the reply “did not arrive”.",
     notice: "Opt-in only; Household C never opted in, so no call.",
     href: "/calls",
     done: (b) => happened(b, "calls", "follow_up_finished") && b.calls.some((c) => c.outcome === "not_received" || c.outcome === "verified_received"),
@@ -81,7 +81,7 @@ export const STEPS: Step[] = [
     id: "measure",
     title: "Measure history",
     doThis: "Run the comparison.",
-    notice: "Same inputs, history off vs on; small synthetic sample.",
+    notice: "Same inputs, history off vs on.",
     href: "/intelligence",
     done: (b) => b.evaluations.length >= 2,
   },

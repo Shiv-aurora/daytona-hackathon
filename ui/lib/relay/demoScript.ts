@@ -32,7 +32,12 @@ export interface HelperView {
 }
 export type OrgPhase = "idle" | "tagging" | "claimed" | "delivered";
 
+/** Input channels the intake can plug into. All sample adapters: none is connected to a real feed. */
+export type Channel = "phone" | "radio" | "helpline" | "sms";
+
 export interface Scene {
+  /** Which input channel the current demo call arrives on (null before it starts). */
+  channel: Channel | null;
   callActive: boolean;
   callLines: number;
   emergency: "idle" | "checking" | "clear" | "tripped";
@@ -62,6 +67,7 @@ export const HELPER_ROLES: Pick<HelperView, "id" | "role" | "sandbox">[] = [
 ];
 
 export const initialScene = (): Scene => ({
+  channel: null,
   callActive: false,
   callLines: 0,
   emergency: "idle",
@@ -173,13 +179,13 @@ const foodRequest = (ctx: DemoCtx) => mainRequests(ctx).find((r) => r.category =
 
 // ---------------------------------------------------------------- shared steps
 
-const callStep = (lines: TranscriptLine[], who: string): DemoStep => ({
+const callStep = (lines: TranscriptLine[], who: string, channel: Channel): DemoStep => ({
   id: "call",
   stage: "Call",
   label: "Incoming call",
   delayMs: 1500,
   async run(ctx) {
-    ctx.patch({ callActive: true });
+    ctx.patch({ callActive: true, channel });
     helper(ctx, "intake", "working", `Transcribing ${who}`);
     await stream(ctx, lines, "callLines");
     helper(ctx, "intake", "idle", "Transcript ready");
@@ -189,7 +195,7 @@ const callStep = (lines: TranscriptLine[], who: string): DemoStep => ({
 // ---------------------------------------------------------------- main script
 
 const MAIN_STEPS: DemoStep[] = [
-  callStep(MAIN_CALL, "call"),
+  callStep(MAIN_CALL, "call", "phone"),
   {
     id: "emergency",
     stage: "Emergency check",
@@ -379,7 +385,7 @@ const MAIN_STEPS: DemoStep[] = [
 // ---------------------------------------------------------------- safety script
 
 const SAFETY_STEPS: DemoStep[] = [
-  callStep(SAFETY_CALL, "call"),
+  callStep(SAFETY_CALL, "radio call", "radio"),
   {
     id: "emergency",
     stage: "Emergency check",

@@ -3,36 +3,51 @@ import type { Board, Lesson, RelayCall, RelayRequest, RequestStatus, SystemEvent
 
 export const STATUSES: RequestStatus[] = ["open", "claimed", "awaiting_verification", "reopened", "resolved"];
 
-export const STATUS_META: Record<RequestStatus, { label: string; hint: string; tone: string; dot: string }> = {
+export const STATUS_META: Record<RequestStatus, { label: string; short: string; hint: string; tone: string; dot: string; text: string; color: string }> = {
   open: {
     label: "Open",
+    short: "Open",
     hint: "Waiting for an organization to claim it",
-    tone: "border-promise-open/30 bg-promise-open/10 text-promise-open",
+    tone: "text-promise-open",
     dot: "bg-promise-open",
+    text: "text-promise-open",
+    color: "var(--promise-open)",
   },
   claimed: {
     label: "Claimed",
+    short: "Claimed",
     hint: "An organization promised delivery",
-    tone: "border-agent/30 bg-agent/10 text-agent",
-    dot: "bg-agent",
+    tone: "text-promise-claimed",
+    dot: "bg-promise-claimed",
+    text: "text-promise-claimed",
+    color: "var(--promise-claimed)",
   },
   awaiting_verification: {
     label: "Awaiting verification",
+    short: "Awaiting",
     hint: "Delivery reported; receipt not yet confirmed",
-    tone: "border-promise-due-soon/40 bg-promise-due-soon/10 text-promise-due-soon",
+    tone: "text-promise-due-soon",
     dot: "bg-promise-due-soon",
+    text: "text-promise-due-soon",
+    color: "var(--promise-due-soon)",
   },
   reopened: {
     label: "Reopened",
+    short: "Reopened",
     hint: "Receipt not confirmed; needs a human",
-    tone: "border-promise-lapsed/30 bg-promise-lapsed/10 text-promise-lapsed",
+    tone: "text-promise-lapsed",
     dot: "bg-promise-lapsed",
+    text: "text-promise-lapsed",
+    color: "var(--promise-lapsed)",
   },
   resolved: {
     label: "Resolved",
+    short: "Resolved",
     hint: "Receipt confirmed with evidence",
-    tone: "border-promise-kept/30 bg-promise-kept/10 text-promise-kept",
+    tone: "text-promise-kept",
     dot: "bg-promise-kept",
+    text: "text-promise-kept",
+    color: "var(--promise-kept)",
   },
 };
 

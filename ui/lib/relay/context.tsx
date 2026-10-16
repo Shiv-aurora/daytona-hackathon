@@ -3,6 +3,7 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, useSyncExternalStore, type ReactNode } from "react";
 import { HttpApi, SEEDED_RUNS } from "./http";
 import { MockApi } from "./mock";
+import { presentBoard, presentDisaster } from "./present";
 import { RelayError, type Board, type Disaster, type Health, type RelayApi, type RunInfo } from "./types";
 
 export type Mode = "live" | "mock";
@@ -141,7 +142,7 @@ export function RelayProvider({ children }: { children: ReactNode }) {
       try {
         const [health, runs, disasters] = await Promise.all([api.health(), api.runs(), api.disasters()]);
         if (cancelled) return;
-        setConn({ key: connKey, status: "ready", error: null, health, runs, disasters });
+        setConn({ key: connKey, status: "ready", error: null, health, runs, disasters: disasters.map(presentDisaster) });
         setRunId((cur) => (runs.some((x) => x.run_id === cur) ? cur : (runs.find((x) => x.run_id === "demo-current") ?? runs[0]).run_id));
       } catch (e) {
         if (cancelled) return;
@@ -162,7 +163,7 @@ export function RelayProvider({ children }: { children: ReactNode }) {
     try {
       const b = await api.board(runId);
       if (seq !== refreshSeq.current) return;
-      setBoard(b);
+      setBoard(presentBoard(b));
       setBoardError(null);
     } catch (e) {
       if (seq === refreshSeq.current) setBoardError(messageOf(e));
@@ -176,7 +177,7 @@ export function RelayProvider({ children }: { children: ReactNode }) {
       .board(runId)
       .then((b) => {
         if (seq !== refreshSeq.current) return;
-        setBoard(b);
+        setBoard(presentBoard(b));
         setBoardError(null);
       })
       .catch((e) => {
