@@ -3,6 +3,18 @@
 from typing import Protocol
 
 
+class NotFound(LookupError):
+    """Unknown record, or a record outside the requested run/disaster."""
+
+
+class Conflict(ValueError):
+    """Invalid state transition or conflicting reuse of an idempotency key."""
+
+
+class InvalidInput(ValueError):
+    """Malformed demo input."""
+
+
 class RecoveryStore(Protocol):
     def list_disasters(self) -> list[dict]: ...
     def list_organizations(self) -> list[dict]: ...

@@ -39,6 +39,10 @@ editing another worker's files. A worker may change its own package manifest/loc
 
 ## Working rules
 
+- Current execution: integration spawns backend subagents and maintains `STATUS.md`.
+  The user owns the UI in a separate AI chat. Do not edit `ui/` in backend work.
+  The old manual C1/C2/C3 approval pauses are superseded for explicitly assigned subagent tasks;
+  follow the assigned implementation scope and hand results back to integration.
 - Each chat uses its own worktree. Never switch worker branches in another chat's directory.
 - Read `START_HERE.md`, your worker brief, and `WORKER_PLAN.md` before starting.
 - Work on one checkpoint only. Aim for the smallest useful demo; no generic frameworks or unrelated refactors.
