@@ -7,7 +7,9 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useRelay } from "@/lib/relay/context";
 import { canCall, categoryLabel, conditionLabel, eventText, fmtTime, householdOf, isEscalation, orgName, relTime, requestStory } from "@/lib/relay/selectors";
-import type { Board, Recommendation, RelayRequest, RequestStatus } from "@/lib/relay/types";
+import { STATUS_META } from "@/lib/relay/selectors";
+import type { Board, Recommendation, RelayRequest } from "@/lib/relay/types";
+import { journey, type NodeState } from "@/lib/relay/viz";
 import { CategoryIcon } from "./ResponseView";
 import { ActionButton, Callout, Field, Input, Pill, Select, SectionTitle, StatusBadge } from "./ui";
 
@@ -21,62 +23,34 @@ const PROMISE_WINDOWS = [
 const DISCLAIMER =
   "Suggestions are de-identified, approved by a person, and from another disaster. They inform a coordinator's judgment; they never act on their own.";
 
-/* ---------- Progress stepper ---------- */
+/* ---------- Progress: four nodes, the last is the independent check ---------- */
 
-type StepState = "done" | "todo" | "warn" | "bad" | "ok";
-
-const STEP_STATES: Record<RequestStatus, StepState[]> = {
-  open: ["done", "todo", "todo", "todo"],
-  claimed: ["done", "done", "todo", "todo"],
-  awaiting_verification: ["done", "done", "done", "warn"],
-  reopened: ["done", "done", "done", "bad"],
-  resolved: ["done", "done", "done", "ok"],
+const NODE_RING: Record<NodeState, string> = {
+  done: "border-ink bg-ink text-panel",
+  current: "border-promise-due-soon text-promise-due-soon",
+  todo: "border-line-strong bg-panel text-muted-foreground",
+  bad: "border-promise-lapsed bg-promise-lapsed text-panel",
 };
 
-const LAST_LABEL: Record<RequestStatus, string> = {
-  open: "Verified",
-  claimed: "Verified",
-  awaiting_verification: "Unverified",
-  reopened: "Reopened",
-  resolved: "Verified",
-};
-
-const CIRCLE: Record<StepState, string> = {
-  done: "border-agent bg-agent text-white",
-  todo: "border-line bg-surface text-muted-foreground",
-  warn: "border-promise-due-soon bg-promise-due-soon/15 text-promise-due-soon",
-  bad: "border-promise-lapsed bg-promise-lapsed/10 text-promise-lapsed",
-  ok: "border-promise-kept bg-promise-kept text-white",
-};
-
-const LABEL: Record<StepState, string> = {
-  done: "text-ink",
-  todo: "text-muted-foreground",
-  warn: "text-promise-due-soon",
-  bad: "text-promise-lapsed",
-  ok: "text-promise-kept",
-};
-
-const STEP_ICON: Partial<Record<StepState, LucideIcon>> = { done: Check, ok: Check, warn: Hourglass, bad: RotateCcw };
-const STEP_WORD: Record<StepState, string> = { done: "done", todo: "pending", warn: "waiting", bad: "needs a person", ok: "done" };
-
-function Stepper({ status }: { status: RequestStatus }) {
-  const states = STEP_STATES[status];
-  const labels = ["Requested", "Claimed", "Delivered", LAST_LABEL[status]];
+function Stepper({ request }: { request: RelayRequest }) {
+  const nodes = journey(request);
+  const accent = STATUS_META[request.status].color;
   return (
     <ol aria-label="Request progress" className="flex">
-      {labels.map((label, i) => {
-        const state = states[i];
-        const Icon = STEP_ICON[state];
-        const isLast = i === labels.length - 1;
+      {nodes.map((n, i) => {
+        const last = i === nodes.length - 1;
+        const verifiedDone = last && n.state === "done";
         return (
-          <li key={label} className="relative flex flex-1 flex-col items-center gap-1.5">
-            {!isLast ? <span aria-hidden className={cn("absolute left-1/2 top-2.5 h-px w-full", state === "done" ? "bg-agent" : "bg-line")} /> : null}
-            <span className={cn("relative grid size-5 place-items-center rounded-full border", CIRCLE[state])}>
-              {Icon ? <Icon aria-hidden className="size-3" /> : null}
+          <li key={n.id} className="relative flex flex-1 flex-col items-center gap-1.5">
+            {!last ? <span aria-hidden className={cn("absolute left-1/2 top-[9px] h-px w-full", nodes[i + 1].state === "todo" ? "border-t border-dashed border-line-strong" : "bg-ink/50")} /> : null}
+            <span
+              className={cn("relative grid size-[19px] place-items-center rounded-full border-[1.5px]", NODE_RING[n.state], verifiedDone && "border-promise-kept bg-promise-kept")}
+              style={n.state === "current" ? { borderColor: accent, color: accent } : undefined}
+            >
+              {n.state === "done" ? <Check aria-hidden className="size-3" /> : n.state === "bad" ? <RotateCcw aria-hidden className="size-2.5" /> : n.state === "current" ? <Hourglass aria-hidden className="size-2.5" /> : null}
             </span>
-            <span className={cn("text-center text-[11px] font-medium leading-tight", LABEL[state])}>{label}</span>
-            <span className="sr-only">{STEP_WORD[state]}</span>
+            <span className={cn("text-center text-[11px] font-medium leading-tight", n.state === "todo" ? "text-muted-foreground" : n.state === "bad" ? "text-promise-lapsed" : "text-ink")}>{n.label}</span>
+            <span className="sr-only">{n.state === "done" ? "done" : n.state === "todo" ? "pending" : n.state === "current" ? "waiting" : "needs a person"}</span>
           </li>
         );
       })}
@@ -84,17 +58,17 @@ function Stepper({ status }: { status: RequestStatus }) {
   );
 }
 
-/* ---------- Two compact tracks ---------- */
+/* ---------- Two tracks: what the organization says vs what the household / a person says ---------- */
 
-function TrackRow({ icon: Icon, label, children, time, title, accent = false }: { icon: LucideIcon; label: string; children: ReactNode; time?: string; title?: string; accent?: boolean }) {
+function Track({ icon: Icon, label, children, time, accent = false }: { icon: LucideIcon; label: string; children: ReactNode; time?: string; accent?: boolean }) {
   return (
-    <div className="flex min-w-0 items-center gap-2 rounded-md border border-line bg-surface px-2.5 py-2 text-sm">
-      <Icon aria-hidden className={cn("size-4 shrink-0", accent ? "text-agent" : "text-muted-foreground")} />
-      <span className="shrink-0 text-xs font-medium text-muted-foreground">{label}</span>
-      <span className="min-w-0 flex-1 truncate text-ink" title={title}>
-        {children}
-      </span>
-      {time ? <span className="shrink-0 text-xs text-muted-foreground">{time}</span> : null}
+    <div className="min-w-0 space-y-1 rounded-md border border-line bg-panel px-3 py-2.5">
+      <p className="flex items-center gap-1.5 text-2xs font-medium uppercase tracking-wider text-muted-foreground">
+        <Icon aria-hidden className={cn("size-3", accent ? "text-agent" : "text-muted-foreground")} />
+        {label}
+      </p>
+      <div className="text-sm leading-snug text-ink">{children}</div>
+      {time ? <p className="text-2xs text-muted-foreground">{time}</p> : null}
     </div>
   );
 }
@@ -280,7 +254,7 @@ function NextStep({ request, board }: { request: RelayRequest; board: Board }) {
   const verifying = request.status === "awaiting_verification" || request.status === "reopened";
 
   return (
-    <section aria-label="Next step" className="space-y-3 rounded-lg border border-line bg-surface p-3">
+    <section aria-label="Next step" className="space-y-3 rounded-md border border-line bg-panel p-3">
       {claimable ? <ClaimAction request={request} board={board} /> : null}
       {request.status === "claimed" ? <DeliveryAction request={request} board={board} /> : null}
       {verifying ? (
@@ -342,7 +316,7 @@ function Suggestions({ request, board }: { request: RelayRequest; board: Board }
   const source = (id: string) => (board.disaster.id === id ? "this disaster" : titleCase(id.replace(/^demo-/, "").replace(/-/g, " ")));
 
   return (
-    <section className="space-y-2 rounded-lg border border-line bg-surface p-3">
+    <section className="space-y-2 rounded-md border border-line bg-panel p-3">
       <SectionTitle icon={BookOpen} aside={<span title={DISCLAIMER}><Pill>For a person to weigh</Pill></span>}>
         Similar past recoveries
       </SectionTitle>
@@ -361,7 +335,7 @@ function Suggestions({ request, board }: { request: RelayRequest; board: Board }
             {current.items.map((r) => {
               const n = r.source_outcomes.length;
               return (
-                <li key={r.lesson_id} className="space-y-1.5 rounded-md border border-agent/30 bg-agent/5 p-2.5" title={`${r.summary}\nLesson ${r.lesson_id}`}>
+                <li key={r.lesson_id} className="space-y-1.5 rounded-md border border-agent/40 bg-agent-soft p-2.5" title={`${r.summary}\nLesson ${r.lesson_id}`}>
                   <p className="truncate text-sm font-medium text-ink">{r.recommendation}</p>
                   <div className="flex flex-wrap items-center gap-1.5">
                     <Pill>{`from ${source(r.source_disaster_id)} · ${n} verified outcome${n === 1 ? "" : "s"}`}</Pill>
@@ -387,17 +361,22 @@ function Activity({ request, board }: { request: RelayRequest; board: Board }) {
   const { events } = requestStory(board, request);
   if (!events.length) return null;
   return (
-    <details className="rounded-lg border border-line bg-surface">
-      <summary className="cursor-pointer list-none px-3 py-2 text-sm font-semibold text-ink outline-none focus-visible:ring-3 focus-visible:ring-ring/50">
-        Audit trail <span className="font-normal text-muted-foreground">({events.length})</span>
+    <details className="group rounded-md border border-line bg-panel" open={events.length <= 6}>
+      <summary className="flex cursor-pointer list-none items-center gap-2 px-3 py-2 text-xs font-medium text-ink outline-none">
+        Audit trail <span className="num font-normal text-muted-foreground">{events.length}</span>
+        <span aria-hidden className="ml-auto text-muted-foreground transition-transform group-open:rotate-90">›</span>
       </summary>
-      <ol className="space-y-1 border-t border-line px-3 py-2">
-        {events.map((e) => (
-          <li key={e.id} className="flex gap-2 text-xs">
-            <span className="w-24 shrink-0 text-muted-foreground">{fmtTime(e.created_at)}</span>
-            <span className={cn("min-w-0 truncate text-ink", isEscalation(e) && "font-semibold text-promise-lapsed")} title={eventText(e)}>
-              {isEscalation(e) ? <ShieldAlert aria-hidden className="mr-1 inline size-3" /> : null}
-              {eventText(e)}
+      <ol className="border-t border-line px-3 py-2.5">
+        {events.map((e, i) => (
+          <li key={e.id} className="relative flex gap-3 pb-2.5 last:pb-0">
+            {i < events.length - 1 ? <span aria-hidden className="absolute left-[3px] top-3 bottom-0 w-px bg-line" /> : null}
+            <span aria-hidden className={cn("relative z-10 mt-[5px] size-[7px] shrink-0 rounded-full", isEscalation(e) ? "bg-promise-lapsed" : "bg-line-strong")} />
+            <span className="min-w-0 flex-1">
+              <span className={cn("block text-xs leading-snug text-ink", isEscalation(e) && "font-medium text-promise-lapsed")} title={eventText(e)}>
+                {isEscalation(e) ? <ShieldAlert aria-hidden className="mr-1 inline size-3 -translate-y-px" /> : null}
+                {eventText(e)}
+              </span>
+              <span className="block text-2xs tabular-nums text-muted-foreground">{fmtTime(e.created_at)}</span>
             </span>
           </li>
         ))}
@@ -434,24 +413,24 @@ export function RequestDrawer() {
         aria-modal="false"
         aria-labelledby="drawer-title"
         onKeyDown={(e) => e.key === "Escape" && selectRequest(null)}
-        className="fixed inset-y-0 right-0 z-40 flex w-full flex-col border-l border-line bg-bg shadow-xl sm:w-[26rem]"
+        className="fixed inset-y-0 right-0 z-40 flex w-full flex-col border-l border-line bg-surface shadow-[-12px_0_32px_-24px_rgba(0,0,0,0.35)] sm:w-[26rem]"
       >
-        <header className="flex items-start gap-3 border-b border-line bg-surface p-4">
-          <span aria-hidden className="grid size-9 place-items-center rounded-lg bg-agent/10 text-agent">
-            <CategoryIcon category={request.category} className="size-5" />
-          </span>
+        <header className="flex items-start gap-3 border-b border-line bg-panel px-4 py-3.5">
+          <CategoryIcon category={request.category} className="mt-1 size-4 shrink-0 text-muted-foreground" />
           <div className="min-w-0 flex-1">
-            <h2 id="drawer-title" ref={headingRef} tabIndex={-1} className="text-base font-semibold text-ink outline-none">
+            <h2 id="drawer-title" ref={headingRef} tabIndex={-1} className="text-base font-semibold tracking-[-0.01em] text-ink outline-none">
               {categoryLabel(request.category)} request
             </h2>
             <p className="truncate text-xs text-muted-foreground">
               {household?.display_name ?? "Unknown household"}
               {request.promised_at && request.status === "claimed" ? ` · ${relTime(request.promised_at, now)}` : ""}
             </p>
-            <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
+            <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1">
               <StatusBadge status={request.status} />
               {request.conditions?.map((c) => (
-                <Pill key={c}>{conditionLabel(c)}</Pill>
+                <span key={c} className="text-2xs text-muted-foreground">
+                  {conditionLabel(c)}
+                </span>
               ))}
             </div>
           </div>
@@ -460,45 +439,38 @@ export function RequestDrawer() {
           </Button>
         </header>
 
-        <div className="border-b border-line bg-surface px-4 py-3">
-          <Stepper status={request.status} />
+        <div className="border-b border-line bg-panel px-5 py-3.5">
+          <Stepper request={request} />
         </div>
 
         <div className="flex-1 space-y-3 overflow-y-auto p-4">
-          <p className="text-sm text-muted-foreground">{request.description}</p>
+          <p className="text-sm text-ink-2">{request.description}</p>
 
-          <div className="grid gap-1.5">
-            <TrackRow
-              icon={Truck}
-              label="Organization"
-              time={claimed && request.promised_at ? fmtTime(request.promised_at) : undefined}
-              title={request.delivery_notes ?? undefined}
-            >
-              {claimed
-                ? `${orgName(board, request.organization_id)} ${story.delivered ? "reported delivery" : "promised by"}`
-                : "Unclaimed"}
-            </TrackRow>
-            <TrackRow
-              icon={ClipboardCheck}
-              label="Verified"
-              accent
-              time={latest ? fmtTime(latest.created_at) : undefined}
-              title={latest?.notes || undefined}
-            >
-              {latest ? (
-                <>
-                  <span className={cn("font-medium", latest.received === true ? "text-promise-kept" : latest.received === false ? "text-promise-lapsed" : "text-muted-foreground")}>
-                    {latest.received === true ? "Received" : latest.received === false ? "Did not arrive" : "Unconfirmed"}
-                  </span>
-                  {` · ${latest.source === "survivor_call" ? "survivor call" : "human review"}`}
-                </>
-              ) : (
-                <span className="text-muted-foreground">Not yet · independent</span>
-              )}
-            </TrackRow>
+          <div className="relative grid grid-cols-2 gap-2">
+            <Track icon={Truck} label="Organization says" time={claimed && request.promised_at ? fmtTime(request.promised_at) : undefined}>
+              <span title={request.delivery_notes ?? undefined}>
+                {claimed ? `${orgName(board, request.organization_id)} ${story.delivered ? "reported delivery" : "promised by"}` : <span className="text-muted-foreground">Unclaimed</span>}
+              </span>
+            </Track>
+            <Track icon={ClipboardCheck} label="Household / person says" accent time={latest ? fmtTime(latest.created_at) : undefined}>
+              <span title={latest?.notes || undefined}>
+                {latest ? (
+                  <>
+                    <span className={cn("font-medium", latest.received === true ? "text-promise-kept" : latest.received === false ? "text-promise-lapsed" : "text-muted-foreground")}>
+                      {latest.received === true ? "Received" : latest.received === false ? "Did not arrive" : "Unconfirmed"}
+                    </span>
+                    <span className="text-muted-foreground">{` · ${latest.source === "survivor_call" ? "survivor call" : "human review"}`}</span>
+                  </>
+                ) : (
+                  <span className="text-muted-foreground">Not yet · independent</span>
+                )}
+              </span>
+            </Track>
+            <span aria-hidden className="absolute left-1/2 top-1/2 grid size-5 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-line-strong bg-surface font-mono text-[11px] text-ink-2">
+              ≠
+            </span>
           </div>
-
-          <p className="flex items-start gap-2 rounded-md bg-muted/60 px-2.5 py-2 text-xs font-medium text-ink">
+          <p className="flex items-start gap-2 text-xs text-ink-2">
             <ShieldCheck aria-hidden className="mt-px size-3.5 shrink-0 text-agent" />
             Delivery report ≠ receipt. Only the household or a human review resolves.
           </p>
