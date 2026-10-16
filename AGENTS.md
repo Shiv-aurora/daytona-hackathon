@@ -39,12 +39,15 @@ editing another worker's files. A worker may change its own package manifest/loc
 
 ## Working rules
 
+- Current handoff: the user's receiving UI agent is authorized to take over the whole project,
+  including backend, shared files, and root configuration. Read `HANDOFF.md` first. Historical
+  worker folder ownership does not prevent that takeover; preserve safety/isolation requirements.
 - Current execution: integration spawns backend subagents and maintains `STATUS.md`.
   The user owns the UI in a separate AI chat. Do not edit `ui/` in backend work.
   The old manual C1/C2/C3 approval pauses are superseded for explicitly assigned subagent tasks;
   follow the assigned implementation scope and hand results back to integration.
 - Each chat uses its own worktree. Never switch worker branches in another chat's directory.
-- Read `START_HERE.md`, your worker brief, and `WORKER_PLAN.md` before starting.
+- Read `START_HERE.md`, `STATUS.md`, and the shared demo contract before starting.
 - Work on one checkpoint only. Aim for the smallest useful demo; no generic frameworks or unrelated refactors.
 - Work against `contracts/demo.md` and `contracts/demo.py`; mock the same signatures when dependencies lag.
 - Run Python compile, Ruff, and relevant tests; before handoff run the full Python suite.

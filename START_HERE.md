@@ -1,16 +1,15 @@
-# Start here
+# Current Relay build
 
-Five persistent worker chats build one demo. The integration chat stays on `main`.
+The integration chat on `main` runs backend subagents and maintains `STATUS.md`.
+The user is handling the UI with a separate AI agent. Do not edit `ui/` in backend work.
 
-| Worker | Worktree (beside this repo) | Prompt |
-| --- | --- | --- |
-| W1 | `../relay-w1-surrealdb` | [SurrealDB](workers/W1_SURREALDB.md) |
-| W2 | `../relay-w2-recovery` | [Recovery workflow/API](workers/W2_RECOVERY.md) |
-| W3 | `../relay-w3-calls` | [ElevenLabs calls](workers/W3_CALLS.md) |
-| W4 | `../relay-w4-ui` | [UI](workers/W4_UI.md) |
-| W5 | `../relay-w5-evaluation` | [Arize and demo data](workers/W5_EVALUATION.md) |
+Read `AGENTS.md`, `STATUS.md`, and `contracts/demo.md`. Worker checkpoints and manual PR
+approval pauses from the earlier plan are superseded by the current subagent assignments.
 
-Open each worker chat in its own worktree and paste its prompt. Read `AGENTS.md` and
-`contracts/demo.md` first. Build C1 only; do not start C2 until integration merges C1 and sends the next prompt.
-The branches are local until the owner creates a new GitHub repository. Never reconnect the original.
-No worktree shares dependencies or local secret files automatically; install what your worker needs.
+Backend ownership stays isolated: storage uses `../relay-w1-surrealdb`, recovery/API uses
+`../relay-w2-recovery`, calls uses `../relay-w3-calls`, evaluation/data uses
+`../relay-w5-evaluation`. Never switch branches in another agent's worktree.
+
+Run the backend with `make serve PYTHON=.venv/bin/python`; inspect `/disasters` and
+`/runs/demo-current/board`. Run a resettable, scripted no-network rehearsal with
+`make demo-surreal PYTHON=.venv/bin/python`. Setup and live-service limitations are in README.md.

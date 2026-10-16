@@ -21,29 +21,44 @@ SurrealDB will store requests, organizations, commitments, calls, outcomes, and 
 ElevenLabs handles follow-up voice. Arize measures decision quality; it does not decide ground truth.
 Recommendations need human review. Calls remain opt-in, with fixed disclosure and emergency handling.
 
-## Current baseline
+## Current backend
 
-The existing console and recovery scenario run offline. Live database connectors have been removed.
-The five worker branches implement the new demo; those integrations are not complete yet.
-No Git remote or hosting project is configured. No old secrets or history are retained.
+Four backend subagents have implemented the recovery API, genuine local SurrealDB storage,
+safe receipt-verification calls, a two-disaster fixture, and historical-lesson evaluation.
+[STATUS.md](STATUS.md) records their work and integration results. The UI is being built separately.
+No Git remote or hosting project is configured, and no real calls are started automatically.
 
 ```bash
-python3 -m pip install -r requirements-dev.txt
-make smoke
-python3 -m runtime.demo --store local --score
+uv venv .venv
+uv pip install --python .venv/bin/python -r requirements.txt -r requirements-dev.txt
+make smoke PYTHON=.venv/bin/python
+make demo-surreal PYTHON=.venv/bin/python
+make serve PYTHON=.venv/bin/python
 
 cd ui
 npm ci
 npm run dev -- --hostname 127.0.0.1
 ```
 
-Open `/console`. The existing UI uses mock data until the redesigned UI and backend are merged.
-The in-process reference API starts with `python3 -m api.server`; its data resets on restart.
+The backend serves `http://127.0.0.1:8787`: start with `GET /disasters` and
+`GET /runs/demo-current/board`. The new UI should use the payloads in
+[contracts/demo.md](contracts/demo.md) and API details in [api/RECOVERY.md](api/RECOVERY.md).
+The existing `/console` still uses mock data until the separate UI work is connected.
 
-## Worker chats
+`make demo-surreal` is a resettable in-memory SurrealDB rehearsal with a scripted survivor,
+not a real phone call. `make serve` persists to the ignored `.relay-demo` database directory.
+Only one API process may open that embedded database. See [db/RECOVERY.md](db/RECOVERY.md).
+The prior offline scenario is still available with `make demo-legacy`.
 
-Start with [START_HERE.md](START_HERE.md), then your file in [workers/](workers/).
-[WORKER_PLAN.md](WORKER_PLAN.md) defines the three merge checkpoints and demo acceptance criteria.
-[contracts/demo.md](contracts/demo.md) freezes the small integration boundary for all five workers.
+Decisions and measured comparisons currently use an explicit rule-based baseline and three
+synthetic held-out cases. No real-world accuracy improvement is claimed. ElevenLabs browser/provider
+adapters and optional Arize aggregate tracing require fresh credentials for live use; neither live
+calling nor hosted Arize ingestion has been verified.
+
+## Agent coordination
+
+The integration agent spawns backend subagents in isolated worktrees, reviews and integrates their
+commits, and maintains [STATUS.md](STATUS.md). The former manual worker/PR approval pauses are retired.
+The user owns UI development in a separate AI chat; backend agents must leave `ui/` alone.
 
 Future integrations such as authorized emergency dispatch, radio, and 211 feeds are outside this demo.
