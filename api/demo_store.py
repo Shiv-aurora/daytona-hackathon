@@ -13,6 +13,16 @@ def now():
     return datetime.now(timezone.utc).isoformat()
 
 
+def timestamp(value):
+    try:
+        result = datetime.fromisoformat(value.replace('Z', '+00:00'))
+        if result.tzinfo is None:
+            raise ValueError
+        return result
+    except (ValueError, TypeError, AttributeError):
+        raise InvalidInput('timestamps must include a timezone') from None
+
+
 class InMemoryRecoveryStore:
     def __init__(self, seed=None):
         self.data = deepcopy(seed or {})
@@ -82,8 +92,9 @@ class InMemoryRecoveryStore:
             cutoff = next(r for r in self.data['runs'] if r['run_id'] == run_id).get('knowledge_cutoff', now())
             result['lessons'] = [deepcopy(r) for r in self.data['lessons']
                                  if (r.get('source_run_id') == run_id and r.get('source_disaster_id') == disaster)
-                                 or (r.get('approved') is True and r.get('approved_at')
-                                     and r['approved_at'] <= cutoff and r.get('created_at', '') <= cutoff)]
+                                 or (r.get('source_disaster_id') != disaster and r.get('approved') is True and r.get('approved_at')
+                                     and timestamp(r['approved_at']) <= timestamp(cutoff)
+                                     and timestamp(r.get('created_at', r['approved_at'])) <= timestamp(cutoff))]
             return result
 
     def create_request(self, run_id, payload):
@@ -142,7 +153,7 @@ class InMemoryRecoveryStore:
                 matching = [c for c in self.data['calls'] if c.get('run_id') == run_id
                             and c.get('disaster_id') == self._scope(run_id) and c.get('request_id') == request_id
                             and c.get('status') == 'completed'
-                            and ((payload.get('received') is True and c.get('outcome') == 'received')
+                            and ((payload.get('received') is True and c.get('outcome') == 'verified_received')
                                  or (payload.get('received') is False and c.get('outcome') == 'not_received')
                                  or payload.get('received') is None) and payload.get('evidence_ids')
                             and set(payload['evidence_ids']).issubset(c.get('evidence_ids', []))]

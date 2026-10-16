@@ -87,7 +87,12 @@ def main(argv: list[str] | None = None) -> None:
     server = ThreadingHTTPServer((args.host, args.port),
                                  make_handler(db, os.environ.get("RELAY_API_ORIGIN", "*"), recovery_store))
     print(f"Relay run API on http://{args.host}:{args.port} (in-process reference data)")
-    server.serve_forever()
+    try:
+        server.serve_forever()
+    finally:
+        server.server_close()
+        if hasattr(recovery_store, "close"):
+            recovery_store.close()
 
 
 if __name__ == "__main__":

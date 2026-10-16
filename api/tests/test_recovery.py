@@ -118,3 +118,70 @@ def test_failed_mutations_leave_state_unchanged(store):
         store.claim_request('r1', result['requests'][0]['id'], {'organization_id': 'o1',
                 'promised_at': 'nope', 'idempotency_key': 'invalid-date'})
     assert store.snapshot() == before
+
+
+def test_real_call_hooks_missed_receipt_replay_and_later_receipt(store):
+    from api.demo import ScriptedTransport
+    from api.follow_up import execute_follow_up
+    from api.recovery import queue_follow_up
+    result, _ = submit(store)
+    request_id = result['requests'][0]['id']
+    delivery(store, request_id)
+    call = queue_follow_up(store, 'r1', request_id, {'idempotency_key': 'queue1'})['call']
+    missed = execute_follow_up(store, 'r1', call['id'], ScriptedTransport('no'), '+15555550100')
+    assert missed['outcome'] == 'not_received'
+    assert store.get_board('r1')['requests'][0]['status'] == 'reopened'
+    class NeverDial(ScriptedTransport):
+        def dial(self, _):
+            pytest.fail('replayed call dialed')
+    assert execute_follow_up(store, 'r1', call['id'], NeverDial('yes'), '+15555550100') == missed
+    second = queue_follow_up(store, 'r1', request_id, {'idempotency_key': 'queue2'})['call']
+    received = execute_follow_up(store, 'r1', second['id'], ScriptedTransport('yes'), '+15555550100')
+    assert received['outcome'] == 'verified_received'
+    assert store.get_board('r1')['requests'][0]['status'] == 'resolved'
+    assert queue_follow_up(store, 'r1', request_id, {'idempotency_key': 'queue2'})['call']['id'] == second['id']
+
+
+def test_real_call_emergency_escalates_without_resolution(store):
+    from api.demo import ScriptedTransport
+    from api.follow_up import execute_follow_up
+    from api.recovery import queue_follow_up
+    result, _ = submit(store)
+    request_id = result['requests'][0]['id']
+    delivery(store, request_id)
+    call = queue_follow_up(store, 'r1', request_id, {'idempotency_key': 'queue1'})['call']
+    result = execute_follow_up(store, 'r1', call['id'], ScriptedTransport("I can't breathe"), '+15555550100')
+    assert result['emergency'] is True
+    board = store.get_board('r1')
+    assert board['requests'][0]['status'] == 'awaiting_verification'
+    assert not board['verifications']
+    assert any(e['action'] == 'human_escalation' for e in board['system_events'])
+
+
+def test_actual_seed_evaluation_replay_and_changed_payload():
+    import json
+    from pathlib import Path
+
+    from api.recovery import compare
+    seed = json.loads((Path(__file__).resolve().parents[2] / 'data/demo/seed.json').read_text())
+    store = InMemoryRecoveryStore(seed)
+    body = {'idempotency_key': 'evaluation1'}
+    result = compare(store, 'demo-current', body)
+    assert result == compare(store, 'demo-current', body)
+    assert len(result['evaluations']) == 2
+    assert result['evaluations'][0]['case_count'] == 3
+    with pytest.raises(Conflict):
+        compare(store, 'demo-current', {**body, 'changed': True})
+    assert len(store.get_board('demo-current')['evaluations']) == 2
+
+
+def test_cross_run_same_disaster_lesson_and_timezone_cutoff(store):
+    store.data['runs'].append({'run_id': 'r3', 'disaster_id': 'd1', 'knowledge_cutoff': '2026-10-16T12:00:00+00:00'})
+    store.data['lessons'] = [
+        {'id': 'same', 'source_run_id': 'r1', 'source_disaster_id': 'd1',
+         'approved': True, 'approved_at': '2026-10-15T10:00:00Z'},
+        {'id': 'offset-future', 'source_run_id': 'r2', 'source_disaster_id': 'd2',
+         'approved': True, 'approved_at': '2026-10-16T11:00:00-05:00'},
+        {'id': 'offset-past', 'source_run_id': 'r2', 'source_disaster_id': 'd2',
+         'approved': True, 'approved_at': '2026-10-16T13:00:00+05:00'}]
+    assert [l['id'] for l in store.get_board('r3')['lessons']] == ['offset-past']

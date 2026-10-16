@@ -4,6 +4,7 @@ import re
 from hashlib import sha256
 from urllib.parse import unquote, urlsplit
 
+from api.demo_store import timestamp
 from calls.safety import emergency_line, safety_check
 from contracts.demo import Conflict, InvalidInput, NotFound
 
@@ -56,6 +57,12 @@ def report(store, run_id, body, extract=categories):
 
 def queue_follow_up(store, run_id, request_id, body):
     board = store.get_board(run_id)
+    key = required(body, 'idempotency_key')
+    previous = next((c for c in board['calls'] if c.get('queue_key') == key), None)
+    if previous:
+        if previous['request_id'] != request_id:
+            raise Conflict('idempotency key was used for another request')
+        return {'call': previous}
     request = next((r for r in board['requests'] if r['id'] == request_id), None)
     if request is None:
         raise NotFound('unknown request')
@@ -64,7 +71,7 @@ def queue_follow_up(store, run_id, request_id, body):
     return {'call': store.save_call(run_id, {'request_id': request_id,
         'survivor_id': request['survivor_id'], 'status': 'queued',
         'provider_conversation_id': None, 'outcome': 'pending', 'summary': '',
-        'evidence_ids': [], 'idempotency_key': required(body, 'idempotency_key')})}
+        'evidence_ids': [], 'queue_key': key, 'idempotency_key': key})}
 
 
 def decide(case, lessons_enabled=False):
@@ -79,10 +86,14 @@ def decide(case, lessons_enabled=False):
     as_of = case.get('as_of')
     lessons = [lesson for lesson in case.get('lessons', []) if lessons_enabled
                and lesson.get('approved') is True and lesson.get('approved_at')
-               and (not as_of or lesson['approved_at'] <= as_of)
+               and (not as_of or timestamp(lesson['approved_at']) <= timestamp(as_of))
                and conditions.intersection(lesson.get('conditions', []))]
     return {'categories': detected, 'organization_id': org['id'] if org else None,
-            'status': 'awaiting_verification', 'evidence_ids': [],
+            'status': ('resolved' if case.get('verification', {}).get('received') is True
+                       and case.get('verification', {}).get('evidence_ids') else
+                       'reopened' if case.get('verification', {}).get('received') is False
+                       else 'awaiting_verification'),
+            'evidence_ids': case.get('verification', {}).get('evidence_ids', []),
             'lesson_ids': [lesson['id'] for lesson in lessons],
             'recommendations': [{'lesson_id': lesson['id'], 'text': lesson['recommendation']}
                                 for lesson in lessons]}
@@ -133,19 +144,25 @@ def compare(store, run_id, body):
     from pathlib import Path
 
     from eval.recovery import run_comparison
-    store.get_board(run_id)
+    board = store.get_board(run_id)
     key = required(body, 'idempotency_key')
-    with Path('data/demo/evaluation_cases.json').open() as stream:
+    fingerprint = sha256(json.dumps(body, sort_keys=True).encode()).hexdigest()
+    previous = [e for e in board['evaluations'] if e.get('invocation_key') == key]
+    if previous and any(e.get('invocation_fingerprint') != fingerprint for e in previous):
+        raise Conflict('idempotency key was used with another evaluation payload')
+    if len(previous) == 2:
+        return {'evaluations': previous}
+    with (Path(__file__).resolve().parents[1] / 'data/demo/held_out.json').open() as stream:
         fixture = json.load(stream)
     cases = fixture if isinstance(fixture, list) else fixture['cases']
-    cases = [case for case in cases if case.get('run_id') == run_id]
+    cases = [case for case in cases if case.get('disaster_id') == board['disaster']['id']]
     if not cases:
         raise InvalidInput('no evaluation cases for this run')
     result = run_comparison(cases, decide)
     records = []
     for variant in ('without_history', 'with_history'):
         records.append(store.save_evaluation(run_id, {'experiment_id': result['experiment_id'],
-            'variant': variant, 'case_count': result['case_count'], 'metrics': result[variant],
+            'variant': variant, 'invocation_key': key, 'invocation_fingerprint': fingerprint, 'case_count': result['case_count'], 'metrics': result[variant],
             'measured_at': result['measured_at'], 'trace_url': result.get('trace_url'),
             'idempotency_key': key + ':' + variant}))
     return {'evaluations': records}
