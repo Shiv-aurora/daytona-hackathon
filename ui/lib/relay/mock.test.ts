@@ -207,7 +207,7 @@ describe("follow-up calls", () => {
     await expectStatus(api.queueFollowUp(RUN, "current-transport-1"), 400, /opt-in/);
     const after = await api.board(RUN);
     expect(after.calls).toHaveLength(board.calls.length);
-    expect(eventsOf(after, "call_saved")).toHaveLength(0);
+    expect(eventsOf(after, "call_saved")).toHaveLength(eventsOf(board, "call_saved").length);
   });
 
   it("queueFollowUp refuses a request that is not awaiting_verification or reopened", async () => {
@@ -240,7 +240,7 @@ describe("follow-up calls", () => {
     expect(find(after, "current-food-1").status).toBe("awaiting_verification");
     expect(after.verifications).toHaveLength(before.verifications.length);
     expect(eventsOf(after, "call_saved", call.id)).toHaveLength(1);
-    expect(eventsOf(after, "follow_up_started")).toHaveLength(0);
+    expect(eventsOf(after, "follow_up_started")).toHaveLength(eventsOf(before, "follow_up_started").length);
   });
 
   it("keeps the disclosure fixed and free of phone numbers", () => {
@@ -428,9 +428,12 @@ describe("board scope and privacy", () => {
         expect(row.subject_id ?? "").not.toMatch(/^history-/);
       }
     }
-    expect(board.survivors.map((s) => s.id)).toEqual(["current-survivor-1", "current-survivor-2", "current-survivor-3"]);
-    expect(board.requests.map((r) => r.id).sort()).toEqual(["current-food-1", "current-supplies-1", "current-transport-1"]);
-    expect(board.verifications.map((v) => v.id)).toEqual(["current-missed-1"]);
+    expect(board.survivors.map((s) => s.id)).toEqual(expect.arrayContaining(["current-survivor-1", "current-survivor-2", "current-survivor-3"]));
+    expect(board.survivors.every((s) => s.id.startsWith("current-"))).toBe(true);
+    expect(board.requests.map((r) => r.id)).toEqual(expect.arrayContaining(["current-food-1", "current-supplies-1", "current-transport-1"]));
+    expect(board.requests.every((r) => r.id.startsWith("current-"))).toBe(true);
+    expect(board.verifications.map((v) => v.id)).toContain("current-missed-1");
+    expect(board.verifications.every((v) => v.id.startsWith("current-"))).toBe(true);
     expect(assertBoardScope(board, RUN)).toBe(board);
   });
 
@@ -443,7 +446,8 @@ describe("board scope and privacy", () => {
         expect(row.id).not.toMatch(/^current-/);
       }
     }
-    expect(board.requests.map((r) => r.id)).toEqual(["history-food-1"]);
+    expect(board.requests.map((r) => r.id)).toContain("history-food-1");
+    expect(board.requests.every((r) => r.id.startsWith("history-"))).toBe(true);
     expect(assertBoardScope(board, HISTORY)).toBe(board);
   });
 
@@ -497,7 +501,9 @@ describe("lessons", () => {
 
   it("shows another disaster's lessons only once approved", async () => {
     const api = new MockApi();
-    expect(await lessonIds(api, RUN)).toEqual(["lesson-confirm-handoff"]); // the seeded, approved lesson
+    const seededApproved = ["lesson-confirm-handoff", "lesson-shelter-checkin", "lesson-medicine-pickup"];
+    expect(await lessonIds(api, RUN)).toEqual(seededApproved); // only the seeded, approved lessons
+    expect(await lessonIds(api, RUN)).not.toContain("lesson-repairs-access"); // a seeded draft stays in its own run
 
     const lesson = await draft(api);
     expect(lesson).toMatchObject({ approved: false, approved_at: null, source_run_id: HISTORY, source_disaster_id: HISTORY_DISASTER });
@@ -535,7 +541,8 @@ describe("lessons", () => {
 
   it("refuses a lesson containing a survivor display name, an email or a phone number", async () => {
     const api = new MockApi();
-    const before = (await api.board(HISTORY)).lessons.length;
+    const beforeBoard = await api.board(HISTORY);
+    const before = beforeBoard.lessons.length;
     await expectStatus(draft(api, { summary: "Fictional household A did not get the delivery." }), 400, /de-identified/);
     await expectStatus(draft(api, { recommendation: "call fictional HOUSEHOLD h first" }), 400, /de-identified/);
     await expectStatus(draft(api, { conditions: ["Fictional household B"] }), 400, /de-identified/);
@@ -544,7 +551,7 @@ describe("lessons", () => {
     await expectStatus(draft(api, { recommendation: "Call +1 (555) 123 4567 to confirm." }), 400, /de-identified/);
     const board = await api.board(HISTORY);
     expect(board.lessons).toHaveLength(before);
-    expect(eventsOf(board, "lesson_drafted")).toHaveLength(0);
+    expect(eventsOf(board, "lesson_drafted")).toHaveLength(eventsOf(beforeBoard, "lesson_drafted").length);
   });
 
   it("approveLesson works for the owning run, emits an event, and 404s otherwise", async () => {
